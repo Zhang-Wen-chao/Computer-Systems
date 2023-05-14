@@ -1,4 +1,4 @@
-# Debian基本的装机问题
+# Debian's basic installation issues
 Debian暂时不能处理的问题：微信、罗技鼠标的设置软件lgs，必须是Windows or macOS。
 
 [如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
@@ -18,39 +18,46 @@ https://www.balena.io/etcher#download-etcher
 [ubuntu20.04 黑屏/紫屏后的处理办法](https://codeantenna.com/a/GWbmAVSb7g)
 ctrl + alt + F3 (tty登陆)
 
-## 空间不足
-
+- 空间不足
 [Linux下tmpfs介绍及使用](https://www.serverspc.com/46025.html)
-
 [mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
-
 [linux挂载windows的ntfs硬盘](https://github.com/tuxera/ntfs-3g)
-
 [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
 
-# 必备软件
+# Some software
 ## cuda、cudnn、nvvc、nccl
 - [Debian 11下安装Nvidia显卡驱动与Cuda](https://yangyq.net/2023/03/debian-11-nvidia-driver-cuda.html)
 - [Debian 11下升级Cuda与Nvidia显卡驱动](https://yangyq.net/2023/03/debian-11-cuda-nvidia-driver-upgrade.html)
 - [在安裝 Nvidia 驅動時發生 “The Nouveau kernel driver is currently in use by your system. …”](https://clay-atlas.com/blog/2020/02/11/linux-chinese-note-nvidia-driver-nouveau-kernel/)
 - [在Fedora上安装NVIDIA驱动详细教程及解析](https://blog.csdn.net/qq_61653333/article/details/128883198)
 
-## 常用软件
+## Common software
 - clash、飞书、百度网盘、向日葵、zoom、discord、telegram、cursor、Typora beta、OBS Studio
-## Fcixt 5
+- [如何在 Debian 10 上安装网易云音乐客户端](https://linux265.com/news/3838.html)
+- [最新Win11系统怎么删除开机密码 Win11取消登录密码图文教程](https://zhuanlan.zhihu.com/p/470573521)
+- Wemeet
+```
+腾讯会议不兼容wayland协议怎么解决？
+sudo vim /etc/gdm3/daemon.conf
+把 #WaylandEnable=false 的注释井号去掉
+sudo service gdm3 restart
+```
+- libreoffice
+```
+libreoffice --impress --norestore 2.4git课程材料.pptx &
+sudo apt-get update
+sudo apt-get install libreoffice-java-common
+```
+- Zotero
+[ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
+[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
+[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
+- Fcixt 5
 候选翻页：逗号句号。
 Ctrl+; 进入剪贴板输入模式.
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
-### 微软拼音的使用
-- People name input：
-During pinyin input, use "semicolon + r" to enter into people nameinput mode. When in double pinyin mode, press "Shift + semicolon" keyand then "r" key to enter into people name input mode.
-具体操作是先输入人名拼音，然后按下组合键shift+;再按 r 进入人名模式，这样出来的候选词都是姓氏+名字，很符合中文取名规律。
-- U-mode input：
-Use U-mode to input Chinese character based on its stroke orcomponent,or to input symbol. When in Double Pinyin mode, U-modecan be triggered by "Shift + u"
-- V-mode input：
-Use V-mode to input Chinese format number, date and time etc. Whenin Double Pinyin mode, V-mode can be triggered by "Shift + v"
 
-## vscode
+## vscode and git
 ### .bashrc and .zshrc
 - oh my zsh
 - autosuggestion 
@@ -59,8 +66,20 @@ Use V-mode to input Chinese format number, date and time etc. Whenin Double Piny
 - Remote - SSH
 - vscode-pdf
 - GitHub Copilot
+### Settings
+- autosave
+### conda and docker
+- miniconda3
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+- Docker
+[Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
+
 ### Git
-https://learngitbranching.js.org/?locale=zh_CN
+[Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
+
 ```
 git clone https://xxxxx
 新手用的最多的三条命令
@@ -77,7 +96,38 @@ git config --global user.name "zvvc"
 git config --global user.email "zwc@outlook.lv"
 git push origin zvvc
 ```
-#### Git不会直接推送空文件夹
+- 作为仓库的合作者
+```
+git push --set-upstream origin zvvc
+```
+- 作为仓库的拥有者
+作为仓库的拥有者，你可以根据合作者执行的命令 git push --set-upstream origin zvvc 采取以下步骤进行处理：
+
+确认合作者的更改：使用 git log 命令查看合作者推送的提交，以了解他们所做的更改。
+
+检查分支：确保合作者要推送到的分支名称 zvvc 不会与现有的分支名称发生冲突。
+
+审查更改：使用 git diff 命令来查看合作者所做的具体更改内容。
+
+接受或拒绝更改：根据你对合作者更改的评估，可以选择接受或拒绝这些更改。
+
+如果你决定接受合作者的更改，可以执行以下命令将其合并到你的主分支（比如 main 或 master）中：
+```
+git checkout main  # 切换到主分支
+git pull origin zvvc  # 拉取合作者的更改
+git merge zvvc  # 合并合作者的更改到主分支
+git push origin main  # 推送合并后的更改到远程仓库的主分支
+```
+如果你决定拒绝合作者的更改，你可以使用以下命令回退或重置远程分支，撤销合作者的提交。这将丢弃合作者的更改，请谨慎使用，并确保在执行之前备份重要的更改。
+```
+git branch -D zvvc  # 删除本地分支（仅在你确认不需要这个分支时使用）
+git push origin :zvvc  # 删除远程分支（仅在你确认不需要这个分支时使用）
+```
+请注意，在执行这些命令之前，确保你在本地仓库的正确分支上进行操作，并且仔细评估合作者的更改以确保安全和正确性。
+
+
+- Git不会直接推送空文件夹
+
 Git不会直接推送空文件夹，因为Git的设计初衷是跟踪和管理文件的变化而不是目录结构。
 
 Git是一个分布式版本控制系统，它主要关注文件的内容和历史变化。当你执行git add命令将文件添加到Git中时，Git会跟踪文件的内容和变化，并将这些信息保存在Git仓库中。但是，如果目录中只有空文件夹而没有实际文件，Git无法跟踪文件内容的变化，因此空文件夹不会被直接推送到Git仓库。
@@ -85,69 +135,24 @@ Git是一个分布式版本控制系统，它主要关注文件的内容和历�
 如果你想在Git中保留一个空文件夹的目录结构，可以在空文件夹中添加一个占位文件，比如一个空的.gitkeep文件（文件名可以任意指定，只要在空文件夹中有一个实际文件即可）。这样，Git将会跟踪该占位文件，并将空文件夹保留在仓库中。请注意，.gitkeep文件不会对仓库中其他文件的内容产生任何影响。
 
 总结起来，Git不会直接推送空文件夹，因为它关注文件内容的变化。如果你想保留空文件夹的目录结构，可以添加一个占位文件来代表该文件夹，并将其添加到Git仓库中。
-#### stargazers
+- 查看github星星数量
 https://github.com/Zhang-Wen-chao/CS240/stargazers
-#### 解决github文件夹有向右的白色箭头并且不能打开的解决办法
-https://www.jianshu.com/p/7cc6ea70e48e
-### Settings
-- autosave
-### 环境管理
-- miniconda3
-```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-```
-- Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程
-```
-https://u.sb/debian-install-docker/
 
-sudo docker run --name mysql -e MYSQL_ROOT_PASSWORD=yourpassword -d mysql:latest
-sudo docker run -it --rm --link mysql:mysql mysql mysql -hmysql -uroot -p
+- [github文件夹有向右的白色箭头并且不能打开的解决办法](https://www.jianshu.com/p/7cc6ea70e48e)
 
-CREATE DATABASE testdb;
-USE testdb;
-CREATE TABLE users (id INT PRIMARY KEY, name VARCHAR(50));
-INSERT INTO users (id, name) VALUES (1, 'John'), (2, 'Jane'), (3, 'Bob');
-SELECT * FROM users;
-```
 ## edge
-### CSDN 代码复制限制
-https://greasyfork.org/zh-CN/scripts/454012-csdn-%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E9%99%90%E5%88%B6
-### 强制黑色背景
+- [CSDN 代码复制限制](https://greasyfork.org/zh-CN/scripts/454012-csdn-%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E9%99%90%E5%88%B6)
+- 强制黑色背景
 edge://flags/#enable-force-dark
-### 关闭edge选中/复制文本时显示小菜单/方框
-https://blog.csdn.net/qq_45611850/article/details/121380355
-### 视频倍速
+- [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
+- 视频倍速
+```html
 右键 inspect，console。
-
 document.querySelector('video').playbackRate = 0.9
-### 同步问题
+```
+- 同步问题
 据我观察，如果一直setting up sync，那就关闭外网、重新登录都试一试。
-
-## 向日葵
-最新Win11系统怎么删除开机密码 Win11取消登录密码图文教程 - B站今雨雪的文章 - 知乎
-https://zhuanlan.zhihu.com/p/470573521
-## Wemeet
-```
-腾讯会议不兼容wayland协议怎么解决？
-Debian 
-sudo vim /etc/gdm3/daemon.conf
-把 #WaylandEnable=false 的注释井号去掉
-sudo service gdm3 restart
-```
-## libreoffice
-```
-libreoffice --impress --norestore 2.4git课程材料.pptx &
-sudo apt-get update
-sudo apt-get install libreoffice-java-common
-```
-## Zotero
-[ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
-
-[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
-
-[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-# linux常见的命令行和快捷键
+# Common shortcut keys in Linux
 还有一部分在飞书
 ## vim
 用vim不是为了炫技。vim也只是一个古老的文本编辑器。
