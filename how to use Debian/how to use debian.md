@@ -1,12 +1,12 @@
 # Debian基本的装机问题
-微信、罗技鼠标的设置软件lgs，必须是Windows or macOS。
+Debian暂时不能处理的问题：微信、罗技鼠标的设置软件lgs，必须是Windows or macOS。
 
 [如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
 
-ISO下载
+- ISO下载
 https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.6.0-live+nonfree/amd64/iso-hybrid/
 
-balena下载
+- balena下载
 https://www.balena.io/etcher#download-etcher
 
 [原创-解决Parrot安装卡在91%](https://blog.csdn.net/xyq165980/article/details/128259388)
@@ -16,12 +16,26 @@ https://www.balena.io/etcher#download-etcher
 开机总是出现default keyring输入密码: 终端输入seahorse，把default keyring的密码设为空。
 
 [ubuntu20.04 黑屏/紫屏后的处理办法](https://codeantenna.com/a/GWbmAVSb7g)
-ctrl + alt + F3
+ctrl + alt + F3 (tty登陆)
+
+## 空间不足
+
+[Linux下tmpfs介绍及使用](https://www.serverspc.com/46025.html)
 
 [mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
 
+[linux挂载windows的ntfs硬盘](https://github.com/tuxera/ntfs-3g)
+
 [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
+
 # 必备软件
+## cuda、cudnn、nvvc、nccl
+- [Debian 11下安装Nvidia显卡驱动与Cuda](https://yangyq.net/2023/03/debian-11-nvidia-driver-cuda.html)
+- [Debian 11下升级Cuda与Nvidia显卡驱动](https://yangyq.net/2023/03/debian-11-cuda-nvidia-driver-upgrade.html)
+- [在安裝 Nvidia 驅動時發生 “The Nouveau kernel driver is currently in use by your system. …”](https://clay-atlas.com/blog/2020/02/11/linux-chinese-note-nvidia-driver-nouveau-kernel/)
+- [在Fedora上安装NVIDIA驱动详细教程及解析](https://blog.csdn.net/qq_61653333/article/details/128883198)
+
+## 常用软件
 - clash、飞书、百度网盘、向日葵、zoom、discord、telegram、cursor、Typora beta、OBS Studio
 ## Fcixt 5
 候选翻页：逗号句号。
@@ -35,29 +49,7 @@ During pinyin input, use "semicolon + r" to enter into people nameinput mode. Wh
 Use U-mode to input Chinese character based on its stroke orcomponent,or to input symbol. When in Double Pinyin mode, U-modecan be triggered by "Shift + u"
 - V-mode input：
 Use V-mode to input Chinese format number, date and time etc. Whenin Double Pinyin mode, V-mode can be triggered by "Shift + v"
-## 向日葵
-最新Win11系统怎么删除开机密码 Win11取消登录密码图文教程 - B站今雨雪的文章 - 知乎
-https://zhuanlan.zhihu.com/p/470573521
-## Wemeet
-```
-腾讯会议不兼容wayland协议怎么解决？
-Debian 
-sudo vim /etc/gdm3/daemon.conf
-把 #WaylandEnable=false 的注释井号去掉
-sudo service gdm3 restart
-```
-## libreoffice
-```
-libreoffice --impress --norestore 2.4git课程材料.pptx &
-sudo apt-get update
-sudo apt-get install libreoffice-java-common
-```
-## Zotero
-[ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
 
-[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
-
-[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
 ## vscode
 ### .bashrc and .zshrc
 - oh my zsh
@@ -85,6 +77,14 @@ git config --global user.name "zvvc"
 git config --global user.email "zwc@outlook.lv"
 git push origin zvvc
 ```
+#### Git不会直接推送空文件夹
+Git不会直接推送空文件夹，因为Git的设计初衷是跟踪和管理文件的变化而不是目录结构。
+
+Git是一个分布式版本控制系统，它主要关注文件的内容和历史变化。当你执行git add命令将文件添加到Git中时，Git会跟踪文件的内容和变化，并将这些信息保存在Git仓库中。但是，如果目录中只有空文件夹而没有实际文件，Git无法跟踪文件内容的变化，因此空文件夹不会被直接推送到Git仓库。
+
+如果你想在Git中保留一个空文件夹的目录结构，可以在空文件夹中添加一个占位文件，比如一个空的.gitkeep文件（文件名可以任意指定，只要在空文件夹中有一个实际文件即可）。这样，Git将会跟踪该占位文件，并将空文件夹保留在仓库中。请注意，.gitkeep文件不会对仓库中其他文件的内容产生任何影响。
+
+总结起来，Git不会直接推送空文件夹，因为它关注文件内容的变化。如果你想保留空文件夹的目录结构，可以添加一个占位文件来代表该文件夹，并将其添加到Git仓库中。
 #### stargazers
 https://github.com/Zhang-Wen-chao/CS240/stargazers
 #### 解决github文件夹有向右的白色箭头并且不能打开的解决办法
@@ -123,7 +123,33 @@ https://blog.csdn.net/qq_45611850/article/details/121380355
 document.querySelector('video').playbackRate = 0.9
 ### 同步问题
 据我观察，如果一直setting up sync，那就关闭外网、重新登录都试一试。
-# linux常见的命令行和快捷键（带英文全称，便于记忆）
+
+## 向日葵
+最新Win11系统怎么删除开机密码 Win11取消登录密码图文教程 - B站今雨雪的文章 - 知乎
+https://zhuanlan.zhihu.com/p/470573521
+## Wemeet
+```
+腾讯会议不兼容wayland协议怎么解决？
+Debian 
+sudo vim /etc/gdm3/daemon.conf
+把 #WaylandEnable=false 的注释井号去掉
+sudo service gdm3 restart
+```
+## libreoffice
+```
+libreoffice --impress --norestore 2.4git课程材料.pptx &
+sudo apt-get update
+sudo apt-get install libreoffice-java-common
+```
+## Zotero
+[ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
+
+[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
+
+[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
+# linux常见的命令行和快捷键
+还有一部分在飞书
+## vim
 用vim不是为了炫技。vim也只是一个古老的文本编辑器。
 
 移动模式: h(左)j(下)k(上)l(右) 一定要最先的记死用熟
