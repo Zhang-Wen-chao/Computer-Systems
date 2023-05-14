@@ -98,7 +98,14 @@ git push origin zvvc
 ```
 - 作为仓库的合作者
 ```
+提交自己的代码
 git push --set-upstream origin zvvc
+
+拉取最新的代码
+git checkout main
+git pull
+git checkout zvvc
+git merge
 ```
 - 作为仓库的拥有者
 作为仓库的拥有者，你可以根据合作者执行的命令 git push --set-upstream origin zvvc 采取以下步骤进行处理：
