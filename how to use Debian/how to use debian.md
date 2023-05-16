@@ -24,6 +24,26 @@ ctrl + alt + F3 (tty登陆)
 [linux挂载windows的ntfs硬盘](https://github.com/tuxera/ntfs-3g)
 [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
 
+# network
+## 禁用 IPv6
+```shell
+要禁用 IPv6，你可以在 Linux 系统中执行以下步骤：
+
+打开终端，并以 root 用户身份执行以下命令：
+
+echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
+
+执行以下命令以应用更改：
+
+sysctl -p
+
+这将在 /etc/sysctl.conf 文件中添加两个条目，用于禁用 IPv6，然后应用更改。请注意，这将禁用系统上所有网络接口的 IPv6，包括所有网卡、虚拟接口等等。如果你需要启用某些接口的 IPv6，可以使用以下命令：
+
+echo "net.ipv6.conf.<interface-name>.disable_ipv6 = 0" >> /etc/sysctl.conf
+
+将 <interface-name> 替换为要启用 IPv6 的网络接口的名称，然后再次执行 sysctl -p 以应用更改。
+```
 # Some software
 ## cuda、cudnn、nvvc、nccl
 - [Debian 11下安装Nvidia显卡驱动与Cuda](https://yangyq.net/2023/03/debian-11-nvidia-driver-cuda.html)
@@ -67,6 +87,9 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 
 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
 解决方案：在.bashrc、.bash_profile都启动zsh。
+### gcc
+[Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&utm_relevant_index=2)
+
 ### Extensions
 - Remote - SSH
 - vscode-pdf
