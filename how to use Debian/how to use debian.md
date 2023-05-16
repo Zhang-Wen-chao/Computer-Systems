@@ -56,7 +56,7 @@ sudo apt-get install libreoffice-java-common
 候选翻页：逗号句号。
 Ctrl+; 进入剪贴板输入模式.
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
-
+设计的时候剪切板就只能显示一行。
 ## vscode and git
 ### .bashrc and .zshrc
 - oh my zsh
