@@ -61,7 +61,9 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 ### zsh
 - oh my zsh
 - autosuggestion 
+- syntax-highlighting
 - autojump
+- Powerlevel10k
 
 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
 解决方案：在.bashrc、.bash_profile都启动zsh。
@@ -77,6 +79,10 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
+<https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>
+
+[pip 使用国内镜像源](https://www.runoob.com/w3cnote/pip-cn-mirror.html)
+
 - Docker
 [Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
 
