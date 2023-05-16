@@ -78,7 +78,7 @@ sudo apt-get install libreoffice-java-common
 Ctrl+; 进入剪贴板输入模式.
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
 设计的时候剪切板就只能显示一行。
-## vscode and git
+## vscode
 ### zsh
 - oh my zsh
 - autosuggestion 
@@ -110,11 +110,10 @@ bash Miniconda3-latest-Linux-x86_64.sh
 - Docker
 [Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
 
-### Git
+## Git
 [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 
 ```
-git clone https://xxxxx
 新手用的最多的三条命令
 git add .
 git commit -m 'update'
@@ -129,6 +128,34 @@ git revert
 git config --global user.name "zvvc"
 git config --global user.email "zwc@outlook.lv"
 git push origin zvvc
+
+
+我当年学了 clone 和 pull 之后就觉得这样够用了，反正我只是用来下载我感兴趣的项目源码。
+后来为了看源码在一段时间内有哪些改动，学了 log 、 show 和 diff 。
+为了找到感兴趣内容所在的文件，学了 grep （指 git grep）。
+发现上游有多个分支，为了查看不同分支，学了 branch 和 checkout （现在一般用 switch）。
+因为上游用了 submodule 所以也稍微学了一下。
+在网络不理想的时候，为了从镜像拉取，学了 remote 。
+因为手痒，想自己给项目添加内容，为了让自己写的东西纳入 git 管理，学了 commit （那时候用的还是 commit -a ，用不到 add）。
+大概是这时候，第一次遇到了躲不开的配置项，也就是 config 。
+从上游拉取时，为了不和自己写的东西冲突，学了 merge 、 add 和 status，后来又学了 fetch 和 rebase 。
+为了提 Pull Request，也为了备份自己写的东西，学了 push 。
+为了把其他分支的修改转移到当前分支，学了 cherry-pick 。
+为了撤回修改，学了 reset （当时有些需求现在可以用 restore 完成）。
+为了恢复丢掉的修改记录，学了 reflog 。
+为了保存写到一半的内容，学了 stash 。
+为了找到引入或修复 bug 的版本，学了 bisect 和 blame 。
+为了知道最近的 tag 名称，学了 describe 。
+为了知道 tag 对应的提交代码，学了 rev-parse 。
+（以上两条是为了更方便地 blame 。）
+为了同时访问多个分支，学了 worktree 。
+为了降低索引的大小，学了 gc 、 prune 和 repack 。
+遇到过索引中的对象文件损坏，为了修复，学了 fsck 。
+最近还学到用 ls-files 查看自己改了哪些文件。
+当然过程中也断断续续学了不少选项，比如 commit --amend 、pull --rebase 、rebase --autostash、commit --fixup 、rebase --autosquash 等。
+另外时不时用到 init 、 revert 、 rm 、 mv 、 apply 和 rev-list ，但是没仔细学过。
+到这里我觉得我已经认识了大多数初级指令。但是对于如何使用 hook，如何直接操作索引中的对象，我还是一无所知。对于使用邮件的工作流程，我也不太了解。
+回想起来，从一开始到现在，学的每个东西都是为了能用就行。但是因为有这么多需要，也确实只有学习这么多东西才够用
 ```
 - 作为仓库的合作者
 ```
