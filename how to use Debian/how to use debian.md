@@ -54,8 +54,13 @@ echo "net.ipv6.conf.<interface-name>.disable_ipv6 = 0" >> /etc/sysctl.conf
 
 ## Common software
 - clash、飞书、百度网盘、向日葵、zoom、discord、telegram、cursor、Typora beta、OBS Studio
-- [如何在 Debian 10 上安装网易云音乐客户端](https://linux265.com/news/3838.html)
 - [最新Win11系统怎么删除开机密码 Win11取消登录密码图文教程](https://zhuanlan.zhihu.com/p/470573521)
+- [如何在 Debian 10 上安装网易云音乐客户端](https://linux265.com/news/3838.html)
+- calibre
+```
+sudo apt-get install calibre
+ebook-viewer your_file.azw3
+```
 - Wemeet
 ```
 腾讯会议不兼容wayland协议怎么解决？
