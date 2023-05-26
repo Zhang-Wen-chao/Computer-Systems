@@ -229,8 +229,6 @@ document.querySelector('video').playbackRate = 0.9
 ```
 - 同步问题
 据我观察，如果一直setting up sync，那就关闭外网、重新登录都试一试。
-# Common shortcut keys in Linux
-还有一部分在飞书
 ## vim
 用vim不是为了炫技。vim也只是一个古老的文本编辑器。
 
@@ -257,9 +255,6 @@ h左，j下，k上，l右
 - db、dB 向前删除一个单词或字符串。需要注意的是光标下的字符不删除
 - dk、dj 分别是向上和向下删除两行
 - dd 删除本行
-dd         删除
 3dd        删除三行
-复制 & 粘贴
-CV 大法好，毕竟大家有时候自嘲都是 C V 工程师   所以 复制 粘贴 还是需要在第一时间学会，这样才能更好的 coding 
 - yy 复制当前行
 - p 粘贴
