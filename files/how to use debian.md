@@ -267,8 +267,10 @@ h左，j下，k上，l右
 mechanical keyboard. logitech mouse G300s(https://support.logi.com/hc/zh-cn/articles/360025298053   https://www.logitechg.com.cn/zh-cn/innovation/g-hub.html)
 
 暂时就想到蓝色红色两个模式下，能做什么。日后随着使用，再想黄色的需求。
-![logitech_red](./images/logitech_red.png "logitech_red")
-![logitech_blue](./images/logitech_blue.png "logitech_blue")
+
+![logitech_red](../images/logitech_red.png "logitech_red")
+
+![logitech_blue](../images/logitech_blue.png "logitech_blue")
 ## what to buy in the future
 Apple vision pro can repalce monitors!
 我现在甚至不想要普通的台式机了，我想自己组装nas，拥有自己的服务器。
@@ -284,9 +286,15 @@ Galaxy Tab S8+，可以的，5g，能打电话，还能给其他设备放热点�
 买tesla model 3，带T的排量大，加速度大，有给手机充电的口，能用苹果的 carplay。
 ## I have bought
 iPhone se 2，下单日期2021/06/16
+
 2022/9/3，换一块飞毛腿电池。
+
 2023/2/3，飞毛腿电池鼓包了，售后免费换新了一块。
+
 2022/01/01购买的电器：长虹小太阳，美的微波炉，飞科电吹风。3年全保换新。
+
 2022/09/11购买的，绿联网线转接器。3年全保换新。
+
 2022/09/15购买的，九号c15电滑板。3年全保换新。
+
 2022/11/22购买的，绿联type-c拓展坞，4年换新升级服务。
