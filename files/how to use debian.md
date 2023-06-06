@@ -27,39 +27,12 @@ ctrl + alt + F3 (tty登陆)
 
 [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
 
-在 Debian 中，可以通过调整文件系统挂载选项的方式来增大 `/tmp` 的空间。
-
-以下是一个简单的步骤：
-
-1. 首先，查看当前 `/tmp` 目录所在的分区或磁盘设备：
-
+- 增大 `/tmp` 的空间。
    ```
    df -h /tmp
-   ```
-
-2. 然后，备份并编辑 `/etc/fstab` 文件：
-
-   ```
-   sudo cp /etc/fstab /etc/fstab.bak
-   sudo nano /etc/fstab
-   ```
-
-3. 找到包含 `/tmp` 目录的行，并将其选项修改为 `defaults,size=2G`（注意改变 `size` 选项以匹配你想要的大小）：
-
-   ```
-   # /tmp was on /dev/sdaX during installation
-   UUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx /tmp ext4 defaults,size=2G 0 0
-   ```
-
-4. 保存并退出编辑器。
-
-5. 最后，重新加载 `/etc/fstab` 文件以使更改生效：
-
-   ```
+   找到包含 `/tmp` 目录的行，并将其选项修改为 `defaults,size=2G`（注意改变 `size` 选项以匹配你想要的大小）, save and quit.
    sudo mount -o remount /tmp
    ```
-
-现在，你应该会发现 `/tmp` 目录的可用空间已经扩大了。
 # network
 ## 禁用 IPv6
 ```shell
