@@ -294,16 +294,11 @@ Galaxy Tab S8+，可以的，5g，能打电话，还能给其他设备放热点�
 
 买tesla model 3，带T的排量大，加速度大，有给手机充电的口，能用苹果的 carplay。
 ## I have bought
-iPhone se 2，下单日期2021/06/16
-
-2022/9/3，换一块飞毛腿电池。
-
-2023/2/3，飞毛腿电池鼓包了，售后免费换新了一块。
-
-2022/01/01购买的电器：长虹小太阳，美的微波炉，飞科电吹风。3年全保换新。
-
-2022/09/11购买的，绿联网线转接器。3年全保换新。
-
-2022/09/15购买的，九号c15电滑板。3年全保换新。
-
-2022/11/22购买的，绿联type-c拓展坞，4年换新升级服务。
+1. iPhone se 2，Purchased on 2021/06/16
+   - 2022/9/3，换一块飞毛腿电池。
+   - 2023/2/3，飞毛腿电池鼓包了，售后免费换新了一块。
+2. others
+   - Purchased on 2022/01/01：长虹小太阳，美的微波炉，飞科电吹风。3 years full warranty and replacement.
+   - Purchased on 2022/09/11，绿联网线转接器。3 years full warranty and replacement.
+   - Purchased on 2022/09/15，九号c15电滑板。3 years full warranty and replacement.
+   - Purchased on 2022/11/22，绿联type-c拓展坞. 4-year renewal and upgrade service.
