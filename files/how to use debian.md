@@ -111,9 +111,7 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 [Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&utm_relevant_index=2)
 
 ### Extensions
-- Remote - SSH
-- vscode-pdf
-- GitHub Copilot
+- [VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
 ### Settings
 - autosave
 ### conda and docker
