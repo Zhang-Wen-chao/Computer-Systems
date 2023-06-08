@@ -183,7 +183,7 @@ git push --set-upstream origin zvvc
 git checkout main
 git pull
 git checkout zvvc
-git merge
+git merge main
 ```
 - 作为仓库的拥有者
 作为仓库的拥有者，你可以根据合作者执行的命令 git push --set-upstream origin zvvc 采取以下步骤进行处理：
