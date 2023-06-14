@@ -1,0 +1,6 @@
+*.out
+*.o
+~$*
+settings.json
+.DS_Store
+.vscode
