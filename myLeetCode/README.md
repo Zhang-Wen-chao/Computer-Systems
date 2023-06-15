@@ -1,6 +1,4 @@
 # After having chatgpt, why should I practice leetcode?
-这个仓库，如果完善好了，就归入linux & cpp
-
 主要是锻炼思维，chatGPT取代一切了。估计以后笔试可能也不注重考察LeetCode了。但是会关注你的算法思维。
 
 期望达到的效果是，理解算法思想，代码风格统一，命名规范，便于记忆。用vscode g++编译，chatGPT帮助，输入输出与LeetCode一致。不追求奇技淫巧，变态的时间复杂度要求。

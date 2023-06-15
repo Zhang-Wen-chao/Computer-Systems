@@ -1,4 +1,6 @@
 # linux and cpp
+
+## What version of Linux to choose
 现在主力用Debian。
 
 选 arch linux 也不能提升对linux的深入理解。
@@ -8,3 +10,6 @@
 [how to use Debian](./files//how%20to%20use%20debian.md)
 
 [how to use Gentoo](./files/how%20to%20use%20Gentoo.md)
+
+## cpp is hard
+so, I have to work more hard.
