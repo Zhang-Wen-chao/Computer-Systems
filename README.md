@@ -1,4 +1,4 @@
-# The-Journey-of-Learning-Linux
+# linux and cpp
 现在主力用Debian。
 
 选 arch linux 也不能提升对linux的深入理解。
