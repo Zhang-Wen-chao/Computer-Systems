@@ -1,4 +1,5 @@
 #include <iostream>
+// #define NDEBUG
 #include <cassert>
 
 int main(int argc, char ** argv)

@@ -23,27 +23,27 @@ public:
     friend bool Supplier::provide(Sniper & sniper);
 };
 
-    bool Supplier::provide(Sniper & sniper)
+bool Supplier::provide(Sniper & sniper)
+{
+    // bullets is a private member
+    if (sniper.bullets < 20) //no enough bullets
     {
-        // bullets is a private member
-        if (sniper.bullets < 20) //no enough bullets
+        if (this->storage > 100 )
         {
-            if (this->storage > 100 )
-            {
-                sniper.bullets += 100;
-                this->storage -= 100;
-            }
-            else if(this->storage > 0)
-            {
-                sniper.bullets += this->storage;
-                this->storage = 0;
-            }
-            else
-                return false;
+            sniper.bullets += 100;
+            this->storage -= 100;
         }
-        cout << "sniper has " << sniper.bullets << " bullets now." << endl;
-        return true;
+        else if(this->storage > 0)
+        {
+            sniper.bullets += this->storage;
+            this->storage = 0;
+        }
+        else
+            return false;
     }
+    cout << "sniper has " << sniper.bullets << " bullets now." << endl;
+    return true;
+}
 
 int main()
 {

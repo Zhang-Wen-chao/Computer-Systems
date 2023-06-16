@@ -28,6 +28,11 @@ matrix operations, etc
 •File name: head.h, source1.c, source2.c, source3.c
 •Good implementation VS good homework.
 
+
+
+pay more attention to algorithms, concepts, technologies, rather than particular features, particular programming language. and do not try to use all those fancy features of the language that you just learned in your project, because those features just exist and you want to make your code look cool by using all those features, because this is a good change that a couple of months later, you won't be able to read your own code because it's too complex. And you need to develop proper style of using C++, not to shoot yourself on the foot. And try not to use manual memory allocation, using existing containers like std::vector, or if you use OpenCV, use cv::Mat, etc. Try to put some regression test before you do any refactoring or optimization. There should be some tests, of course. As I said, develop some methodology, a proper methodology how to create robust software that is easy to debug or doesn't need to be debbugged at all, it works out of the box. Instead of just using very complex language constructions that you may not fully understand. When people avoid using raw pointers in C++, but instead use containers like cv::Mat or cv::Vec or shared pointers, the number of memory leaks problems go almost to zero.
+
+
 - use clang-format.
 - 不能使用单个字母做变量名，没人能看懂。
 - Solution sol;
@@ -62,14 +67,6 @@ The greatest common divisor (GCD)
 
 hash table 349
 
-算法导论
-3.3-4、5、6，不太会。
-4.2感觉没必要學。
-4.3-9，没看明白。
-4.4-6-9，没看。
-现在该看算法导论的4-4.1的problem；
-
-南科大于仕琪的cpp，看完了p41。再看一下this pointer。
 
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界// https://google.github.io/styleguide/

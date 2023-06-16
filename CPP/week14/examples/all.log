@@ -1,0 +1,11 @@
+Error: The input must be an even number. Here it's -5
+Error: The input must be an even number. Here it's -3
+Error: The input must be an even number. Here it's -1
+Error: The input must be an even number. Here it's 1
+Error: The input must be an even number. Here it's 3
+Error: The input must be an even number. Here it's 5
+Info: The result is -2
+Info: The result is -1
+Info: The result is 0
+Info: The result is 1
+Info: The result is 2
