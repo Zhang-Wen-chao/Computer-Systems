@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zwc/Documents/linux_and_cpp/CPP/week09/examples/multi-files/main.cpp
+student.hpp
+/home/zwc/Documents/linux_and_cpp/CPP/week09/examples/multi-files/student.hpp
+
+/home/zwc/Documents/linux_and_cpp/CPP/week09/examples/multi-files/student.cpp
+iostream
+-
+student.hpp
+/home/zwc/Documents/linux_and_cpp/CPP/week09/examples/multi-files/student.hpp
+
+/home/zwc/Documents/linux_and_cpp/CPP/week09/examples/multi-files/student.hpp
+cstring
+-
+

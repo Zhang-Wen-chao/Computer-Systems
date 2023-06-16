@@ -54,6 +54,7 @@ echo "net.ipv6.conf.<interface-name>.disable_ipv6 = 0" >> /etc/sysctl.conf
 将 <interface-name> 替换为要启用 IPv6 的网络接口的名称，然后再次执行 sysctl -p 以应用更改。
 ```
 # Some software
+sudo apt install gcc g++ gdb make cmake vim git
 ## cuda、cudnn、nvvc、nccl
 - [Debian 11下安装Nvidia显卡驱动与Cuda](https://yangyq.net/2023/03/debian-11-nvidia-driver-cuda.html)
 - [Debian 11下升级Cuda与Nvidia显卡驱动](https://yangyq.net/2023/03/debian-11-cuda-nvidia-driver-upgrade.html)

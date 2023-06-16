@@ -1,6 +1,5 @@
 # After having chatgpt, why should I practice leetcode?
-主要是锻炼思维，chatGPT取代一切了。估计以后笔试可能也不注重考察LeetCode了。但是会关注你的算法思维。
-
+leetcode is still important though there is chatgpt.
 期望达到的效果是，理解算法思想，代码风格统一，命名规范，便于记忆。用vscode g++编译，chatGPT帮助，输入输出与LeetCode一致。不追求奇技淫巧，变态的时间复杂度要求。
 # 规范
 Simple is Beautiful !
@@ -16,6 +15,18 @@ Some Tips on Optimization
 •No printf()/cout in loops
 •Table lookup (sin(), cos() ...)
 •SIMD, OpenMP
+
+
+Suggestions to your Project 3
+•Use size_t for mat.cols and mat.rows
+•Use memcpy() to copy data. Element assignment has a lower efficiency.
+•Use 1D array (float*) nor 2D array (float**) for matrix data.
+•Redundant computation in loops
+•Do parameter checking in functions: null pointers, dimension matching in 
+matrix operations, etc
+•Do not bind the create matrix function with file I/O.
+•File name: head.h, source1.c, source2.c, source3.c
+•Good implementation VS good homework.
 
 - use clang-format.
 - 不能使用单个字母做变量名，没人能看懂。
@@ -46,7 +57,7 @@ n = len(nums)
 The greatest common divisor (GCD) 
 0669有正确的二叉树输出。
 0701有正确的二叉树输入。
-# 进度
+# rate of progress
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 
 hash table 349

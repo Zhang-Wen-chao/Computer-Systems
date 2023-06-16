@@ -6,8 +6,8 @@ using namespace std;
 class Student
 {
   private:
-    static size_t student_total; // declaration only
-    //inline static size_t student_total = 0; //C++17, definition outside isn't needed
+    // static size_t student_total; // declaration only
+    inline static size_t student_total = 0; //C++17, definition outside isn't needed
     char * name;
     int born;
     bool male; 
@@ -62,7 +62,7 @@ void Student::printInfo()
     std::cout << "Gender: " << (male ? "Male" : "Female") << std::endl;
 }
 
-//size_t Student::student_total = 0; // definition it here
+// size_t Student::student_total = 0; // definition it here
 
 int main()
 {

@@ -34,7 +34,7 @@ int main()
     yu.setName("Yu");
     yu.setBorn(2000);
     yu.setGender(true);
-    yu.born = 2001; // you cannot access a private member
+    // yu.born = 2001; // you cannot access a private member
     yu.printInfo();
     return 0;
 }
