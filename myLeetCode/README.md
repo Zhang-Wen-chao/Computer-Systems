@@ -2,6 +2,11 @@
 leetcode is still important though there is chatgpt.
 期望达到的效果是，理解算法思想，代码风格统一，命名规范，便于记忆。用vscode g++编译，chatGPT帮助，输入输出与LeetCode一致。不追求奇技淫巧，变态的时间复杂度要求。
 # 规范
+
+using std::cout;
+using std::endl;
+then in the following code , it is no need to write std:: again.
+
 Simple is Beautiful !
 Short
 Simple

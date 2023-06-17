@@ -1,0 +1,3 @@
+/home/zwc/Documents/linux_and_cpp/CPP/week05/examples/lab/hello/build/CMakeFiles/rebuild_cache.dir
+/home/zwc/Documents/linux_and_cpp/CPP/week05/examples/lab/hello/build/CMakeFiles/edit_cache.dir
+/home/zwc/Documents/linux_and_cpp/CPP/week05/examples/lab/hello/build/CMakeFiles/hello.dir

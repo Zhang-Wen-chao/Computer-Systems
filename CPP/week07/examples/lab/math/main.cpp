@@ -1,5 +1,3 @@
-#include<iostream>
-// main.cpp
 #include <iostream>
 #include "mymath.h"
 int main()

@@ -20,23 +20,6 @@
 # 	$(CXX) -c factorial.cpp
 
 
-# ## VERSION 3
-# CXX = g++
-# TARGET = hello
-# OBJ = main.o printhello.o factorial.o
-
-# CXXFLAGS = -c -Wall
-
-# $(TARGET): $(OBJ)
-# 	$(CXX) -o $@ $^
-
-# %.o: %.cpp
-# 	$(CXX) $(CXXFLAGS) $< -o $@
-
-# .PHONY: clean
-# clean:
-# 	rm -f *.o $(TARGET)
-
 
 ## VERSION 4
 CXX = g++

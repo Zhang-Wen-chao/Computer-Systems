@@ -1,3 +1,3 @@
 #pragma once
 
-int add(int n1, int n2);
+long int add(long int n1, long int n2);
