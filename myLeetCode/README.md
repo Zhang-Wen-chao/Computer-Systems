@@ -43,7 +43,6 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - Solution sol;
 - ans 代表 answer
 
-- 使用 index ， 而不是idx
 - 使用局部变量 i
 使用局部变量 i 是常见的习惯，表示迭代的索引。这种命名约定在编程中被广泛使用，并且很容易理解和阅读。使用 i 表示迭代索引是一种通用的做法，无论是在循环中还是在其他地方都适用。虽然 idx 也是一个有效的命名选项，但 i 是更为常见和被接受的方式，因此使用 i 是一种更好的选择。
 
