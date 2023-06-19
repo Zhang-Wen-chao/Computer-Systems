@@ -73,7 +73,7 @@ hash table 349
 
 
 代码关键的是：
-1. 代码风格规范，符合google style接轨工业界// https://google.github.io/styleguide/
+1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
 2. 代码编译后的复杂度低
 3. 可读性好
 
