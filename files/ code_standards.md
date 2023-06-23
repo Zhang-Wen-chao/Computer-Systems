@@ -3,6 +3,11 @@ leetcode is still important though there is chatgpt.
 期望达到的效果是，理解算法思想，代码风格统一，命名规范，便于记忆。用vscode g++编译，chatGPT帮助，输入输出与LeetCode一致。不追求奇技淫巧，变态的时间复杂度要求。
 # 规范
 候捷：大气正规的编程习惯。
+数据一定私有。构造函数尽量使用：进行初始化。
+尽量不要pass byu value。参数传递与返回值都by reference.
+谁调用函数，this就指向谁。
+return by reference 语法分析傅通者需知道接收者是以 reference 形式接收
+
 
 
 using std::cout;
