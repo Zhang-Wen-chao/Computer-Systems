@@ -21,8 +21,10 @@ std::vector<int> intersect(std::vector<int>& nums1, std::vector<int>& nums2) {
 }
 
 int main() {
-    std::vector<int> nums1 = {1, 2, 2, 1};
-    std::vector<int> nums2 = {2, 2};
+    // std::vector<int> nums1 = {1, 2, 2, 1};
+    // std::vector<int> nums2 = {2, 2};
+    std::vector<int> nums1 = {4,9,5};
+    std::vector<int> nums2 = {9,4,9,8,4};
     std::vector<int> res = intersect(nums1, nums2);
     for (int i : res) {
         std::cout << i << " ";

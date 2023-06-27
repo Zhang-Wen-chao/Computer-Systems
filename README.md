@@ -12,4 +12,4 @@
 [how to use Gentoo](./files/how%20to%20use%20Gentoo.md)
 
 ## cpp is hard
-so, I have to work more hard.
+so, leetcode again.

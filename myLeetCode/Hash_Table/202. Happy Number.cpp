@@ -1,13 +1,13 @@
 // 202. Happy Number
 // https://leetcode.com/problems/happy-number/
+
 #include <unordered_set>
 #include <iostream>
-using namespace std;
 
 class Solution {
 public:
     bool isHappy(int n) {
-        unordered_set<int> seen;
+        std::unordered_set<int> seen;
         while (n != 1 && seen.count(n) == 0) {
             seen.insert(n);
             int next = 0;
@@ -23,7 +23,8 @@ public:
 };
 
 int main() {
-    Solution s;
-    cout << s.isHappy(19) << endl;
+    Solution sol;
+    std::cout << sol.isHappy(19) << std::endl;
+    
     return 0;
 }

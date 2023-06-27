@@ -8,11 +8,6 @@ leetcode is still important though there is chatgpt.
 谁调用函数，this就指向谁。
 return by reference 语法分析傅通者需知道接收者是以 reference 形式接收
 
-
-using std::cout;
-using std::endl;
-then in the following code , it is no need to write std:: again.
-
 Simple is Beautiful !
 Short
 Simple
@@ -75,7 +70,7 @@ The greatest common divisor (GCD)
 # rate of progress
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 
-hash table 349
+已完成hash table 202
 
 
 代码关键的是：
