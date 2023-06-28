@@ -63,7 +63,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 # rate of progress
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 
-已完成hash table 202
+已完成stack and queue 225
 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
 
 代码关键的是：
