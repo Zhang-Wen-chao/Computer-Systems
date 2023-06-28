@@ -55,16 +55,14 @@ n = len(nums)
 - 不使用递归
 这种递归的写法可以解决问题，但是在处理大规模的链表时可能会导致栈溢出，因为递归的深度会随着链表长度的增加而增加。
 
-- 使用什么头文件，就引用什么头文件。不要使用万能头文件
-#include <iostream>
-#include <vector>
+
 - 不使用using namespace std; 建议在代码中显式地使用 std:: 前缀，以提高代码的可读性和避免潜在的命名冲突。
 - 文件命名上还是得加上数字，方便索引。
 - 双指针使用left,right; fast,slow.
 - 使用 nullptr，而不是NULL
+- 去除不必要的class.
 - 统一treenode的数据结构
-开头声明 LCA is the abbreviation of lowestCommonAncestor
-The greatest common divisor (GCD) 
+
 0669有正确的二叉树输出。
 0701有正确的二叉树输入。
 # rate of progress

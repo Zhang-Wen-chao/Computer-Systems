@@ -39,7 +39,6 @@ ctrl + alt + F3 (tty登陆)
 要禁用 IPv6，你可以在 Linux 系统中执行以下步骤：
 
 打开终端，并以 root 用户身份执行以下命令：
-
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 
