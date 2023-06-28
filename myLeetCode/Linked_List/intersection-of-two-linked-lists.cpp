@@ -1,77 +1,49 @@
 // 面试题 02.07. 链表相交
 // https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/
 
-#include <iostream>
-#include <vector>
-struct ListNode {
-    int val;
-    ListNode *next;
+#include "LinkedListUtils.hpp"
 
-    ListNode(int val) : val(val), next(nullptr) {}
-    ListNode(int val, ListNode *next) : val(val), next(next) {}
-};
-
-class Solution {
-  public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        if (headA == nullptr || headB == nullptr) {
-            return nullptr;
-        }
-        ListNode *tailA = headA;
-        ListNode *tailB = headB;
-        while (tailA->next != nullptr) {
-            tailA = tailA->next;
-        }
-        while (tailB->next != nullptr) {
-            tailB = tailB->next;
-        }
-        if (tailA != tailB) { // 两个链表不相交
-            return nullptr;
-        }
-        ListNode *p1 = headA;
-        ListNode *p2 = headB;
-        while (p1 != p2) {
-            p1 = (p1 == nullptr) ? headB : p1->next;
-            p2 = (p2 == nullptr) ? headA : p2->next;
-        }
-        return p1; // 返回相交节点，如果没有相交节点则返回 nullptr。
+ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
+    if (headA == nullptr || headB == nullptr) {
+        return nullptr;
     }
-};
-
-ListNode *constructLinkedList(std::vector<int> &vals) {
-    ListNode *head = nullptr;
-    ListNode *curr = nullptr;
-    for (int val : vals) {
-        if (head == nullptr) {
-            head = new ListNode(val);
-            curr = head;
-        } else {
-            curr->next = new ListNode(val);
-            curr = curr->next;
-        }
+    
+    ListNode* pA = headA;
+    ListNode* pB = headB;
+    
+    while (pA != pB) {
+        pA = (pA == nullptr) ? headB : pA->next;
+        pB = (pB == nullptr) ? headA : pB->next;
     }
-    return head;
+    
+    return pA;
 }
 
 int main() {
-    // std::vector<int> A = {0,9,1,2,4};
-    // std::vector<int> B = {3,2,4};
-
-    std::vector<int> A = {4, 1, 8, 4, 5};
-    std::vector<int> B = {5, 0, 1, 8, 4, 5};
-
-    ListNode *headA = constructLinkedList(A);
-    ListNode *headB = constructLinkedList(B);
-
-    // 设置相交节点
-    headB->next->next = headA->next->next;
-
-    Solution sol;
-    ListNode *intersection = sol.getIntersectionNode(headA, headB);
+    ListNode* headA = new ListNode(4);
+    ListNode* node1 = new ListNode(1);
+    ListNode* node8 = new ListNode(8);
+    ListNode* node4 = new ListNode(4);
+    ListNode* node5 = new ListNode(5);
+    headA->next = node1;
+    node1->next = node8;
+    node8->next = node4;
+    node4->next = node5;
+    
+    ListNode* headB = new ListNode(5);
+    ListNode* node0 = new ListNode(0);
+    ListNode* node1b = new ListNode(1);
+    headB->next = node0;
+    node0->next = node1b;
+    node1b->next = node8; // Intersection point
+    
+    ListNode* intersection = getIntersectionNode(headA, headB);
+    
     if (intersection != nullptr) {
-        std::cout << intersection->val << std::endl;
+        std::cout << "Intersection point: " << intersection->val << std::endl;
     } else {
-        std::cout << "No intersection" << std::endl;
+        std::cout << "No intersection point found." << std::endl;
     }
+    
     return 0;
 }

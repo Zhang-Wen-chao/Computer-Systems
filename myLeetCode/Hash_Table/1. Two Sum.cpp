@@ -1,14 +1,13 @@
-// 001. Two Sum
+// 1. Two Sum
 // https://leetcode.cn/problems/two-sum/
 #include <unordered_map>
 #include <vector>
 #include <iostream>
-using namespace std;
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> map;
+    std::vector<int> twoSum(std::vector<int>& nums, int target) {
+        std::unordered_map<int, int> map;
         for (int i = 0; i < nums.size(); i++) {
             int complement = target - nums[i];
             if (map.count(complement) != 0) {
@@ -21,14 +20,14 @@ public:
 };
 
 int main() {
-    Solution s;
-    vector<int> nums = {2, 7, 11, 15};
-    int target = 9;
-    vector<int> res = s.twoSum(nums, target);
+    Solution sol;
+    std::vector<int> nums = {2, 7, 11, 15};
+    int target = 18;
+    std::vector<int> res = sol.twoSum(nums, target);
     for (int i : res) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }

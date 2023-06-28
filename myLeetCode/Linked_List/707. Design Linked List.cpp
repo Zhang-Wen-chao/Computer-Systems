@@ -1,103 +1,94 @@
 // 707. Design Linked List
 // https://leetcode.com/problems/design-linked-list/
-#include <iostream>
 
-struct ListNode {
-    int val;
-    ListNode *next;
-
-    ListNode(int val) : val(val), next(nullptr) {}
-    ListNode(int val, ListNode *next) : val(val), next(next) {}
-};
+#include "LinkedListUtils.hpp"
 
 class MyLinkedList {
-  private:
-    ListNode *head;
-    int size;
-
-  public:
-    MyLinkedList() : head(nullptr), size(0) {}
-
-    int get(int index) {
-        if (index < 0 || index >= size)
-            return -1;
-
-        ListNode *curr = head;
-        for (int i = 0; i < index; i++) {
-            curr = curr->next;
-        }
-
-        return curr->val;
+private:
+    ListNode* head;
+public:
+    MyLinkedList() {
+        head = nullptr;
     }
 
+    int get(int index) {
+        ListNode* current = head;
+        int i = 0;
+        while (current != nullptr && i < index) {
+            current = current->next;
+            i++;
+        }
+        if (current == nullptr) {
+            return -1;
+        }
+        return current->val;
+    }
+    
     void addAtHead(int val) {
-        ListNode *newNode = new ListNode(val, head);
+        ListNode* newNode = new ListNode(val);
+        newNode->next = head;
         head = newNode;
-        size++;
     }
 
     void addAtTail(int val) {
-        ListNode *newNode = new ListNode(val);
+        ListNode* newNode = new ListNode(val);
         if (head == nullptr) {
             head = newNode;
         } else {
-            ListNode *curr = head;
-            while (curr->next != nullptr) {
-                curr = curr->next;
+            ListNode* current = head;
+            while (current->next != nullptr) {
+                current = current->next;
             }
-            curr->next = newNode;
+            current->next = newNode;
         }
-        size++;
     }
-
+    
     void addAtIndex(int index, int val) {
-        if (index < 0 || index > size)
+        if (index < 0) {
             return;
-
+        }
         if (index == 0) {
             addAtHead(val);
             return;
         }
-
-        ListNode *newNode = new ListNode(val);
-        ListNode *curr = head;
-        for (int i = 0; i < index - 1; i++) {
-            curr = curr->next;
+        ListNode* newNode = new ListNode(val);
+        ListNode* current = head;
+        int i = 0;
+        while (current != nullptr && i < index - 1) {
+            current = current->next;
+            i++;
         }
-        newNode->next = curr->next;
-        curr->next = newNode;
-        size++;
+        if (current == nullptr) {
+            return;
+        }
+        newNode->next = current->next;
+        current->next = newNode;
     }
-
+    
     void deleteAtIndex(int index) {
-        if (index < 0 || index >= size)
+        if (index < 0) {
             return;
-
+        }
         if (index == 0) {
-            ListNode *temp = head;
-            head = head->next;
-            delete temp;
-            size--;
+            if (head != nullptr) {
+                ListNode* temp = head;
+                head = head->next;
+                delete temp;
+            }
             return;
         }
-
-        ListNode *curr = head;
-        for (int i = 0; i < index - 1; i++) {
-            curr = curr->next;
+        ListNode* current = head;
+        int i = 0;
+        while (current != nullptr && i < index - 1) {
+            current = current->next;
+            i++;
         }
-        ListNode *temp = curr->next;
-        curr->next = temp->next;
+        if (current == nullptr || current->next == nullptr) {
+            return;
+        }
+        ListNode* temp = current->next;
+        current->next = current->next->next;
         delete temp;
-        size--;
-    }
-
-    void printLinkedList() {
-        ListNode *curr = head;
-        while (curr != nullptr) {
-            std::cout << curr->val << " ";
-            curr = curr->next;
-        }
-        std::cout << std::endl;
     }
 };
 
@@ -109,7 +100,6 @@ int main() {
     std::cout << linkedList.get(1) << std::endl;
     linkedList.deleteAtIndex(1);
     std::cout << linkedList.get(1) << std::endl;
-    linkedList.printLinkedList();
 
     return 0;
 }
