@@ -3,32 +3,28 @@
 
 #include <iostream>
 
-class Solution {
-public:
-    std::string reverseStr(std::string s, int k) {
-        int n = s.length();
+std::string reverseStr(std::string str, int k) {
+    int n = str.length();
+    
+    for (int i = 0; i < n; i += 2 * k) {
+        int left = i;
+        int right = std::min(i + k - 1, n - 1);
         
-        for (int i = 0; i < n; i += 2 * k) {
-            int left = i;
-            int right = std::min(i + k - 1, n - 1);
-            
-            while (left < right) {
-                std::swap(s[left], s[right]);
-                ++left;
-                --right;
-            }
+        while (left < right) {
+            std::swap(str[left], str[right]);
+            ++left;
+            --right;
         }
-        
-        return s;
     }
-};
+    
+    return str;
+}
 
 int main() {
-    Solution sol;
-    std::string s = "abcdefg";
+    std::string str = "abcdefg";
     int k = 2;
     
-    std::string result = sol.reverseStr(s, k);
+    std::string result = reverseStr(str, k);
     
     std::cout << result << std::endl;
     

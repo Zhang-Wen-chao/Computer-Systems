@@ -4,28 +4,24 @@
 #include <iostream>
 #include <string>
 
-class Solution {
-public:
-    std::string replaceSpace(std::string s) {
-        std::string result;
-        
-        for (char ch : s) {
-            if (ch == ' ') {
-                result += "%20";
-            } else {
-                result += ch;
-            }
+std::string replaceSpace(std::string str) {
+    std::string result;
+    
+    for (char ch : str) {
+        if (ch == ' ') {
+            result += "%20";
+        } else {
+            result += ch;
         }
-        
-        return result;
     }
-};
+    
+    return result;
+}
 
 int main() {
-    Solution sol;
-    std::string s = "We are happy.";
+    std::string str = "We are happy.";
     
-    std::string result = sol.replaceSpace(s);
+    std::string result = replaceSpace(str);
     
     std::cout << result << std::endl;
     

@@ -6,26 +6,26 @@
 
 class Solution {
 public:
-    std::string reverseLeftWords(std::string s, int n) {
-        std::rotate(s.begin(), s.begin() + n, s.end());
-        return s;
+    std::string reverseLeftWords(std::string str, int n) {
+        std::rotate(str.begin(), str.begin() + n, str.end());
+        return str;
     }
 };
 
 // class Solution {
 // public:
-//     std::string reverseLeftWords(std::string s, int n) {
-//         reverse(s.begin(), s.begin() + n);
-//         reverse(s.begin() + n, s.end());
-//         reverse(s.begin(), s.end());
-//         return s;
+//     std::string reverseLeftWords(std::string str, int n) {
+//         reverse(str.begin(), str.begin() + n);
+//         reverse(str.begin() + n, str.end());
+//         reverse(str.begin(), str.end());
+//         return str;
 //     }
 // };
 
 int main() {
     Solution sol;
-    std::string s = "abcdefg";
+    std::string str = "abcdefg";
     int n = 2;
-    std::cout << sol.reverseLeftWords(s, n) << std::endl;
+    std::cout << sol.reverseLeftWords(str, n) << std::endl;
     return 0;
 }

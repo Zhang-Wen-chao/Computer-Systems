@@ -44,27 +44,25 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 使用局部变量 i
 - Solution sol;
 - ans 代表 answer
+- stk 代表 stack
+- str 代表 string
 - 使用n代表长度,避免在for循环中一直调用函数nums.size()
 - 其他变量尽量容易懂，不要用什么abcd
 - 不使用递归
 - 不使用using namespace std; 
-- 文件命名上还是得加上数字，方便索引。
 - 双指针使用left,right; fast,slow.
 - 使用 nullptr，而不是NULL
 - 不用或少用auto
 - 输入放在main的代码上，不要在控制台一个一个输入。
 - 统一treenode的数据结构
-
-0669有正确的二叉树输出。
-0701有正确的二叉树输入。
+- 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
 
 这个题目，你可以给一个cpp的解答吗?
 你写的很好，那把mian函数写一下吧，只需要输出mian函数。
 # rate of progress
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 
-已完成stack and queue 225
-双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
+该进行二叉树的iteration的144了。
 
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.

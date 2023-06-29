@@ -3,28 +3,22 @@
 #include <iostream>
 #include <vector>
 
-class Solution {
-public:
-    void reverseString(std::vector<char>& s) {
-        int left = 0;
-        int right = s.size() - 1;
-        
-        while (left < right) {
-            std::swap(s[left], s[right]);
-            ++left;
-            --right;
-        }
+void reverseString(std::vector<char>& str) {
+    int left = 0;
+    int right = str.size() - 1;
+    
+    while (left < right) {
+        std::swap(str[left], str[right]);
+        ++left;
+        --right;
     }
-};
+}
 
 int main() {
-    Solution sol;
-    std::vector<char> s = {'h', 'e', 'l', 'l', 'o'};
-    
-    sol.reverseString(s);
-    
-    // 输出结果
-    for (char ch : s) {
+    std::vector<char> str = {'h', 'e', 'l', 'l', 'o'};
+    reverseString(str);
+
+    for (char ch : str) {
         std::cout << ch << " ";
     }
     std::cout << std::endl;
