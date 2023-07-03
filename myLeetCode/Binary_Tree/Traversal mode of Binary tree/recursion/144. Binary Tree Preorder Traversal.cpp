@@ -1,7 +1,6 @@
 // 144. Binary Tree Preorder Traversal
 // https://leetcode.com/problems/binary-tree-preorder-traversal/
 
-#include <iostream>
 #include "../../BinaryTreeUtils.hpp"
 
 void preorderTraversal(TreeNode* root, std::vector<int>& result) {
@@ -24,10 +23,7 @@ int main() {
     std::vector<int> result = preorderTraversal(root);
 
     std::cout << "Preorder Traversal: ";
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    print_1d(result);
 
     return 0;
 }

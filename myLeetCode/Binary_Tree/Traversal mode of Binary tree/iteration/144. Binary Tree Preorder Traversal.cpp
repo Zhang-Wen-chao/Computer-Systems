@@ -2,29 +2,20 @@
 // https://leetcode.com/problems/binary-tree-preorder-traversal/
 
 #include "../../BinaryTreeUtils.hpp"
-#include <iostream>
 #include <stack>
 
 std::vector<int> preorderTraversal(TreeNode* root) {
     std::vector<int> result;
-    if (root == nullptr) {
-        return result;
-    }
-
     std::stack<TreeNode*> stk;
-    stk.push(root);
 
-    while (!stk.empty()) {
-        TreeNode* node = stk.top();
-        stk.pop();
-        result.push_back(node->val);
-
-        // 先将右子树入栈，再将左子树入栈
-        if (node->right != nullptr) {
-            stk.push(node->right);
-        }
-        if (node->left != nullptr) {
-            stk.push(node->left);
+    while (root != nullptr || !stk.empty()) {
+        if (root != nullptr) {
+            result.push_back(root->val);
+            stk.push(root->right);
+            root = root->left;
+        } else {
+            root = stk.top();
+            stk.pop();
         }
     }
 
@@ -38,10 +29,7 @@ int main() {
     std::vector<int> result = preorderTraversal(root);
 
     std::cout << "Preorder traversal: ";
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    print_1d(result);
 
     return 0;
 }

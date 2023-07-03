@@ -1,19 +1,26 @@
 // 94. Binary Tree Inorder Traversal
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
 
-#include <iostream>
-#include "../../BinaryTreeUtils.hpp"
 
-void inorderTraversal(TreeNode* root, std::vector<int>& result) {
-    if (root == nullptr) return;
-    inorderTraversal(root->left, result); // 递归遍历左子树
-	result.push_back(root->val); // 将当前节点的值加入结果数组
-    inorderTraversal(root->right, result); // 递归遍历右子树
-}
+#include "../../BinaryTreeUtils.hpp"
+#include <stack>
 
 std::vector<int> inorderTraversal(TreeNode* root) {
     std::vector<int> result;
-    inorderTraversal(root, result);
+    std::stack<TreeNode*> stk;
+
+    while (root != nullptr || !stk.empty()) {
+        if (root != nullptr) {
+            stk.push(root);
+            root = root->left;
+        } else {
+            root = stk.top();
+            stk.pop();
+            result.push_back(root->val);
+            root = root->right;
+        }
+    }
+
     return result;
 }
 
@@ -23,11 +30,8 @@ int main() {
 
     std::vector<int> result = inorderTraversal(root);
 
-    std::cout << "Inorder Traversal: ";
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    std::cout << "Inorder traversal: ";
+    print_1d(result);
 
     return 0;
 }

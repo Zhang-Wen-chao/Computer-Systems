@@ -1,7 +1,6 @@
 // 145. Binary Tree Postorder Traversal
 // https://leetcode.com/problems/binary-tree-postorder-traversal/
 
-#include <iostream>
 #include "../../BinaryTreeUtils.hpp"
 
 void postorderTraversal(TreeNode* root, std::vector<int>& result) {
@@ -24,10 +23,7 @@ int main() {
     std::vector<int> result = postorderTraversal(root);
 
     std::cout << "Postorder Traversal: ";
-    for (int num : result) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    print_1d(result);
 
     return 0;
 }
