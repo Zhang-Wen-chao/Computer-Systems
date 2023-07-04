@@ -4,11 +4,11 @@
 #include "../../BinaryTreeUtils.hpp"
 #include <stack>
 
-std::vector<int> postorderTraversal(TreeNode* root) {
+std::vector<int> postorderTraversal(TreeNode<int>* root) {
     std::vector<int> result;
-    std::stack<TreeNode*> stk;
-    TreeNode* curr = root;
-    TreeNode* lastVisited = nullptr;
+    std::stack<TreeNode<int>*> stk;
+    TreeNode<int>* curr = root;
+    TreeNode<int>* lastVisited = nullptr;
 
     while (curr != nullptr || !stk.empty()) {
         // 将当前节点及其左子树的左节点依次入栈
@@ -17,7 +17,7 @@ std::vector<int> postorderTraversal(TreeNode* root) {
             curr = curr->left;
         }
 
-        TreeNode* top = stk.top();
+        TreeNode<int>* top = stk.top();
 
         // 检查右子树是否已经访问过，或者右子树为空
         if (top->right == nullptr || top->right == lastVisited) {
@@ -34,12 +34,12 @@ std::vector<int> postorderTraversal(TreeNode* root) {
 }
 
 int main() {
-    std::vector<int> levelOrderValues = {1, 2, 3, 4, INT_MAX, 5, 6};
-    TreeNode* root = buildTree(levelOrderValues);
+    std::vector<int> levelOrderValues = {1, 2, 3, 4, -1, 5, 6};
+    TreeNode<int>* root = buildTree(levelOrderValues, -1);
     std::vector<int> result = postorderTraversal(root);
 
     std::cout << "Postorder traversal: ";
-    print_1d(result);
+    printArray(result);
 
     return 0;
 }

@@ -4,9 +4,9 @@
 #include "../../BinaryTreeUtils.hpp"
 #include <stack>
 
-std::vector<int> preorderTraversal(TreeNode* root) {
+std::vector<int> preorderTraversal(TreeNode<int>* root) {
     std::vector<int> result;
-    std::stack<TreeNode*> stk;
+    std::stack<TreeNode<int>*> stk;
 
     while (root != nullptr || !stk.empty()) {
         if (root != nullptr) {
@@ -23,13 +23,13 @@ std::vector<int> preorderTraversal(TreeNode* root) {
 }
 
 int main() {
-    std::vector<int> levelOrderValues = {1, 2, 3, 4, INT_MAX, 5, 6};
-    TreeNode* root = buildTree(levelOrderValues);
+    std::vector<int> levelOrderValues = {1, 2, 3, 4, -1, 5, 6};
+    TreeNode<int>* root = buildTree(levelOrderValues, -1);
 
     std::vector<int> result = preorderTraversal(root);
 
     std::cout << "Preorder traversal: ";
-    print_1d(result);
+    printArray(result);
 
     return 0;
 }

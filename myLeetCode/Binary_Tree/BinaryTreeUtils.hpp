@@ -106,7 +106,7 @@ void printArray(const std::vector<T>& arr) {
 }
 
 template <typename T>
-void printArray2D(const std::vector<std::vector<T>>& arr) {
+void printArray(const std::vector<std::vector<T>>& arr) {
     for (const std::vector<T>& row : arr) {
         printArray(row);
     }

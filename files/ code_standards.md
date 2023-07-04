@@ -62,7 +62,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 # rate of progress
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 
-该进行二叉树的iteration的144了。
+该进行226，层序遍历一维数组的代码有什么问题，输入根节点怎么不能输出数组呢？
 
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
