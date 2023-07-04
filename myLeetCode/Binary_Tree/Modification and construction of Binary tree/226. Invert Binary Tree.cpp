@@ -22,7 +22,8 @@ int main() {
     TreeNode<int>* inverted = invertTree(root);
 
     std::cout << "Inverted binary tree:" << std::endl;
-    std::vector<std::vector<int>> result = levelOrder(inverted);
+    // std::vector<std::vector<int>> result = levelOrder2D(inverted);
+    std::vector<int> result = levelOrder(inverted);
     printArray(result);
     return 0;
 }
