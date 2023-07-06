@@ -106,9 +106,17 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 - syntax-highlighting
 - autojump
 - Powerlevel10k
-
+1. 集群上设置zsh为默认
 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
 解决方案：在.bashrc、.bash_profile都启动zsh。
+2. debian上vscode怎么设置zsh为默认
+要在最新的 VS Code 中设置默认的终端 shell，请按照以下步骤进行操作：
+打开 VS Code 并进入菜单栏的 “File”（文件）选项。
+选择 “Preferences”（首选项）并点击 “Settings”（设置）。
+在设置页面的搜索框中，输入 “terminal.integrated.defaultProfile.linux”。
+在右侧的下拉菜单中，选择您想要的默认终端 shell。如果您已经安装了 Zsh，则可能会看到类似 “zsh” 或 “Zsh” 的选项。
+保存设置并关闭页面。
+现在，当您在 VS Code 中打开终端时，它应该默认使用您选择的终端 shell。
 ### gcc
 [Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&utm_relevant_index=2)
 

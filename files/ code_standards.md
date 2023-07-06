@@ -57,6 +57,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 统一treenode的数据结构
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
 
+这个主机，为什么不能直接激活zsh,研究一下，需要改变。
 这个题目，你可以给一个cpp的解答吗?
 你写的很好，那把mian函数写一下吧，只需要输出mian函数。
 # rate of progress
