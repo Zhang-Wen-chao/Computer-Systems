@@ -66,6 +66,8 @@ nvcc -V
 nvidia-smi
 python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
 ```
+## conda
+[解决CondaHTTPError: HTTP 000 CONNECTION 问题](https://zhuanlan.zhihu.com/p/260034241)
 ## Common software
 - clash、飞书、百度网盘、向日葵、zoom、discord、telegram、cursor、Typora beta、OBS Studio
 - [最新Win11系统怎么删除开机密码 Win11取消登录密码图文教程](https://zhuanlan.zhihu.com/p/470573521)
