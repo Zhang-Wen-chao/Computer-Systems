@@ -30,7 +30,6 @@ std::vector<int> rightSideView(TreeNode<int>* root) {
 int main() {
     std::vector<int> levelOrderValues = {1, 2, 3, -1, 5, -1, 4};
     TreeNode<int>* root = buildTree(levelOrderValues, -1);
-
     std::vector<int> result = rightSideView(root);
 
     std::cout << "Right Side View of Binary Tree:" << std::endl;
