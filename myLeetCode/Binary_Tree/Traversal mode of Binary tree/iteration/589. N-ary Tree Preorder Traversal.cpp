@@ -29,7 +29,6 @@ std::vector<T> preorder(NTreeNode<T>* root) {
 }
 
 int main() {
-    // Create an example N-ary tree
     NTreeNode<int>* root = new NTreeNode<int>(1);
     NTreeNode<int>* child1 = new NTreeNode<int>(3);
     NTreeNode<int>* child2 = new NTreeNode<int>(2);
