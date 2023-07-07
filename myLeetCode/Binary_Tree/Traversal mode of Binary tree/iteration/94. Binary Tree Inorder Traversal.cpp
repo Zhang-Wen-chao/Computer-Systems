@@ -1,13 +1,13 @@
 // 94. Binary Tree Inorder Traversal
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
 
-
 #include "../../BinaryTreeUtils.hpp"
 #include <stack>
 
-std::vector<int> inorderTraversal(TreeNode<int>* root) {
-    std::vector<int> result;
-    std::stack<TreeNode<int>*> stk;
+template <typename T>
+std::vector<T> inorderTraversal(TreeNode<T>* root) {
+    std::vector<T> result;
+    std::stack<TreeNode<T>*> stk;
 
     while (root != nullptr || !stk.empty()) {
         if (root != nullptr) {
@@ -25,9 +25,7 @@ std::vector<int> inorderTraversal(TreeNode<int>* root) {
 }
 
 int main() {
-    std::vector<int> levelOrderValues = {1, 2, 3, 4, -1, 5, 6};
-    TreeNode<int>* root = buildTree(levelOrderValues, -1);
-
+    TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
     std::vector<int> result = inorderTraversal(root);
 
     std::cout << "Inorder traversal: ";

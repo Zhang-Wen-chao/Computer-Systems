@@ -1,54 +1,39 @@
 // 429. N-ary Tree Level Order Traversal
 // https://leetcode.com/problems/n-ary-tree-level-order-traversal/
 
+#include "../../BinaryTreeUtils.hpp"
 
-#include <iostream>
-#include <vector>
-#include <queue>
+template <typename T>
+struct NTreeNode {
+    T val;
+    std::vector<NTreeNode*> children;
 
-// N叉树节点定义
-class Node {
-public:
-    int val;
-    std::vector<Node*> children;
-
-    Node() {}
-
-    Node(int _val) {
-        val = _val;
-    }
-
-    Node(int _val, std::vector<Node*> _children) {
-        val = _val;
-        children = _children;
-    }
+    NTreeNode(T x) : val(x) {}
 };
 
 // N叉树层序遍历函数
-std::vector<std::vector<int>> levelOrder(Node* root) {
-    std::vector<std::vector<int>> result;
-    if (root == nullptr) {
-        return result;
-    }
+template <typename T>
+std::vector<std::vector<T>> levelOrder(NTreeNode<T>* root) {
+    std::vector<std::vector<T>> result;
+    if (root == nullptr) return result;
 
-    std::queue<Node*> q;
+    std::queue<NTreeNode<T>*> q;
     q.push(root);
 
     while (!q.empty()) {
         int size = q.size();
-        std::vector<int> level;
+        std::vector<T> level;
 
         for (int i = 0; i < size; i++) {
-            Node* curr = q.front();
+            NTreeNode<T>* curr = q.front();
             q.pop();
 
             level.push_back(curr->val);
 
-            for (Node* child : curr->children) {
+            for (NTreeNode<T>* child : curr->children) {
                 q.push(child);
             }
         }
-
         result.push_back(level);
     }
 
@@ -57,12 +42,12 @@ std::vector<std::vector<int>> levelOrder(Node* root) {
 
 int main() {
     // 构建测试N叉树
-    Node* root = new Node(1);
-    Node* node2 = new Node(2);
-    Node* node3 = new Node(3);
-    Node* node4 = new Node(4);
-    Node* node5 = new Node(5);
-    Node* node6 = new Node(6);
+    NTreeNode<int>* root = new NTreeNode<int>(1);
+    NTreeNode<int>* node2 = new NTreeNode<int>(2);
+    NTreeNode<int>* node3 = new NTreeNode<int>(3);
+    NTreeNode<int>* node4 = new NTreeNode<int>(4);
+    NTreeNode<int>* node5 = new NTreeNode<int>(5);
+    NTreeNode<int>* node6 = new NTreeNode<int>(6);
 
     root->children.push_back(node3);
     root->children.push_back(node2);
@@ -71,17 +56,9 @@ int main() {
     node3->children.push_back(node5);
     node3->children.push_back(node6);
 
-    // 获取N叉树的层序遍历结果
     std::vector<std::vector<int>> result = levelOrder(root);
-
-    // 打印遍历结果
     std::cout << "Level Order Traversal of N-ary Tree:" << std::endl;
-    for (const auto& level : result) {
-        for (int val : level) {
-            std::cout << val << " ";
-        }
-        std::cout << std::endl;
-    }
+    printArray(result);
 
     return 0;
 }

@@ -57,12 +57,12 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 统一treenode的数据结构
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
 
-这个题目，你可以给一个cpp的解答吗?
+这个题目，你可以给一个cpp的解答吗
 你写的很好，那把mian函数写一下吧，只需要输出mian函数。
 # rate of progress
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 
-该进行589,n叉树的遍历，放在遍历的文件夹。
+515结束了，让我意识到，我应该把函数都写成模板，只有在主函数中调用的时候才具体化。
 
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.

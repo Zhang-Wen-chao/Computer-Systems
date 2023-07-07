@@ -3,15 +3,17 @@
 
 #include "../../BinaryTreeUtils.hpp"
 
-void preorderTraversal(TreeNode<int>* root, std::vector<int>& result) {
+template <typename T>
+void preorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
     if (root == nullptr) return;
     result.push_back(root->val); // 将当前节点的值加入结果数组
     preorderTraversal(root->left, result); // 递归遍历左子树
     preorderTraversal(root->right, result); // 递归遍历右子树
 }
 
-std::vector<int> preorderTraversal(TreeNode<int>* root) {
-    std::vector<int> result;
+template <typename T>
+std::vector<T> preorderTraversal(TreeNode<T>* root) {
+    std::vector<T> result;
     preorderTraversal(root, result);
     return result;
 }
