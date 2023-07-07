@@ -70,7 +70,7 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
 
 // 二叉树层序遍历函数（返回二维数组）
 template <typename T>
-std::vector<std::vector<T>> levelOrder2D(TreeNode<T>* root) {
+std::vector<std::vector<T>> levelOrder(TreeNode<T>* root, int dummyParam) {
     std::vector<std::vector<T>> result;
     if (root == nullptr) return result;
 
