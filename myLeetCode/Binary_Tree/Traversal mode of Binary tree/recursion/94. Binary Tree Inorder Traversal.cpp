@@ -20,10 +20,8 @@ std::vector<T> inorderTraversal(TreeNode<T>* root) {
 
 int main() {
     TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
-    std::vector<int> result = inorderTraversal(root);
-
     std::cout << "Inorder Traversal: ";
-    printArray(result);
+    printArray(inorderTraversal(root));
 
     return 0;
 }

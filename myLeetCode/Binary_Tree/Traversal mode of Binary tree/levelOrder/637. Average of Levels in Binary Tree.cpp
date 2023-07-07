@@ -28,13 +28,9 @@ std::vector<double> averageOfLevels(TreeNode<int>* root) {
 }
 
 int main() {
-    std::vector<int> levelOrderValues = {3, 9, 20, -1, -1, 15, 7};
-    TreeNode<int>* root = buildTree(levelOrderValues, -1);
-
-    std::vector<double> result = averageOfLevels(root);
-
+    TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
     std::cout << "Average of Levels in Binary Tree:" << std::endl;
-    printArray(result);
+    printArray(averageOfLevels(root));
 
     return 0;
 }

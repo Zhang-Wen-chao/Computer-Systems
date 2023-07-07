@@ -19,13 +19,9 @@ std::vector<T> preorderTraversal(TreeNode<T>* root) {
 }
 
 int main() {
-    std::vector<int> levelOrderValues = {1, 2, 3, 4, -1, 5, 6};
-    TreeNode<int>* root = buildTree(levelOrderValues, -1);
-
-    std::vector<int> result = preorderTraversal(root);
-
+    TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
     std::cout << "Preorder Traversal: ";
-    printArray(result);
+    printArray(preorderTraversal(root));
 
     return 0;
 }

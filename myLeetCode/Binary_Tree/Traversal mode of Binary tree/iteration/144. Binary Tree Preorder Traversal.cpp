@@ -25,10 +25,8 @@ std::vector<T> preorderTraversal(TreeNode<T>* root) {
 
 int main() {
     TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
-    std::vector<int> result = preorderTraversal(root);
-
     std::cout << "Preorder traversal: ";
-    printArray(result);
+    printArray(preorderTraversal(root));
 
     return 0;
 }

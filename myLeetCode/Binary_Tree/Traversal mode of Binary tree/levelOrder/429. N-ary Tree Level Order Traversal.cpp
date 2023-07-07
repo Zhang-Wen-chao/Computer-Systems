@@ -3,14 +3,6 @@
 
 #include "../../BinaryTreeUtils.hpp"
 
-template <typename T>
-struct NTreeNode {
-    T val;
-    std::vector<NTreeNode*> children;
-
-    NTreeNode(T x) : val(x) {}
-};
-
 // N叉树层序遍历函数
 template <typename T>
 std::vector<std::vector<T>> levelOrder(NTreeNode<T>* root) {
@@ -41,24 +33,9 @@ std::vector<std::vector<T>> levelOrder(NTreeNode<T>* root) {
 }
 
 int main() {
-    // 构建测试N叉树
-    NTreeNode<int>* root = new NTreeNode<int>(1);
-    NTreeNode<int>* node2 = new NTreeNode<int>(2);
-    NTreeNode<int>* node3 = new NTreeNode<int>(3);
-    NTreeNode<int>* node4 = new NTreeNode<int>(4);
-    NTreeNode<int>* node5 = new NTreeNode<int>(5);
-    NTreeNode<int>* node6 = new NTreeNode<int>(6);
-
-    root->children.push_back(node3);
-    root->children.push_back(node2);
-    root->children.push_back(node4);
-
-    node3->children.push_back(node5);
-    node3->children.push_back(node6);
-
-    std::vector<std::vector<int>> result = levelOrder(root);
+    NTreeNode<int>* root = buildNTree({1, -1, 3, 2, 4, -1, 5, 6}, -1);
     std::cout << "Level Order Traversal of N-ary Tree:" << std::endl;
-    printArray(result);
+    printArray(levelOrder(root));
 
     return 0;
 }

@@ -3,17 +3,18 @@
 
 #include "../../BinaryTreeUtils.hpp"
 
-std::vector<int> rightSideView(TreeNode<int>* root) {
-    std::vector<int> result;
+template <typename T>
+std::vector<T> rightSideView(TreeNode<T>* root) {
+    std::vector<T> result;
     if (root == nullptr) return result;
 
-    std::queue<TreeNode<int>*> q;
+    std::queue<TreeNode<T>*> q;
     q.push(root);
 
     while (!q.empty()) {
         int size = q.size();
         for (int i = 0; i < size; i++) {
-            TreeNode<int>* curr = q.front();
+            TreeNode<T>* curr = q.front();
             q.pop();
 
             if (i == size - 1) {
@@ -28,12 +29,9 @@ std::vector<int> rightSideView(TreeNode<int>* root) {
 }
 
 int main() {
-    std::vector<int> levelOrderValues = {1, 2, 3, -1, 5, -1, 4};
-    TreeNode<int>* root = buildTree(levelOrderValues, -1);
-    std::vector<int> result = rightSideView(root);
-
+    TreeNode<int>* root = buildTree({1, 2, 3, -1, 5, -1, 4}, -1);
     std::cout << "Right Side View of Binary Tree:" << std::endl;
-    printArray(result);
+    printArray(rightSideView(root));
 
     return 0;
 }

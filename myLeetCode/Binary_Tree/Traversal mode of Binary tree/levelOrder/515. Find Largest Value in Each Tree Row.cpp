@@ -15,9 +15,7 @@ std::vector<T> largestValues(TreeNode<T>* root) {
 
     while (!q.empty()) {
         int size = q.size();
-
         T maxVal = std::numeric_limits<T>::lowest(); 
-
         for (int i = 0; i < size; i++) {
             TreeNode<T>* curr = q.front();
             q.pop();
@@ -27,22 +25,15 @@ std::vector<T> largestValues(TreeNode<T>* root) {
             if (curr->left) q.push(curr->left);
             if (curr->right) q.push(curr->right);
         }
-
         result.push_back(maxVal);
     }
-
     return result;
 }
 
 int main() {
-    std::vector<int> levelOrderValues = {1, 3, 2, 5, 3, -1, 9};
-    TreeNode<int>* root = buildTree(levelOrderValues, -1);
-
-    std::vector<int> result = largestValues(root);
-
+    TreeNode<int>* root = buildTree({1, 3, 2, 5, 3, -1, 9}, -1);
     std::cout << "Largest value in each tree row: ";
-    printArray(result);
-    std::cout << std::endl;
+    printArray(largestValues(root));
 
     return 0;
 }

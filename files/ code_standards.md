@@ -62,7 +62,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 # rate of progress
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 
-515结束了，让我意识到，我应该把函数都写成模板，只有在主函数中调用的时候才具体化。
+现在卡在怎么为N叉树建树了。429，589，590
 
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.

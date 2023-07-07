@@ -3,17 +3,16 @@
 
 #include "../BinaryTreeUtils.hpp"
 
-TreeNode<int>* invertTree(TreeNode<int>* root) {
-    if (root == nullptr) {
-        return nullptr;
-    }
+template <typename T>
+TreeNode<T>* invertTree(TreeNode<T>* root) {
+    if (root == nullptr) return nullptr;
 
-    TreeNode<int>* left = invertTree(root->left);
-    TreeNode<int>* right = invertTree(root->right);
+    TreeNode<T>* left = invertTree(root->left);
+    TreeNode<T>* right = invertTree(root->right);
 
     root->left = right;
     root->right = left;
-
+    
     return root;
 }
 
@@ -22,8 +21,7 @@ int main() {
     TreeNode<int>* inverted = invertTree(root);
 
     std::cout << "Inverted binary tree:" << std::endl;
-    // std::vector<std::vector<int>> result = levelOrder2D(inverted);
-    std::vector<int> result = levelOrder(inverted);
-    printArray(result);
+    printArray(levelOrder(inverted));
+
     return 0;
 }

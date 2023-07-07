@@ -97,6 +97,44 @@ std::vector<std::vector<T>> levelOrder(TreeNode<T>* root, int dummyParam) {
     return result;
 }
 
+
+// N叉树节点定义
+template <typename T>
+struct NTreeNode {
+    T val;
+    std::vector<NTreeNode*> children;
+
+    NTreeNode(T x) : val(x) {}
+};
+
+template <typename T>
+NTreeNode<T>* buildNTree(const std::vector<T>& values, const T& nullValue) {
+    if (values.empty()) {
+        return nullptr;
+    }
+
+    std::queue<NTreeNode<T>*> q;
+    NTreeNode<T>* root = new NTreeNode<T>(values[0]);
+    q.push(root);
+
+    int index = 1;
+    while (!q.empty() && index < values.size()) {
+        NTreeNode<T>* curr = q.front();
+        q.pop();
+
+        for (const T& value : values[index]) {
+            if (value != nullValue) {
+                NTreeNode<T>* childNode = new NTreeNode<T>(value);
+                curr->children.push_back(childNode);
+                q.push(childNode);
+            }
+        }
+        index++;
+    }
+
+    return root;
+}
+
 template <typename T>
 void printArray(const std::vector<T>& arr) {
     for (const T& element : arr) {

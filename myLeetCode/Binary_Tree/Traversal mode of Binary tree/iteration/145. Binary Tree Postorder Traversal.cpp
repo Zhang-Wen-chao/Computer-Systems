@@ -35,10 +35,8 @@ std::vector<T> postorderTraversal(TreeNode<T>* root) {
 
 int main() {
     TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
-    std::vector<int> result = postorderTraversal(root);
-
     std::cout << "Postorder traversal: ";
-    printArray(result);
+    printArray(postorderTraversal(root));
 
     return 0;
 }
