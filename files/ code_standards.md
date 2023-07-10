@@ -61,7 +61,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 # rate of progress
 该进行
 106. Construct Binary Tree from Inorder and Postorder Traversal
-
+105. Construct Binary Tree from Preorder and Inorder Traversal
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
