@@ -243,6 +243,12 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 - [github文件夹有向右的白色箭头并且不能打开的解决办法](https://www.jianshu.com/p/7cc6ea70e48e)
 - [2021.8.13起，Github要求使用基于令牌的身份验证](https://zhuanlan.zhihu.com/p/401978754)
 
+### 自定义命令
+在.gitconfig文件里加上
+```shell
+[alias]
+	gpush = !git add . && git commit -m 'update' && git push
+```
 ## edge
 - [CSDN 代码复制限制](https://greasyfork.org/zh-CN/scripts/454012-csdn-%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E9%99%90%E5%88%B6)
 - 强制黑色背景
