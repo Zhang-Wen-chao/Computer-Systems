@@ -244,8 +244,13 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 - [2021.8.13起，Github要求使用基于令牌的身份验证](https://zhuanlan.zhihu.com/p/401978754)
 
 ### 自定义命令
-在.gitconfig文件里加上
+在.gitconfig文件里按照自己的需求加上
 ```shell
+[user]
+	name = Zhang-Wen-chao
+	email = zhangwch2022@shanghaitech.edu.cn
+[http]
+	sslVerify = false
 [alias]
 	gpush = !git add . && git commit -m 'update' && git push
 [filter "lfs"]
@@ -253,13 +258,8 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
-[http]
-	sslVerify = false
 [lfs]
 	contenttype = 0
-[user]
-	name = Zhang-Wen-chao
-	email = zhangwch2022@shanghaitech.edu.cn
 [credential]
 	helper = cache
 ```
