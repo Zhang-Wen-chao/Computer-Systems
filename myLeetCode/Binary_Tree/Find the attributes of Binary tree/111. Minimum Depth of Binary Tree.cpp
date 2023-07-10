@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/minimum-depth-of-binary-tree/
 
 #include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
 #include <climits>
 
 template <typename T>
@@ -17,8 +18,10 @@ int minDepth(TreeNode<T>* root) {
 }
 
 int main() {
-    TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
+    // TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
+    TreeNode<int>* root = buildTree({2, -1, 3, -1, 4, -1, 5, -1, 6}, -1);
     std::cout << "Minimum depth of the binary tree: " << minDepth(root) << std::endl;
-
+    deleteTree(root);
+    
     return 0;
 }

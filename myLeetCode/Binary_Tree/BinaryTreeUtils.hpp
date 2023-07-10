@@ -1,7 +1,6 @@
 #ifndef BINARYTREEUTILS_HPP
 #define BINARYTREEUTILS_HPP
 
-#include <iostream>
 #include <vector>
 #include <queue>
 
@@ -44,6 +43,17 @@ TreeNode<T>* buildTree(const std::vector<T>& levelOrderValues, const T& nullValu
     }
 
     return root;
+}
+
+template <typename T>
+void deleteTree(TreeNode<T>* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    deleteTree(root->left);
+    deleteTree(root->right);
+    delete root;
 }
 
 // 二叉树层序遍历函数（返回一维数组）
@@ -95,59 +105,6 @@ std::vector<std::vector<T>> levelOrder(TreeNode<T>* root, int dummyParam) {
     }
 
     return result;
-}
-
-
-// N叉树节点定义
-template <typename T>
-struct NTreeNode {
-    T val;
-    std::vector<NTreeNode*> children;
-
-    NTreeNode(T x) : val(x) {}
-};
-
-template <typename T>
-NTreeNode<T>* buildNTree(const std::vector<T>& values, const T& nullValue) {
-    if (values.empty()) {
-        return nullptr;
-    }
-
-    std::queue<NTreeNode<T>*> q;
-    NTreeNode<T>* root = new NTreeNode<T>(values[0]);
-    q.push(root);
-
-    int index = 1;
-    while (!q.empty() && index < values.size()) {
-        NTreeNode<T>* curr = q.front();
-        q.pop();
-
-        for (const T& value : values[index]) {
-            if (value != nullValue) {
-                NTreeNode<T>* childNode = new NTreeNode<T>(value);
-                curr->children.push_back(childNode);
-                q.push(childNode);
-            }
-        }
-        index++;
-    }
-
-    return root;
-}
-
-template <typename T>
-void printArray(const std::vector<T>& arr) {
-    for (const T& element : arr) {
-        std::cout << element << " ";
-    }
-    std::cout << std::endl;
-}
-
-template <typename T>
-void printArray(const std::vector<std::vector<T>>& arr) {
-    for (const std::vector<T>& row : arr) {
-        printArray(row);
-    }
 }
 
 #endif // BINARYTREEUTILS_HPP

@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/binary-tree-right-side-view/
 
 #include "../../BinaryTreeUtils.hpp"
+#include "../../printUtils.hpp"
 
 template <typename T>
 std::vector<T> rightSideView(TreeNode<T>* root) {
@@ -32,6 +33,7 @@ int main() {
     TreeNode<int>* root = buildTree({1, 2, 3, -1, 5, -1, 4}, -1);
     std::cout << "Right Side View of Binary Tree:" << std::endl;
     printArray(rightSideView(root));
-
+    deleteTree(root);
+    
     return 0;
 }

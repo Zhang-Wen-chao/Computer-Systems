@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/average-of-levels-in-binary-tree/
 
 #include "../../BinaryTreeUtils.hpp"
+#include "../../printUtils.hpp"
 
 std::vector<double> averageOfLevels(TreeNode<int>* root) {
     std::vector<double> result;
@@ -31,6 +32,7 @@ int main() {
     TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
     std::cout << "Average of Levels in Binary Tree:" << std::endl;
     printArray(averageOfLevels(root));
-
+    deleteTree(root);
+    
     return 0;
 }

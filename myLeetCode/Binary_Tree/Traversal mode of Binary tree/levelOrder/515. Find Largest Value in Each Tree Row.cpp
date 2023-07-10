@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/find-largest-value-in-each-tree-row/
 
 #include "../../BinaryTreeUtils.hpp"
+#include "../../printUtils.hpp"
 #include <limits>
 
 // 找出每一行中的最大值
@@ -34,6 +35,7 @@ int main() {
     TreeNode<int>* root = buildTree({1, 3, 2, 5, 3, -1, 9}, -1);
     std::cout << "Largest value in each tree row: ";
     printArray(largestValues(root));
-
+    deleteTree(root);
+    
     return 0;
 }

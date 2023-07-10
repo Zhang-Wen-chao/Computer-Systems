@@ -1,7 +1,8 @@
 // 589. N-ary Tree Preorder Traversal
 // https://leetcode.com/problems/n-ary-tree-preorder-traversal/
 
-#include "../../BinaryTreeUtils.hpp"
+#include "N-aryTreeUtils.hpp"
+#include "../printUtils.hpp"
 #include <stack>
 
 template <typename T>
@@ -29,27 +30,10 @@ std::vector<T> preorder(NTreeNode<T>* root) {
 }
 
 int main() {
-    NTreeNode<int>* root = new NTreeNode<int>(1);
-    NTreeNode<int>* child1 = new NTreeNode<int>(3);
-    NTreeNode<int>* child2 = new NTreeNode<int>(2);
-    NTreeNode<int>* child3 = new NTreeNode<int>(4);
-    NTreeNode<int>* child4 = new NTreeNode<int>(5);
-    NTreeNode<int>* child5 = new NTreeNode<int>(6);
-
-    root->children.push_back(child1);
-    root->children.push_back(child2);
-    root->children.push_back(child3);
-
-    child1->children.push_back(child4);
-    child1->children.push_back(child5);
-
+    // NTreeNode<int>* root = buildNTree<int>({1, -1, 3, 2, 4, -1, 5, 6}, -1);
+    NTreeNode<int>* root = buildNTree<int>({1,-1,2,3,4,5,-1,-1,6,7,-1,8,-1,9,10,-1,-1,11,-1,12,-1,13,-1,-1,14}, -1);
     printArray(preorder(root));
-    std::cout << std::endl;
-
-    // Clean up the allocated memory
-    // deleteTree(root);
-
-
-
+    deleteNTree(root);
+    
     return 0;
 }

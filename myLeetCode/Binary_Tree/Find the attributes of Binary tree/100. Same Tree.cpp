@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/same-tree/
 
 #include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
 
 template <typename T>
 bool isSameTree(TreeNode<T>* p, TreeNode<T>* q) {
@@ -23,5 +24,8 @@ int main() {
     
     std::cout << std::boolalpha << isSameTree(p, q) << std::endl;
 
+    deleteTree(p);
+    deleteTree(q);
+    
     return 0;
 }

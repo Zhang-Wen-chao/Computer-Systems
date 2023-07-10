@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
 #include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
 
 template <typename T>
 int maxDepth(TreeNode<T>* root) {
@@ -16,6 +17,7 @@ int maxDepth(TreeNode<T>* root) {
 int main() {
     TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
     std::cout << "Maximum depth of the binary tree: " << maxDepth(root) << std::endl;
-
+    deleteTree(root);
+    
     return 0;
 }

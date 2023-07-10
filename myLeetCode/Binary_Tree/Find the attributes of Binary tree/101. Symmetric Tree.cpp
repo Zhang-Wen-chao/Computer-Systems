@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/symmetric-tree/
 
 #include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
 
 template<typename T>
 bool isSymmetricNodes(TreeNode<T>* left, TreeNode<T>* right) {
@@ -24,6 +25,7 @@ int main() {
     // TreeNode<int>* root = buildTree({1, 2, 2, 3, 4, 4, 3}, -1);
     TreeNode<int>* root = buildTree({1, 2, 2, -1, 3, -1, 3}, -1);
     std::cout << "Is the tree symmetric? " << (isSymmetric(root) ? "Yes" : "No") << std::endl;
-
+    deleteTree(root);
+    
     return 0;
 }

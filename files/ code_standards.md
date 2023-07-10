@@ -58,12 +58,11 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
 
 这个题目，你可以给一个cpp的解答吗
-你写的很好，那把mian函数写一下吧，只需要输出mian函数。
 # rate of progress
+该进行
+106. Construct Binary Tree from Inorder and Postorder Traversal
+
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
-
-现在卡在怎么为N叉树建树了。429，589，590
-
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
 2. 代码编译后的复杂度低

@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
 
 #include "../../BinaryTreeUtils.hpp"
+#include "../../printUtils.hpp"
 #include <algorithm>
 
 template <typename T>
@@ -38,6 +39,7 @@ int main() {
     TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
     std::cout << "Level Order Traversal (Bottom-Up):" << std::endl;
     printArray(levelOrderBottom(root));
-
+    deleteTree(root);
+    
     return 0;
 }
