@@ -248,6 +248,20 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 ```shell
 [alias]
 	gpush = !git add . && git commit -m 'update' && git push
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[http]
+	sslVerify = false
+[lfs]
+	contenttype = 0
+[user]
+	name = Zhang-Wen-chao
+	email = zhangwch2022@shanghaitech.edu.cn
+[credential]
+	helper = cache
 ```
 ## edge
 - [CSDN 代码复制限制](https://greasyfork.org/zh-CN/scripts/454012-csdn-%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E9%99%90%E5%88%B6)
