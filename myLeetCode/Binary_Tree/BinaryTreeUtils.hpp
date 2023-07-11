@@ -167,9 +167,11 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
         else {
             result.push_back(curr->val);
         }
-
-        if (curr->left) q.push_back(curr->left);
-        if (curr->right) q.push_back(curr->right);
+        
+        if (curr) {
+            q.push_back(curr->left);
+            q.push_back(curr->right);
+        }
     }
     return result;
 }
