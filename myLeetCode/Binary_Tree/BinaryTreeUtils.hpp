@@ -127,54 +127,9 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
 }
 */
 
-
-
-
-
-
-/*
-#include <limits> // 需要包含这个头文件
-// 二叉树层序遍历函数（返回一维数组）
-template <typename T>
-std::vector<T> levelOrder(TreeNode<T>* root) {
-    std::vector<T> result;
-    if (root == nullptr) return result;
-
-    std::queue<TreeNode<T>*> q;
-    q.push(root);
-
-    while (!q.empty()) {
-        TreeNode<T>* curr = q.front();
-        q.pop();
-
-        // 判断curr是否为空，如果为空，就用一个特殊值代替
-        if (curr == nullptr) {
-            // 如果是char类型，就用'#'作为特殊值
-            if constexpr (std::is_same_v<T, char>) {
-                result.push_back('#');
-            }
-            // 否则就用当前类型的最小值或最大值作为特殊值
-            else {
-                result.push_back(std::numeric_limits<T>::lowest());
-                // 或者 result.push_back(std::numeric_limits<T>::max());
-            }
-        }
-        else {
-            result.push_back(curr->val);
-        }
-
-        if (curr) { // 如果curr不为空，才把它的左右孩子入队
-            q.push(curr->left);
-            q.push(curr->right);
-        }
-    }
-
-    return result;
-}
-*/
-#include <limits> // 需要包含这个头文件
-#include <deque> // 需要包含这个头文件
-// 二叉树层序遍历函数（返回一维数组）
+#include <limits>
+#include <deque>
+// 二叉树层序遍历函数（返回一维数组）输出空节点。
 template <typename T>
 std::vector<T> levelOrder(TreeNode<T>* root) {
     std::vector<T> result;
@@ -213,15 +168,11 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
             result.push_back(curr->val);
         }
 
-        if (curr) { // 如果curr不为空，才把它的左右孩子入队
-            q.push_back(curr->left);
-            q.push_back(curr->right);
-        }
+        if (curr->left) q.push_back(curr->left);
+        if (curr->right) q.push_back(curr->right);
     }
-
     return result;
 }
-
 
 // 二叉树层序遍历函数（返回二维数组）
 template <typename T>
@@ -245,10 +196,8 @@ std::vector<std::vector<T>> levelOrder(TreeNode<T>* root, int dummyParam) {
             if (curr->left) q.push(curr->left);
             if (curr->right) q.push(curr->right);
         }
-
         result.push_back(level);
     }
-
     return result;
 }
 
