@@ -1,47 +1,43 @@
 // 106. Construct Binary Tree from Inorder and Postorder Traversal
 // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
-#include <vector>
-#include <unordered_map>
-#include <iostream>
+// 已知后序与中序,建树
 
-class Solution {
-public:
-    TreeNode* buildTree(std::vector<int>& inorder, std::vector<int>& postorder) {
-        int n = inorder.size();
-        int m = postorder.size();
-        if (n != m) return nullptr;
+#include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
+#include <algorithm>
 
-        std::unordered_map<int, int> map;
-        for (int i = 0; i < n; i++) {
-            map[inorder[i]] = i;
-        }
+template<typename T>
+TreeNode<T>* buildTree(const std::vector<T>& post, const std::vector<T>& in, int root, int start, int end) {
+    if(start > end) return nullptr;
+    int i = std::find(in.begin() + start, in.begin() + end + 1, post[root]) - in.begin();
+    // 这样就可以在in的[start, end]区间内查找post[root]的位置，并且返回它的下标。注意，find函数的第二个参数是要查找的区间的结束位置的下一个迭代器，所以要加上1。另外，find函数返回的是一个迭代器，所以要减去in.begin()来得到下标。
 
-        return buildTree(inorder, 0, n-1, postorder, 0, m-1, map);
-    }
+    TreeNode<T>* t = new TreeNode<T>(post[root]);
+    t->left = buildTree(post, in, root - 1 - end + i, start, i - 1);
+    t->right = buildTree(post, in, root - 1, i + 1, end);
 
-private:
-    TreeNode* buildTree(std::vector<int>& inorder, int il, int ir, 
-                        std::vector<int>& postorder, int pl, int pr, 
-                        std::unordered_map<int, int>& map) {
-        if (il > ir || pl > pr) return nullptr;
-        
-        int root_val = postorder[pr];
-        TreeNode *root = new TreeNode(root_val);
+    return t;
+}
 
-        int k = map[root_val];
-        int num_left = k - il;
+int main() {
+    // std::vector<int> post = {3, 4, 2, 6, 5, 1};
+    // std::vector<int> in = {3, 2, 4, 1, 6, 5};
 
-        root->left = buildTree(inorder, il, k-1, postorder, pl, pl+num_left-1, map);
-        root->right = buildTree(inorder, k+1, ir, postorder, pl+num_left, pr-1, map);
+    std::vector<int> post = {9, 15, 7, 20, 3};
+    std::vector<int> in = {9, 3, 15, 20, 7};
+    TreeNode<int>* root = buildTree(post, in, post.size() - 1, 0, post.size() - 1);
 
-        return root;
-    }
-};
+    std::cout << "levelOrder Traversal: ";
+    printArray(levelOrder(root));
+    deleteTree(root);
 
-int main(){
-    Solution s;
-    std::vector<int> inorder = {9,3,15,20,7};
-    std::vector<int> postorder = {9,15,7,20,3};
-    s.buildTree(inorder, postorder);
+    // 用char类型的数据测试
+    std::vector<char> post2 = {'a', 'c', 'e', 'd', 'b'};
+    std::vector<char> in2 = {'a', 'b', 'c', 'd', 'e'};
+    TreeNode<char>* root2 = buildTree(post2, in2, post2.size() - 1, 0, post2.size() - 1);
+    std::cout << "levelOrder Traversal: ";
+    printArray(levelOrder(root2));
+    deleteTree(root2);
+
     return 0;
 }

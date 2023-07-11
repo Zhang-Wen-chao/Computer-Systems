@@ -2,6 +2,7 @@
 // https://leetcode.com/problems/invert-binary-tree/
 
 #include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
 
 template <typename T>
 TreeNode<T>* invertTree(TreeNode<T>* root) {
