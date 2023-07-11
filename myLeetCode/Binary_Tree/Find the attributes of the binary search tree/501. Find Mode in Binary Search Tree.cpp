@@ -1,59 +1,48 @@
 // 501. Find Mode in Binary Search Tree
 // https://leetcode.com/problems/find-mode-in-binary-search-tree/
-#include <iostream>
-#include <vector>
-#include <map>
 
-// Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
+#include <unordered_map>
+#include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
 
+template<typename T>
 class Solution {
 public:
-    std::vector<int> findMode(TreeNode* root) {
-        std::map<int, int> count;
-        int maxCount = 0;
-        inorderTraversal(root, count, maxCount);
-        
-        std::vector<int> result;
-        for (const auto &p : count) {
-            if (p.second == maxCount) result.push_back(p.first);
+    std::vector<T> findMode(TreeNode<T>* root) {
+        std::vector<T> modes;
+        std::unordered_map<T, int> frequencyMap;
+
+        traverse(root, frequencyMap);
+        int maxFrequency = 0;
+        for (auto it = frequencyMap.begin(); it != frequencyMap.end(); ++it) {
+            maxFrequency = std::max(maxFrequency, it->second);
         }
-        
-        return result;
+        // 将所有频率等于最大频率的节点值添加到结果向量中
+        for (auto it = frequencyMap.begin(); it != frequencyMap.end(); ++it) {
+            if (it->second == maxFrequency) {
+                modes.push_back(it->first);
+            }
+        }
+
+        return modes;
     }
-    
-    void inorderTraversal(TreeNode *root, std::map<int, int> &count, int &maxCount) {
-        if (!root) return;
-        inorderTraversal(root->left, count, maxCount);
-        count[root->val]++;
-        maxCount = std::max(maxCount, count[root->val]);
-        inorderTraversal(root->right, count, maxCount);
+
+    void traverse(TreeNode<T>* node, std::unordered_map<T, int>& frequencyMap) {
+        if (node == nullptr) {
+            return;
+        }
+
+        frequencyMap[node->val]++;
+
+        traverse(node->left, frequencyMap);
+        traverse(node->right, frequencyMap);
     }
 };
 
 int main() {
-    // Input the binary search tree
-    TreeNode *root = new TreeNode(1);
-    root->right = new TreeNode(2);
-    root->right->left = new TreeNode(2);
-
-    Solution solution;
-    std::vector<int> result = solution.findMode(root);
-
-    // Output the modes
-    std::cout << "The modes are: ";
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
+    TreeNode<int>* root = buildTree({1, -1, 2, 2}, -1);
+    std::cout << "Modes: " << std::endl;
+    printArray(Solution<int>().findMode(root));
 
     return 0;
 }
-
