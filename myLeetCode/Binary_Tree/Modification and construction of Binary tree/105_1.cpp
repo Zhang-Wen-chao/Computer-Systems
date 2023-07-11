@@ -7,7 +7,7 @@
 先打印左子树，后打印右子树，最后输出当前根结点pre[root]的值。
 */
 
-#include <vector>
+#include <algorithm>
 #include "../printUtils.hpp"
 
 template<typename T>
@@ -15,10 +15,9 @@ void post(const std::vector<T>& pre, const std::vector<T>& in, int root, int sta
     if(start > end)
         return;
     
-    int i = start;
-    while(i < end && in[i] != pre[root]) 
-        i++;
-    
+    auto i = std::find(in.begin() + start, in.begin() + end + 1, pre[root]) - in.begin();
+    // echo "l" | c++filt -t
+    // std::cout << "i的类型是:" << typeid(i).name() << std::endl;
     post(pre, in, root + 1, start, i - 1, result);
     post(pre, in, root + 1 + i - start, i + 1, end, result);
     
@@ -29,16 +28,13 @@ int main() {
     // 用int类型的数据测试
     std::vector<int> pre = {1, 2, 3, 4, 5, 6};
     std::vector<int> in = {3, 2, 4, 1, 6, 5};
-
-
-
     std::vector<int> result;
     post(pre, in, 0, 0, pre.size() - 1, result);
     printArray(result);
 
     // 用char类型的数据测试
-    std::vector<char> pre2 = {'a', 'b', 'c', 'd', 'e', 'f'};
-    std::vector<char> in2 = {'c', 'b', 'd', 'a', 'f', 'e'};
+    std::vector<char> pre2 = {'b', 'a', 'd', 'c', 'e'};
+    std::vector<char> in2 = {'a', 'b', 'c', 'd', 'e'};
     std::vector<char> result2;
     post(pre2, in2, 0, 0, pre2.size() - 1, result2);
     printArray(result2);

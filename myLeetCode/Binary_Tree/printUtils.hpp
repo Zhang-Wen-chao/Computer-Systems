@@ -5,6 +5,17 @@
 #include <iostream>
 #include <vector>
 
+// 打印二叉树节点的存储地址
+template <typename T>
+void printTreeNodeAddresses(TreeNode<T>* root) {
+    if (root == nullptr) return;
+
+    std::cout << "Node: " << reinterpret_cast<uintptr_t>(root) << ", Data: " << root->val << std::endl;
+
+    printTreeNodeAddresses(root->left);
+    printTreeNodeAddresses(root->right);
+}
+
 // 打印一维数组
 template <typename T>
 void printArray(const std::vector<T>& arr) {

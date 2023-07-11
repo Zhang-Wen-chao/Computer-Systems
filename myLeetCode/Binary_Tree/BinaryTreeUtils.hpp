@@ -3,7 +3,9 @@
 
 #include <vector>
 #include <queue>
-
+#include <limits>
+#include <deque>
+#
 // 定义二叉树节点
 template <typename T>
 struct TreeNode {
@@ -56,6 +58,7 @@ void deleteTree(TreeNode<T>* root) {
     delete root;
 }
 
+
 template <typename T>
 void preorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
     if (root == nullptr) return;
@@ -87,6 +90,7 @@ std::vector<T> inorderTraversal(TreeNode<T>* root) {
     return result;
 }
 
+
 template <typename T>
 void postorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
     if (root == nullptr) return;
@@ -102,7 +106,8 @@ std::vector<T> postorderTraversal(TreeNode<T>* root) {
     return result;
 }
 
-// 二叉树层序遍历函数（返回一维数组）
+
+// 二叉树层序遍历函数（返回一维数组）不输出空节点。
 /*
 
 template <typename T>
@@ -127,8 +132,6 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
 }
 */
 
-#include <limits>
-#include <deque>
 // 二叉树层序遍历函数（返回一维数组）输出空节点。
 template <typename T>
 std::vector<T> levelOrder(TreeNode<T>* root) {
@@ -167,7 +170,7 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
         else {
             result.push_back(curr->val);
         }
-        
+
         if (curr) {
             q.push_back(curr->left);
             q.push_back(curr->right);
@@ -176,7 +179,7 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
     return result;
 }
 
-// 二叉树层序遍历函数（返回二维数组）
+// 二叉树层序遍历函数（返回二维数组）不输出空节点。
 template <typename T>
 std::vector<std::vector<T>> levelOrder(TreeNode<T>* root, int dummyParam) {
     std::vector<std::vector<T>> result;

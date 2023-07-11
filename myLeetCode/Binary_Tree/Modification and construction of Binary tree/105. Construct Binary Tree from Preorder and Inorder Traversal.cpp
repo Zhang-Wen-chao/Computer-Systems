@@ -7,37 +7,41 @@
 先打印左子树，后打印右子树，最后输出当前根结点pre[root]的值。
 */
 
+#include <algorithm>
 #include "../BinaryTreeUtils.hpp"
 #include "../printUtils.hpp"
-#include <algorithm>
 
-TreeNode<int>* buildTree(const std::vector<int>& pre, const std::vector<int>& in, int root, int start, int end) {
+template <typename T>
+TreeNode<T>* buildTree(const std::vector<T>& pre, const std::vector<T>& in, int root, int start, int end) {
     if(start > end) 
         return nullptr;
 
-    int i = std::find(in.begin() + start, in.begin() + end + 1, pre[root]) - in.begin();
-
-    TreeNode<int>* t = new TreeNode<int>(pre[root]);
+    auto i = std::find(in.begin() + start, in.begin() + end + 1, pre[root]) - in.begin();
+    // 这样就可以在in的[start, end]区间内查找post[root]的位置，并且返回它的下标。注意，find函数的第二个参数是要查找的区间的结束位置的下一个迭代器，所以要加上1。另外，find函数返回的是一个迭代器，所以要减去in.begin()来得到下标。
+    TreeNode<T>* t = new TreeNode<T>(pre[root]);
     t->left = buildTree(pre, in, root + 1, start, i - 1);
     t->right = buildTree(pre, in, root + 1 + i - start, i + 1, end);
+
     return t;
 }
 
 int main(){
-    // std::vector<int> pre = {1, 2, 3, 4, 5, 6};
-    // std::vector<int> in = {3, 2, 4, 1, 6, 5};
-
-
-
+    std::vector<int> pre = {3, 9, 20, 15, 7};
+    std::vector<int> in = {9, 3, 15, 20, 7};
     TreeNode<int>* root = buildTree(pre, in, 0, 0, pre.size() - 1);
-    std::cout << "Postorder Traversal: ";
-    printArray(postorderTraversal(root));
-
     std::cout << "levelOrder Traversal: ";
     printArray(levelOrder(root));
-
     deleteTree(root);
     
+
+    // 用char类型的数据测试
+    std::vector<char> pre2 = {'b', 'a', 'd', 'c', 'e'};
+    std::vector<char> in2 = {'a', 'b', 'c', 'd', 'e'};
+    TreeNode<char>* root2 = buildTree(pre2, in2, 0, 0, pre2.size() - 1);
+    std::cout << "levelOrder Traversal: ";
+    printArray(levelOrder(root2));
+    deleteTree(root2);
+
     return 0;
 }
 

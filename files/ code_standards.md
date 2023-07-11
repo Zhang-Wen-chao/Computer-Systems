@@ -60,9 +60,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 这个题目，你可以给一个cpp的解答吗
 # rate of progress
 该进行
-再打磨一下105、106.
-106. Construct Binary Tree from Inorder and Postorder Traversal
-105. Construct Binary Tree from Preorder and Inorder Traversal
+501. Find Mode in Binary Search Tree
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 代码关键的是：
