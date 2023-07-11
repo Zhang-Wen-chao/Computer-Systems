@@ -22,7 +22,6 @@ TreeNode<T>* buildTree(const std::vector<T>& post, const std::vector<T>& in, int
 int main() {
     // std::vector<int> post = {3, 4, 2, 6, 5, 1};
     // std::vector<int> in = {3, 2, 4, 1, 6, 5};
-
     std::vector<int> post = {9, 15, 7, 20, 3};
     std::vector<int> in = {9, 3, 15, 20, 7};
     TreeNode<int>* root = buildTree(post, in, post.size() - 1, 0, post.size() - 1);
