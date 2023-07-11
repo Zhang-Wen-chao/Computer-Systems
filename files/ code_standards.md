@@ -70,6 +70,16 @@ if constexpr (std::is_same_v<T, char>) {
     result.push_back('#');
 }
 
+两个问号是什么东西？
+template<typename T>
+TreeNode<T>* findNode(TreeNode<T>* root, T value) {
+    if (root == nullptr || root->val == value) {
+        return root;
+    }
+    
+    return findNode(root->left, value) ?? findNode(root->right, value);
+}
+
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
