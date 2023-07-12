@@ -61,7 +61,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 你写的很好，那能不能给一个main函数来测试一下正确与否
 # rate of progress
 该进行的是：greedy 53
-
+test
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
