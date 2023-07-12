@@ -81,14 +81,12 @@ void preorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
     preorderTraversal(root->left, result); // 递归遍历左子树
     preorderTraversal(root->right, result); // 递归遍历右子树
 }
-
 template <typename T>
 std::vector<T> preorderTraversal(TreeNode<T>* root) {
     std::vector<T> result;
     preorderTraversal(root, result);
     return result;
 }
-
 
 template <typename T>
 void inorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
@@ -97,14 +95,12 @@ void inorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
     result.push_back(root->val); // 将当前节点的值加入结果数组
     inorderTraversal(root->right, result); // 递归遍历右子树
 }
-
 template <typename T>
 std::vector<T> inorderTraversal(TreeNode<T>* root) {
     std::vector<T> result;
     inorderTraversal(root, result);
     return result;
 }
-
 
 template <typename T>
 void postorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
@@ -113,7 +109,6 @@ void postorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
     postorderTraversal(root->right, result); // 递归遍历右子树
     result.push_back(root->val); // 将当前节点的值加入结果数组
 }
-
 template <typename T>
 std::vector<T> postorderTraversal(TreeNode<T>* root) {
     std::vector<T> result;

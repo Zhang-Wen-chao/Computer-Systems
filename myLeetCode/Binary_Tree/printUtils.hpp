@@ -50,6 +50,28 @@ std::string vectorToString(std::vector<T> vec) {
     return ss.str();
 }
 
+template<typename T>
+void printTreePreOrder(TreeNode<T>* root) {
+    if (root == nullptr) return;
+    std::cout << root->val << " ";
+    printTreePreOrder(root->left);
+    printTreePreOrder(root->right);
+}
+template<typename T>
+void printTreeInOrder(TreeNode<T>* root) {
+    if (root == nullptr) return;
+    printTreeInOrder(root->left);
+    std::cout << root->val << " ";
+    printTreeInOrder(root->right);
+}
+template<typename T>
+void printTreePostOrder(TreeNode<T>* root) {
+    if (root == nullptr) return;
+    printTreePostOrder(root->left);
+    printTreePostOrder(root->right);
+    std::cout << root->val << " ";
+}
+
 // Function to convert a 2D vector to string
 template<typename T>
 std::string vectorOfVectorToString(std::vector<std::vector<T>> vec) {

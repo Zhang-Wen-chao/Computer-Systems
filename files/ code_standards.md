@@ -55,14 +55,16 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 不用或少用auto
 - 输入放在main的代码上，不要在控制台一个一个输入。
 - 统一treenode的数据结构
-- 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
+
 
 这个题目，你可以给一个cpp的解答吗
 # rate of progress
-该进行
-
+该进行的是：450的代码能否精简？
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
+- 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
+- 我把二叉树的公共祖先问题放在了二叉搜索树属性的文件夹中。
+
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
 2. 代码编译后的复杂度低

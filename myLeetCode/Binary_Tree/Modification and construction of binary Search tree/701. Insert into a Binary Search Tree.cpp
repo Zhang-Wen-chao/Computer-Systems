@@ -1,31 +1,36 @@
 // 701. Insert into a Binary Search Tree
 // https://leetcode.com/problems/insert-into-a-binary-search-tree/
 
-
-#include <iostream>
-#include <climits>
-
 #include "../BinaryTreeUtils.hpp"
+#include "../printUtils.hpp"
 
-
-void inorderTraversal(TreeNode* root) {
-    if (root == nullptr) {
-        return;
-    }
-
-    inorderTraversal(root->left);
-    std::cout << root->val << " ";
-    inorderTraversal(root->right);
+template<typename T>
+TreeNode<T>* insertIntoBST(TreeNode<T>* root, T val) {
+    if (!root) return new TreeNode<T>(val);
+    if (root->val > val)
+        root->left = insertIntoBST(root->left, val);
+    else
+        root->right = insertIntoBST(root->right, val);
+    return root;
 }
 
 int main() {
-    std::vector<int> data = {1, 2, 3, INT_MAX, 4, 5, 6, 7, INT_MAX};
+    TreeNode<int>* root = buildTree({4, 2, 7, 1, 3}, -1);
+    TreeNode<int>* result = insertIntoBST(root, 5);
+    std::cout << "The result is: " << std::endl;
+    printArray(levelOrder(result));
 
-    TreeNode* root = buildTree(data);
 
-    std::cout << "Inorder Traversal: ";
-    inorderTraversal(root);
-    std::cout << std::endl;
+    TreeNode<int>* root2 = buildTree({40, 20, 60, 10, 30, 50, 70}, -1);
+    TreeNode<int>* result2 = insertIntoBST(root2, 25);
+    std::cout << "The result is: " << std::endl;
+    printArray(levelOrder(result2));
+
+
+    TreeNode<int>* root3 = buildTree({4, 2, 7, 1, 3, -1, -1, -1, -1, -1, -1}, -1);
+    TreeNode<int>* result3 = insertIntoBST(root3, 5);
+    std::cout << "The result is: " << std::endl;
+    printArray(levelOrder(result3));
 
     return 0;
 }

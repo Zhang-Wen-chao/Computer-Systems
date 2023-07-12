@@ -24,12 +24,16 @@ TreeNode<T>* lowestCommonAncestor(TreeNode<T>* root, TreeNode<T>* p, TreeNode<T>
 
 int main() {
     TreeNode<int>* root = buildTree({3,5,1,6,2,0,8,-1,-1,7,4}, -1);
+    // TreeNode<int>* p = root->left; // p = 5
+    // TreeNode<int>* q = root->right; // q = 1
     TreeNode<int>* p = findNode(root, 5);  // 找到节点p
     TreeNode<int>* q = findNode(root, 1);  // 找到节点q
 
     TreeNode<int>* result = lowestCommonAncestor(root, p, q);
     std::cout << "The lowest common ancestor is: " << result->val << std::endl;
 
+    // TreeNode<int>* p1 = root->left; // p = 5
+    // TreeNode<int>* q1 = root->left->right->right; // q = 4
     TreeNode<int>* p1 = findNode(root, 5);  // 找到节点p1
     TreeNode<int>* q1 = findNode(root, 4);  // 找到节点q1
   
