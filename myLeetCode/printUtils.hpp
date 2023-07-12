@@ -5,6 +5,14 @@
 #include <iostream>
 #include <vector>
 
+template <typename T>
+struct TreeNode {
+    T val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(T x) : val(x), left(nullptr), right(nullptr) {}
+};
+
 // 打印二叉树节点的存储地址
 template <typename T>
 void printTreeNodeAddresses(TreeNode<T>* root) {
@@ -32,6 +40,31 @@ void printArray(const std::vector<std::vector<T>>& arr) {
         printArray(row);
     }
 }
+
+// 打印一维集合
+template <typename T>
+void printSet(const std::vector<T>& arr) {
+    std::cout << "[";
+    for (size_t i = 0; i < arr.size(); ++i) {
+        std::cout << arr[i];
+        if (i != arr.size() - 1) {
+            std::cout << ", ";
+        }
+    }
+    std::cout << "]" << std::endl;
+}
+
+// 打印二维集合
+template <typename T>
+void printSet(const std::vector<std::vector<T>>& arr) {
+    std::cout << "[" << std::endl;
+    for (const std::vector<T>& subset : arr) {
+        printSet(subset);
+    }
+    std::cout << "]" << std::endl;
+}
+
+
 
 // Function to convert a vector to string
 template<typename T>

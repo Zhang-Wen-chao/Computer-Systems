@@ -51,13 +51,13 @@ public:
 };
 
 int main() {
-    TreeNode<int>* root = buildTree({5,3,6,2,4,-1,7}, -1);
+    TreeNode<int>* root = buildTree({5, 3, 6, 2, 4, -1, 7}, -1);
     int key = 3;
     TreeNode<int>* result = Solution<int>().deleteNode(root, key);
     std::cout << "The result is: " << std::endl;
     printArray(levelOrder(result));
 
-    TreeNode<int>* root2 = buildTree({5,3,6,2,4,-1,7}, -1);
+    TreeNode<int>* root2 = buildTree({5, 3, 6, 2, 4, -1, 7}, -1);
     int key2 = 0;
     TreeNode<int>* result2 = Solution<int>().deleteNode(root2, key2);
     std::cout << "The result is: " << std::endl;

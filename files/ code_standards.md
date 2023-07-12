@@ -57,9 +57,9 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 统一treenode的数据结构
 
 
-这个题目，你可以给一个cpp的解答吗
+这个问题，你可以给我一个cpp的回答吗？不要用using namespace std; 不要用using std::vector;就在代码中使用std::vector
 # rate of progress
-该进行的是：450的代码能否精简？
+该进行的是：回溯
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
