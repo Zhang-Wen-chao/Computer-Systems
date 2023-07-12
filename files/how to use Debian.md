@@ -120,6 +120,52 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 在右侧的下拉菜单中，选择您想要的默认终端 shell。如果您已经安装了 Zsh，则可能会看到类似 “zsh” 或 “Zsh” 的选项。
 保存设置并关闭页面。
 现在，当您在 VS Code 中打开终端时，它应该默认使用您选择的终端 shell。
+3. some alias
+目前我在debian本地也开始使用命令行版本的clash,然后在网络设置里面手动设置127.0.0.1:7890
+现在感觉比图形界面的要稳定一些。
+```
+# clash
+open () {
+  ports=(7890 7891 9090)
+  for port in "${ports[@]}"
+  do
+    pids=$(lsof -i TCP:$port -t)
+    if [[ -n $pids ]]; then
+      echo "Killing processes on port $port: $pids"
+      pkill -TERM -P $pids
+    fi
+  done
+  echo "GLaDOS proxy enabled"
+  cd /public/home/zhangwch2022/software/clash
+  # ./clash-linux-amd64-v1.10.0 -f wyc-glados.yaml -d .
+  ./clash-linux-amd64-v1.10.0 -f zwc-glados.yaml -d .
+}
+close () {
+  ports=(7890 7891 9090)  # 要关闭的端口数组
+  for port in "${ports[@]}"
+  do
+    pids=$(lsof -i TCP:$port | awk 'NR!=1 {print $2}')
+    for pid in $pids
+    do
+      echo "Killing process $pid"
+      kill -9 $pid
+    done
+    echo "Port $port closed"
+  done
+}
+up () {
+  export http_proxy="127.0.0.1:7890"
+  export https_proxy="127.0.0.1:7890"
+  env | grep -i proxy
+}
+down () {
+  unset http_proxy
+  unset https_proxy
+  env | grep -i proxy
+}
+# curl https://en.wikipedia.org/wiki/Beijing
+# curl https://www.baidu.com/
+```
 ### gcc
 [Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-129021912-blog-126890605.235%5Ev32%5Epc_relevant_increate_t0_download_v2&utm_relevant_index=2)
 

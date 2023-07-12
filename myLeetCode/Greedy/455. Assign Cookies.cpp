@@ -25,10 +25,9 @@ return count;
 }
 
 int main() {
-    std::vector<int> g = {1,2}; // greed factors of children
-    std::vector<int> s = {1,2,3}; // sizes of cookies
-    int ans = findContentChildren(g, s); // expected answer: 1
-    std::cout << ans << std::endl;
+    std::vector<int> greed = {1,2}; // greed factors of children
+    std::vector<int> cookies = {1,2,3}; // sizes of cookies
+    std::cout << findContentChildren(greed, cookies) << std::endl;
     
     return 0;
 }

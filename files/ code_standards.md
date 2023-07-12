@@ -61,6 +61,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 # rate of progress
 该进行的是：greedy 455
 草，debian上clash怎么回事，连bing chat都不能稳定连接。我决定开始尝试在linux本地使用命令行版本的clash.
+然后需要在zsh里面加上一些alias
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
