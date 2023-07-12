@@ -15,6 +15,7 @@ public:
         return ans;
     }
 
+private:
     void backtrack(std::string& digits, int index, std::vector<std::string>& dict, std::vector<std::string>& ans, std::string& path) {
         if (index == digits.size()) { // 如果已经遍历完所有数字，说明找到一个组合
             ans.push_back(path); // 加入到结果中

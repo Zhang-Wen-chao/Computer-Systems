@@ -13,6 +13,7 @@ public:
         return ans;
     }
 
+private:
     void backtrack(std::string& s, int start, int segment, std::vector<std::string>& ans, std::string& path) {
         if (start == s.size() && segment == 4) { // 如果已经遍历完所有字符且分成了4段，说明找到一个合法的IP地址
             ans.push_back(path.substr(0, path.size() - 1)); // 加入到结果中，注意去掉最后一个点
@@ -39,11 +40,11 @@ public:
 };
 
 int main() {
-    printArray(Solution().restoreIpAddresses("25525511135"));
-    std::cout << "===============" <<std::endl;
-    printArray(Solution().restoreIpAddresses("0000"));
-    std::cout << "===============" <<std::endl;
-    printArray(Solution().restoreIpAddresses("1111"));
+    printSet(Solution().restoreIpAddresses("25525511135"));
+
+    printSet(Solution().restoreIpAddresses("0000"));
+
+    printSet(Solution().restoreIpAddresses("1111"));
 
     return 0;
 }

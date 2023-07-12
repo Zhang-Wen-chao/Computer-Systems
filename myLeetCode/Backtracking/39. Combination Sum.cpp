@@ -14,6 +14,7 @@ public:
         return ans;
     }
 
+private:
     void backtrack(std::vector<int>& candidates, int target, int start, std::vector<std::vector<int>>& ans, std::vector<int>& path) {
         if (target == 0) { // 如果目标值为0，说明找到一个满足条件的组合
             ans.push_back(path); // 加入到结果中

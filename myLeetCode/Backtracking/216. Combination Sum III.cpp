@@ -12,6 +12,7 @@ public:
         return result;
     }
 
+private:
     void backtrack(int k, int n, int start, std::vector<std::vector<int>>& result, std::vector<int>& path) {
         if (k == 0 && n == 0) { // 找到一个满足条件的组合
             result.push_back(path); // 加入到结果中
@@ -27,7 +28,9 @@ public:
 };
 
 int main() {
-    printArray(Solution().combinationSum3(3, 9));
+    printSet(Solution().combinationSum3(3, 7));
+
+    printSet(Solution().combinationSum3(3, 9));
 
     return 0;
 }

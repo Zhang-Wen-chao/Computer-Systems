@@ -51,20 +51,20 @@ void printSet(const std::vector<T>& arr) {
             std::cout << ", ";
         }
     }
-    std::cout << "]" << std::endl;
+    std::cout << "]";
 }
-
 // 打印二维集合
 template <typename T>
 void printSet(const std::vector<std::vector<T>>& arr) {
-    std::cout << "[" << std::endl;
-    for (const std::vector<T>& subset : arr) {
-        printSet(subset);
+    std::cout << "[";
+    for (size_t i = 0; i < arr.size(); ++i) {
+        printSet(arr[i]);
+        if (i != arr.size() - 1) {
+            std::cout << ", ";
+        }
     }
     std::cout << "]" << std::endl;
 }
-
-
 
 // Function to convert a vector to string
 template<typename T>

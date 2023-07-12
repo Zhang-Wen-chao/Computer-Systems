@@ -13,6 +13,7 @@ public:
         return ans;
     }
 
+private:
     void backtrack(std::string& s, int start, std::vector<std::vector<std::string>>& ans, std::vector<std::string>& path) {
         if (start == s.size()) { // 如果已经遍历完所有字符，说明找到一个分割方案
             ans.push_back(path); // 加入到结果中
@@ -41,9 +42,9 @@ public:
 };
 
 int main() {
-    printArray(Solution().partition("aab"));
-    std::cout << "===============" <<std::endl;
-    printArray(Solution().partition("a"));
+    printSet(Solution().partition("aab"));
+
+    printSet(Solution().partition("a"));
 
     return 0;
 }
