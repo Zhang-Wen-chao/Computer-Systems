@@ -58,31 +58,21 @@ void deleteTree(TreeNode<T>* root) {
     delete root;
 }
 
-// template<typename T>
-// TreeNode<T>* findNode(TreeNode<T>* root, T value) {
-//     if (root == nullptr || root->val == value) {
-//         return root;
-//     }
-    
-//     TreeNode<T>* left = findNode(root->left, value);
-//     TreeNode<T>* right = findNode(root->right, value);
-    
-//     if (left != nullptr) {
-//         return left;
-//     } else {
-//         return right;
-//     }
-// }
-
 template<typename T>
 TreeNode<T>* findNode(TreeNode<T>* root, T value) {
     if (root == nullptr || root->val == value) {
         return root;
     }
     
-    return findNode(root->left, value) ?? findNode(root->right, value);
+    TreeNode<T>* left = findNode(root->left, value);
+    TreeNode<T>* right = findNode(root->right, value);
+    
+    if (left != nullptr) {
+        return left;
+    } else {
+        return right;
+    }
 }
-
 
 template <typename T>
 void preorderTraversal(TreeNode<T>* root, std::vector<T>& result) {
@@ -183,7 +173,7 @@ std::vector<T> levelOrder(TreeNode<T>* root) {
         // 判断curr是否为空，如果为空，就用一个特殊值代替
         if (curr == nullptr) {
             // 如果是char类型，就用'#'作为特殊值
-            if constexpr (std::is_same<T, char>::value) {
+            if constexpr (std::is_same_v<T, char>) {
                 result.push_back('#');
             }
             // 否则就用当前类型的最小值或最大值作为特殊值

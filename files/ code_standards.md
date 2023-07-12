@@ -60,25 +60,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 这个题目，你可以给一个cpp的解答吗
 # rate of progress
 该进行
-501. Find Mode in Binary Search Tree
 
-下面这两个是什么区别？
-if constexpr (std::is_same<T, char>::value) {
-    result.push_back('#');
-}
-if constexpr (std::is_same_v<T, char>) {
-    result.push_back('#');
-}
-
-两个问号是什么东西？
-template<typename T>
-TreeNode<T>* findNode(TreeNode<T>* root, T value) {
-    if (root == nullptr || root->val == value) {
-        return root;
-    }
-    
-    return findNode(root->left, value) ?? findNode(root->right, value);
-}
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 代码关键的是：
