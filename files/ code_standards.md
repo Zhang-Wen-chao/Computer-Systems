@@ -56,14 +56,11 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 输入放在main的代码上，不要在控制台一个一个输入。
 - 统一treenode的数据结构
 
-
 这个问题，你可以给我一个cpp的回答吗？不要用using namespace std;
 你写的很好，那能不能给一个main函数来测试一下正确与否
 # rate of progress
-该进行的是：greedy 53
-test
-
-te
+该进行的是：greedy 452,再用copilot写一下另外两个测试数据吧。
+不知道为什么306电脑，连接集群，现在cpp代码不显示红色的错误信息了。
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。

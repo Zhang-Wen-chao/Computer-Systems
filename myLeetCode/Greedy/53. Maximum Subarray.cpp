@@ -5,9 +5,9 @@
 #include <vector>
 #include <algorithm>
 
-int maxSubarraySum(const std::vector<int>& nums) {
-    int currentMax = nums[0];
-    int globalMax = nums[0];
+int maxSubArray(const std::vector<int>& nums) {
+    int currentMax = 0;
+    int globalMax = 0;
 
     for (const auto& num : nums) {
         currentMax = std::max(num, currentMax + num);
@@ -18,15 +18,14 @@ int maxSubarraySum(const std::vector<int>& nums) {
 }
 
 int main() {
-    
-    vector<int> input1 = {-2,1,-3,4,-1,2,1,-5,4}; // Expected output:6 
-    vector<int> input2 = {5,4,-1,7,8}; // Expected output:23 
-    vector<int> input3 = {-1}; // Expected output:-1 
+    std::vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+    std::cout << maxSubArray(nums) << std::endl;
 
-    cout << "The maximum subarray sum for input1 is " << maxSubArray(input1) << endl;
-    cout << "The maximum subarray sum for input2 is " << maxSubArray(input2) << endl;
-    cout << "The maximum subarray sum for input3 is " << maxSubArray(input3) << endl;
+    std::vector<int> nums2 = {1};
+    std::cout << maxSubArray(nums2) << std::endl;
+
+    std::vector<int> nums3 = {5,4,-1,7,8};
+    std::cout << maxSubArray(nums3) << std::endl;
 
     return 0;
-    // write a bubble sort
 }
