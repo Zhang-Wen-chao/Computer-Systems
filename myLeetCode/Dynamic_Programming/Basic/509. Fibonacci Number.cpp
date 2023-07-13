@@ -19,13 +19,11 @@ int fib(int n) {
     return dp[n];
 }
 
-
 int main() {    
-    std::cout << fib(4) << std::endl; // print the output: 3
-
-    std::cout << fib(5) << std::endl; // print the output: 5
-
-    std::cout << fib(6) << std::endl; // print the output: 8
+    std::vector<int> testCases = {2, 3, 4, 5, 6};
+    for (auto& testCase: testCases) {
+        std::cout << "For n = " << testCase << ", the Fibonacci number is: " << fib(testCase) << std::endl;
+    }
     
     return 0;
 }

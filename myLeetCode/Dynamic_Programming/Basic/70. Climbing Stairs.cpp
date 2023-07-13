@@ -18,11 +18,10 @@ int climbStairs(int n) {
 }
 
 int main(){
-    std::cout << climbStairs(2) << std::endl; // print the output: 2
-
-    std::cout << climbStairs(3) << std::endl; // print the output: 3
-
-    std::cout << climbStairs(4) << std::endl; // print the output: 5
+    std::vector<int> testCases = {2, 3, 4};
+    for (auto& testCase: testCases) {
+        std::cout << "For n = " << testCase << ", the number of distinct ways can climb to the top is: " << climbStairs(testCase) << std::endl;
+    }
 
     return 0;
 }
