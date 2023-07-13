@@ -1,7 +1,5 @@
 // LeetCode 509. Fibonacci Number
 // https://leetcode.com/problems/fibonacci-number/
-// Author: Dev Community
-// Date: 2021-12-24
 
 
 // F(0) = 0, F(1) = 1

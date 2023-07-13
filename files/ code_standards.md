@@ -59,12 +59,12 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 这个问题，你可以给我一个cpp的回答吗？不要用using namespace std;
 你写的很好，那能不能给一个main函数来测试一下正确与否
 # rate of progress
-该进行的是：greedy 452,再用copilot写一下另外两个测试数据吧。
-不知道为什么306电脑，连接集群，现在cpp代码不显示红色的错误信息了。
+该进行的是：greedy 452
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
 - 我把二叉树的公共祖先问题放在了二叉搜索树属性的文件夹中。
+- 贪心的股票问题，我都放在了动态规划。动态规划解决一切。
 
 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.

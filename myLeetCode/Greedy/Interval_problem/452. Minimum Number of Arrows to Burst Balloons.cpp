@@ -33,5 +33,11 @@ int main() {
     std::vector<std::vector<int>> points{{10,16},{2,8},{1,6},{7,12}};
     std::cout << "Minimum number of arrows to burst balloons: " << findMinArrowShots(points) << std::endl;
 
+    std::vector<std::vector<int>> points2{{1,2},{3,4},{5,6},{7,8}};
+    std::cout << "Minimum number of arrows to burst balloons: " << findMinArrowShots(points2) << std::endl;
+
+    std::vector<std::vector<int>> points3{{1,2},{2,3},{3,4},{4,5}};
+    std::cout << "Minimum number of arrows to burst balloons: " << findMinArrowShots(points3) << std::endl;
+    
     return 0;
 }
