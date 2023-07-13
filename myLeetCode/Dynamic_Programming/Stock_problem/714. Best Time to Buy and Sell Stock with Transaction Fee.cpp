@@ -3,37 +3,29 @@
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <limits>
 
 int maxProfit(std::vector<int>& prices, int fee) {
     int n = prices.size();
-    if (n <= 1)
-        return 0;
-    
-    int buy = -prices[0];   // 当前持有股票的最大收益
-    int sell = 0;           // 当前不持有股票的最大收益
-    
-    for (int i = 1; i < n; ++i) {
-        int prev_buy = buy;
-        int prev_sell = sell;
-        
-        // 在第 i 天选择买入或者不买入
-        buy = std::max(prev_buy, prev_sell - prices[i]);
-        
-        // 在第 i 天选择卖出或者不卖出
-        sell = std::max(prev_sell, prev_buy + prices[i] - fee);
+    std::vector<std::vector<int>> dp(n, std::vector<int>(2, 0));
+    dp[0][0] -= prices[0]; // 持股票
+    for (int i = 1; i < n; i++) {
+        dp[i][0] = std::max(dp[i - 1][0], dp[i - 1][1] - prices[i]);
+        dp[i][1] = std::max(dp[i - 1][1], dp[i - 1][0] + prices[i] - fee);
     }
-    
-    return sell;    // 返回最终的最大收益
+    return std::max(dp[n - 1][0], dp[n - 1][1]);
 }
 
 int main() {
-    std::vector<int> prices {1, 3, 2, 8, 4, 9};
-    std::cout << "Max profit: " << maxProfit(prices, 2) << std::endl;
-    
-    std::vector<int> prices2 {1, 3, 7, 5, 10, 3};
-    std::cout << "Max profit: " << maxProfit(prices2, 3) << std::endl;
-    
+
+    std::vector<std::vector<int>> testCases = {
+        {1, 3, 2, 8, 4, 9},
+        {1, 3, 7, 5, 10, 3}
+    };
+    std::vector<int> fees = {2, 3};
+
+    for (int i = 0; i < testCases.size(); i++) {
+        std::cout << "For the test case " << i + 1 << ", the maximum profit is " << maxProfit(testCases[i], fees[i]) << "." << std::endl;
+    }
+
     return 0;
 }

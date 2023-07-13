@@ -3,42 +3,57 @@
 
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <numeric> // 包含 accumulate 函数的头文件
 
-class Solution {
-public:
-    bool canPartition(vector<int>& nums) {
-        int sum = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            sum += nums[i];
-        }
-        if (sum % 2 != 0) {
-            return false;
-        }
-        sum /= 2;
-        vector<bool> dp(sum + 1, false);
-        dp[0] = true;
-        for (int i = 0; i < nums.size(); i++) {
-            for (int j = sum; j >= nums[i]; j--) {
-                dp[j] = dp[j] || dp[j - nums[i]];
+bool canPartition(std::vector<int>& nums) {
+    int sum = std::accumulate(nums.begin(), nums.end(), 0);
+    
+    if (sum % 2 != 0) {
+        return false;
+    }
+    
+    int target = sum / 2;
+    int n = nums.size();
+    std::vector<std::vector<bool>> dp(n + 1, std::vector<bool>(target + 1, false));
+    
+    for (int i = 0; i <= n; i++) {
+        dp[i][0] = true;
+    }
+    
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= target; j++) {
+            dp[i][j] = dp[i - 1][j];
+            
+            if (j >= nums[i - 1]) {
+                dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i - 1]];
             }
         }
-        return dp[sum];
     }
-};
+    
+    return dp[n][target];
+}
 
 int main() {
-    vector<vector<int>> testCases = {{1, 5, 11, 5}, {1, 2, 3, 5}, {1, 2, 3, 4, 5, 6, 7}};
-    Solution obj;
-    for (auto& testCase: testCases) {
-        cout << "For the array: [";
+    std::vector<std::vector<int>> testCases = {
+        {1, 5, 11, 5},
+        {1, 2, 3, 5},
+        {1, 2, 3, 4, 5, 6, 7}
+    };
+
+    for (auto& testCase : testCases) {
+        bool result = canPartition(testCase);
+        
+        std::cout << "For the array: [";
         for (int i = 0; i < testCase.size(); i++) {
-            cout << testCase[i];
+            std::cout << testCase[i];
             if (i != testCase.size() - 1) {
-                cout << ", ";
+                std::cout << ", ";
             }
         }
-        cout << "], it is " << (obj.canPartition(testCase) ? "possible" : "not possible") << " to partition the array into two subsets such that the sum of elements in both subsets is equal." << endl;
+        std::cout << "], ";
+        
+        std::cout << (result ? "Partition is possible" : "Partition is not possible") << "." << std::endl;
     }
+
     return 0;
 }

@@ -1,45 +1,37 @@
 // 1049. Last Stone Weight II
 //  https://leetcode.com/problems/last-stone-weight-ii/
+
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <numeric> // 包含 accumulate 函数的头文件
 
-class Solution {
-public:
-    int lastStoneWeightII(vector<int>& stones) {
-        int sum = 0;
-        for (int i = 0; i < stones.size(); i++) {
-            sum += stones[i];
+int lastStoneWeightII(std::vector<int>& stones) {
+    int sum = std::accumulate(stones.begin(), stones.end(), 0);
+
+    int target = sum / 2;
+    std::vector<int> dp(target + 1, 0);
+    
+    for (int stone : stones) {
+        for (int i = target; i >= stone; i--) {
+            dp[i] = std::max(dp[i], dp[i - stone] + stone);
         }
-        int n = stones.size();
-        vector<bool> dp(sum / 2 + 1, false);
-        dp[0] = true;
-        for (int i = 0; i < n; i++) {
-            for (int j = sum / 2; j >= stones[i]; j--) {
-                dp[j] = dp[j] || dp[j - stones[i]];
-            }
-        }
-        for (int i = sum / 2; i >= 0; i--) {
-            if (dp[i]) {
-                return sum - 2 * i;
-            }
-        }
-        return 0;
     }
-};
+    
+    return sum - 2 * dp[target];
+}
 
 int main() {
-    vector<vector<int>> testCases = {{2, 7, 4, 1, 8, 1}, {31, 26, 33, 21, 40}, {1, 2}};
-    Solution obj;
+    std::vector<std::vector<int>> testCases = {{2, 7, 4, 1, 8, 1}, {31, 26, 33, 21, 40}};
     for (auto& testCase: testCases) {
-        cout << "For the array: [";
+        std::cout << "For the array: [";
         for (int i = 0; i < testCase.size(); i++) {
-            cout << testCase[i];
+            std::cout << testCase[i];
             if (i != testCase.size() - 1) {
-                cout << ", ";
+                std::cout << ", ";
             }
         }
-        cout << "], the smallest possible difference between the sum of two subsets of the array is " << obj.lastStoneWeightII(testCase) << "." << endl;
+        std::cout << "], the smallest possible difference between the sum of two subsets of the array is " << lastStoneWeightII(testCase) << "." << std::endl;
     }
+
     return 0;
 }

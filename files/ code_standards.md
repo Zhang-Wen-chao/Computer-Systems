@@ -57,9 +57,11 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 统一treenode的数据结构
 
 这个问题，你可以给我一个cpp的回答吗？不要用using namespace std;
-你写的很好，那能不能给一个main函数来测试一下正确与否
+那请你把这个函数用cpp重写一下吗，遵循以下原则：不要用using namespace std;不使用class，main函数里写更多的testcases，用for循环来遍历。
+这里用i下标来传参是不是就好了？
+一共3对测试案例。怎么才能用for循环，省去重复的内容。
 # rate of progress
-该进行的是：dp 416
+该进行的是：Monotone stack 739
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
