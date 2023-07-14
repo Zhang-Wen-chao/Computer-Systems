@@ -43,3 +43,9 @@ https://blog.csdn.net/tengqi200/article/details/115441616#
 
 将你的函数参数改为一个常量的左值引用，即const std::vector<int>&。这样可以绑定到右值，并且延长它的生命周期，但是不能修改它。
 将你的函数参数改为一个右值引用，即std::vector<int>&&。这样可以绑定到右值，并且可以修改它，但是要注意它的生命周期和有效性。
+# Solution solution;和Solution();的区别
+Solution solution;使用了类的默认构造函数来创建对象。如果您没有提供任何自定义的构造函数，编译器将提供一个默认构造函数，该构造函数没有任何参数。当您使用Solution solution;语法创建对象时，编译器将自动调用默认构造函数来初始化对象。
+
+Solution();语法是显式地调用类的默认构造函数。这是通过在类名后面添加括号，即Solution()，来实现的。这种方式在实际中很少使用，因为通常我们更倾向于使用Solution solution;这种隐式调用默认构造函数的方式。
+
+总的来说，Solution solution;和Solution();在功能上是相同的，都可以用于创建类的对象。但是在实际使用中，Solution solution;更常见和更易读。

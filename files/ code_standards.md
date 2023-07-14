@@ -38,13 +38,12 @@ matrix operations, etc
 
 pay more attention to algorithms, concepts, technologies, rather than particular features, particular programming language. and do not try to use all those fancy features of the language that you just learned in your project, because those features just exist and you want to make your code look cool by using all those features, because this is a good change that a couple of months later, you won't be able to read your own code because it's too complex. And you need to develop proper style of using C++, not to shoot yourself on the foot. And try not to use manual memory allocation, using existing containers like std::vector, or if you use OpenCV, use cv::Mat, etc. Try to put some regression test before you do any refactoring or optimization. There should be some tests, of course. As I said, develop some methodology, a proper methodology how to create robust software that is easy to debug or doesn't need to be debbugged at all, it works out of the box. Instead of just using very complex language constructions that you may not fully understand. When people avoid using raw pointers in C++, but instead use containers like cv::Mat or cv::Vec or shared pointers, the number of memory leaks problems go almost to zero.
 
-
 - use clang-format.
 - 字符串string s；
 - 使用局部变量 i
-- Solution sol;
 - ans 代表 answer
 - stk 代表 stack
+- 但是在实际使用中，Solution solution;更常见和更易读。
 - str 代表 string
 - 使用n代表长度,避免在for循环中一直调用函数nums.size()
 - 其他变量尽量容易懂，不要用什么abcd
@@ -61,7 +60,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 这里用i下标来传参是不是就好了？
 一共3对测试案例。怎么才能用for循环，省去重复的内容。
 # rate of progress
-该进行的是：Monotone stack 739
+该进行的是：计数排序（Counting Sort）
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
