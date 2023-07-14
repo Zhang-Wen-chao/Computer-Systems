@@ -123,7 +123,7 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 3. some alias
 目前我在debian本地也开始使用命令行版本的clash,然后在网络设置里面手动设置127.0.0.1:7890
 现在感觉比图形界面的要稳定一些。
-```
+```shell
 # clash
 open () {
   ports=(7890 7891 9090)
@@ -154,8 +154,11 @@ close () {
   done
 }
 up () {
-  export http_proxy="127.0.0.1:7890"
-  export https_proxy="127.0.0.1:7890"
+  # export http_proxy="127.0.0.1:7890"
+  # export https_proxy="127.0.0.1:7890"
+  export http_proxy="http://127.0.0.1:7890"
+  export https_proxy="http://127.0.0.1:7890"
+
   env | grep -i proxy
 }
 down () {
