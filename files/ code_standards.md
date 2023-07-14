@@ -60,7 +60,8 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 这里用i下标来传参是不是就好了？
 一共3对测试案例。怎么才能用for循环，省去重复的内容。
 # rate of progress
-该进行的是：计数排序（Counting Sort）
+该进行的是：桶排序（Bucket Sort）
+
 
 我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
 - 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
