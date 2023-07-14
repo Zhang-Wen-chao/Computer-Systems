@@ -54,21 +54,7 @@ pay more attention to algorithms, concepts, technologies, rather than particular
 - 不用或少用auto
 - 输入放在main的代码上，不要在控制台一个一个输入。
 - 统一treenode的数据结构
-
-这个问题，你可以给我一个cpp的回答吗？不要用using namespace std;
-那请你把这个函数用cpp重写一下吗，遵循以下原则：不要用using namespace std;不使用class，main函数里写更多的testcases，用for循环来遍历。
-这里用i下标来传参是不是就好了？
-一共3对测试案例。怎么才能用for循环，省去重复的内容。
-# rate of progress
-该进行的是：桶排序（Bucket Sort）
-
-
-我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
-- 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
-- 我把二叉树的公共祖先问题放在了二叉搜索树属性的文件夹中。
-- 贪心的股票问题，我都放在了动态规划。动态规划解决一切。
-
-代码关键的是：
+## 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
 2. 代码编译后的复杂度低
 3. 可读性好
@@ -90,3 +76,17 @@ The other options are not benefits of good code style. In fact, they may indicat
 
 - Allows it to never have to be touched again: This implies that the code is rigid and inflexible, which is not desirable for software development. Code should be adaptable and extensible to changing requirements and needs.
 - Makes sure the author will refactor it later: This implies that the code is messy and incomplete, which is not a good sign of quality. Code should be refactored as soon as possible to avoid technical debt and bugs.
+# rate of progress
+我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
+- 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
+- 我把二叉树的公共祖先问题放在了二叉搜索树属性的文件夹中。
+- 贪心的股票问题，我都放在了动态规划。动态规划解决一切。
+- 补充题目没写。
+## 怎么问chatgpt
+这个问题，你可以给我一个cpp的回答吗？不要用using namespace std;
+
+那请你把这个函数用cpp重写一下吗，遵循以下原则：不要用using namespace std;不使用class，main函数里写更多的testcases，用for循环来遍历。
+
+这里用i下标来传参是不是就好了？
+
+一共3对测试案例。怎么才能用for循环，省去重复的内容。
