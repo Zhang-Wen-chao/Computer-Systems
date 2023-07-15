@@ -5,31 +5,30 @@
 #include <iostream>
 #include <vector>
 
-class Solution {
-  public:
-    std::vector<int> sortedSquares_Double_pointer(std::vector<int> &nums) {
-        int n = nums.size();
-        std::vector<int> ans(n);
-        for (int left = 0, right = n - 1, pos = n - 1; left <= right;) {
-            if (nums[left] * nums[left] > nums[right] * nums[right]) {
-                ans[pos] = nums[left] * nums[left];
-                ++left;
-            } else {
-                ans[pos] = nums[right] * nums[right];
-                --right;
-            }
-            --pos;
+std::vector<int> sortedSquares_Double_pointer(std::vector<int> &nums) {
+    int n = nums.size();
+    std::vector<int> ans(n);
+    for (int left = 0, right = n - 1, pos = n - 1; left <= right;) {
+        if (nums[left] * nums[left] > nums[right] * nums[right]) {
+            ans[pos] = nums[left] * nums[left];
+            ++left;
+        } else {
+            ans[pos] = nums[right] * nums[right];
+            --right;
         }
-        return ans;
+        --pos;
     }
-};
+    return ans;
+}
+
 
 int main() {
-    Solution sol;
     std::vector<int> nums = {-4, -1, 0, 3, 10};
-    std::vector<int> ans = sol.sortedSquares_Double_pointer(nums);
+    std::vector<int> ans = sortedSquares_Double_pointer(nums);
     for (int num : ans) {
         std::cout << num << " ";
     }
+    std::cout << std::endl;
+    
     return 0;
 }
