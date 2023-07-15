@@ -354,3 +354,7 @@ h左，j下，k上，l右
 3dd        删除三行
 - yy 复制当前行
 - p paste
+
+# 文件处理
+## 压缩
+tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
