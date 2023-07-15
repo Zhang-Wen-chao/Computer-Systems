@@ -356,5 +356,11 @@ h左，j下，k上，l右
 - p paste
 
 # 文件处理
+## tree
+看文件树结构。
 ## 压缩
+```bash
 tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
+
+unzip xxx.zip
+```
