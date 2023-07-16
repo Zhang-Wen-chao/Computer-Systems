@@ -356,8 +356,12 @@ h左，j下，k上，l右
 - p paste
 
 # 文件处理
+## wps
+The Linux version has no ads.
+## libreoffice
+libreoffice is open source.
 ## tree
-看文件树结构。
+View the tree structure of the file organization.
 ## 压缩
 ```bash
 tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump

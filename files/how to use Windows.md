@@ -18,6 +18,8 @@ win + v 是剪切板，以及各种符号。
 shift 切换中英文
 逗号句号 翻页按键
 关闭截图快捷键，与飞书的有冲突。
+## wps
+I don't want to buy Microsoft office.
 ## PowerShell
 [使用 PowerShell 将输出导出到文件](https://www.delftstack.com/zh/howto/powershell/powershell-out-file-append/#google_vignette)
 ## Microsoft PowerToys
@@ -39,7 +41,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '234321';
 ## listary
 按两次Ctrl，搜索文件夹，回车打开文件夹。
 ## startallback
-任务栏可以设置成win7的样子，还能设置成透明。
+The taskbar can be set to look like Windows 7, and can also be set to be transparent.
 ## WSL 2
 如果单位没有服务器，可以考虑用WSL 2。（不过听说Windows又出了新的虚拟机技术？）
 [如何在 Windows 10 上安装 WSL 2](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)
