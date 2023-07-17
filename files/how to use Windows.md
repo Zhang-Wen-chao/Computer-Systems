@@ -58,7 +58,7 @@ The taskbar can be set to look like Windows 7, and can also be set to be transpa
 ## 网易有道翻译
 做的确实不错。
 ## 网易云音乐
-我有会员。
+我有会员
 ## logitech
 1. mechanical keyboard. 
 2. logitech mouse G300s(https://support.logi.com/hc/zh-cn/articles/360025298053   https://www.logitechg.com.cn/zh-cn/innovation/g-hub.html)
