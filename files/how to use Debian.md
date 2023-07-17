@@ -103,6 +103,7 @@ Ctrl+; 进入剪贴板输入模式.
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
 设计的时候剪切板就只能显示一行。
 ## vscode
+https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
 ### zsh
 - oh my zsh
 - autosuggestion 
@@ -361,7 +362,7 @@ The Linux version has no ads.
 ## libreoffice
 libreoffice is open source.
 ## tree
-View the tree structure of the file organization.
+View the tree structure of the file organization. 
 ## 压缩
 ```bash
 tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
