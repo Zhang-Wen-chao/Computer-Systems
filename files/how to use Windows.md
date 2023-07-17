@@ -56,7 +56,7 @@ The taskbar can be set to look like Windows 7, and can also be set to be transpa
 ### outlook
 我用这个邮箱，没别的原因，我申请了一个简洁的Outlook邮箱：zwc@outlook.lv
 ## 网易有道翻译
-做的确实不错。
+做的确实不错
 ## 网易云音乐
 我有会员
 ## logitech
