@@ -60,11 +60,13 @@ The taskbar can be set to look like Windows 7, and can also be set to be transpa
 ## 网易云音乐
 我有会员
 ## logitech
-1. mechanical keyboard. 
-2. logitech mouse G300s(https://support.logi.com/hc/zh-cn/articles/360025298053   https://www.logitechg.com.cn/zh-cn/innovation/g-hub.html)
+logitech mouse G300s(https://support.logi.com/hc/zh-cn/articles/360025298053   https://www.logitechg.com.cn/zh-cn/innovation/g-hub.html)
 
+### linux 下设置
 暂时就想到蓝色红色两个模式下，能做什么。日后随着使用，再想黄色的需求。
 
 ![logitech_red](../images/logitech_red.png "logitech_red")
 
 ![logitech_blue](../images/logitech_blue.png "logitech_blue")
+### win 下设置
+![logitech_yellow](../images/logitech_yellow.png "logitech_yellow")
