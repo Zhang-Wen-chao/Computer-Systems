@@ -1,0 +1,83 @@
+开始下载图片 当前系统时间为: 2023-07-17 10:20:54
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_1.jpg	执行耗时: 1008 毫秒	下载并保存图片 source_3-B40803aW-B15_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_2.jpg	执行耗时: 1859 毫秒	下载并保存图片 source_3-B40803aW-B15_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_3.jpg	执行耗时: 1862 毫秒	下载并保存图片 source_3-B40803aW-B15_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_4.jpg	执行耗时: 949 毫秒	下载并保存图片 source_3-B40803aW-B15_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_5.jpg	执行耗时: 896 毫秒	下载并保存图片 source_3-B40803aW-B15_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_6.jpg	执行耗时: 962 毫秒	下载并保存图片 source_3-B40803aW-B15_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_7.jpg	执行耗时: 1396 毫秒	下载并保存图片 source_3-B40803aW-B15_7.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_8.jpg	执行耗时: 1772 毫秒	下载并保存图片 source_3-B40803aW-B15_8.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/B15_9.jpg	执行耗时: 1525 毫秒	下载并保存图片 source_3-B40803aW-B15_9.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/C07_1.jpg	执行耗时: 1802 毫秒	下载并保存图片 source_10-Dest210622-144945-C07_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/C07_2.jpg	执行耗时: 1565 毫秒	下载并保存图片 source_10-Dest210622-144945-C07_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/C07_3.jpg	执行耗时: 1598 毫秒	下载并保存图片 source_10-Dest210622-144945-C07_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/C07_4.jpg	执行耗时: 1608 毫秒	下载并保存图片 source_10-Dest210622-144945-C07_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/C07_5.jpg	执行耗时: 1675 毫秒	下载并保存图片 source_10-Dest210622-144945-C07_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/C07_6.jpg	执行耗时: 1703 毫秒	下载并保存图片 source_10-Dest210622-144945-C07_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/C29_1.jpg	执行耗时: 1561 毫秒	下载并保存图片 source_1-UL001783-C29_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/C29_2.jpg	执行耗时: 2050 毫秒	下载并保存图片 source_1-UL001783-C29_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/C29_3.jpg	执行耗时: 1375 毫秒	下载并保存图片 source_1-UL001783-C29_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/C29_4.jpg	执行耗时: 1357 毫秒	下载并保存图片 source_1-UL001783-C29_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_1.jpg	执行耗时: 1098 毫秒	下载并保存图片 source_3-B40803aW-A02_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_2.jpg	执行耗时: 1073 毫秒	下载并保存图片 source_3-B40803aW-A02_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_3.jpg	执行耗时: 1226 毫秒	下载并保存图片 source_3-B40803aW-A02_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_4.jpg	执行耗时: 1532 毫秒	下载并保存图片 source_3-B40803aW-A02_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_5.jpg	执行耗时: 1354 毫秒	下载并保存图片 source_3-B40803aW-A02_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_6.jpg	执行耗时: 1224 毫秒	下载并保存图片 source_3-B40803aW-A02_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_7.jpg	执行耗时: 2338 毫秒	下载并保存图片 source_3-B40803aW-A02_7.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_8.jpg	执行耗时: 2182 毫秒	下载并保存图片 source_3-B40803aW-A02_8.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_3/B40803aW/A02_9.jpg	执行耗时: 1250 毫秒	下载并保存图片 source_3-B40803aW-A02_9.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/A02_1.jpg	执行耗时: 2051 毫秒	下载并保存图片 source_10-Dest210622-144945-A02_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/A02_2.jpg	执行耗时: 1483 毫秒	下载并保存图片 source_10-Dest210622-144945-A02_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/A02_3.jpg	执行耗时: 1709 毫秒	下载并保存图片 source_10-Dest210622-144945-A02_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/A02_4.jpg	执行耗时: 1835 毫秒	下载并保存图片 source_10-Dest210622-144945-A02_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/A02_5.jpg	执行耗时: 1474 毫秒	下载并保存图片 source_10-Dest210622-144945-A02_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210622-144945/A02_6.jpg	执行耗时: 1278 毫秒	下载并保存图片 source_10-Dest210622-144945-A02_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/A02_1.jpg	执行耗时: 1481 毫秒	下载并保存图片 source_1-UL001783-A02_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/A02_2.jpg	执行耗时: 1454 毫秒	下载并保存图片 source_1-UL001783-A02_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/A02_3.jpg	执行耗时: 1380 毫秒	下载并保存图片 source_1-UL001783-A02_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL001783/A02_4.jpg	执行耗时: 1374 毫秒	下载并保存图片 source_1-UL001783-A02_4.jpg 成功	
+jump_images/0 文件夹下载耗时: 57348 毫秒
+
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_1.jpg	执行耗时: 1343 毫秒	下载并保存图片 source_8-A1170405-B22_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_2.jpg	执行耗时: 1665 毫秒	下载并保存图片 source_8-A1170405-B22_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_3.jpg	执行耗时: 1633 毫秒	下载并保存图片 source_8-A1170405-B22_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_4.jpg	执行耗时: 1438 毫秒	下载并保存图片 source_8-A1170405-B22_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_5.jpg	执行耗时: 1903 毫秒	下载并保存图片 source_8-A1170405-B22_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_6.jpg	执行耗时: 2137 毫秒	下载并保存图片 source_8-A1170405-B22_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_7.jpg	执行耗时: 2819 毫秒	下载并保存图片 source_8-A1170405-B22_7.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_8.jpg	执行耗时: 1538 毫秒	下载并保存图片 source_8-A1170405-B22_8.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/B22_9.jpg	执行耗时: 1839 毫秒	下载并保存图片 source_8-A1170405-B22_9.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/D21_1.jpg	执行耗时: 2754 毫秒	下载并保存图片 source_10-Dest210726-163143-D21_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/D21_2.jpg	执行耗时: 2730 毫秒	下载并保存图片 source_10-Dest210726-163143-D21_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/D21_3.jpg	执行耗时: 2049 毫秒	下载并保存图片 source_10-Dest210726-163143-D21_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/D21_4.jpg	执行耗时: 1566 毫秒	下载并保存图片 source_10-Dest210726-163143-D21_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/D21_5.jpg	执行耗时: 1595 毫秒	下载并保存图片 source_10-Dest210726-163143-D21_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/D21_6.jpg	执行耗时: 1486 毫秒	下载并保存图片 source_10-Dest210726-163143-D21_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/D43_1.jpg	执行耗时: 1379 毫秒	下载并保存图片 source_1-UL000087-D43_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/D43_2.jpg	执行耗时: 1476 毫秒	下载并保存图片 source_1-UL000087-D43_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/D43_3.jpg	执行耗时: 1513 毫秒	下载并保存图片 source_1-UL000087-D43_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/D43_4.jpg	执行耗时: 1484 毫秒	下载并保存图片 source_1-UL000087-D43_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_1.jpg	执行耗时: 1592 毫秒	下载并保存图片 source_8-A1170405-A02_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_2.jpg	执行耗时: 1465 毫秒	下载并保存图片 source_8-A1170405-A02_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_3.jpg	执行耗时: 1459 毫秒	下载并保存图片 source_8-A1170405-A02_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_4.jpg	执行耗时: 1483 毫秒	下载并保存图片 source_8-A1170405-A02_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_5.jpg	执行耗时: 1597 毫秒	下载并保存图片 source_8-A1170405-A02_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_6.jpg	执行耗时: 1502 毫秒	下载并保存图片 source_8-A1170405-A02_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_7.jpg	执行耗时: 1768 毫秒	下载并保存图片 source_8-A1170405-A02_7.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_8.jpg	执行耗时: 1833 毫秒	下载并保存图片 source_8-A1170405-A02_8.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_8/A1170405/A02_9.jpg	执行耗时: 1858 毫秒	下载并保存图片 source_8-A1170405-A02_9.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/A02_1.jpg	执行耗时: 1541 毫秒	下载并保存图片 source_10-Dest210726-163143-A02_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/A02_2.jpg	执行耗时: 1353 毫秒	下载并保存图片 source_10-Dest210726-163143-A02_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/A02_3.jpg	执行耗时: 1565 毫秒	下载并保存图片 source_10-Dest210726-163143-A02_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/A02_4.jpg	执行耗时: 1535 毫秒	下载并保存图片 source_10-Dest210726-163143-A02_4.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/A02_5.jpg	执行耗时: 1400 毫秒	下载并保存图片 source_10-Dest210726-163143-A02_5.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_10/Dest210726-163143/A02_6.jpg	执行耗时: 1339 毫秒	下载并保存图片 source_10-Dest210726-163143-A02_6.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/A02_1.jpg	执行耗时: 1652 毫秒	下载并保存图片 source_1-UL000087-A02_1.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/A02_2.jpg	执行耗时: 1369 毫秒	下载并保存图片 source_1-UL000087-A02_2.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/A02_3.jpg	执行耗时: 2098 毫秒	下载并保存图片 source_1-UL000087-A02_3.jpg 成功	
+URL: https://phenaid.ardigen.com/static-jumpcpexplorer/images/source_1/UL000087/A02_4.jpg	执行耗时: 1643 毫秒	下载并保存图片 source_1-UL000087-A02_4.jpg 成功	
+1 文件夹下载耗时: 64430 毫秒
+
+结束下载图片 当前系统时间为: 2023-07-17 10:22:56
+总耗时: 121 秒	当前系统时间: 2023-07-17 10:22:56
