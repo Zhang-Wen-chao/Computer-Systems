@@ -72,7 +72,6 @@ The taskbar can be set to look like Windows 7, and can also be set to be transpa
 logitech mouse G300s(https://support.logi.com/hc/zh-cn/articles/360025298053   https://www.logitechg.com.cn/zh-cn/innovation/g-hub.html)
 
 ### linux 下设置
-
 ![logitech_red](../images/logitech_red.png "logitech_red")
 
 ![logitech_blue](../images/logitech_blue.png "logitech_blue")
