@@ -35,9 +35,11 @@ I don't want to buy Microsoft office.
 ## MySQL
 https://www.runoob.com/mysql/mysql-install.html
 
+```powershell
 net start mysql
 mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY '234321';
+```
 ## vscode
 [Missing or invalid credentials.](https://juejin.cn/post/7062237873570840589)
 
