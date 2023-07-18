@@ -35,7 +35,7 @@ It can open some unique format: azw3, epub, mobi.
 [7-Zip](https://www.7-zip.org/)
 ## Mobaxterm
 自带x11转发
-就冲休息时候有4只企鹅蹦出来，我就用它。
+就冲休息时候有4只企鹅蹦出来，我就用它
 ## MySQL
 https://www.runoob.com/mysql/mysql-install.html
 
