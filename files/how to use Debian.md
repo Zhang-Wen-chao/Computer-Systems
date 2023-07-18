@@ -304,6 +304,7 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 	sslVerify = false
 [alias]
 	gpush = !git add . && git commit -m 'update' && git push
+	safepull = "! [ -z \"$(git status --porcelain)\" ] && [ -z \"$(git log origin/$(git symbolic-ref --short HEAD)..HEAD --oneline)\" ] && git pull"
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
