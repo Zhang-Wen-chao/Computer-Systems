@@ -23,10 +23,3 @@ so, leetcode !
 3. `git diff --staged` 或 `git diff --cached`: 这个命令用于查看已暂存的修改。它会显示暂存区和最后一次提交之间的差异。
 
 4. `git log --stat`: 该命令用于查看提交历史及其对应的修改统计信息。它会显示每个提交的摘要信息以及所修改的文件数量。
-
-这些命令可以帮助你查看当前仓库是否有修改，并了解具体的修改内容。
-
-git config --global alias.check-pull '!git diff --exit-code && git diff --cached --exit-code && git pull'
-
-在 [alias] 部分下添加以下行：
-check-pull = !git diff --exit-code && git diff --cached --exit-code && git pull
