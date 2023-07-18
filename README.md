@@ -13,3 +13,20 @@
 
 ## cpp is hard
 so, leetcode !
+
+在Git中，有一些命令可以查看当前仓库是否有修改。以下是几个常用的命令：
+
+1. `git status`: 该命令显示当前工作目录和暂存区的状态。它会告诉你是否有未提交的修改、是否有已暂存的修改以及是否有未跟踪的文件。
+
+2. `git diff`: 该命令用于查看当前未暂存的修改。它会显示工作目录中与最后一次提交之间的差异。
+要退出 git diff 命令展示的界面，可以按下键盘上的 q 键。按下 q 键后，终端会退出差异显示，返回到正常的命令行提示符。
+3. `git diff --staged` 或 `git diff --cached`: 这个命令用于查看已暂存的修改。它会显示暂存区和最后一次提交之间的差异。
+
+4. `git log --stat`: 该命令用于查看提交历史及其对应的修改统计信息。它会显示每个提交的摘要信息以及所修改的文件数量。
+
+这些命令可以帮助你查看当前仓库是否有修改，并了解具体的修改内容。
+
+git config --global alias.check-pull '!git diff --exit-code && git diff --cached --exit-code && git pull'
+
+在 [alias] 部分下添加以下行：
+check-pull = !git diff --exit-code && git diff --cached --exit-code && git pull
