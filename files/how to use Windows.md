@@ -23,7 +23,7 @@ I don't want to buy Microsoft office.
 ## PowerShell
 [使用 PowerShell 将输出导出到文件](https://www.delftstack.com/zh/howto/powershell/powershell-out-file-append/#google_vignette)
 ## Microsoft PowerToys
-微软为什么不把这些集成到Windows系统呢？
+微软为什么不把这些集成到Windows系统呢
 ## iVCam
 [Why buy a webcam since you already have a Mobile Phone or Pad?](https://www.e2esoft.com/ivcam/)
 试用期后，不能使用大于640*480的视频尺寸。
