@@ -21,7 +21,8 @@ shift 切换中英文
 ## wps
 I have no money to buy Microsoft office.
 ## calibre
-It can open some unique format: azw3, epub, mobi.
+It can open some unique format: azw3, epub, mobi, kfx.
+[最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
 ## zotero
 [Zotero更改储存路径&迁移文件](https://zhuanlan.zhihu.com/p/478035708)
 ## PowerShell
