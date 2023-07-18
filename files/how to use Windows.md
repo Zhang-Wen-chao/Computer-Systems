@@ -75,5 +75,6 @@ logitech mouse G300s(https://support.logi.com/hc/zh-cn/articles/360025298053   h
 ![logitech_red](../images/logitech_red.png "logitech_red")
 
 ![logitech_blue](../images/logitech_blue.png "logitech_blue")
+
 ### win 下设置
 ![logitech_yellow](../images/logitech_yellow.png "logitech_yellow")
