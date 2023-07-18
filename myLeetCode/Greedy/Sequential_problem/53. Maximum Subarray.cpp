@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int maxSubArray(const std::vector<int>& nums) {
     int currentMax = 0;
