@@ -42,7 +42,6 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '234321';
 ```
 ## vscode
 [Missing or invalid credentials.](https://juejin.cn/post/7062237873570840589)
-
 ## listary
 按两次Ctrl，搜索文件夹，回车打开文件夹。
 ## startallback
