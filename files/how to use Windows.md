@@ -19,7 +19,11 @@ shift 切换中英文
 逗号句号 翻页按键
 关闭截图快捷键，与飞书的有冲突。
 ## wps
-I don't want to buy Microsoft office.
+I have no money to buy Microsoft office.
+## calibre
+It can open some unique format: azw3, epub, mobi.
+## zotero
+[Zotero更改储存路径&迁移文件](https://zhuanlan.zhihu.com/p/478035708)
 ## PowerShell
 [使用 PowerShell 将输出导出到文件](https://www.delftstack.com/zh/howto/powershell/powershell-out-file-append/#google_vignette)
 ## Microsoft PowerToys
