@@ -26,7 +26,7 @@ I don't want to buy Microsoft office.
 微软为什么不把这些集成到Windows系统呢
 ## iVCam
 [Why buy a webcam since you already have a Mobile Phone or Pad?](https://www.e2esoft.com/ivcam/)
-试用期后，不能使用大于640*480的视频尺寸。
+试用期后，不能使用大于640*480的视频尺寸
 ## 7zip
 [7-Zip](https://www.7-zip.org/)
 ## Mobaxterm
