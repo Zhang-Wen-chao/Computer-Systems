@@ -16,3 +16,9 @@
 
 2. `git diff`: 该命令用于查看当前未暂存的修改。它会显示工作目录中与最后一次提交之间的差异
 要退出 git diff 命令展示的界面，可以按下键盘上的 q 键。按下 q 键后，终端会退出差异显示，返回到正常的命令行提示符。
+
+
+打印机相关
+lpstat -o
+cancel HP_LaserJet_M1536dnf_MFP_3184B1_-7
+lp -d  printer HP_LaserJet_M1536dnf_MFP_3184B1_ /usr/share/cups/data/testprint
