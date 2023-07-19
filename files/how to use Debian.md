@@ -195,10 +195,6 @@ bash Miniconda3-latest-Linux-x86_64.sh
 [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 
 ```
-新手用的最多的三条命令
-git add .
-git commit -m 'update'
-git push
 然后你发现不够用, 你会学到
 git commit --amend
 git push -f
@@ -209,7 +205,6 @@ git revert
 git config --global user.name "zvvc"
 git config --global user.email "zwc@outlook.lv"
 git push origin zvvc
-
 
 我当年学了 clone 和 pull 之后就觉得这样够用了，反正我只是用来下载我感兴趣的项目源码。
 后来为了看源码在一段时间内有哪些改动，学了 log 、 show 和 diff 。
@@ -373,6 +368,8 @@ View the tree structure of the file organization.
 ## compressed software
 ```bash
 tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
+
+tar -czvf yushiqi_CPP.tar.gz /home/student001/zhangwch/linux_and_cpp/CPP
 
 unzip xxx.zip
 

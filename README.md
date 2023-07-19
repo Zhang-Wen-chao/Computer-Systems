@@ -10,9 +10,14 @@
 [how to use Debian](./file/how%20to%20use%20debian.md)
 
 [how to use Gentoo](./files/how%20to%20use%20Gentoo.md)
-
 ## cpp is hard
 
 2. `git diff`: 该命令用于查看当前未暂存的修改。它会显示工作目录中与最后一次提交之间的差异
 要退出 git diff 命令展示的界面，可以按下键盘上的 q 键。按下 q 键后，终端会退出差异显示，返回到正常的命令行提示符。
+## Programming in C/C++ Efficiently
+https://www.bilibili.com/video/BV1Vf4y1P7pq
 
+https://github.com/ShiqiYu/CPP
+
+我把lab都写了一遍，打包上传了百度网盘。链接：https://pan.baidu.com/s/1ql5EpXiCh1j0tu3l4uKYaA?pwd=j1ds 
+提取码：j1ds 
