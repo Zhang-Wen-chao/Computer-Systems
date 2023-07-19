@@ -20,3 +20,5 @@
 lpstat -o
 cancel HP_LaserJet_M1536dnf_MFP_3184B1_-7
 lp -d  printer HP_LaserJet_M1536dnf_MFP_3184B1_ /usr/share/cups/data/testprint
+
+https://github.com/laylalaisy
