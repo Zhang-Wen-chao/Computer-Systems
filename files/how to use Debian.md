@@ -358,6 +358,12 @@ h左，j下，k上，l右
 - p paste
 
 # 文件处理
+## 物理打印机
+```bash
+lpstat -o
+cancel HP_LaserJet_M1536dnf_MFP_3184B1_-7
+lp -d  printer HP_LaserJet_M1536dnf_MFP_3184B1_ /usr/share/cups/data/testprint
+```
 ## wps
 The Linux version has no ads.
 ## libreoffice
@@ -365,7 +371,6 @@ libreoffice is open source.
 ## tree
 View the tree structure of the file organization. 
 ## compressed software
-
 ```bash
 tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
 
