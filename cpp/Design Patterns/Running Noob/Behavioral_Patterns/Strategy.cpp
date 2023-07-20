@@ -1,46 +1,31 @@
-/*
-Strategy
-
-Intent
-Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
-
-Applicability
-Use the Strategy pattern when
-
-• many related classes differ only in their behavior. Strategies provide a way to configure a class with one of many behaviors.
-
-• you need different variants of an algorithm. For example, you might define algorithms reflecting different space/time trade-offs. Strategies can be used when these variants are implemented as a class hierarchy of algorithms [HO87].
-
-• an algorithm uses data that clients shouldn’t know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
-
-• a class defines many behaviors, and these appear as multiple conditional statements in its operations. Instead of many conditionals, move related conditional branches into their own Strategy class.
-*/
 #include <iostream>
-#include <string>
 
-// 策略接口
 class Strategy {
 public:
-    virtual void execute() = 0;
+    virtual int doOperation(int num1, int num2) = 0;
 };
 
-// 具体策略类 A
-class ConcreteStrategyA : public Strategy {
+class OperationAdd : public Strategy {
 public:
-    void execute() override {
-        std::cout << "Executing strategy A." << std::endl;
+    int doOperation(int num1, int num2) override {
+        return num1 + num2;
     }
 };
 
-// 具体策略类 B
-class ConcreteStrategyB : public Strategy {
+class OperationSubtract : public Strategy {
 public:
-    void execute() override {
-        std::cout << "Executing strategy B." << std::endl;
+    int doOperation(int num1, int num2) override {
+        return num1 - num2;
     }
 };
 
-// 上下文类
+class OperationMultiply : public Strategy {
+public:
+    int doOperation(int num1, int num2) override {
+        return num1 * num2;
+    }
+};
+
 class Context {
 private:
     Strategy* strategy;
@@ -48,31 +33,27 @@ private:
 public:
     Context(Strategy* strategy) : strategy(strategy) {}
 
-    void setStrategy(Strategy* newStrategy) {
-        strategy = newStrategy;
-    }
-
-    void executeStrategy() {
-        if (strategy) {
-            strategy->execute();
-        }
+    int executeStrategy(int num1, int num2) {
+        return strategy->doOperation(num1, num2);
     }
 };
 
 int main() {
-    ConcreteStrategyA strategyA;
-    ConcreteStrategyB strategyB;
+    Strategy* addition = new OperationAdd();
+    Context contextAddition(addition);
+    std::cout << "10 + 5 = " << contextAddition.executeStrategy(10, 5) << std::endl;
 
-    Context context(&strategyA);
+    Strategy* subtraction = new OperationSubtract();
+    Context contextSubtraction(subtraction);
+    std::cout << "10 - 5 = " << contextSubtraction.executeStrategy(10, 5) << std::endl;
 
-    // 执行策略 A
-    context.executeStrategy();
+    Strategy* multiplication = new OperationMultiply();
+    Context contextMultiplication(multiplication);
+    std::cout << "10 * 5 = " << contextMultiplication.executeStrategy(10, 5) << std::endl;
 
-    // 更改策略为 B
-    context.setStrategy(&strategyB);
-
-    // 执行策略 B
-    context.executeStrategy();
+    delete addition;
+    delete subtraction;
+    delete multiplication;
 
     return 0;
 }

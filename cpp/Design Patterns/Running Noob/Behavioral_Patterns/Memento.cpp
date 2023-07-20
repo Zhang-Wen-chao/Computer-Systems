@@ -1,94 +1,71 @@
-/*
-Memento
-
-Intent
-Without violating encapsulation, capture and externalize an object’s internal state so that the object can be restored to this state later.
-
-Applicability
-Use the Memento pattern when
-
-• a snapshot of (some portion of) an object’s state must be saved so that it can be restored to that state later, and
-
-• a direct interface to obtaining the state would expose implementation details and break the object’s encapsulation.
-*/
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
-// Memento类 - 备忘录，保存Originator的状态
 class Memento {
 private:
-    std::string state;
+   std::string state;
 
 public:
-    Memento(const std::string& newState) : state(newState) {}
+   Memento(const std::string& state)
+      : state(state) {}
 
-    std::string getState() const {
-        return state;
-    }
+   std::string getState() const {
+      return state;
+   }
 };
 
-// Originator类 - 原始对象，可以创建和恢复Memento
 class Originator {
 private:
-    std::string state;
+   std::string state;
 
 public:
-    void setState(const std::string& newState) {
-        state = newState;
-    }
+   void setState(const std::string& state) {
+      this->state = state;
+   }
 
-    std::string getState() const {
-        return state;
-    }
+   std::string getState() const {
+      return state;
+   }
 
-    // 创建并返回Memento对象
-    Memento createMemento() const {
-        return Memento(state);
-    }
+   Memento saveStateToMemento() {
+      return Memento(state);
+   }
 
-    // 从Memento中恢复状态
-    void restoreFromMemento(const Memento& memento) {
-        state = memento.getState();
-    }
+   void getStateFromMemento(const Memento& memento) {
+      state = memento.getState();
+   }
 };
 
-// Caretaker类 - 负责存储并管理Memento对象
-class Caretaker {
+class CareTaker {
 private:
-    std::vector<Memento> mementos;
+   std::vector<Memento> mementoList;
 
 public:
-    void addMemento(const Memento& memento) {
-        mementos.push_back(memento);
-    }
+   void add(const Memento& state) {
+      mementoList.push_back(state);
+   }
 
-    const Memento& getMemento(int index) {
-        return mementos[index];
-    }
+   Memento get(int index) {
+      return mementoList[index];
+   }
 };
 
 int main() {
-    Originator originator;
-    Caretaker caretaker;
+   Originator originator;
+   CareTaker careTaker;
+   originator.setState("State #1");
+   originator.setState("State #2");
+   careTaker.add(originator.saveStateToMemento());
+   originator.setState("State #3");
+   careTaker.add(originator.saveStateToMemento());
+   originator.setState("State #4");
 
-    // 设定初始状态
-    originator.setState("State 1");
-    // 创建Memento，并将其保存到Caretaker
-    caretaker.addMemento(originator.createMemento());
+   std::cout << "Current State: " << originator.getState() << std::endl;
+   originator.getStateFromMemento(careTaker.get(0));
+   std::cout << "First saved State: " << originator.getState() << std::endl;
+   originator.getStateFromMemento(careTaker.get(1));
+   std::cout << "Second saved State: " << originator.getState() << std::endl;
 
-    // 修改状态
-    originator.setState("State 2");
-    // 创建Memento，并将其保存到Caretaker
-    caretaker.addMemento(originator.createMemento());
-
-    // 恢复到第一个状态
-    originator.restoreFromMemento(caretaker.getMemento(0));
-    std::cout << "Current state: " << originator.getState() << std::endl;
-
-    // 恢复到第二个状态
-    originator.restoreFromMemento(caretaker.getMemento(1));
-    std::cout << "Current state: " << originator.getState() << std::endl;
-
-    return 0;
+   return 0;
 }

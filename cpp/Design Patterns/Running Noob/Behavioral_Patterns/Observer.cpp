@@ -1,83 +1,97 @@
-/*
-Observer
-
-Intent
-Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
-
-Applicability
-Use the Observer pattern in any of the following situations:
-
-• When an abstraction has two aspects, one dependent on the other. Encapsulating these aspects in separate objects lets you vary and reuse them independently.
-
-• When a change to one object requires changing others, and you don’t know how many objects need to be changed.
-
-• When an object should be able to notify other objects without making assumptions about who these objects are. In other words, you don’t want these objects tightly coupled.
-*/
 #include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
+#include <bitset>
 
-// Observer类 - 抽象观察者
-class Observer {
-public:
-    virtual void update(const std::string& message) = 0;
-};
+class Observer;
 
-// Subject类 - 抽象主题
 class Subject {
 private:
-    std::vector<Observer*> observers;
+   std::vector<Observer*> observers;
+   int state;
 
 public:
-    void attach(Observer* observer) {
-        observers.push_back(observer);
-    }
+   int getState() const {
+      return state;
+   }
 
-    void detach(Observer* observer) {
-        observers.erase(std::remove_if(observers.begin(), observers.end(),
-            [observer](Observer* o) { return o == observer; }), observers.end());
-    }
+   void setState(int state) {
+      this->state = state;
+      notifyAllObservers();
+   }
 
-    void notify(const std::string& message) {
-        for (const auto& observer : observers) {
-            observer->update(message);
-        }
-    }
+   void attach(Observer* observer) {
+      observers.push_back(observer);
+   }
+
+   void notifyAllObservers();
+
 };
 
-// ConcreteObserver类 - 具体观察者
-class ConcreteObserver : public Observer {
-private:
-    std::string name;
+class Observer {
+protected:
+   Subject* subject;
 
 public:
-    ConcreteObserver(const std::string& newName) : name(newName) {}
-
-    void update(const std::string& message) override {
-        std::cout << name << " received message: " << message << std::endl;
-    }
+   virtual void update() = 0;
 };
+
+class BinaryObserver : public Observer {
+public:
+   BinaryObserver(Subject* subject) {
+      this->subject = subject;
+      this->subject->attach(this);
+   }
+
+   void update() override {
+      std::cout << "Binary String: "
+                << std::bitset<4>(subject->getState()) << std::endl;
+   }
+};
+
+class OctalObserver : public Observer {
+public:
+   OctalObserver(Subject* subject) {
+      this->subject = subject;
+      this->subject->attach(this);
+   }
+
+   void update() override {
+      std::cout << "Octal String: "
+                << std::oct << subject->getState() << std::endl;
+   }
+};
+
+class HexaObserver : public Observer {
+public:
+   HexaObserver(Subject* subject) {
+      this->subject = subject;
+      this->subject->attach(this);
+   }
+
+   void update() override {
+      std::cout << "Hex String: "
+                << std::hex << subject->getState() << std::endl;
+   }
+};
+
+void Subject::notifyAllObservers() {
+   for (auto observer : observers) {
+      observer->update();
+   }
+}
 
 int main() {
-    Subject subject;
-    ConcreteObserver observer1("Observer 1");
-    ConcreteObserver observer2("Observer 2");
-    ConcreteObserver observer3("Observer 3");
+   Subject subject;
 
-    // 注册观察者
-    subject.attach(&observer1);
-    subject.attach(&observer2);
-    subject.attach(&observer3);
+   HexaObserver hexObserver(&subject);
+   OctalObserver octObserver(&subject);
+   BinaryObserver binObserver(&subject);
 
-    // 发送通知
-    subject.notify("Hello, observers!");
+   std::cout << "First state change: 15\n";
+   subject.setState(15);
 
-    // 移除观察者
-    subject.detach(&observer2);
+   std::cout << "Second state change: 10\n";
+   subject.setState(10);
 
-    // 再次发送通知
-    subject.notify("Goodbye, observers!");
-
-    return 0;
+   return 0;
 }

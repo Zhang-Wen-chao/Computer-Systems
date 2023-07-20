@@ -1,82 +1,70 @@
-/*
-Interpreter
-
-Intent
-Given a language, define a represention for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
-
-Applicability
-Use the Interpreter pattern when there is a language to interpret, and you can represent statements in the language as abstract syntax trees. The Interpreter pattern works best when
-
-• the grammar is simple. For complex grammars, the class hierarchy for the grammar becomes large and unmanageable. Tools such as parser generators are a better alternative in such cases. They can interpret expressions without building abstract syntax trees, which can save space and possibly time.
-
-• efficiency is not a critical concern. The most efficient interpreters are usually not implemented by interpreting parse trees directly but by first translating them into another form. For example, regular expressions are often transformed into state machines. But even then, the translator can be implemented by the Interpreter pattern, so the pattern is still applicable.
-*/
-
 #include <iostream>
 #include <string>
-#include <unordered_map>
 
-// Abstract Expression
 class Expression {
 public:
-    virtual int interpret(std::unordered_map<std::string, int>& variables) = 0;
+   virtual bool interpret(const std::string& context) = 0;
 };
 
-// Terminal Expression
-class Number : public Expression {
+class TerminalExpression : public Expression {
 private:
-    int value;
+   std::string data;
 
 public:
-    Number(int value) : value(value) {}
+   TerminalExpression(const std::string& data)
+      : data(data) {}
 
-    int interpret(std::unordered_map<std::string, int>& variables) override {
-        return value;
-    }
+   bool interpret(const std::string& context) override {
+      if (context.find(data) != std::string::npos) {
+         return true;
+      }
+      return false;
+   }
 };
 
-// Nonterminal Expression
-class Variable : public Expression {
+class OrExpression : public Expression {
 private:
-    std::string name;
+   Expression* expr1;
+   Expression* expr2;
 
 public:
-    Variable(const std::string& name) : name(name) {}
+   OrExpression(Expression* expr1, Expression* expr2)
+      : expr1(expr1), expr2(expr2) {}
 
-    int interpret(std::unordered_map<std::string, int>& variables) override {
-        if (variables.find(name) != variables.end()) {
-            return variables[name];
-        }
-        return 0; // Default value if variable not found
-    }
+   bool interpret(const std::string& context) override {
+      return expr1->interpret(context) || expr2->interpret(context);
+   }
 };
 
-// Nonterminal Expression
-class Add : public Expression {
+class AndExpression : public Expression {
 private:
-    Expression* left;
-    Expression* right;
+   Expression* expr1;
+   Expression* expr2;
 
 public:
-    Add(Expression* left, Expression* right) : left(left), right(right) {}
+   AndExpression(Expression* expr1, Expression* expr2)
+      : expr1(expr1), expr2(expr2) {}
 
-    int interpret(std::unordered_map<std::string, int>& variables) override {
-        return left->interpret(variables) + right->interpret(variables);
-    }
+   bool interpret(const std::string& context) override {
+      return expr1->interpret(context) && expr2->interpret(context);
+   }
 };
 
-// Client code
 int main() {
-    std::unordered_map<std::string, int> variables;
-    variables["x"] = 10;
-    variables["y"] = 5;
+   Expression* isMale = new OrExpression(
+      new TerminalExpression("Robert"),
+      new TerminalExpression("John")
+   );
+   Expression* isMarriedWoman = new AndExpression(
+      new TerminalExpression("Julie"),
+      new TerminalExpression("Married")
+   );
 
-    Expression* expression = new Add(new Variable("x"), new Number(15));
-    int result = expression->interpret(variables);
+   std::cout << "John is male? " << (isMale->interpret("John") ? "true" : "false") << std::endl;
+   std::cout << "Julie is a married woman? " << (isMarriedWoman->interpret("Married Julie") ? "true" : "false") << std::endl;
 
-    std::cout << "Result: " << result << std::endl;
+   delete isMale;
+   delete isMarriedWoman;
 
-    delete expression;
-
-    return 0;
+   return 0;
 }

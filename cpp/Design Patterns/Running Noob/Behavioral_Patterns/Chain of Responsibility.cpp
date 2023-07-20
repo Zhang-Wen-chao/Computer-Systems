@@ -1,87 +1,84 @@
-/*
-Chain of Responsibility
-
-Intent
-Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
-
-Applicability
-Use Chain of Responsibility when
-
-• more than one object may handle a request, and the handler isn’t known a priori. The handler should be ascertained automatically.
-
-• you want to issue a request to one of several objects without specifying the receiver explicitly.
-
-• the set of objects that can handle a request should be specified dynamically.
-*/
 #include <iostream>
-#include <string>
 
-// Handler 抽象类
-class Handler {
+class AbstractLogger {
 public:
-    virtual ~Handler() {}
-    virtual void setNext(Handler* next) = 0;
-    virtual void handleRequest(const std::string& request) = 0;
+   static const int INFO = 1;
+   static const int DEBUG = 2;
+   static const int ERROR = 3;
+
+protected:
+   int level;
+   AbstractLogger* nextLogger;
+
+public:
+   void setNextLogger(AbstractLogger* nextLogger) {
+      this->nextLogger = nextLogger;
+   }
+
+   void logMessage(int level, const std::string& message) {
+      if (this->level <= level) {
+         write(message);
+      }
+      if (nextLogger != nullptr) {
+         nextLogger->logMessage(level, message);
+      }
+   }
+
+protected:
+   virtual void write(const std::string& message) = 0;
 };
 
-// 具体的 Handler 实现
-class ConcreteHandlerA : public Handler {
+class ConsoleLogger : public AbstractLogger {
 public:
-    void setNext(Handler* next) override {
-        m_nextHandler = next;
-    }
+   ConsoleLogger(int level) {
+      this->level = level;
+   }
 
-    void handleRequest(const std::string& request) override {
-        if (request == "A") {
-            std::cout << "ConcreteHandlerA: Handling request " << request << std::endl;
-        } else if (m_nextHandler != nullptr) {
-            std::cout << "ConcreteHandlerA: Passing request " << request << " to next handler." << std::endl;
-            m_nextHandler->handleRequest(request);
-        } else {
-            std::cout << "ConcreteHandlerA: Unable to handle request " << request << std::endl;
-        }
-    }
-
-private:
-    Handler* m_nextHandler;
+protected:
+   void write(const std::string& message) override {
+      std::cout << "Standard Console::Logger: " << message << std::endl;
+   }
 };
 
-class ConcreteHandlerB : public Handler {
+class ErrorLogger : public AbstractLogger {
 public:
-    void setNext(Handler* next) override {
-        m_nextHandler = next;
-    }
+   ErrorLogger(int level) {
+      this->level = level;
+   }
 
-    void handleRequest(const std::string& request) override {
-        if (request == "B") {
-            std::cout << "ConcreteHandlerB: Handling request " << request << std::endl;
-        } else if (m_nextHandler != nullptr) {
-            std::cout << "ConcreteHandlerB: Passing request " << request << " to next handler." << std::endl;
-            m_nextHandler->handleRequest(request);
-        } else {
-            std::cout << "ConcreteHandlerB: Unable to handle request " << request << std::endl;
-        }
-    }
-
-private:
-    Handler* m_nextHandler;
+protected:
+   void write(const std::string& message) override {
+      std::cout << "Error Console::Logger: " << message << std::endl;
+   }
 };
 
-// 客户端代码
+class FileLogger : public AbstractLogger {
+public:
+   FileLogger(int level) {
+      this->level = level;
+   }
+
+protected:
+   void write(const std::string& message) override {
+      std::cout << "File::Logger: " << message << std::endl;
+   }
+};
+
 int main() {
-    // 创建责任链
-    Handler* handlerA = new ConcreteHandlerA();
-    Handler* handlerB = new ConcreteHandlerB();
-    handlerA->setNext(handlerB);
+   AbstractLogger* loggerChain = new ErrorLogger(AbstractLogger::ERROR);
+   AbstractLogger* fileLogger = new FileLogger(AbstractLogger::DEBUG);
+   AbstractLogger* consoleLogger = new ConsoleLogger(AbstractLogger::INFO);
 
-    // 处理请求
-    handlerA->handleRequest("A");
-    handlerA->handleRequest("B");
-    handlerA->handleRequest("C");
+   loggerChain->setNextLogger(fileLogger);
+   fileLogger->setNextLogger(consoleLogger);
 
-    // 释放资源
-    delete handlerA;
-    delete handlerB;
+   loggerChain->logMessage(AbstractLogger::INFO, "This is an information.");
+   loggerChain->logMessage(AbstractLogger::DEBUG, "This is a debug level information.");
+   loggerChain->logMessage(AbstractLogger::ERROR, "This is an error information.");
 
-    return 0;
+   delete loggerChain;
+   delete fileLogger;
+   delete consoleLogger;
+
+   return 0;
 }
