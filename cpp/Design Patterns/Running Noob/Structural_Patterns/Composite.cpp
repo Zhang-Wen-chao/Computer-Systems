@@ -1,78 +1,78 @@
-/*
-Composite
-
-Intent
-Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
-
-Applicability
-Use the Composite pattern when
-
-• you want to represent part-whole hierarchies of objects.
-
-• you want clients to be able to ignore the difference between compositions of objects and individual objects. Clients will treat all objects in the composite structure uniformly.
-*/
 #include <iostream>
 #include <vector>
+#include <string>
+#include <algorithm>
 
-// 抽象组件类
-class Component {
-public:
-    virtual void operation() const = 0;
-};
-
-// 叶子组件类
-class Leaf : public Component {
-public:
-    Leaf(const std::string& name) : m_name(name) {}
-    
-    void operation() const {
-        std::cout << "Leaf " << m_name << " operation" << std::endl;
-    }
-
+class Employee {
 private:
-    std::string m_name;
-};
+    std::string name;
+    std::string dept;
+    int salary;
+    std::vector<Employee*> subordinates;
 
-// 容器组件类
-class Composite : public Component {
 public:
-    void add(Component* component) {
-        m_components.push_back(component);
+    Employee(const std::string& name, const std::string& dept, int salary)
+        : name(name), dept(dept), salary(salary), subordinates() {}
+
+    void add(Employee* e) {
+        subordinates.push_back(e);
     }
-    
-    void remove(Component* component) {
-        for (auto it = m_components.begin(); it != m_components.end(); ++it) {
-            if (*it == component) {
-                m_components.erase(it);
-                break;
-            }
-        }
-    }
-    
-    void operation() const {
-        for (auto component : m_components) {
-            component->operation();
+
+    void remove(Employee* e) {
+        auto it = std::find(subordinates.begin(), subordinates.end(), e);
+        if (it != subordinates.end()) {
+            subordinates.erase(it);
         }
     }
 
-private:
-    std::vector<Component*> m_components;
+    const std::vector<Employee*>& getSubordinates() {
+        return subordinates;
+    }
+
+    std::string toString() const {
+        return "Employee: [ Name: " + name + ", dept: " + dept + ", salary: " + std::to_string(salary) + " ]";
+    }
 };
 
-// 客户端代码
 int main() {
-    Component* leafA = new Leaf("A");
-    Component* leafB = new Leaf("B");
-    
-    Component* composite = new Composite();
-    static_cast<Composite*>(composite)->add(leafA);
-    static_cast<Composite*>(composite)->add(leafB);
-    
-    composite->operation();
-    
-    delete leafA;
-    delete leafB;
-    delete composite;
-    
+    Employee* CEO = new Employee("John", "CEO", 30000);
+
+    Employee* headSales = new Employee("Robert", "Head Sales", 20000);
+
+    Employee* headMarketing = new Employee("Michel", "Head Marketing", 20000);
+
+    Employee* clerk1 = new Employee("Laura", "Marketing", 10000);
+    Employee* clerk2 = new Employee("Bob", "Marketing", 10000);
+
+    Employee* salesExecutive1 = new Employee("Richard", "Sales", 10000);
+    Employee* salesExecutive2 = new Employee("Rob", "Sales", 10000);
+
+    CEO->add(headSales);
+    CEO->add(headMarketing);
+
+    headSales->add(salesExecutive1);
+    headSales->add(salesExecutive2);
+
+    headMarketing->add(clerk1);
+    headMarketing->add(clerk2);
+
+    //打印该组织的所有员工
+    std::cout << CEO->toString() << std::endl;
+    for (const auto& headEmployee : CEO->getSubordinates()) {
+        std::cout << headEmployee->toString() << std::endl;
+        for (const auto& employee : headEmployee->getSubordinates()) {
+            std::cout << employee->toString() << std::endl;
+        }
+    }
+
+    // 释放内存
+    delete salesExecutive1;
+    delete salesExecutive2;
+    delete clerk1;
+    delete clerk2;
+    delete headSales;
+    delete headMarketing;
+    delete CEO;
+
     return 0;
 }

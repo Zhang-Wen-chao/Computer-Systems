@@ -1,67 +1,84 @@
-/*
-Adapter
-
-Intent
-Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces.
-
-Applicability
-Use the Adapter pattern when
-
-• you want to use an existing class, and its interface does not match the one you need.
-
-• you want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don’t necessarily have compatible interfaces.
-
-• (object adapter only) you need to use several existing subclasses, but it’s impractical to adapt their interface by subclassing every one. An object adapter can adapt the interface of its parent class.
-*/
 #include <iostream>
 
-// 目标接口
-class Target {
+class MediaPlayer {
 public:
-    virtual void request() const = 0;
+    virtual void play(std::string audioType, std::string fileName) = 0;
 };
 
-// 适配者类
-class Adaptee {
+class AdvancedMediaPlayer {
 public:
-    void specificRequest() const {
-        std::cout << "Adaptee's specific request" << std::endl;
+    virtual void playVlc(std::string fileName) = 0;
+    virtual void playMp4(std::string fileName) = 0;
+};
+
+class VlcPlayer : public AdvancedMediaPlayer {
+public:
+    void playVlc(std::string fileName) override {
+        std::cout << "Playing vlc file. Name: " << fileName << std::endl;
+    }
+
+    void playMp4(std::string fileName) override {
+        // 不做任何操作
     }
 };
 
-// 类适配器类
-class ClassAdapter : public Target, private Adaptee {
+class Mp4Player : public AdvancedMediaPlayer {
 public:
-    void request() const {
-        specificRequest();
+    void playVlc(std::string fileName) override {
+        // 不做任何操作
+    }
+
+    void playMp4(std::string fileName) override {
+        std::cout << "Playing mp4 file. Name: " << fileName << std::endl;
     }
 };
 
-// 对象适配器类
-class ObjectAdapter : public Target {
-public:
-    ObjectAdapter(Adaptee* adaptee) : m_adaptee(adaptee) {}
-    
-    void request() const {
-        m_adaptee->specificRequest();
-    }
-
+class MediaAdapter : public MediaPlayer {
 private:
-    Adaptee* m_adaptee;
+    AdvancedMediaPlayer* advancedMusicPlayer;
+
+public:
+    MediaAdapter(std::string audioType) {
+        if (audioType == "vlc") {
+            advancedMusicPlayer = new VlcPlayer();
+        } else if (audioType == "mp4") {
+            advancedMusicPlayer = new Mp4Player();
+        }
+    }
+
+    void play(std::string audioType, std::string fileName) override {
+        if (audioType == "vlc") {
+            advancedMusicPlayer->playVlc(fileName);
+        } else if (audioType == "mp4") {
+            advancedMusicPlayer->playMp4(fileName);
+        }
+    }
 };
 
-// 客户端代码
+class AudioPlayer : public MediaPlayer {
+private:
+    MediaAdapter* mediaAdapter;
+
+public:
+    void play(std::string audioType, std::string fileName) override {
+        if (audioType == "mp3") {
+            std::cout << "Playing mp3 file. Name: " << fileName << std::endl;
+        } else if (audioType == "vlc" || audioType == "mp4") {
+            mediaAdapter = new MediaAdapter(audioType);
+            mediaAdapter->play(audioType, fileName);
+        } else {
+            std::cout << "Invalid media. " << audioType << " format not supported" << std::endl;
+        }
+    }
+};
+
 int main() {
-    Target* adapter1 = new ClassAdapter();
-    adapter1->request();
-    
-    Adaptee* adaptee = new Adaptee();
-    Target* adapter2 = new ObjectAdapter(adaptee);
-    adapter2->request();
-    
-    delete adapter1;
-    delete adapter2;
-    delete adaptee;
-    
+    AudioPlayer audioPlayer;
+
+    audioPlayer.play("mp3", "beyond the horizon.mp3");
+    audioPlayer.play("mp4", "alone.mp4");
+    audioPlayer.play("vlc", "far far away.vlc");
+    audioPlayer.play("avi", "mind me.avi");
+
     return 0;
 }

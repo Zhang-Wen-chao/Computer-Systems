@@ -1,70 +1,118 @@
-/*
-Prototype
-
-Intent
-Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
-
-Applicability
-Use the Prototype pattern when a system should be independent of how its products are created, composed, and represented; and
-
-• when the classes to instantiate are specified at run-time, for example, by dynamic loading; or
-
-• to avoid building a class hierarchy of factories that parallels the class hierarchy of products; or
-
-• when instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state.
-*/
 #include <iostream>
-#include <string>
+#include <unordered_map>
 
-// 原型抽象类
-class Prototype {
+class Shape {
 public:
-    virtual Prototype* clone() const = 0;
-    virtual void display() const = 0;
+    virtual void draw() = 0;
+    virtual std::string getType() = 0;
+    virtual std::string getId() {
+        return id;
+    }
+    virtual void setId(std::string id) {
+        this->id = id;
+    }
+    virtual Shape* clone() = 0;
+
+protected:
+    std::string id;
+    std::string type;
 };
 
-// 具体原型类A
-class ConcretePrototypeA : public Prototype {
+class Rectangle : public Shape {
 public:
-    Prototype* clone() const {
-        return new ConcretePrototypeA(*this);
+    Rectangle() {
+        type = "Rectangle";
     }
-    
-    void display() const {
-        std::cout << "ConcretePrototypeA" << std::endl;
+
+    void draw() override {
+        std::cout << "Inside Rectangle::draw() method." << std::endl;
+    }
+
+    std::string getType() override {
+        return type;
+    }
+
+    Shape* clone() override {
+        return new Rectangle(*this);
     }
 };
 
-// 具体原型类B
-class ConcretePrototypeB : public Prototype {
+class Square : public Shape {
 public:
-    Prototype* clone() const {
-        return new ConcretePrototypeB(*this);
+    Square() {
+        type = "Square";
     }
-    
-    void display() const {
-        std::cout << "ConcretePrototypeB" << std::endl;
+
+    void draw() override {
+        std::cout << "Inside Square::draw() method." << std::endl;
+    }
+
+    std::string getType() override {
+        return type;
+    }
+
+    Shape* clone() override {
+        return new Square(*this);
     }
 };
 
-// 客户端代码
+class Circle : public Shape {
+public:
+    Circle() {
+        type = "Circle";
+    }
+
+    void draw() override {
+        std::cout << "Inside Circle::draw() method." << std::endl;
+    }
+
+    std::string getType() override {
+        return type;
+    }
+
+    Shape* clone() override {
+        return new Circle(*this);
+    }
+};
+
+class ShapeCache {
+private:
+    static std::unordered_map<std::string, Shape*> shapeMap;
+
+public:
+    static Shape* getShape(std::string shapeId) {
+        Shape* cachedShape = shapeMap[shapeId];
+        return cachedShape->clone();
+    }
+
+    static void loadCache() {
+        Circle* circle = new Circle();
+        circle->setId("1");
+        shapeMap[circle->getId()] = circle;
+
+        Square* square = new Square();
+        square->setId("2");
+        shapeMap[square->getId()] = square;
+
+        Rectangle* rectangle = new Rectangle();
+        rectangle->setId("3");
+        shapeMap[rectangle->getId()] = rectangle;
+    }
+};
+
+std::unordered_map<std::string, Shape*> ShapeCache::shapeMap;
+
 int main() {
-    Prototype* prototypeA = new ConcretePrototypeA();
-    Prototype* prototypeB = new ConcretePrototypeB();
-    
-    Prototype* cloneA = prototypeA->clone();
-    Prototype* cloneB = prototypeB->clone();
-    
-    prototypeA->display();
-    cloneA->display();
-    
-    prototypeB->display();
-    cloneB->display();
-    
-    delete prototypeA;
-    delete prototypeB;
-    delete cloneA;
-    delete cloneB;
-    
+    ShapeCache::loadCache();
+
+    Shape* clonedShape = ShapeCache::getShape("1");
+    std::cout << "Shape : " << clonedShape->getType() << std::endl;
+
+    Shape* clonedShape2 = ShapeCache::getShape("2");
+    std::cout << "Shape : " << clonedShape2->getType() << std::endl;
+
+    Shape* clonedShape3 = ShapeCache::getShape("3");
+    std::cout << "Shape : " << clonedShape3->getType() << std::endl;
+
     return 0;
 }

@@ -1,4 +1,11 @@
 # 工厂模式
+意图：定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。
+
+主要解决：主要解决接口选择的问题。
+
+何时使用：我们明确地计划不同条件下创建不同实例时。
+
+如何解决：让其子类实现工厂接口，返回的也是一个抽象的产品。
 ## 菜鸟示例代码
 ```java
 public interface Shape {
@@ -73,8 +80,10 @@ public class FactoryPatternDemo {
 }
 ```
 我不会Java。可以帮我用C++重写一下吗？不要使用using namespace std;
+
+你可以用 Mermaid 画出你给的代码的框图吗？
 ## Mermaid diagram
-当然！以下是使用 Mermaid 画出的工厂模式（Factory Pattern）的框图：
+好的，以下是更新后的框图，显示了 `FactoryPatternDemo` 使用 `ShapeFactory`，`ShapeFactory` 创建工厂，以及 `Shape` 接口实现不同的形状（`Rectangle`、`Square`、`Circle`）。
 
 ```mermaid
 classDiagram
@@ -98,10 +107,13 @@ classDiagram
         +getShape(shapeType: string): Shape
     }
 
-    Shape "1"--|> "*" Rectangle
-    Shape "1"--|> "*" Square
-    Shape "1"--|> "*" Circle
-    ShapeFactory "1"--|> "*" Shape
-```
+    class FactoryPatternDemo {
+        +main(): void
+    }
 
-这个框图清晰地展示了工厂模式的结构。Shape 是抽象类，定义了 draw() 方法；Rectangle、Square 和 Circle 是具体类，它们分别实现了 Shape 接口的 draw() 方法；ShapeFactory 是工厂类，通过 getShape(shapeType) 方法返回具体的形状对象。在框图中，箭头表示一个类与另一个类之间的关联关系，以及继承关系。ShapeFactory 关联着 Shape，表示 ShapeFactory 创建了具体的形状对象。同时，Rectangle、Square 和 Circle 继承自 Shape，表示它们都是 Shape 的子类。
+    FactoryPatternDemo --> "1" ShapeFactory : uses
+    Rectangle --|> Shape : implements
+    Square --|> Shape : implements
+    Circle --|> Shape : implements
+    ShapeFactory "1"--|> "*" Shape : creates
+```

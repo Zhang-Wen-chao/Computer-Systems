@@ -1,93 +1,70 @@
-/*
-Decorator
-
-Intent
-Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
-
-Applicability
-Use Decorator
-
-• to add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects.
-
-• for responsibilities that can be withdrawn.
-
-• when extension by subclassing is impractical. Sometimes a large number of independent extensions are possible and would produce an explosion of subclasses to support every combination. Or a class definition may be hidden or otherwise unavailable for subclassing.
-*/
 #include <iostream>
 
-// 抽象组件类
-class Component {
+class Shape {
 public:
-    virtual void operation() const = 0;
+   virtual void draw() const = 0;
 };
 
-// 具体组件类
-class ConcreteComponent : public Component {
+class Rectangle : public Shape {
 public:
-    void operation() const {
-        std::cout << "Concrete Component operation" << std::endl;
-    }
+   void draw() const override {
+      std::cout << "Shape: Rectangle" << std::endl;
+   }
 };
 
-// 抽象装饰器类
-class Decorator : public Component {
+class Circle : public Shape {
 public:
-    Decorator(Component* component) : m_component(component) {}
+   void draw() const override {
+      std::cout << "Shape: Circle" << std::endl;
+   }
+};
 
-    void operation() const {
-        if (m_component) {
-            m_component->operation();
-        }
-    }
-
+class ShapeDecorator : public Shape {
 protected:
-    Component* m_component;
-};
+   Shape* decoratedShape;
 
-// 具体装饰器类A
-class ConcreteDecoratorA : public Decorator {
 public:
-    ConcreteDecoratorA(Component* component) : Decorator(component) {}
+   ShapeDecorator(Shape* decoratedShape)
+      : decoratedShape(decoratedShape) {}
 
-    void operation() const {
-        Decorator::operation();
-        additionalOperationA();
-    }
-
-    void additionalOperationA() const {
-        std::cout << "Concrete Decorator A additional operation" << std::endl;
-    }
+   virtual void draw() const {
+      decoratedShape->draw();
+   }
 };
 
-// 具体装饰器类B
-class ConcreteDecoratorB : public Decorator {
+class RedShapeDecorator : public ShapeDecorator {
 public:
-    ConcreteDecoratorB(Component* component) : Decorator(component) {}
+   RedShapeDecorator(Shape* decoratedShape)
+      : ShapeDecorator(decoratedShape) {}
 
-    void operation() const {
-        Decorator::operation();
-        additionalOperationB();
-    }
+   void draw() const override {
+      decoratedShape->draw();
+      setRedBorder(decoratedShape);
+   }
 
-    void additionalOperationB() const {
-        std::cout << "Concrete Decorator B additional operation" << std::endl;
-    }
+private:
+   void setRedBorder(const Shape* decoratedShape) const {
+      std::cout << "Border Color: Red" << std::endl;
+   }
 };
 
-// 客户端代码
 int main() {
-    Component* component = new ConcreteComponent();
-    component->operation();
+   Shape* circle = new Circle();
+   Shape* redCircle = new RedShapeDecorator(new Circle());
+   Shape* redRectangle = new RedShapeDecorator(new Rectangle());
 
-    Component* decoratedComponentA = new ConcreteDecoratorA(component);
-    decoratedComponentA->operation();
+   std::cout << "Circle with normal border" << std::endl;
+   circle->draw();
 
-    Component* decoratedComponentB = new ConcreteDecoratorB(decoratedComponentA);
-    decoratedComponentB->operation();
+   std::cout << "\nCircle of red border" << std::endl;
+   redCircle->draw();
 
-    delete decoratedComponentB;
-    delete decoratedComponentA;
-    delete component;
+   std::cout << "\nRectangle of red border" << std::endl;
+   redRectangle->draw();
 
-    return 0;
+   delete circle;
+   delete redCircle;
+   delete redRectangle;
+
+   return 0;
 }

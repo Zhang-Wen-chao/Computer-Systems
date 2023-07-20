@@ -1,117 +1,181 @@
-/*
-Abstract Factory
-
-Intent
-Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
-
-Applicability
-Use the Abstract Factory pattern when
-
-• a system should be independent of how its products are created, composed, and represented.
-
-• a system should be configured with one of multiple families of products.
-
-• a family of related product objects is designed to be used together, and you need to enforce this constraint.
-
-• you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations.
-*/
-
 #include <iostream>
 
-// 抽象产品A
-class AbstractProductA {
+// 抽象形状类
+class Shape {
 public:
-    virtual void display() = 0;
+    virtual void draw() = 0;
 };
 
-// 具体产品A1
-class ConcreteProductA1 : public AbstractProductA {
+// 长方形类
+class Rectangle : public Shape {
 public:
-    void display() {
-        std::cout << "Concrete Product A1" << std::endl;
+    void draw() {
+        std::cout << "Inside Rectangle::draw() method." << std::endl;
     }
 };
 
-// 具体产品A2
-class ConcreteProductA2 : public AbstractProductA {
+// 正方形类
+class Square : public Shape {
 public:
-    void display() {
-        std::cout << "Concrete Product A2" << std::endl;
+    void draw() {
+        std::cout << "Inside Square::draw() method." << std::endl;
     }
 };
 
-// 抽象产品B
-class AbstractProductB {
+// 圆形类
+class Circle : public Shape {
 public:
-    virtual void display() = 0;
-};
-
-// 具体产品B1
-class ConcreteProductB1 : public AbstractProductB {
-public:
-    void display() {
-        std::cout << "Concrete Product B1" << std::endl;
+    void draw() {
+        std::cout << "Inside Circle::draw() method." << std::endl;
     }
 };
 
-// 具体产品B2
-class ConcreteProductB2 : public AbstractProductB {
+// 抽象颜色类
+class Color {
 public:
-    void display() {
-        std::cout << "Concrete Product B2" << std::endl;
+    virtual void fill() = 0;
+};
+
+// 红色类
+class Red : public Color {
+public:
+    void fill() {
+        std::cout << "Inside Red::fill() method." << std::endl;
     }
 };
 
-// 抽象工厂
+// 绿色类
+class Green : public Color {
+public:
+    void fill() {
+        std::cout << "Inside Green::fill() method." << std::endl;
+    }
+};
+
+// 蓝色类
+class Blue : public Color {
+public:
+    void fill() {
+        std::cout << "Inside Blue::fill() method." << std::endl;
+    }
+};
+
+// 抽象工厂类
 class AbstractFactory {
 public:
-    virtual AbstractProductA* createProductA() = 0;
-    virtual AbstractProductB* createProductB() = 0;
+    virtual Shape* getShape(std::string shapeType) = 0;
+    virtual Color* getColor(std::string color) = 0;
 };
 
-// 具体工厂1
-class ConcreteFactory1 : public AbstractFactory {
+// 形状工厂类
+class ShapeFactory : public AbstractFactory {
 public:
-    AbstractProductA* createProductA() {
-        return new ConcreteProductA1();
+    Shape* getShape(std::string shapeType) {
+        if (shapeType.empty()) {
+            return nullptr;
+        }
+        if (shapeType == "CIRCLE") {
+            return new Circle();
+        } else if (shapeType == "RECTANGLE") {
+            return new Rectangle();
+        } else if (shapeType == "SQUARE") {
+            return new Square();
+        }
+        return nullptr;
     }
     
-    AbstractProductB* createProductB() {
-        return new ConcreteProductB1();
+    Color* getColor(std::string color) {
+        return nullptr;
     }
 };
 
-// 具体工厂2
-class ConcreteFactory2 : public AbstractFactory {
+// 颜色工厂类
+class ColorFactory : public AbstractFactory {
 public:
-    AbstractProductA* createProductA() {
-        return new ConcreteProductA2();
+    Shape* getShape(std::string shapeType) {
+        return nullptr;
     }
     
-    AbstractProductB* createProductB() {
-        return new ConcreteProductB2();
+    Color* getColor(std::string color) {
+        if (color.empty()) {
+            return nullptr;
+        }
+        if (color == "RED") {
+            return new Red();
+        } else if (color == "GREEN") {
+            return new Green();
+        } else if (color == "BLUE") {
+            return new Blue();
+        }
+        return nullptr;
+    }
+};
+
+// 工厂生产器类
+class FactoryProducer {
+public:
+    static AbstractFactory* getFactory(std::string choice) {
+        if (choice == "SHAPE") {
+            return new ShapeFactory();
+        } else if (choice == "COLOR") {
+            return new ColorFactory();
+        }
+        return nullptr;
     }
 };
 
 int main() {
-    AbstractFactory* factory1 = new ConcreteFactory1();
-    AbstractProductA* productA1 = factory1->createProductA();
-    AbstractProductB* productB1 = factory1->createProductB();
-    productA1->display();
-    productB1->display();
+    // 获取形状工厂
+    AbstractFactory* shapeFactory = FactoryProducer::getFactory("SHAPE");
 
-    AbstractFactory* factory2 = new ConcreteFactory2();
-    AbstractProductA* productA2 = factory2->createProductA();
-    AbstractProductB* productB2 = factory2->createProductB();
-    productA2->display();
-    productB2->display();
+    // 获取形状为 Circle 的对象
+    Shape* shape1 = shapeFactory->getShape("CIRCLE");
 
-    delete factory1;
-    delete productA1;
-    delete productB1;
-    delete factory2;
-    delete productA2;
-    delete productB2;
+    // 调用 Circle 的 draw 方法
+    shape1->draw();
+
+    // 获取形状为 Rectangle 的对象
+    Shape* shape2 = shapeFactory->getShape("RECTANGLE");
+
+    // 调用 Rectangle 的 draw 方法
+    shape2->draw();
+
+    // 获取形状为 Square 的对象
+    Shape* shape3 = shapeFactory->getShape("SQUARE");
+
+    // 调用 Square 的 draw 方法
+    shape3->draw();
+
+    // 获取颜色工厂
+    AbstractFactory* colorFactory = FactoryProducer::getFactory("COLOR");
+
+    // 获取颜色为 Red 的对象
+    Color* color1 = colorFactory->getColor("RED");
+
+    // 调用 Red 的 fill 方法
+    color1->fill();
+
+    // 获取颜色为 Green 的对象
+    Color* color2 = colorFactory->getColor("GREEN");
+
+    // 调用 Green 的 fill 方法
+    color2->fill();
+
+    // 获取颜色为 Blue 的对象
+    Color* color3 = colorFactory->getColor("BLUE");
+
+    // 调用 Blue 的 fill 方法
+    color3->fill();
+
+    delete shape1;
+    delete shape2;
+    delete shape3;
+    delete color1;
+    delete color2;
+    delete color3;
+    
+    delete shapeFactory;
+    delete colorFactory;
 
     return 0;
 }

@@ -1,78 +1,85 @@
-/*
-Flyweight
-
-Intent
-Use sharing to support large numbers of fine-grained objects efficiently.
-
-Applicability
-The Flyweight pattern’s effectiveness depends heavily on how and where it’s used. Apply the Flyweight pattern when all of the following are true:
-
-• An application uses a large number of objects.
-
-• Storage costs are high because of the sheer quantity of objects.
-
-• Most object state can be made extrinsic.
-
-• Many groups of objects may be replaced by relatively few shared objects once extrinsic state is removed.
-
-• The application doesn’t depend on object identity. Since flyweight objects may be shared, identity tests will return true for conceptually distinct objects.
-*/
 #include <iostream>
-#include <string>
-#include <unordered_map>
+#include <map>
 
-// Flyweight 接口
-class Flyweight {
+class Shape {
 public:
-    virtual ~Flyweight() {}
-    virtual void operation(const std::string& extrinsicState) const = 0;
+   virtual void draw() const = 0;
 };
 
-// 具体的 Flyweight 实现
-class ConcreteFlyweight : public Flyweight {
-public:
-    ConcreteFlyweight(const std::string& intrinsicState) : m_intrinsicState(intrinsicState) {}
-
-    void operation(const std::string& extrinsicState) const override {
-        std::cout << "Intrinsic state: " << m_intrinsicState << ", Extrinsic state: " << extrinsicState << std::endl;
-    }
-
+class Circle : public Shape {
 private:
-    std::string m_intrinsicState;
-};
+   std::string color;
+   int x;
+   int y;
+   int radius;
 
-// Flyweight 工厂
-class FlyweightFactory {
 public:
-    Flyweight* getFlyweight(const std::string& key) {
-        if (m_flyweights.find(key) == m_flyweights.end()) {
-            m_flyweights[key] = new ConcreteFlyweight(key);
-        }
-        return m_flyweights[key];
-    }
+   Circle(const std::string& color)
+      : color(color), x(0), y(0), radius(0) {}
 
-    ~FlyweightFactory() {
-        for (const auto& it : m_flyweights) {
-            delete it.second;
-        }
-    }
+   void setX(int x) {
+      this->x = x;
+   }
 
-private:
-    std::unordered_map<std::string, Flyweight*> m_flyweights;
+   void setY(int y) {
+      this->y = y;
+   }
+
+   void setRadius(int radius) {
+      this->radius = radius;
+   }
+
+   void draw() const override {
+      std::cout << "Circle: Draw() [Color: " << color
+         << ", x: " << x << ", y: " << y << ", radius: " << radius << "]" << std::endl;
+   }
 };
 
-// 客户端代码
+class ShapeFactory {
+private:
+   static std::map<std::string, Shape*> circleMap;
+
+public:
+   static Shape* getCircle(const std::string& color) {
+      auto it = circleMap.find(color);
+      if (it != circleMap.end()) {
+         return it->second;
+      }
+      else {
+         Circle* circle = new Circle(color);
+         circleMap.insert(std::make_pair(color, circle));
+         std::cout << "Creating circle of color: " << color << std::endl;
+         return circle;
+      }
+   }
+};
+
+std::map<std::string, Shape*> ShapeFactory::circleMap;
+
+std::string getRandomColor() {
+   std::string colors[] = { "Red", "Green", "Blue", "White", "Black" };
+   return colors[rand() % 5];
+}
+
+int getRandomX() {
+   return rand() % 100;
+}
+
+int getRandomY() {
+   return rand() % 100;
+}
+
 int main() {
-    FlyweightFactory factory;
-    
-    Flyweight* flyweight1 = factory.getFlyweight("Flyweight1");
-    flyweight1->operation("ExtrinsicState1");
-
-    Flyweight* flyweight2 = factory.getFlyweight("Flyweight2");
-    flyweight2->operation("ExtrinsicState2");
-
-    Flyweight* flyweight3 = factory.getFlyweight("Flyweight1");
-    flyweight3->operation("ExtrinsicState3");
-
-    return 0;
+   srand(time(0));
+   for (int i = 0; i < 20; ++i) {
+      Shape* shape = ShapeFactory::getCircle(getRandomColor());
+      Circle* circle = dynamic_cast<Circle*>(shape);
+      if (circle) {
+         circle->setX(getRandomX());
+         circle->setY(getRandomY());
+         circle->setRadius(100);
+         circle->draw();
+      }
+   }
+   return 0;
 }

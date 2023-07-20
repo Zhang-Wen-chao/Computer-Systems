@@ -7,8 +7,10 @@
 ## input method
 [关于在Win11任务栏隐藏输入法（中英文切换）图标的解决办法](https://blog.csdn.net/weixin_47907823/article/details/121954248)
 这个链接所说的选项的上一个选项就是：允许为每一个窗口设置不同的输入法。
-
-win + v 是剪切板，以及各种符号。
+## shortcut
+1. win + shift + s 是截图.
+2. win + v 是剪切板.
+3. win + Ctrl + O 是屏幕键盘.
 # some softwares
 ## baidu input
 本来用微软拼音，自己添加小鹤双拼的注册表，还挺不错；还能用uv模式。但是我确认我要开始有英文打字需求后，发现微软自带美式键盘的英文输入，智能提示就是智障。好奇美国人用什么输入法。
