@@ -194,6 +194,8 @@ bash Miniconda3-latest-Linux-x86_64.sh
 ## Git
 [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 
+[Missing or invalid credentials.](https://juejin.cn/post/7062237873570840589)
+
 ```
 然后你发现不够用, 你会学到
 git commit --amend
