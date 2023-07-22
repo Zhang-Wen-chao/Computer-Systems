@@ -87,6 +87,8 @@ sudo vim /etc/gdm3/daemon.conf
 把 #WaylandEnable=false 的注释井号去掉
 sudo service gdm3 restart
 ```
+- [Calibre](https://calibre-ebook.com/download)
+[最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
 - libreoffice
 ```
 libreoffice --impress --norestore 2.4git课程材料.pptx &
@@ -98,7 +100,6 @@ sudo apt-get install libreoffice-java-common
 - Discord
 - Telegram
 - Cursor
-- calibre
 - Zotero
 
 [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
