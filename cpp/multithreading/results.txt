@@ -1,0 +1,32 @@
+Thread Count: 1
+Total Sum: 1784293664
+Time taken: 8155 microseconds
+
+Thread Count: 2
+Total Sum: 1784293664
+Time taken: 4484 microseconds
+
+Thread Count: 4
+Total Sum: 1784293664
+Time taken: 5135 microseconds
+
+Thread Count: 8
+Total Sum: 1784293664
+Time taken: 3041 microseconds
+
+Thread Count: 16
+Total Sum: 1784293664
+Time taken: 1834 microseconds
+
+Thread Count: 32
+Total Sum: 1784293664
+Time taken: 1149 microseconds
+
+Thread Count: 64
+Total Sum: 1784293664
+Time taken: 1771 microseconds
+
+Thread Count: 96
+Total Sum: 1784293664
+Time taken: 2557 microseconds
+
