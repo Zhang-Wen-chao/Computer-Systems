@@ -79,9 +79,8 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 - [Sunlogin](https://sunlogin.oray.com/)
 - [Open Broadcaster Software](https://obsproject.com/)
 - [VLC](https://www.videolan.org/vlc/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
 - [Wemeet](https://meeting.tencent.com/)
-
 ```
 腾讯会议不兼容wayland协议怎么解决？
 sudo vim /etc/gdm3/daemon.conf
@@ -101,16 +100,23 @@ sudo apt-get install libreoffice-java-common
 - Cursor
 - calibre
 - Zotero
+
 [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
+
 [文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
+
 [zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
+
 - Fcixt 5
+```
 候选翻页：逗号句号。
+
 Ctrl+; 进入剪贴板输入模式.
+
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
+
 设计的时候剪切板就只能显示一行。
-## vscode
-https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+```
 ### zsh
 - oh my zsh
 - autosuggestion 
