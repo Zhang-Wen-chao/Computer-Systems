@@ -1,31 +1,26 @@
 # Debian's basic installation issues
-Debian暂时不能处理的问题：微信、罗技鼠标的设置软件lgs，必须是Windows or macOS。
+- [如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
 
-[如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
+- [ISO下载](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.6.0-live+nonfree/amd64/iso-hybrid/)
 
-- ISO下载
-https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.6.0-live+nonfree/amd64/iso-hybrid/
+- [balena下载](https://www.balena.io/etcher#download-etcher)
 
-- balena下载
-https://www.balena.io/etcher#download-etcher
+- [原创-解决Parrot安装卡在91%](https://blog.csdn.net/xyq165980/article/details/128259388)
 
-[原创-解决Parrot安装卡在91%](https://blog.csdn.net/xyq165980/article/details/128259388)
+- [How To Fix Busybox Initramfs Error On Ubuntu](https://ostechnix.com/how-to-fix-busybox-initramfs-error-on-ubuntu/)
 
-[How To Fix Busybox Initramfs Error On Ubuntu](https://ostechnix.com/how-to-fix-busybox-initramfs-error-on-ubuntu/)
+- 开机总是出现default keyring输入密码: 终端输入seahorse，把default keyring的密码设为空。
 
-开机总是出现default keyring输入密码: 终端输入seahorse，把default keyring的密码设为空。
-
-[ubuntu20.04 黑屏/紫屏后的处理办法](https://codeantenna.com/a/GWbmAVSb7g)
+- [ubuntu20.04 黑屏/紫屏后的处理办法](https://codeantenna.com/a/GWbmAVSb7g)
 ctrl + alt + F3 (tty登陆)
 
-- 空间不足
-[Linux下tmpfs介绍及使用](https://www.serverspc.com/46025.html)
+- [Linux下tmpfs介绍及使用](https://www.serverspc.com/46025.html)
 
-[mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
+- [mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
 
-[linux挂载windows的ntfs硬盘](https://github.com/tuxera/ntfs-3g)
+- [linux挂载windows的ntfs硬盘](https://github.com/tuxera/ntfs-3g)
 
-[You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
+- [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
 
 - 增大 `/tmp` 的空间。
    ```
