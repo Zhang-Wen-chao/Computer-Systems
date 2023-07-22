@@ -71,16 +71,17 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 ```
 ## conda
 [解决CondaHTTPError: HTTP 000 CONNECTION 问题](https://zhuanlan.zhihu.com/p/260034241)
-## Common software
-- clash、飞书、百度网盘、向日葵、zoom、discord、telegram、cursor、Typora beta、OBS Studio
-- [最新Win11系统怎么删除开机密码 Win11取消登录密码图文教程](https://zhuanlan.zhihu.com/p/470573521)
-- [如何在 Debian 10 上安装网易云音乐客户端](https://linux265.com/news/3838.html)
-- calibre
-```
-sudo apt-get install calibre
-ebook-viewer your_file.azw3
-```
-- Wemeet
+## Essential software
+- [Clash for Terminal](https://glados.rocks/console)
+- [Feishu](https://www.feishu.cn/download)
+- [Baidu Netdisk](https://pan.baidu.com/download/)
+- [Baidu Input Method Editors](https://shurufa.baidu.com/)
+- [Sunlogin](https://sunlogin.oray.com/)
+- [Open Broadcaster Software](https://obsproject.com/)
+- [VLC](https://www.videolan.org/vlc/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Wemeet](https://meeting.tencent.com/)
+
 ```
 腾讯会议不兼容wayland协议怎么解决？
 sudo vim /etc/gdm3/daemon.conf
@@ -93,6 +94,12 @@ libreoffice --impress --norestore 2.4git课程材料.pptx &
 sudo apt-get update
 sudo apt-get install libreoffice-java-common
 ```
+- QQ
+- Zoom
+- Discord
+- Telegram
+- Cursor
+- calibre
 - Zotero
 [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
 [文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
