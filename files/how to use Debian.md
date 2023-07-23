@@ -378,7 +378,7 @@ View the tree structure of the file organization.
 ```bash
 tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
 
-tar -czvf yushiqi_CPP.tar.gz /home/student001/zhangwch/linux_and_cpp/CPP
+tar -czvf 'Natural Language Processing_Tu Kewei.tar.gz' '/home/student001/zhangwch/Studying-at-ShanghaiTech/Natural Language Processing_Tu Kewei'
 
 unzip xxx.zip
 
