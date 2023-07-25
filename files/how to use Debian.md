@@ -178,6 +178,11 @@ down () {
 # curl https://www.baidu.com/
 # curl https://www.google.com/
 ```
+### clang
+[Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
+```bash
+sudo apt install libstdc++-12-dev
+```
 ### gcc
 [Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
 ### Extensions
