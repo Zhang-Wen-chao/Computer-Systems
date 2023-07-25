@@ -48,7 +48,6 @@ echo "net.ipv6.conf.<interface-name>.disable_ipv6 = 0" >> /etc/sysctl.conf
 将 <interface-name> 替换为要启用 IPv6 的网络接口的名称，然后再次执行 sysctl -p 以应用更改。
 ```
 # Some software
-sudo apt install gcc g++ gdb make cmake vim git
 ## bash
 1. 如何通过bash在Linux中下载Onedrive文件
 在OneDrive网页端，以chrome浏览器为例，用F12打开开发人员工具，然后在网页中选中要下载的文件点击下载按钮。在开发工具network标签下，看到新出现的项目，右击，选择copy cURL (bash)，然后在Linux terminal中粘贴，并在末尾加上 --output <文件名> 即可。
