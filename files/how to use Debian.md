@@ -72,8 +72,6 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 ```
 配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
 
-候选翻页：逗号句号。
-
 Ctrl+; 进入剪贴板输入模式.
 
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
