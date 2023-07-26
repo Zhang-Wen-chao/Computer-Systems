@@ -30,30 +30,12 @@ ctrl + alt + F3 (tty登陆)
    ```
 
 - [How to remove Home Folder icon from desktop in Ubuntu 20.04?](https://askubuntu.com/questions/1230877/how-to-remove-home-folder-icon-from-desktop-in-ubuntu-20-04)
-# network
-## 禁用 IPv6
-```shell
-要禁用 IPv6，你可以在 Linux 系统中执行以下步骤：
-
-打开终端，并以 root 用户身份执行以下命令：
-echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
-echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
-
-执行以下命令以应用更改：
-
-sysctl -p
-
-这将在 /etc/sysctl.conf 文件中添加两个条目，用于禁用 IPv6，然后应用更改。请注意，这将禁用系统上所有网络接口的 IPv6，包括所有网卡、虚拟接口等等。如果你需要启用某些接口的 IPv6，可以使用以下命令：
-
-echo "net.ipv6.conf.<interface-name>.disable_ipv6 = 0" >> /etc/sysctl.conf
-
-将 <interface-name> 替换为要启用 IPv6 的网络接口的名称，然后再次执行 sysctl -p 以应用更改。
+```bash
+sudo apt install gnome-shell-extension-prefs
 ```
+
 # Some software
-## bash
-1. 如何通过bash在Linux中下载Onedrive文件
-在OneDrive网页端，以chrome浏览器为例，用F12打开开发人员工具，然后在网页中选中要下载的文件点击下载按钮。在开发工具network标签下，看到新出现的项目，右击，选择copy cURL (bash)，然后在Linux terminal中粘贴，并在末尾加上 --output <文件名> 即可。
-## cuda、cudnn、nvvc、nccl
+## nvidia
 - [Debian 11下安装Nvidia显卡驱动与Cuda](https://yangyq.net/2023/03/debian-11-nvidia-driver-cuda.html)
 - [Debian 11下升级Cuda与Nvidia显卡驱动](https://yangyq.net/2023/03/debian-11-cuda-nvidia-driver-upgrade.html)
 - [在安裝 Nvidia 驅動時發生 “The Nouveau kernel driver is currently in use by your system. …”](https://clay-atlas.com/blog/2020/02/11/linux-chinese-note-nvidia-driver-nouveau-kernel/)
@@ -65,8 +47,8 @@ nvcc -V
 nvidia-smi
 python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
 ```
-## conda
-[解决CondaHTTPError: HTTP 000 CONNECTION 问题](https://zhuanlan.zhihu.com/p/260034241)
+## cambricon
+
 ## oh my zsh
 - autosuggestion 
 - syntax-highlighting
@@ -133,19 +115,19 @@ down () {
 # curl https://www.baidu.com/
 # curl https://www.google.com/
 ```
+## conda
+[解决CondaHTTPError: HTTP 000 CONNECTION 问题](https://zhuanlan.zhihu.com/p/260034241)
 ## Essential software
 - [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
-```
-配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
 
+配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
+```
 Ctrl+; 进入剪贴板输入模式.
 
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
-
-设计的时候剪切板就只能显示一行。
 ```
-
 - [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+[VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
 - [Clash for Terminal](https://glados.rocks/console)
 - [Feishu](https://www.feishu.cn/download)
 - [Baidu Netdisk](https://pan.baidu.com/download/)
@@ -161,11 +143,22 @@ sudo service gdm3 restart
 ```
 - [Calibre](https://calibre-ebook.com/download)
 [最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
+- [Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
 - libreoffice
 ```
 libreoffice --impress --norestore 2.4git课程材料.pptx &
 sudo apt-get update
 sudo apt-get install libreoffice-java-common
+```
+- clang
+```bash
+sudo apt install clang
+clang --version
+```
+[Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
+
+```bash
+sudo apt install libstdc++-12-dev
 ```
 - QQ
 - Zoom
@@ -179,30 +172,8 @@ sudo apt-get install libreoffice-java-common
 [文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
 
 [zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-### clang
-[Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
-```bash
-sudo apt install libstdc++-12-dev
-```
-### gcc
-[Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
-### Extensions
-- [VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
-### Settings
-- autosave
-### conda and docker
-- miniconda3
-```
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-```
-<https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>
 
-[pip 使用国内镜像源](https://www.runoob.com/w3cnote/pip-cn-mirror.html)
-
-- Docker
-[Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
-
+## [Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
 ## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 ```
 git commit --amend
@@ -317,11 +288,11 @@ edge://flags/#enable-force-dark
 - [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
 - 视频倍速
 ```html
-右键 inspect，console。
+右键 inspect, console.
 document.querySelector('video').playbackRate = 0.9
 ```
 - 同步问题
-据我观察，如果一直setting up sync，那就关闭外网、重新登录都试一试。
+如果一直setting up sync，那就关闭外网、重新登录都试一试。
 ## vim
 用vim不是为了炫技。vim也只是一个古老的文本编辑器。
 
@@ -352,6 +323,8 @@ h左，j下，k上，l右
 - yy 复制当前行
 - p paste
 # 文件处理
+## 如何通过bash在Linux中下载Onedrive文件
+在OneDrive网页端，以chrome浏览器为例，用F12打开开发人员工具，然后在网页中选中要下载的文件点击下载按钮。在开发工具network标签下，看到新出现的项目，右击，选择copy cURL (bash)，然后在Linux terminal中粘贴，并在末尾加上 --output <文件名> 即可。
 ## 物理打印机
 ```bash
 lpstat -o
@@ -373,4 +346,24 @@ tar -czvf 'Natural Language Processing_Tu Kewei.tar.gz' '/home/student001/zhangw
 unzip xxx.zip
 
 unrar x <rar文件名> <目标目录>
+```
+
+# network
+## 禁用 IPv6
+```shell
+要禁用 IPv6，你可以在 Linux 系统中执行以下步骤：
+
+打开终端，并以 root 用户身份执行以下命令：
+echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
+
+执行以下命令以应用更改：
+
+sysctl -p
+
+这将在 /etc/sysctl.conf 文件中添加两个条目，用于禁用 IPv6，然后应用更改。请注意，这将禁用系统上所有网络接口的 IPv6，包括所有网卡、虚拟接口等等。如果你需要启用某些接口的 IPv6，可以使用以下命令：
+
+echo "net.ipv6.conf.<interface-name>.disable_ipv6 = 0" >> /etc/sysctl.conf
+
+将 <interface-name> 替换为要启用 IPv6 的网络接口的名称，然后再次执行 sysctl -p 以应用更改。
 ```
