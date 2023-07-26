@@ -68,7 +68,7 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 ## conda
 [解决CondaHTTPError: HTTP 000 CONNECTION 问题](https://zhuanlan.zhihu.com/p/260034241)
 ## Essential software
-- Fcixt 5
+- [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
 ```
 配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
 
