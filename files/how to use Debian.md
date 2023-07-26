@@ -70,6 +70,8 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 ## Essential software
 - Fcixt 5
 ```
+配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
+
 候选翻页：逗号句号。
 
 Ctrl+; 进入剪贴板输入模式.
