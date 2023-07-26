@@ -22,14 +22,14 @@ ctrl + alt + F3 (tty登陆)
 
 - [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
 
-- [How to remove Home Folder icon from desktop in Ubuntu 20.04?](https://askubuntu.com/questions/1230877/how-to-remove-home-folder-icon-from-desktop-in-ubuntu-20-04)
-
 - 增大 `/tmp` 的空间。
    ```
    df -h /tmp
    找到包含 `/tmp` 目录的行，并将其选项修改为 `defaults,size=2G`（注意改变 `size` 选项以匹配你想要的大小）, save and quit.
    sudo mount -o remount /tmp
    ```
+
+- [How to remove Home Folder icon from desktop in Ubuntu 20.04?](https://askubuntu.com/questions/1230877/how-to-remove-home-folder-icon-from-desktop-in-ubuntu-20-04)
 # network
 ## 禁用 IPv6
 ```shell
