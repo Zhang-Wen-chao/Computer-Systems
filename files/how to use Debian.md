@@ -67,53 +67,7 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 ```
 ## conda
 [解决CondaHTTPError: HTTP 000 CONNECTION 问题](https://zhuanlan.zhihu.com/p/260034241)
-## Essential software
-- [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
-```
-配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
-
-Ctrl+; 进入剪贴板输入模式.
-
-ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
-
-设计的时候剪切板就只能显示一行。
-```
-- [Clash for Terminal](https://glados.rocks/console)
-- [Feishu](https://www.feishu.cn/download)
-- [Baidu Netdisk](https://pan.baidu.com/download/)
-- [Baidu Input Method Editors](https://shurufa.baidu.com/)
-- [Sunlogin](https://sunlogin.oray.com/)
-- [Open Broadcaster Software](https://obsproject.com/)
-- [VLC](https://www.videolan.org/vlc/)
-- [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
-- [Wemeet](https://meeting.tencent.com/)
-```
-腾讯会议不兼容wayland协议怎么解决？
-sudo vim /etc/gdm3/daemon.conf
-把 #WaylandEnable=false 的注释井号去掉
-sudo service gdm3 restart
-```
-- [Calibre](https://calibre-ebook.com/download)
-[最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
-- libreoffice
-```
-libreoffice --impress --norestore 2.4git课程材料.pptx &
-sudo apt-get update
-sudo apt-get install libreoffice-java-common
-```
-- QQ
-- Zoom
-- Discord
-- Telegram
-- Cursor
-- Zotero
-
-[ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
-
-[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
-
-[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-### oh my zsh
+## oh my zsh
 - autosuggestion 
 - syntax-highlighting
 - autojump
@@ -179,6 +133,52 @@ down () {
 # curl https://www.baidu.com/
 # curl https://www.google.com/
 ```
+## Essential software
+- [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
+```
+配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
+
+Ctrl+; 进入剪贴板输入模式.
+
+ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
+
+设计的时候剪切板就只能显示一行。
+```
+
+- [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+- [Clash for Terminal](https://glados.rocks/console)
+- [Feishu](https://www.feishu.cn/download)
+- [Baidu Netdisk](https://pan.baidu.com/download/)
+- [Sunlogin](https://sunlogin.oray.com/)
+- [Open Broadcaster Software](https://obsproject.com/)
+- [VLC](https://www.videolan.org/vlc/)
+- [Wemeet](https://meeting.tencent.com/)
+```
+腾讯会议不兼容wayland协议怎么解决？
+sudo vim /etc/gdm3/daemon.conf
+把 #WaylandEnable=false 的注释井号去掉
+sudo service gdm3 restart
+```
+- [Calibre](https://calibre-ebook.com/download)
+[最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
+- libreoffice
+```
+libreoffice --impress --norestore 2.4git课程材料.pptx &
+sudo apt-get update
+sudo apt-get install libreoffice-java-common
+```
+- QQ
+- Zoom
+- Discord
+- Telegram
+- Cursor
+- Zotero
+
+[ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
+
+[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
+
+[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
 ### clang
 [Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
 ```bash
@@ -351,7 +351,6 @@ h左，j下，k上，l右
 3dd        删除三行
 - yy 复制当前行
 - p paste
-
 # 文件处理
 ## 物理打印机
 ```bash
