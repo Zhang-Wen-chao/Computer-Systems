@@ -48,27 +48,37 @@ nvidia-smi
 python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
 ```
 ## cambricon
+install MLU370-S4
 
-## oh my zsh
-- autosuggestion 
-- syntax-highlighting
-- autojump
-- Powerlevel10k
-1. 集群上设置zsh为默认
-然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
-解决方案：在.bashrc、.bash_profile都启动zsh。
-2. debian上vscode怎么设置zsh为默认
-要在最新的 VS Code 中设置默认的终端 shell，请按照以下步骤进行操作：
-打开 VS Code 并进入菜单栏的 “File”（文件）选项。
-选择 “Preferences”（首选项）并点击 “Settings”（设置）。
-在设置页面的搜索框中，输入 “terminal.integrated.defaultProfile.linux”。
-在右侧的下拉菜单中，选择您想要的默认终端 shell。如果您已经安装了 Zsh，则可能会看到类似 “zsh” 或 “Zsh” 的选项。
-保存设置并关闭页面。
-现在，当您在 VS Code 中打开终端时，它应该默认使用您选择的终端 shell。
-3. some alias
-目前我在debian本地也开始使用命令行版本的clash,然后在网络设置里面手动设置127.0.0.1:7890
-现在感觉比图形界面的要稳定一些。
+sudo lspci -d:0370 -vvv
+
+
+## Essential software
+- Microsoft Edge
+```
+强制黑色背景: edge://flags/#enable-force-dark
+
+[关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
+
+视频倍速, 右键 inspect, console: document.querySelector('video').playbackRate = 0.9
+```
+- [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+[VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
+- [oh my zsh](https://blog.csdn.net/tonydz0523/article/details/108112422)
 ```shell
+zsh-syntax-highlighting
+zsh-autosuggestions
+autojump
+
+# 1. 集群上设置zsh为默认
+# 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
+# 解决方案：在.bashrc、.bash_profile都启动zsh。
+# 2. debian上vscode怎么设置zsh为默认
+# 要在最新的 VS Code 中设置默认的终端 shell，请按照以下步骤进行操作：
+# 打开 VS Code 并进入菜单栏的 “File”（文件）选项。
+# 选择 “Preferences”（首选项）并点击 “Settings”（设置）。
+# 在设置页面的搜索框中，输入 “terminal.integrated.defaultProfile.linux”。
+
 # clash
 open () {
   ports=(7890 7891 9090)
@@ -115,9 +125,8 @@ down () {
 # curl https://www.baidu.com/
 # curl https://www.google.com/
 ```
-## conda
-[解决CondaHTTPError: HTTP 000 CONNECTION 问题](https://zhuanlan.zhihu.com/p/260034241)
-## Essential software
+- [Clash for Terminal](https://glados.rocks/console)
+- [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 - [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
 
 配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
@@ -126,9 +135,7 @@ Ctrl+; 进入剪贴板输入模式.
 
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
 ```
-- [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
-[VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
-- [Clash for Terminal](https://glados.rocks/console)
+### Common software
 - [Feishu](https://www.feishu.cn/download)
 - [Baidu Netdisk](https://pan.baidu.com/download/)
 - [Sunlogin](https://sunlogin.oray.com/)
@@ -143,7 +150,7 @@ sudo service gdm3 restart
 ```
 - [Calibre](https://calibre-ebook.com/download)
 [最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
-- [Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
+
 - libreoffice
 ```
 libreoffice --impress --norestore 2.4git课程材料.pptx &
@@ -154,10 +161,9 @@ sudo apt-get install libreoffice-java-common
 ```bash
 sudo apt install clang
 clang --version
-```
+
 [Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
 
-```bash
 sudo apt install libstdc++-12-dev
 ```
 - QQ
@@ -165,14 +171,15 @@ sudo apt install libstdc++-12-dev
 - Discord
 - Telegram
 - Cursor
+- [Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
 - Zotero
-
+```
 [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
 
 [文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
 
 [zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-
+```
 ## [Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
 ## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 ```
@@ -281,18 +288,7 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 [credential]
 	helper = cache
 ```
-## edge
-- [CSDN 代码复制限制](https://greasyfork.org/zh-CN/scripts/454012-csdn-%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E9%99%90%E5%88%B6)
-- 强制黑色背景
-edge://flags/#enable-force-dark
-- [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
-- 视频倍速
-```html
-右键 inspect, console.
-document.querySelector('video').playbackRate = 0.9
-```
-- 同步问题
-如果一直setting up sync，那就关闭外网、重新登录都试一试。
+
 ## vim
 用vim不是为了炫技。vim也只是一个古老的文本编辑器。
 
