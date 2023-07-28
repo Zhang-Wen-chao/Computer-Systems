@@ -48,12 +48,13 @@ nvidia-smi
 python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
 ```
 ## cambricon
-install MLU370-S4
 
-sudo lspci -d:0370 -vvv
-
+[ubuntu下添加新用户、解决远程登录问题](https://www.jianshu.com/p/d2a05d0ed1c1)
 
 ## Essential software
+使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
+
+apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能和更友好的用户界面。建议使用apt命令来操作软件包，它相对于dpkg和apt-get更为便捷和强大。
 - Microsoft Edge
 ```
 强制黑色背景: edge://flags/#enable-force-dark
@@ -68,7 +69,7 @@ sudo lspci -d:0370 -vvv
 ```shell
 zsh-syntax-highlighting
 zsh-autosuggestions
-autojump
+[autojump](https://blog.csdn.net/daerzei/article/details/101362569)
 
 # 1. 集群上设置zsh为默认
 # 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
@@ -151,12 +152,6 @@ sudo service gdm3 restart
 - [Calibre](https://calibre-ebook.com/download)
 [最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
 
-- libreoffice
-```
-libreoffice --impress --norestore 2.4git课程材料.pptx &
-sudo apt-get update
-sudo apt-get install libreoffice-java-common
-```
 - clang
 ```bash
 sudo apt install clang
