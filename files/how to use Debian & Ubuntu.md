@@ -128,8 +128,7 @@ down () {
 
 配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
 ```
-Ctrl+; 进入剪贴板输入模式.
-
+Ctrl+; 进入剪贴板输入模式. 之前有一次剪切板确实是30个，还分享给wxt,但是重装系统后，怎么又成了一行的剪切板呢？我曾去fcitx 5官方仓库提问为何只有一行，回答是就是这么设计的。那既然我曾见过好用的多行，应该是更新了；只是我没能获取到这个更新？
 ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
 ```
 ### Common software
@@ -138,23 +137,12 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 - [Sunlogin](https://sunlogin.oray.com/)
 - [Open Broadcaster Software](https://obsproject.com/)
 - [VLC](https://www.videolan.org/vlc/)
-- [Wemeet](https://meeting.tencent.com/)
-```
-腾讯会议不兼容wayland协议怎么解决？
-sudo vim /etc/gdm3/daemon.conf
-把 #WaylandEnable=false 的注释井号去掉
-sudo service gdm3 restart
-```
 - [Calibre](https://calibre-ebook.com/download)
 [最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
-
-- clang
+- [Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
 ```bash
 sudo apt install clang
 clang --version
-
-[Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
-
 sudo apt install libstdc++-12-dev
 ```
 - QQ
@@ -164,14 +152,14 @@ sudo apt install libstdc++-12-dev
 - Cursor
 - [Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
 - Zotero
-```
+
 [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
 
 [文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
 
 [zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-```
-## [Linux centos7安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
+
+- [编译安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
 ## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 ```
 git commit --amend
@@ -258,7 +246,6 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 - [github文件夹有向右的白色箭头并且不能打开的解决办法](https://www.jianshu.com/p/7cc6ea70e48e)
 - [2021.8.13起，Github要求使用基于令牌的身份验证](https://zhuanlan.zhihu.com/p/401978754)
 
-### 自定义命令
 在.gitconfig文件里按照自己的需求加上
 ```shell
 [user]
@@ -279,7 +266,6 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 [credential]
 	helper = cache
 ```
-
 ## vim
 用vim不是为了炫技。vim也只是一个古老的文本编辑器。
 
@@ -333,24 +319,4 @@ tar -czvf 'Natural Language Processing_Tu Kewei.tar.gz' '/home/student001/zhangw
 unzip xxx.zip
 
 unrar x <rar文件名> <目标目录>
-```
-
-# network
-## 禁用 IPv6
-```shell
-要禁用 IPv6，你可以在 Linux 系统中执行以下步骤：
-
-打开终端，并以 root 用户身份执行以下命令：
-echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
-echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
-
-执行以下命令以应用更改：
-
-sysctl -p
-
-这将在 /etc/sysctl.conf 文件中添加两个条目，用于禁用 IPv6，然后应用更改。请注意，这将禁用系统上所有网络接口的 IPv6，包括所有网卡、虚拟接口等等。如果你需要启用某些接口的 IPv6，可以使用以下命令：
-
-echo "net.ipv6.conf.<interface-name>.disable_ipv6 = 0" >> /etc/sysctl.conf
-
-将 <interface-name> 替换为要启用 IPv6 的网络接口的名称，然后再次执行 sysctl -p 以应用更改。
 ```
