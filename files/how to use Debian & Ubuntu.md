@@ -46,9 +46,7 @@ nvidia-smi
 python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
 ```
 ## cambricon
-
-[ubuntu下添加新用户、解决远程登录问题](https://www.jianshu.com/p/d2a05d0ed1c1)
-
+等我写好，在github上公开，可以公开的部分。
 ## Essential software
 使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
 
