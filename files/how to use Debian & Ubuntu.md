@@ -315,7 +315,6 @@ View the tree structure of the file organization.
 tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
 
 tar -czvf 'Natural Language Processing_Tu Kewei.tar.gz' '/home/student001/zhangwch/Studying-at-ShanghaiTech/Natural Language Processing_Tu Kewei'
-
 unzip xxx.zip
 
 unrar x <rar文件名> <目标目录>
