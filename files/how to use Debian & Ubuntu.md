@@ -18,8 +18,6 @@ ctrl + alt + F3 (tty登陆)
 
 - [mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
 
-- [linux挂载windows的ntfs硬盘](https://github.com/tuxera/ntfs-3g)
-
 - [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
 
 - 增大 `/tmp` 的空间。
