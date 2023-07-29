@@ -1,36 +1,25 @@
 # Debian's basic installation issues
 - [如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
-
 - [ISO下载](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.6.0-live+nonfree/amd64/iso-hybrid/)
-
 - [balena下载](https://www.balena.io/etcher#download-etcher)
-
 - [原创-解决Parrot安装卡在91%](https://blog.csdn.net/xyq165980/article/details/128259388)
-
 - [How To Fix Busybox Initramfs Error On Ubuntu](https://ostechnix.com/how-to-fix-busybox-initramfs-error-on-ubuntu/)
-
 - 开机总是出现default keyring输入密码: 终端输入seahorse，把default keyring的密码设为空。
-
 - [ubuntu20.04 黑屏/紫屏后的处理办法](https://codeantenna.com/a/GWbmAVSb7g)
 ctrl + alt + F3 (tty登陆)
-
 - [Linux下tmpfs介绍及使用](https://www.serverspc.com/46025.html)
-
 - [mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
-
 - [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
-
 - 增大 `/tmp` 的空间。
-   ```
-   df -h /tmp
-   找到包含 `/tmp` 目录的行，并将其选项修改为 `defaults,size=2G`（注意改变 `size` 选项以匹配你想要的大小）, save and quit.
-   sudo mount -o remount /tmp
-   ```
-
+  ```
+  df -h /tmp
+  找到包含 `/tmp` 目录的行，并将其选项修改为 `defaults,size=2G`（注意改变 `size` 选项以匹配你想要的大小）, save and quit.
+  sudo mount -o remount /tmp
+  ```
 - [How to remove Home Folder icon from desktop in Ubuntu 20.04?](https://askubuntu.com/questions/1230877/how-to-remove-home-folder-icon-from-desktop-in-ubuntu-20-04)
-```bash
-sudo apt install gnome-shell-extension-prefs
-```
+  ```bash
+  sudo apt install gnome-shell-extension-prefs
+  ```
 - [ubuntu 22.04修改内核为指定版本](https://blog.csdn.net/weixin_39190382/article/details/131965648)
 - [Ubuntu操作系统如何设置默认启动内核](https://support.huaweicloud.com/trouble-ecs/ecs_trouble_0327.html)
 # Some software
@@ -40,12 +29,11 @@ sudo apt install gnome-shell-extension-prefs
 - [在安裝 Nvidia 驅動時發生 “The Nouveau kernel driver is currently in use by your system. …”](https://clay-atlas.com/blog/2020/02/11/linux-chinese-note-nvidia-driver-nouveau-kernel/)
 - [在Fedora上安装NVIDIA驱动详细教程及解析](https://blog.csdn.net/qq_61653333/article/details/128883198)
 - [linux下普通用户安装CUDA和cuDNN](https://blog.csdn.net/u012422446/article/details/104882357)
-
-```shell
-nvcc -V
-nvidia-smi
-python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
-```
+  ```shell
+  nvcc -V
+  nvidia-smi
+  python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
+  ```
 ## cambricon
 等我写好，在github上公开，可以公开的部分。
 ## Essential software
@@ -53,85 +41,83 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 
 apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能和更友好的用户界面。建议使用apt命令来操作软件包，它相对于dpkg和apt-get更为便捷和强大。
 - Microsoft Edge
-```
-强制黑色背景: edge://flags/#enable-force-dark
+  ```
+  强制黑色背景: edge://flags/#enable-force-dark
 
-[关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
+  [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
 
-视频倍速, 右键 inspect, console: document.querySelector('video').playbackRate = 0.9
-```
+  视频倍速, 右键 inspect, console: document.querySelector('video').playbackRate = 0.9
+  ```
 - [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
 [VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
 - [oh my zsh](https://blog.csdn.net/tonydz0523/article/details/108112422)
-```shell
-zsh-syntax-highlighting
-zsh-autosuggestions
-[autojump](https://blog.csdn.net/daerzei/article/details/101362569)
+  ```shell
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  [autojump](https://blog.csdn.net/daerzei/article/details/101362569)
 
-# 1. 集群上设置zsh为默认
-# 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
-# 解决方案：在.bashrc、.bash_profile都启动zsh。
-# 2. debian上vscode怎么设置zsh为默认
-# 要在最新的 VS Code 中设置默认的终端 shell，请按照以下步骤进行操作：
-# 打开 VS Code 并进入菜单栏的 “File”（文件）选项。
-# 选择 “Preferences”（首选项）并点击 “Settings”（设置）。
-# 在设置页面的搜索框中，输入 “terminal.integrated.defaultProfile.linux”。
+  # 1. 集群上设置zsh为默认
+  # 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
+  # 解决方案：在.bashrc、.bash_profile都启动zsh。
+  # 2. debian上vscode怎么设置zsh为默认
+  # 要在最新的 VS Code 中设置默认的终端 shell，请按照以下步骤进行操作：
+  # 打开 VS Code 并进入菜单栏的 “File”（文件）选项。
+  # 选择 “Preferences”（首选项）并点击 “Settings”（设置）。
+  # 在设置页面的搜索框中，输入 “terminal.integrated.defaultProfile.linux”。
 
-# clash
-open () {
-  ports=(7890 7891 9090)
-  for port in "${ports[@]}"
-  do
-    pids=$(lsof -i TCP:$port -t)
-    if [[ -n $pids ]]; then
-      echo "Killing processes on port $port: $pids"
-      pkill -TERM -P $pids
-    fi
-  done
-  echo "GLaDOS proxy enabled"
-  cd /public/home/zhangwch2022/software/clash
-  # ./clash-linux-amd64-v1.10.0 -f wyc-glados.yaml -d .
-  ./clash-linux-amd64-v1.10.0 -f zwc-glados.yaml -d .
-}
-close () {
-  ports=(7890 7891 9090)  # 要关闭的端口数组
-  for port in "${ports[@]}"
-  do
-    pids=$(lsof -i TCP:$port | awk 'NR!=1 {print $2}')
-    for pid in $pids
+  # clash
+  open () {
+    ports=(7890 7891 9090)
+    for port in "${ports[@]}"
     do
-      echo "Killing process $pid"
-      kill -9 $pid
+      pids=$(lsof -i TCP:$port -t)
+      if [[ -n $pids ]]; then
+        echo "Killing processes on port $port: $pids"
+        pkill -TERM -P $pids
+      fi
     done
-    echo "Port $port closed"
-  done
-}
-up () {
-  # export http_proxy="127.0.0.1:7890"
-  # export https_proxy="127.0.0.1:7890"
-  export http_proxy="http://127.0.0.1:7890"
-  export https_proxy="http://127.0.0.1:7890"
+    echo "GLaDOS proxy enabled"
+    cd /public/home/zhangwch2022/software/clash
+    # ./clash-linux-amd64-v1.10.0 -f wyc-glados.yaml -d .
+    ./clash-linux-amd64-v1.10.0 -f zwc-glados.yaml -d .
+  }
+  close () {
+    ports=(7890 7891 9090)  # 要关闭的端口数组
+    for port in "${ports[@]}"
+    do
+      pids=$(lsof -i TCP:$port | awk 'NR!=1 {print $2}')
+      for pid in $pids
+      do
+        echo "Killing process $pid"
+        kill -9 $pid
+      done
+      echo "Port $port closed"
+    done
+  }
+  up () {
+    # export http_proxy="127.0.0.1:7890"
+    # export https_proxy="127.0.0.1:7890"
+    export http_proxy="http://127.0.0.1:7890"
+    export https_proxy="http://127.0.0.1:7890"
 
-  env | grep -i proxy
-}
-down () {
-  unset http_proxy
-  unset https_proxy
-  env | grep -i proxy
-}
-# curl https://en.wikipedia.org/wiki/Beijing
-# curl https://www.baidu.com/
-# curl https://www.google.com/
-```
+    env | grep -i proxy
+  }
+  down () {
+    unset http_proxy
+    unset https_proxy
+    env | grep -i proxy
+  }
+  # curl https://en.wikipedia.org/wiki/Beijing
+  # curl https://www.baidu.com/
+  # curl https://www.google.com/
+  ```
 - [Clash for Terminal](https://glados.rocks/console)
 - [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
-- [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
-
-配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
-```
-Ctrl+; 进入剪贴板输入模式. 之前有一次剪切板确实是30个，还分享给wxt,但是重装系统后，怎么又成了一行的剪切板呢？我曾去fcitx 5官方仓库提问为何只有一行，回答是就是这么设计的。那既然我曾见过好用的多行，应该是更新了；只是我没能获取到这个更新？
-ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
-```
+- [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
+  ```
+  Ctrl+; 进入剪贴板输入模式. 之前有一次剪切板确实是30个，还分享给wxt,但是重装系统后，怎么又成了一行的剪切板呢？我曾去fcitx 5官方仓库提问为何只有一行，回答是就是这么设计的。那既然我曾见过好用的多行，应该是更新了；只是我没能获取到这个更新？
+  ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
+  ```
 ### Common software
 - [Feishu](https://www.feishu.cn/download)
 - [Baidu Netdisk](https://pan.baidu.com/download/)
@@ -141,11 +127,11 @@ ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 n
 - [Calibre](https://calibre-ebook.com/download)
 [最强大的本地电子书管理工具：Calibre 使用指南](https://zhuanlan.zhihu.com/p/34996144)
 - [Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
-```bash
-sudo apt install clang
-clang --version
-sudo apt install libstdc++-12-dev
-```
+  ```bash
+  sudo apt install clang
+  clang --version
+  sudo apt install libstdc++-12-dev
+  ```
 - QQ
 - Zoom
 - Discord
@@ -200,11 +186,9 @@ git push origin zvvc
 回想起来，从一开始到现在，学的每个东西都是为了能用就行。但是因为有这么多需要，也确实只有学习这么多东西才够用
 ```
 - 作为仓库的合作者
-```
-提交自己的代码
+```bash 
 git push --set-upstream origin zvvc
 
-拉取最新的代码
 git checkout main
 git pull
 git checkout zvvc
@@ -222,63 +206,51 @@ git merge main
 接受或拒绝更改：根据你对合作者更改的评估，可以选择接受或拒绝这些更改。
 
 如果你决定接受合作者的更改，可以执行以下命令将其合并到你的主分支（比如 main 或 master）中：
-```
-git checkout main  # 切换到主分支
-git pull origin zvvc  # 拉取合作者的更改
-git merge zvvc  # 合并合作者的更改到主分支
-git push origin main  # 推送合并后的更改到远程仓库的主分支
-```
+  ```bash 
+  git checkout main  # 切换到主分支
+  git pull origin zvvc  # 拉取合作者的更改
+  git merge zvvc  # 合并合作者的更改到主分支
+  git push origin main  # 推送合并后的更改到远程仓库的主分支
+  ```
 如果你决定拒绝合作者的更改，你可以使用以下命令回退或重置远程分支，撤销合作者的提交。这将丢弃合作者的更改，请谨慎使用，并确保在执行之前备份重要的更改。
-```
-git branch -D zvvc  # 删除本地分支（仅在你确认不需要这个分支时使用）
-git push origin :zvvc  # 删除远程分支（仅在你确认不需要这个分支时使用）
-```
+  ```bash
+  git branch -D zvvc  # 删除本地分支（仅在你确认不需要这个分支时使用）
+  git push origin :zvvc  # 删除远程分支（仅在你确认不需要这个分支时使用）
+  ```
 请注意，在执行这些命令之前，确保你在本地仓库的正确分支上进行操作，并且仔细评估合作者的更改以确保安全和正确性。
 - 修改仓库名字
 请注意，更改仓库名称后，你需要更新本地仓库的远程URL以反映新的名称。
 如果你在使用命令行进行Git操作，可以使用以下命令更新远程URL：
-```
+```bash
 git remote set-url origin 新的仓库URL
 ```
 - [Missing or invalid credentials.](https://juejin.cn/post/7062237873570840589)
 - 查看github星星数量
 https://github.com/Zhang-Wen-chao/CS240/stargazers
-
 - [github文件夹有向右的白色箭头并且不能打开的解决办法](https://www.jianshu.com/p/7cc6ea70e48e)
-- [2021.8.13起，Github要求使用基于令牌的身份验证](https://zhuanlan.zhihu.com/p/401978754)
-
-在.gitconfig文件里按照自己的需求加上
-```shell
-[user]
-	name = Zhang-Wen-chao
-	email = zhangwch2022@shanghaitech.edu.cn
-[http]
-	sslVerify = false
-[alias]
-	gpush = !git add . && git commit -m 'update' && git push
-	safepull = "! [ -z \"$(git status --porcelain)\" ] && [ -z \"$(git log origin/$(git symbolic-ref --short HEAD)..HEAD --oneline)\" ] && git pull"
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-[lfs]
-	contenttype = 0
-[credential]
-	helper = cache
-```
+- [2021.8.13起，Github要求使用基于令牌的身份验证](https://zhuanlan.zhihu.com/p/401978754)在.gitconfig文件里按照自己的需求加上
+  ```shell
+  [user]
+    name = Zhang-Wen-chao
+    email = zhangwch2022@shanghaitech.edu.cn
+  [http]
+    sslVerify = false
+  [alias]
+    gpush = !git add . && git commit -m 'update' && git push
+    safepull = "! [ -z \"$(git status --porcelain)\" ] && [ -z \"$(git log origin/$(git symbolic-ref --short HEAD)..HEAD --oneline)\" ] && git pull"
+  [filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+  [lfs]
+    contenttype = 0
+  [credential]
+    helper = cache
+  ```
 ## vim
 用vim不是为了炫技。vim也只是一个古老的文本编辑器。
-
-移动模式: h(左)j(下)k(上)l(右) 一定要最先的记死用熟
-插入模式: 你可以输入想要输入的东西,没什么可以说的
-保存文件: :w然后回车
-复制内容: v 进入虚拟模式, hjkl 移动复制, 然后按下 y
-粘贴内容: p
-为什么要学 vim
-方向键联系 hjkl
-h左，j下，k上，l右
-
+- h左，j下，k上，l右
 - w 光标向前移动到下个单词首字母，，3w
 - W 跳转到下一个字符串的首字母 （对应英文单词Word）
 - e 光标向前移动到单词尾字母，，2e
@@ -295,6 +267,7 @@ h左，j下，k上，l右
 - dd 删除本行
 3dd        删除三行
 - yy 复制当前行
+- 复制内容: v 进入虚拟模式, hjkl 移动复制, 然后按下 y
 - p paste
 # 文件处理
 ## 如何通过bash在Linux中下载Onedrive文件
