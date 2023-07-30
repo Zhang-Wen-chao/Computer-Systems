@@ -115,7 +115,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 - [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
   ```
-  Ctrl+; 进入剪贴板输入模式. 之前有一次剪切板确实是30个，还分享给wxt,但是重装系统后，怎么又成了一行的剪切板呢？我曾去fcitx 5官方仓库提问为何只有一行，回答是就是这么设计的。那既然我曾见过好用的多行，应该是更新了；只是我没能获取到这个更新？
+  Ctrl+; 进入剪贴板；如果刚开始只有一行，不要着急，过两天可能就自己更新了，最多30行。
   ctrl+alt+H：激活 spell hint状态，把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
   ```
 ### Common software
