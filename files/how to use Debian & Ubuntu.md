@@ -152,9 +152,6 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 ```
 git commit --amend
 git push -f
-git reset
-git reset HEAD~1
-git reset --hard
 git revert
 git config --global user.name "zvvc"
 git config --global user.email "zwc@outlook.lv"
@@ -170,7 +167,6 @@ git push origin zvvc
 从上游拉取时，为了不和自己写的东西冲突，学了 merge 、 add 和 status，后来又学了 fetch 和 rebase 。
 为了提 Pull Request，也为了备份自己写的东西，学了 push 。
 为了把其他分支的修改转移到当前分支，学了 cherry-pick 。
-为了撤回修改，学了 reset （当时有些需求现在可以用 restore 完成）。
 为了恢复丢掉的修改记录，学了 reflog 。
 为了保存写到一半的内容，学了 stash 。
 为了找到引入或修复 bug 的版本，学了 bisect 和 blame 。
