@@ -159,7 +159,6 @@ git push origin zvvc
 
 后来为了看源码在一段时间内有哪些改动，学了 log 、 show 和 diff 。
 为了找到感兴趣内容所在的文件，学了 grep （指 git grep）。
-发现上游有多个分支，为了查看不同分支，学了 branch 和 checkout （现在一般用 switch）。
 因为上游用了 submodule 所以也稍微学了一下。
 在网络不理想的时候，为了从镜像拉取，学了 remote 。
 因为手痒，想自己给项目添加内容，为了让自己写的东西纳入 git 管理，学了 commit （那时候用的还是 commit -a ，用不到 add）。
