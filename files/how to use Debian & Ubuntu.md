@@ -138,7 +138,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - Discord
 - Telegram
 - Cursor
-- [Debian 11 / Ubuntu 22.04 安装 Docker 以及 Docker Compose 教程](https://u.sb/debian-install-docker/)
+- Krita
 - Zotero
 
 [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
