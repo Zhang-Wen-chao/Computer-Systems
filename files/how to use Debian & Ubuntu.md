@@ -113,12 +113,14 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   ```
 - [Clash for Terminal](https://glados.rocks/console)
 - [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
-- [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
+- [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
+配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
   ```
   Ctrl+; 进入剪贴板；如果刚开始只有一行，过两天可能就自己更新了，最多30行。
   Ctrl + Alt + H：Completion is enabled.
   把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
   ```
+  ubuntu 20.04, fcitx5，键入0，直接闪退。[可以换个桌面](https://www.jianshu.com/p/8b2cf8bb5fe0)，但我还没尝试。
 ### Common software
 - [Feishu](https://www.feishu.cn/download)
 - [Baidu Netdisk](https://pan.baidu.com/download/)
