@@ -22,6 +22,7 @@ ctrl + alt + F3 (tty登陆)
   ```
 - [ubuntu 22.04修改内核为指定版本](https://blog.csdn.net/weixin_39190382/article/details/131965648)
 - [Ubuntu操作系统如何设置默认启动内核](https://support.huaweicloud.com/trouble-ecs/ecs_trouble_0327.html)
+- [password forgotten](https://forums.developer.nvidia.com/t/jetson-tx2-password-forgotten/160683/6)
 # Some software
 ## nvidia
 - [Debian 11下安装Nvidia显卡驱动与Cuda](https://yangyq.net/2023/03/debian-11-nvidia-driver-cuda.html)
