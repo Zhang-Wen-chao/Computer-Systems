@@ -30,10 +30,10 @@ ctrl + alt + F3 (tty登陆)
 - [在安裝 Nvidia 驅動時發生 “The Nouveau kernel driver is currently in use by your system. …”](https://clay-atlas.com/blog/2020/02/11/linux-chinese-note-nvidia-driver-nouveau-kernel/)
 - [在Fedora上安装NVIDIA驱动详细教程及解析](https://blog.csdn.net/qq_61653333/article/details/128883198)
 - [linux下普通用户安装CUDA和cuDNN](https://blog.csdn.net/u012422446/article/details/104882357)
-  ```shell
-  nvcc -V
-  nvidia-smi
-  python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
+```shell
+nvcc -V
+nvidia-smi
+python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
   ```
 ## cambricon
 等我写好，在github上公开，可以公开的部分。
