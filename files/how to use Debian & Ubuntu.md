@@ -39,7 +39,6 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 import torchtext
 print(torchtext.__version__)
 "
-
 ```
 ## cambricon
 等我写好，在github上公开，可以公开的部分。
