@@ -1,7 +1,5 @@
 # linux and cpp
-## What version of Linux to choose
-深入学习Linux怎么能不编译一下源码，Linux内核源码和各种GNU不GNU的开源软件全都编译一边。​上gentoo吧，装机从琢磨一个个内核编译选项开始。
-
+## Debian is stable
 [how to use Debian](./files/how%20to%20use%20Debian%20&%20Ubuntu.md)
 
 [how to use Gentoo](./files/how%20to%20use%20Gentoo.md)
