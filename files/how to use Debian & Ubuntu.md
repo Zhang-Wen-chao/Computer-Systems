@@ -116,7 +116,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
 配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
   ```
-  Ctrl + ; 进入剪贴板；如果刚开始只有一行，过两天可能就自己更新了，最多30行。
+  Ctrl + ; 进入剪贴板；如果刚开始只有一行，过两天可能就自己更新了，最多30行。按0选择候选词，在Ubuntu20.04上，很长一段时间都会直接退出fcitx5.后来也不知道为什么好了。
   Ctrl + . 切换到全局配置选项卡后，勾选底部的“显示高级选项”，并下滑，找到“切换全角标点”一栏。看到旁边的快捷键了吗？我这里是
   Ctrl + Alt + H：Completion is enabled.
   把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
@@ -268,6 +268,22 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 - yy 复制当前行
 - 复制内容: v 进入虚拟模式, hjkl 移动复制, 然后按下 y
 - p paste
+## 调节风扇转速
+mlu370是被动散热，不外加风扇，就会掉卡。建议直接买风扇，钱能解决的问题都不是问题。
+
+think center m930t, F12, enter setup, power, intelligent cooling, full speed噪音太大，不行。performance mode，可以work。
+
+下面是软件控制，但不能work。
+```bash
+sudo apt install lm-sensors
+sudo sensors-detect  # always yes
+sensors
+sudo service kmod start
+sudo apt install fancontrol
+sudo pwmconfig  # /usr/sbin/pwmconfig: There are no fan-capable sensor modules installed
+```
+[解決pwmconfig抓不到風扇的問題](https://www.ubuntu-tw.org/modules/newbb/viewtopic.php?viewmode=compact&order=ASC&topic_id=107514&forum=2)
+这个链接也并未解决这台电脑的问题。
 # 文件处理
 ## 如何通过bash在Linux中下载Onedrive文件
 在OneDrive网页端，以chrome浏览器为例，用F12打开开发人员工具，然后在网页中选中要下载的文件点击下载按钮。在开发工具network标签下，看到新出现的项目，右击，选择copy cURL (bash)，然后在Linux terminal中粘贴，并在末尾加上 --output <文件名> 即可。
