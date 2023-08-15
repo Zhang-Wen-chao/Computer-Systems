@@ -1,8 +1,7 @@
 # some settings
 ## 移动热点自动启动
-[Windows 10 移动热点服务如何设置为自动启动](https://answers.microsoft.com/zh-hans/windows/forum/all/answers-%e5%88%86%e4%ba%abwindows-10/cb3a9469-bb8f-4578-b0bd-6cf2731d548e)
+[Win11如何开机自启Wifi热点？Win11开机自动启动无线热点教程](https://www.xitongzhijia.net/xtjc/20230204/276010.html)
 
-但我开了后，好像还是不行。
 ## PowerShell
 [使用 PowerShell 将输出导出到文件](https://www.delftstack.com/zh/howto/powershell/powershell-out-file-append/#google_vignette)
 ## run

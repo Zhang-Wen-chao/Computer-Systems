@@ -13,7 +13,6 @@ railway 12306
 scanscan
 snapseed
 starbucks
-vsco
 wechat
 上海银行
 个人所得税
