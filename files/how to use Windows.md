@@ -10,6 +10,7 @@ win+R
 60秒后自动关机: shutdown -s -t 60
 
 定时关机: at 18:00 shutdown -s
+
 ## shortcut
 1. win + shift + s 是截图.
 2. win + v 是剪切板.
