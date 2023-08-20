@@ -2,7 +2,6 @@
 ## Debian is stable
 [how to use Debian](./files/how%20to%20use%20Debian%20&%20Ubuntu.md)
 
-[how to use Gentoo](./files/how%20to%20use%20Gentoo.md)
 ## Programming in C/C++ Efficiently
 https://www.bilibili.com/video/BV1Vf4y1P7pq
 

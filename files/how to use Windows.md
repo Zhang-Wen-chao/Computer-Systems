@@ -162,8 +162,6 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '234321';
 # Removable storage device
 [U盘写保护无法格式化怎么办？](https://www.reneelab.com.cn/m/how-to-format-write-protected-usb.html)
 
-[Windows 10 使用命令行格式化磁盘/U盘](https://blog.csdn.net/qq_52745882/article/details/116175323)
-
 [Windows下使用Diskpart格式化U盘](https://www.cnblogs.com/zhuxiaoxi/p/9292863.html)
 # Download YouTube videos
 https://www.youtube.com/watch?v=K1lQa5QsyDU
