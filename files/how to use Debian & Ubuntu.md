@@ -95,10 +95,10 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
     done
   }
   up () {
-    # export http_proxy="127.0.0.1:7890"
-    # export https_proxy="127.0.0.1:7890"
-    export http_proxy="http://127.0.0.1:7890"
-    export https_proxy="http://127.0.0.1:7890"
+    export http_proxy="127.0.0.1:7890"
+    export https_proxy="127.0.0.1:7890"
+    # export http_proxy="http://127.0.0.1:7890"
+    # export https_proxy="http://127.0.0.1:7890"
 
     env | grep -i proxy
   }
