@@ -142,13 +142,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - Telegram
 - Cursor
 - Krita
-- Zotero
-
-[ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564)
-
-[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
-
-[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
+- [Zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
 
 - [编译安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
 ## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
