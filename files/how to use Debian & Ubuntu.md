@@ -147,7 +147,6 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - [编译安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
 ## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 ```
-git commit --amend
 git revert
 git config --global user.name "zvvc"
 git config --global user.email "zwc@outlook.lv"
