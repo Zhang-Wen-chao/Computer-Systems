@@ -42,7 +42,6 @@ sudo apt install gcc g++ make cmake
 验证：
 nvidia-smi和nvidia-settings检查是否装好，很简单省事。
 ```
-
 - [linux下普通用户安装CUDA和cuDNN](https://blog.csdn.net/u012422446/article/details/104882357)
 ## cambricon driver
 pcie 插槽规格要匹配，然后按照官方流程即可。
