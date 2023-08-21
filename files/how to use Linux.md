@@ -29,11 +29,17 @@ ctrl + alt + F3 (tty登陆)
 - [password forgotten](https://forums.developer.nvidia.com/t/jetson-tx2-password-forgotten/160683/6)
 # Some software
 ## nvidia driver
-```bash
 最新亲测，ubuntu22.04以后，直接联网在线装，稳定又省心。
-第一步：sudo apt updae 
-第二步：打开软件和更新--附加驱动--会自动搜索可用驱动；
+```bash
+第一步：
+sudo apt updae 
+sudo apt install gcc g++ make cmake
+
+第二步：
+打开软件和更新--附加驱动--会自动搜索可用驱动；
 找一个最新的，比如“专有530”--应用更改--装好--重启；
+
+验证：
 nvidia-smi和nvidia-settings检查是否装好，很简单省事。
 ```
 
