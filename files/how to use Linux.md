@@ -1,3 +1,7 @@
+# 写在前面
+工具只是工具，想清楚自己想干什么，想达到什么目的，然后选择工具。
+
+虽然我也安装过[Gentoo linux](https://bitbili.net/gentoo-linux-installation-and-usage-tutorial.html), 但我觉得舍本逐末了。
 # Debian's basic installation issues
 - [如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
 - [ISO下载](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.6.0-live+nonfree/amd64/iso-hybrid/)
@@ -24,18 +28,18 @@ ctrl + alt + F3 (tty登陆)
 - [Ubuntu操作系统如何设置默认启动内核](https://support.huaweicloud.com/trouble-ecs/ecs_trouble_0327.html)
 - [password forgotten](https://forums.developer.nvidia.com/t/jetson-tx2-password-forgotten/160683/6)
 # Some software
-## nvidia
-- [Debian 11下安装Nvidia显卡驱动与Cuda](https://yangyq.net/2023/03/debian-11-nvidia-driver-cuda.html)
-- [Debian 11下升级Cuda与Nvidia显卡驱动](https://yangyq.net/2023/03/debian-11-cuda-nvidia-driver-upgrade.html)
-- [在安裝 Nvidia 驅動時發生 “The Nouveau kernel driver is currently in use by your system. …”](https://clay-atlas.com/blog/2020/02/11/linux-chinese-note-nvidia-driver-nouveau-kernel/)
-- [在Fedora上安装NVIDIA驱动详细教程及解析](https://blog.csdn.net/qq_61653333/article/details/128883198)
-- [linux下普通用户安装CUDA和cuDNN](https://blog.csdn.net/u012422446/article/details/104882357)
-```shell
-nvcc -V
-nvidia-smi
+## nvidia driver
+```bash
+最新亲测，ubuntu22.04以后，直接联网在线装，稳定又省心。
+第一步：sudo apt updae 
+第二步：打开软件和更新--附加驱动--会自动搜索可用驱动；
+找一个最新的，比如“专有530”--应用更改--装好--重启；
+nvidia-smi和nvidia-settings检查是否装好，很简单省事。
 ```
-## cambricon
-等我写好，在github上公开，可以公开的部分。
+
+- [linux下普通用户安装CUDA和cuDNN](https://blog.csdn.net/u012422446/article/details/104882357)
+## cambricon driver
+pcie 插槽规格要匹配，然后按照官方流程即可。
 ## Essential software
 使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
 

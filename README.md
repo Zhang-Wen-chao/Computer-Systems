@@ -1,6 +1,8 @@
 # linux and cpp
-## Debian is stable
-[how to use Debian](./files/how%20to%20use%20Debian%20&%20Ubuntu.md)
+## Windows doesn't teach you anything
+[how to use Linux](./files/how%20to%20use%20Linux.md)
+
+[how to use Windows](./files/how%20to%20use%20Windows.md)
 
 ## Programming in C/C++ Efficiently
 https://www.bilibili.com/video/BV1Vf4y1P7pq
