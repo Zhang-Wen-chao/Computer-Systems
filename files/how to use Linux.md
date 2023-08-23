@@ -32,7 +32,7 @@ ctrl + alt + F3 (tty登陆)
 最新亲测，ubuntu22.04以后，直接联网在线装，稳定又省心。
 ```bash
 第一步：
-sudo apt updae 
+sudo apt updae
 sudo apt install gcc g++ make cmake
 
 第二步：
