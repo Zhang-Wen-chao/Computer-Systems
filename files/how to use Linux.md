@@ -66,7 +66,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   [autojump](https://blog.csdn.net/daerzei/article/details/101362569)
 
   # 1. 集群上设置zsh为默认
-  # 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行。
+  # 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行
   # 解决方案：在.bashrc、.bash_profile都启动zsh。
   # 2. debian上vscode怎么设置zsh为默认
   # 要在最新的 VS Code 中设置默认的终端 shell，请按照以下步骤进行操作：
