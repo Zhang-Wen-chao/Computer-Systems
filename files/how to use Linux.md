@@ -130,7 +130,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   Ctrl + Alt + H：Completion is enabled.
   把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
   ```
-  ubuntu 20.04, fcitx5，键入0，直接闪退。[可以换个桌面](https://www.jianshu.com/p/8b2cf8bb5fe0)，但我还没尝试。
+  ubuntu 20.04, fcitx5，键入0，直接闪退。[可以换个桌面](https://www.jianshu.com/p/8b2cf8bb5fe0)，但还没尝试。
 - [Ubuntu 20.04 安装中文输入法（百度输入法）](https://www.zhihu.com/zvideo/1276684353373384704) 22.04会出现[qt5-default not in Ubuntu 21.04](https://zhuanlan.zhihu.com/p/443006210)
 ### Common software
 - [Feishu](https://www.feishu.cn/download)
