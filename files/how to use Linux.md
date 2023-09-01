@@ -123,6 +123,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   ```
 - [Clash for Terminal](https://glados.rocks/console)
 - [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
+- [fcitx输入法代码分析总结](https://blog.csdn.net/ss49344/article/details/107051672)
 - [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
 配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
   ```
