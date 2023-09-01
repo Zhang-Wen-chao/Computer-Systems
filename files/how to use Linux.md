@@ -11,6 +11,7 @@
 - 开机总是出现default keyring输入密码: 终端输入seahorse，把default keyring的密码设为空。
 - [ubuntu20.04 黑屏/紫屏后的处理办法](https://codeantenna.com/a/GWbmAVSb7g)
 ctrl + alt + F3 (tty登陆)
+- [Linux下为什么要进行磁盘的分区](https://www.jianshu.com/p/8210eea5c133?utm_campaign)
 - [Linux下tmpfs介绍及使用](https://www.serverspc.com/46025.html)
 - [mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
 - [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
