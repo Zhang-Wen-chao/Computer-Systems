@@ -141,6 +141,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - [Open Broadcaster Software](https://obsproject.com/)
 - [VLC](https://www.videolan.org/vlc/)
 - [Ventoy](https://www.ventoy.net/cn/doc_start.html)
+- [快速上手 Goldendict](https://zhuanlan.zhihu.com/p/344770839)
 - [Calibre](https://calibre-ebook.com/download)
 - [Locating iostream in Clang++: fatal error: 'iostream' file not found](https://stackoverflow.com/questions/54521402/locating-iostream-in-clang-fatal-error-iostream-file-not-found)
   ```bash
