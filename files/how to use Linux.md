@@ -49,6 +49,7 @@ pcie 插槽规格要匹配，然后按照官方流程即可。
 使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
 
 apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能和更友好的用户界面。建议使用apt命令来操作软件包，它相对于dpkg和apt-get更为便捷和强大。
+### Microsoft Edge
 - Microsoft Edge
   ```
   强制黑色背景: edge://flags/#enable-force-dark
@@ -57,6 +58,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 
   视频倍速, 右键 inspect, console: document.querySelector('video').playbackRate = 0.9
   ```
+### VScode
 - [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
 [VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
 - [oh my zsh](https://blog.csdn.net/tonydz0523/article/details/108112422)
@@ -121,7 +123,9 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   # curl https://www.google.com/
   ```
 - [Clash for Terminal](https://glados.rocks/console)
+- [Got permission denied while trying to connect to the Docker daemon socket](https://dev.to/kenji_goh/got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-3dne)
 - [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
+- [Ubuntu 20.04 安装中文输入法（百度输入法）](https://www.zhihu.com/zvideo/1276684353373384704) 22.04会出现[qt5-default not in Ubuntu 21.04](https://zhuanlan.zhihu.com/p/443006210)
 - [fcitx输入法代码分析总结](https://blog.csdn.net/ss49344/article/details/107051672)
 - [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
 配置文件在`~/.config/fcitx5`,可直接复制粘贴已有文件。
@@ -132,7 +136,6 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   把 "choose key modifier"由 alt 改成 none ,作用是选词时免按alt.
   ```
   ubuntu 20.04, fcitx5，键入0，直接闪退。[可以换个桌面](https://www.jianshu.com/p/8b2cf8bb5fe0)，但还没尝试
-- [Ubuntu 20.04 安装中文输入法（百度输入法）](https://www.zhihu.com/zvideo/1276684353373384704) 22.04会出现[qt5-default not in Ubuntu 21.04](https://zhuanlan.zhihu.com/p/443006210)
 ### Common software
 - [Feishu](https://www.feishu.cn/download)
 - [Baidu Netdisk](https://pan.baidu.com/download/)
