@@ -2,6 +2,7 @@
 - [不花里胡哨看电脑主板支持最大内存与频率](https://blog.csdn.net/qq_45164497/article/details/126358529)
 
 - [Windows 10 总是不打招呼就自动更新？教你如何关闭它](https://sspai.com/post/44051)
+- [WINDOWS 10 自动更新彻底关闭！](https://aopos.es/pages/windows-10-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%BD%BB%E5%BA%95%E5%85%B3%E9%97%AD)
 
 - [Win11如何开机自启Wifi热点？Win11开机自动启动无线热点教程](https://www.xitongzhijia.net/xtjc/20230204/276010.html)
 好像还是没用啊
