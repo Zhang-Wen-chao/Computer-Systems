@@ -1,7 +1,10 @@
 # some settings
+##　不花里胡哨看电脑主板支持最大内存与频率
+https://blog.csdn.net/qq_45164497/article/details/126358529
 ## 移动热点自动启动
 [Win11如何开机自启Wifi热点？Win11开机自动启动无线热点教程](https://www.xitongzhijia.net/xtjc/20230204/276010.html)
 
+好像还是没用啊
 ## PowerShell
 [使用 PowerShell 将输出导出到文件](https://www.delftstack.com/zh/howto/powershell/powershell-out-file-append/#google_vignette)
 ## run
@@ -158,6 +161,8 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '234321';
 ## Samsung Notes
 “三星笔记APP”有没有电脑端或者web端，电脑上怎么看笔记？ - 唰唰的回答 - 知乎
 https://www.zhihu.com/question/490558650/answer/2686229635
+
+这个方案依然不太行，可以安装，无法登录。
 # Removable storage device
 [U盘写保护无法格式化怎么办？](https://www.reneelab.com.cn/m/how-to-format-write-protected-usb.html)
 
