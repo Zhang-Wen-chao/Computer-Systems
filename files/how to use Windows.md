@@ -162,7 +162,6 @@ https://www.zhihu.com/question/490558650/answer/2686229635
 [U盘写保护无法格式化怎么办？](https://www.reneelab.com.cn/m/how-to-format-write-protected-usb.html)
 
 [Windows下使用Diskpart格式化U盘](https://www.cnblogs.com/zhuxiaoxi/p/9292863.html)
-
 # Download YouTube videos
 https://www.youtube.com/watch?v=K1lQa5QsyDU
 
