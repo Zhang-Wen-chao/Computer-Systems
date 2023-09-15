@@ -1,9 +1,9 @@
 # some settings
-##　不花里胡哨看电脑主板支持最大内存与频率
-https://blog.csdn.net/qq_45164497/article/details/126358529
-## 移动热点自动启动
-[Win11如何开机自启Wifi热点？Win11开机自动启动无线热点教程](https://www.xitongzhijia.net/xtjc/20230204/276010.html)
+- [不花里胡哨看电脑主板支持最大内存与频率](https://blog.csdn.net/qq_45164497/article/details/126358529)
 
+- [Windows 10 总是不打招呼就自动更新？教你如何关闭它](https://sspai.com/post/44051)
+
+- [Win11如何开机自启Wifi热点？Win11开机自动启动无线热点教程](https://www.xitongzhijia.net/xtjc/20230204/276010.html)
 好像还是没用啊
 ## PowerShell
 [使用 PowerShell 将输出导出到文件](https://www.delftstack.com/zh/howto/powershell/powershell-out-file-append/#google_vignette)
