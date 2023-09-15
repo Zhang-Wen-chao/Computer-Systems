@@ -155,10 +155,9 @@ net start mysql
 mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY '234321';
 ```
-
-## WSL 2
-如果单位没有服务器，可以考虑用WSL 2。（不过听说Windows又出了新的虚拟机技术？）
-[如何在 Windows 10 上安装 WSL 2](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)
+## Samsung Notes
+“三星笔记APP”有没有电脑端或者web端，电脑上怎么看笔记？ - 唰唰的回答 - 知乎
+https://www.zhihu.com/question/490558650/answer/2686229635
 # Removable storage device
 [U盘写保护无法格式化怎么办？](https://www.reneelab.com.cn/m/how-to-format-write-protected-usb.html)
 
