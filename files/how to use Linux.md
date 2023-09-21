@@ -45,6 +45,9 @@ nvidia-smi和nvidia-settings检查是否装好，很简单省事。
 ```
 ## cambricon driver
 pcie 插槽规格要匹配，然后按照官方流程即可。
+```shell
+alias 370="lspci -d:0370 -vvv && cnmon"
+```
 ## Essential software
 使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
 
@@ -63,6 +66,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 [VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
 - [oh my zsh](https://blog.csdn.net/tonydz0523/article/details/108112422)
   ```shell
+  ZSH_THEME="muse"
   zsh-syntax-highlighting
   zsh-autosuggestions
   [autojump](https://blog.csdn.net/daerzei/article/details/101362569)
