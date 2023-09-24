@@ -140,6 +140,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   ubuntu 20.04, fcitx5，键入0，直接闪退。[可以换个桌面](https://www.jianshu.com/p/8b2cf8bb5fe0)，但还没尝试
 ### Common software
 - Lark
+- [在 Ubuntu下安装配置 TeX Live 与 TeXstudio](https://muzing.top/posts/6b2dc40e/)
 - [Baidu Netdisk](https://pan.baidu.com/download/)
 - [Sunlogin](https://sunlogin.oray.com/)
 - [Open Broadcaster Software](https://obsproject.com/)
