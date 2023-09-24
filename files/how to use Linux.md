@@ -31,7 +31,7 @@ ctrl + alt + F3 (tty登陆)
 - [password forgotten](https://forums.developer.nvidia.com/t/jetson-tx2-password-forgotten/160683/6)
 # Some software
 ## nvidia driver
-最新亲测，ubuntu22.04以后，直接联网在线装，稳定又省心。
+最新亲测，ubuntu20.04以后，直接联网在线装，稳定又省心。
 ```bash
 第一步：
 sudo apt updae
@@ -57,9 +57,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - Microsoft Edge
   ```
   强制黑色背景: edge://flags/#enable-force-dark
-  
   [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
-
   视频倍速, 右键 inspect, console: document.querySelector('video').playbackRate = 0.9
   ```
 ### VScode
@@ -129,7 +127,6 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   ```
 - [Clash for Terminal](https://glados.rocks/console)
 - [Got permission denied while trying to connect to the Docker daemon socket](https://dev.to/kenji_goh/got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-3dne)
-- [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 - [Ubuntu 20.04 安装中文输入法（百度输入法）](https://www.zhihu.com/zvideo/1276684353373384704) 22.04会出现[qt5-default not in Ubuntu 21.04](https://zhuanlan.zhihu.com/p/443006210)
 - [fcitx输入法代码分析总结](https://blog.csdn.net/ss49344/article/details/107051672)
 - [如何现在就在 Ubuntu 20.04 用上 Fcitx 5](https://plumz.me/archives/11740/)
@@ -142,7 +139,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   ```
   ubuntu 20.04, fcitx5，键入0，直接闪退。[可以换个桌面](https://www.jianshu.com/p/8b2cf8bb5fe0)，但还没尝试
 ### Common software
-- [Feishu](https://www.feishu.cn/download)
+- Lark
 - [Baidu Netdisk](https://pan.baidu.com/download/)
 - [Sunlogin](https://sunlogin.oray.com/)
 - [Open Broadcaster Software](https://obsproject.com/)
@@ -157,7 +154,10 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   sudo apt install libstdc++-12-dev
   ```
 - QQ
+- Vim
+- tree
 - Zoom
+- WPS
 - Discord
 - Telegram
 - Cursor
@@ -195,7 +195,6 @@ git push origin zvvc
 当然过程中也断断续续学了不少选项，比如 commit --amend 、pull --rebase 、rebase --autostash、commit --fixup 、rebase --autosquash 等。
 另外时不时用到 init 、 revert 、 rm 、 mv 、 apply 和 rev-list ，但是没仔细学过。
 到这里我觉得我已经认识了大多数初级指令。但是对于如何使用 hook，如何直接操作索引中的对象，我还是一无所知。对于使用邮件的工作流程，我也不太了解。
-回想起来，从一开始到现在，学的每个东西都是为了能用就行。但是因为有这么多需要，也确实只有学习这么多东西才够用
 ```
 - 作为仓库的合作者
 ```bash 
@@ -305,19 +304,4 @@ sudo pwmconfig  # /usr/sbin/pwmconfig: There are no fan-capable sensor modules i
 lpstat -o
 cancel HP_LaserJet_M1536dnf_MFP_3184B1_-7
 lp -d  printer HP_LaserJet_M1536dnf_MFP_3184B1_ /usr/share/cups/data/testprint
-```
-## wps
-The Linux version has no ads.
-## libreoffice
-libreoffice is open source.
-## tree
-View the tree structure of the file organization. 
-## compressed software
-```bash
-tar -czvf download_jump.tar.gz /home/student001/zhangwch/Working-at-SHIC/scripts/download_jump
-
-tar -czvf 'Natural Language Processing_Tu Kewei.tar.gz' '/home/student001/zhangwch/Studying-at-ShanghaiTech/Natural Language Processing_Tu Kewei'
-unzip xxx.zip
-
-unrar x <rar文件名> <目标目录>
 ```
