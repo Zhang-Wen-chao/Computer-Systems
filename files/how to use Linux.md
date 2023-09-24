@@ -143,6 +143,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - [在 Ubuntu下安装配置 TeX Live 与 TeXstudio](https://muzing.top/posts/6b2dc40e/)
 - [Baidu Netdisk](https://pan.baidu.com/download/)
 - [Sunlogin](https://sunlogin.oray.com/)
+- Vivado
 - [Open Broadcaster Software](https://obsproject.com/)
 - [VLC](https://www.videolan.org/vlc/)
 - [Ventoy](https://www.ventoy.net/cn/doc_start.html)
