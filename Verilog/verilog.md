@@ -13,7 +13,6 @@ https://www.allaboutcircuits.com/
 
 https://vlab.ustc.edu.cn/guide/doc_verilog.html
 
-
 # 写题进度
 https://hdlbits.01xz.net/wiki/Problem_sets#Verilog_Language
 
