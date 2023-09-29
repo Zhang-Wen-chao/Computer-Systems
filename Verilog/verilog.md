@@ -29,4 +29,4 @@ https://hdlbits.01xz.net/wiki/Problem_sets#Verilog_Language
 3-8 run了
 3-9 run了
 
-4-
+该写6-1-1了
