@@ -19,6 +19,7 @@ https://vlab.ustc.edu.cn/guide/doc_verilog.html
 # 写题进度
 https://hdlbits.01xz.net/wiki/Problem_sets#Verilog_Language
 
+https://github.com/jerrylioon/Solutions-to-HDLbits-Verilog-sets/blob/master/3.circuits/sequential%20logic/109.left_right_arith_shift_1-8.v
 
 帮我写个测试程序
 
