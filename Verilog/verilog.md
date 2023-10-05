@@ -20,10 +20,3 @@ https://vlab.ustc.edu.cn/guide/doc_verilog.html
 https://hdlbits.01xz.net/wiki/Problem_sets#Verilog_Language
 
 https://github.com/jerrylioon/Solutions-to-HDLbits-Verilog-sets
-帮我写个测试程序
-
-该写牛客进阶了
-
-不能不掌控全局，不能不了解细节，不能沉溺于细节。
-
-在追求卓越的道路上，我们既要高瞻远瞩，又要关注细微之处，但不能被琐碎之事所困。
