@@ -2,11 +2,13 @@
 # C++ 面向对象高级编程
 候捷：大气正规的编程习惯。
 
+object based vs object oriented
+
 数据与函数包在一起，就是class，struct。
 
-复数，数据有很多份，函数只有一份。
+带指针的，不带指针的。复数，数据有很多份，函数只有一份。string，其实是ptr。
 
-string，其实是ptr。
+
 
 数据一定私有。构造函数尽量使用：进行初始化。
 尽量不要pass byu value。参数传递与返回值都by reference.
