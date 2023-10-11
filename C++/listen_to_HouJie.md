@@ -8,8 +8,6 @@ object based vs object oriented
 
 带指针的，不带指针的。复数，数据有很多份，函数只有一份。string，其实是ptr。
 
-
-
 数据一定私有。构造函数尽量使用：进行初始化。
 尽量不要pass byu value。参数传递与返回值都by reference.
 谁调用函数，this就指向谁。
