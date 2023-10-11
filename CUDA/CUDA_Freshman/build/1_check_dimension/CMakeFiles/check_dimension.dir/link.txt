@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/check_dimension.dir/objects1.rsp -o check_dimension @CMakeFiles/check_dimension.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

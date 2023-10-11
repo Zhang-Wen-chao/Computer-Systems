@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/stream_call_back.dir/objects1.rsp -o stream_call_back @CMakeFiles/stream_call_back.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

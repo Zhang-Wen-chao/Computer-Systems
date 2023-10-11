@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/shared_memory_read_data.dir/objects1.rsp -o shared_memory_read_data @CMakeFiles/shared_memory_read_data.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/thread_index.dir/objects1.rsp -o thread_index @CMakeFiles/thread_index.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/sum_arrays_uniform_memory.dir/objects1.rsp -o sum_arrays_uniform_memory @CMakeFiles/sum_arrays_uniform_memory.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

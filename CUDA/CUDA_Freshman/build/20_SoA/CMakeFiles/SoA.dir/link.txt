@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/SoA.dir/objects1.rsp -o SoA @CMakeFiles/SoA.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/sum_array_offset.dir/objects1.rsp -o sum_array_offset @CMakeFiles/sum_array_offset.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

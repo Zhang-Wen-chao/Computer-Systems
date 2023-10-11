@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/sum_matrix.dir/objects1.rsp -o sum_matrix @CMakeFiles/sum_matrix.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

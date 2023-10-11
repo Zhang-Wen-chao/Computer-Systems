@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/shfl_test.dir/objects1.rsp -o shfl_test @CMakeFiles/shfl_test.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"

@@ -1,0 +1,1 @@
+/usr/bin/g++ @CMakeFiles/hello_world.dir/objects1.rsp -o hello_world @CMakeFiles/hello_world.dir/linkLibs.rsp -L"/usr/local/cuda/targets/x86_64-linux/lib/stubs" -L"/usr/local/cuda/targets/x86_64-linux/lib"
