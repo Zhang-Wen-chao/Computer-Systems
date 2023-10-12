@@ -36,6 +36,7 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 ```
 ### tensorrt
 #### tensorrt:23.09，23.02
+[TensorRT安装记录](https://blog.csdn.net/qq_37541097/article/details/114847600)
 ```bash
 sudo docker pull nvcr.io/nvidia/tensorrt:23.09-py3
 sudo docker run --gpus all -it --name=zwc-tensorrt --net=host -v /:/workspace nvcr.io/nvidia/tensorrt:23.09-py3
@@ -44,7 +45,10 @@ sudo docker start zwc-tensorrt8.5
 sudo docker exec -it zwc-tensorrt8.5 /bin/bash
 nvidia-smi
 
-python -c "import tensorrt as trt; print(trt.__version__)"
+python -c "import tensorrt
+print(tensorrt.__version__)
+assert tensorrt.Builder(tensorrt.Logger())"
+
 pip3 install torch torchvision torchaudio --default-timeout=120000
 pip install jupyter --default-timeout=120000
 jupyter notebook --version
