@@ -1,35 +1,19 @@
-# 写在前面
+# Preface
 工具只是工具，想清楚自己想干什么，想达到什么目的，然后选择工具。
-
-虽然我也安装过[Gentoo linux](https://bitbili.net/gentoo-linux-installation-and-usage-tutorial.html), 但我觉得舍本逐末了。
-# Debian's basic installation issues
+# Debian
 - [如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
 - [ISO下载](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.6.0-live+nonfree/amd64/iso-hybrid/)
 - [balena下载](https://www.balena.io/etcher#download-etcher)
 - [原创-解决Parrot安装卡在91%](https://blog.csdn.net/xyq165980/article/details/128259388)
 - [How To Fix Busybox Initramfs Error On Ubuntu](https://ostechnix.com/how-to-fix-busybox-initramfs-error-on-ubuntu/)
 - 开机总是出现default keyring输入密码: 终端输入seahorse，把default keyring的密码设为空。
-- [ubuntu20.04 黑屏/紫屏后的处理办法](https://codeantenna.com/a/GWbmAVSb7g)
-ctrl + alt + F3 (tty登陆)
-- [Linux下为什么要进行磁盘的分区](https://www.jianshu.com/p/8210eea5c133?utm_campaign)
-- [Linux下tmpfs介绍及使用](https://www.serverspc.com/46025.html)
 - [基于双机械硬盘和一块固态硬盘安装ubuntu系统的硬盘挂载](https://blog.csdn.net/weixin_43326587/article/details/108482676)最好在装系统时候就直接分好区，比如把机械硬盘挂载在`/home`，固态硬盘挂载在`/`。
 - [mount 挂载磁盘报错 mount: wrong fs type, bad option, bad superblock on](https://blog.csdn.net/wohu1104/article/details/121021207)
-- [You are in emergency mode ... Cannot open access to console, the root account is locked. 的一种解决方法](https://ld246.com/article/1629522554915)
-- 增大 `/tmp` 的空间。
-  ```
-  df -h /tmp
-  找到包含 `/tmp` 目录的行，并将其选项修改为 `defaults,size=2G`（注意改变 `size` 选项以匹配你想要的大小）, save and quit.
-  sudo mount -o remount /tmp
-  ```
 - [How to remove Home Folder icon from desktop in Ubuntu 20.04?](https://askubuntu.com/questions/1230877/how-to-remove-home-folder-icon-from-desktop-in-ubuntu-20-04)
   ```bash
   sudo apt install gnome-shell-extension-prefs
   ```
-- [ubuntu 22.04修改内核为指定版本](https://blog.csdn.net/weixin_39190382/article/details/131965648)
-- [Ubuntu操作系统如何设置默认启动内核](https://support.huaweicloud.com/trouble-ecs/ecs_trouble_0327.html)
-- [password forgotten](https://forums.developer.nvidia.com/t/jetson-tx2-password-forgotten/160683/6)
-# Some software
+# Driver
 ## nvidia driver
 最新亲测，ubuntu20.04以后，直接联网在线装，稳定又省心。
 ```bash
@@ -44,11 +28,85 @@ sudo apt install gcc g++ make cmake
 验证：
 nvidia-smi和nvidia-settings检查是否装好，很简单省事。
 ```
+### cuda
+```shell
+nvcc -V
+nvidia-smi
+python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
+```
+### tensorrt
+#### tensorrt:23.09，23.02
+```bash
+sudo docker pull nvcr.io/nvidia/tensorrt:23.09-py3
+sudo docker run --gpus all -it --name=zwc-tensorrt --net=host -v /:/workspace nvcr.io/nvidia/tensorrt:23.09-py3
+exit
+sudo docker start zwc-tensorrt8.5
+sudo docker exec -it zwc-tensorrt8.5 /bin/bash
+nvidia-smi
+
+python -c "import tensorrt as trt; print(trt.__version__)"
+pip3 install torch torchvision torchaudio --default-timeout=120000
+pip install jupyter --default-timeout=120000
+jupyter notebook --version
+
+jupyter notebook --ip=0.0.0.0 --allow-root
+```
+#### tensorrt8.6.1,cuda11.8
+```bash
+用tensorrt的官方代码库，docker指定CUDA版本来安装的
+sudo docker run --gpus all -it --name=zwc-tensorrt8.6.1 --net=host -v /:/workspace tensorrt-ubuntu20.04-cuda11.8:latest
+exit
+sudo docker start zwc-tensorrt8.6.1
+sudo docker exec -it zwc-tensorrt8.6.1 /bin/bash
+nvidia-smi
+```
+#### 12.0的CUDA
+```bash
+sudo docker pull nvidia/cuda:12.0.1-cudnn8-devel-ubuntu22.04
+sudo docker run --gpus all -it --name=zwc-cuda12.0 --net=host -v /:/workspace nvidia/cuda:12.0.1-cudnn8-devel-ubuntu22.04
+exit
+sudo docker start zwc-cuda12.0
+sudo docker exec -it zwc-cuda12.0 /bin/bash
+```
+使用tar安装tensorrt，tensorrt官方的docker没有trtexec。
 ## cambricon driver
 pcie 插槽规格要匹配，然后按照官方流程即可。
 ```shell
 alias 370="lspci -d:0370 -vvv && cnmon"
 ```
+# docker
+## 低版本的CUDA、CUDNN
+[如何在Docker中搭建CUDA & CUDNN 开发环境](https://zhuanlan.zhihu.com/p/580156606)
+```bash
+sudo docker pull nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04
+sudo docker run -itd -v ~/zhangwch:/home/zhangwch -p 80:8888 --name=Ubuntu20.04-CUDA --gpus all nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04
+sudo docker ps -a
+sudo docker exec -it Ubuntu20.04-CUDA bash
+nvidia-smi
+nvcc -V
+
+apt-get update
+pip install jupyter
+jupyter-notebook --generate-config
+jupyter-notebook password
+vim /root/.jupyter/jupyter_server_config.json
+vim /root/.jupyter/jupyter_server_config.py 
+# 启动 jupyter
+jupyter notebook --ip=0.0.0.0 --allow-root
+# 本地浏览器远程连接docker的jupyter
+ssh -L 8008:localhost:80 student001@10.20.30.160
+http://localhost:8008
+# 导出文件系统
+sudo docker export 65c6f7fb7d9e > Ubuntu20.04-CUDA.tar
+# 监视 gpu
+screen watch -n 1 nvidia-smi
+```
+[docker容器中使用jupyter notebook](https://zhuanlan.zhihu.com/p/74243731)
+
+[本地使用服务器Docker中jupyter notebook](https://blog.csdn.net/weixin_41242128/article/details/108886706)
+
+[[SOLVED] Docker with GPU: "Failed to initialize NVML: Unknown Error"](https://bbs.archlinux.org/viewtopic.php?id=266915)
+# Software
 ## Essential software
 使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
 
@@ -113,7 +171,6 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
     export https_proxy="127.0.0.1:7890"
     # export http_proxy="http://127.0.0.1:7890"
     # export https_proxy="http://127.0.0.1:7890"
-
     env | grep -i proxy
   }
   down () {
@@ -282,28 +339,3 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
 - yy 复制当前行
 - 复制内容: v 进入虚拟模式, hjkl 移动复制, 然后按下 y
 - p paste
-## 调节风扇转速
-mlu370是被动散热，不外加风扇，就会掉卡。建议直接买风扇，钱能解决的问题都不是问题。
-
-think center m930t, F12, enter setup, power, intelligent cooling, full speed噪音太大，不行。performance mode，可以work。
-
-下面是软件控制，但不能work。
-```bash
-sudo apt install lm-sensors
-sudo sensors-detect  # always yes
-sensors
-sudo service kmod start
-sudo apt install fancontrol
-sudo pwmconfig  # /usr/sbin/pwmconfig: There are no fan-capable sensor modules installed
-```
-[解決pwmconfig抓不到風扇的問題](https://www.ubuntu-tw.org/modules/newbb/viewtopic.php?viewmode=compact&order=ASC&topic_id=107514&forum=2)
-这个链接也并未解决这台电脑的问题。
-# 文件处理
-## 如何通过bash在Linux中下载Onedrive文件
-在OneDrive网页端，以chrome浏览器为例，用F12打开开发人员工具，然后在网页中选中要下载的文件点击下载按钮。在开发工具network标签下，看到新出现的项目，右击，选择copy cURL (bash)，然后在Linux terminal中粘贴，并在末尾加上 --output <文件名> 即可。
-## 物理打印机
-```bash
-lpstat -o
-cancel HP_LaserJet_M1536dnf_MFP_3184B1_-7
-lp -d  printer HP_LaserJet_M1536dnf_MFP_3184B1_ /usr/share/cups/data/testprint
-```
