@@ -45,6 +45,9 @@ sudo docker start zwc-tensorrt8.5
 sudo docker exec -it zwc-tensorrt8.5 /bin/bash
 nvidia-smi
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/wprkspace/home/student001/software/TensorRT-8.6.1.6/lib
+export PATH=$PATH:/workspace/home/student001/software/TensorRT-8.6.1.6/bin
+
 python -c "import tensorrt
 print(tensorrt.__version__)
 assert tensorrt.Builder(tensorrt.Logger())"
@@ -52,7 +55,6 @@ assert tensorrt.Builder(tensorrt.Logger())"
 pip3 install torch torchvision torchaudio --default-timeout=120000
 pip install jupyter --default-timeout=120000
 jupyter notebook --version
-
 jupyter notebook --ip=0.0.0.0 --allow-root
 ```
 #### tensorrt8.6.1,cuda11.8
