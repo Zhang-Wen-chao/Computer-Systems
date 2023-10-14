@@ -2,7 +2,7 @@
 ## csapp
 常读常新
 ## verilog
-还没用Verilog写过东西
+本来打算写五级流水的，被劝退。
 ## linux
 ### Windows doesn't teach you anything
 [how to use Linux](./files/how%20to%20use%20Linux.md)

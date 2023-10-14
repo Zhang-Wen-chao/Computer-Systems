@@ -33,6 +33,10 @@ nvidia-smi和nvidia-settings检查是否装好，很简单省事。
 nvcc -V
 nvidia-smi
 python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__)"
+python -c "
+import pytorch_quantization
+print(pytorch_quantization.__version__)"
+
 ```
 ### tensorrt
 #### tensorrt:23.09，23.02
