@@ -4,26 +4,24 @@
 #include "LinkedListUtils.hpp"
 
 ListNode *detectCycle(ListNode *head) {
-    ListNode *slow = head, *fast = head;
-    while (fast && fast->next) {
+    if (!head || !head->next) return nullptr;
+
+    ListNode* slow = head;
+    ListNode* fast = head;
+
+    while (fast != nullptr && fast->next != nullptr) {
         slow = slow->next;
         fast = fast->next->next;
-        if (slow == fast) {
-            break;
+        if (slow == fast) {  // Cycle detected
+            fast = head;  // Reset fast to head
+            while (slow != fast) {  // Find the entry point of the cycle
+                slow = slow->next;
+                fast = fast->next;
+            }
+            return slow;  // Return the entry point of the cycle
         }
     }
-    if (!fast || !fast->next) {
-        return nullptr; // No cycle
-    }
-
-    slow = head;
-
-    while (slow != fast) {
-        slow = slow->next;
-        fast = fast->next;
-    }
-
-    return slow;
+    return nullptr;  // No cycle
 }
 
 int main() {

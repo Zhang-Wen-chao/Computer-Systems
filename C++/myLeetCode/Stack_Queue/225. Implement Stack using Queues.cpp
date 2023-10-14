@@ -6,41 +6,32 @@
 
 class MyStack {
 private:
-    std::queue<int> q1;
-    std::queue<int> q2;
-    int topElement; // 用于存储栈顶元素的变量
+    std::queue<int> mainQueue, auxQueue;
 
 public:
-    MyStack() {
-        
-    }
-    
+    MyStack() {}
+
     void push(int x) {
-        q1.push(x); // 将元素压入 q1
-        topElement = x; // 更新栈顶元素
-    }
-    
-    int pop() {
-        while (q1.size() > 1) {
-            topElement = q1.front(); // 记录即将被弹出的元素作为新的栈顶元素
-            q2.push(topElement); // 将前 n-1 个元素从 q1 移动到 q2
-            q1.pop();
+        auxQueue.push(x);
+        while (!mainQueue.empty()) {
+            auxQueue.push(mainQueue.front());
+            mainQueue.pop();
         }
-        
-        int poppedElement = q1.front(); // 弹出栈顶元素
-        q1.pop();
-        
-        std::swap(q1, q2); // 交换 q1 和 q2，确保 q1 为空队列
-        
-        return poppedElement;
+        std::swap(mainQueue, auxQueue);
     }
-    
+
+    int pop() {
+        int topElem = mainQueue.front();
+        mainQueue.pop();
+        return topElem;
+    }
+
     int top() {
-        return topElement; // 返回栈顶元素
+        return mainQueue.front();
     }
-    
+
     bool empty() {
-        return q1.empty(); // 判断栈是否为空
+        return mainQueue.empty();
     }
 };
 

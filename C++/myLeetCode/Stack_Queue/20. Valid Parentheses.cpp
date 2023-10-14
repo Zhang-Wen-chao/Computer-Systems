@@ -3,34 +3,28 @@
 
 #include <iostream>
 #include <stack>
-#include <unordered_map>
 
-bool isValid(std::string str) {
+bool isValid(std::string s) {
     std::stack<char> stk;
-    std::unordered_map<char, char> pairs = {
-        {')', '('},
-        {']', '['},
-        {'}', '{'}
-    };
-
-    for (char ch : str) {
-        if (pairs.count(ch) == 0) {
-            stk.push(ch);
+    for (char c : s) {
+        if (c == '(' || c == '{' || c == '[') {
+            stk.push(c);
         } else {
-            if (stk.empty() || stk.top() != pairs[ch]) {
-                return false; // 括号不匹配，返回 false
-            }
+            if (stk.empty()) return false;
+            if (c == ')' && stk.top() != '(') return false;
+            if (c == '}' && stk.top() != '{') return false;
+            if (c == ']' && stk.top() != '[') return false;
             stk.pop();
         }
     }
-    return stk.empty(); // 所有括号都匹配完毕后，栈应该为空
+    return stk.empty();
 }
 
 int main() {
     // std::string str = "{[]}";
     // std::string str = "()";
-    // std::string str = "()[]{}";
-    std::string str = "(]";
+    std::string str = "()[]{}";
+    // std::string str = "(]";
     // std::string str = "([)]";
     bool result = isValid(str);
     std::cout << "Is parentheses valid? " << std::boolalpha << result << std::endl;

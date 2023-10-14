@@ -3,14 +3,12 @@
 #include <iostream>
 #include <vector>
 
-void reverseString(std::vector<char>& str) {
-    int left = 0;
-    int right = str.size() - 1;
-    
+void reverseString(std::vector<char>& s) {
+    int left = 0, right = s.size() - 1;
     while (left < right) {
-        std::swap(str[left], str[right]);
-        ++left;
-        --right;
+        std::swap(s[left], s[right]);
+        left++;
+        right--;
     }
 }
 

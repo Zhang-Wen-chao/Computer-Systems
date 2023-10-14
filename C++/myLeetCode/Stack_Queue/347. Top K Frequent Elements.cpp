@@ -1,65 +1,33 @@
 // 347. Top K Frequent Elements
 // https://leetcode.com/problems/top-k-frequent-elements/
 
-// #include <iostream>
-// #include <vector>
-// #include <unordered_map>
-// #include <queue>
-// #include <algorithm>
-
-// std::vector<int> topKFrequent(std::vector<int>& nums, int k) {
-//     // 统计每个元素的频率
-//     std::unordered_map<int, int> freq;
-//     for (int num : nums) {
-//         freq[num]++;
-//     }
-    
-//     // 定义一个最小堆，按照频率从小到大排序
-//     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> pq;
-    
-//     // 遍历频率表，维护堆的大小为 k
-//     for (auto& pair : freq) {
-//         pq.push({pair.second, pair.first});
-//         if (pq.size() > k) {
-//             pq.pop();
-//         }
-//     }
-    
-//     // 从堆中取出前 k 个频率最高的元素
-//     std::vector<int> result;
-//     while (!pq.empty()) {
-//         result.push_back(pq.top().second);
-//         pq.pop();
-//     }
-    
-//     // 结果按照频率高低进行排序
-//     std::reverse(result.begin(), result.end());
-    
-//     return result;
-// }
-
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include <algorithm>
+#include <queue>
 
 std::vector<int> topKFrequent(std::vector<int>& nums, int k) {
-    std::unordered_map<int, int> freq;
+    // 使用哈希表跟踪每个元素的频率
+    std::unordered_map<int, int> frequency;
     for (int num : nums) {
-        freq[num]++;
+        frequency[num]++;
     }
+
+    // 使用优先队列找到前k个高频元素
+    // 优先队列中的元素是一个pair，其中第一个元素是元素的频率，第二个元素是元素本身
+    std::priority_queue<std::pair<int, int>> pq;
+    for (const auto& [num, freq] : frequency) {
+        pq.push({freq, num});
+    }
+    // clang++ 347.\ Top\ K\ Frequent\ Elements.cpp -std=c++17
     
-    std::vector<std::pair<int, int>> freqVec(freq.begin(), freq.end());
-    std::partial_sort(freqVec.begin(), freqVec.begin() + k, freqVec.end(),
-                      [](const std::pair<int, int>& p1, const std::pair<int, int>& p2) {
-                          return p1.second > p2.second;
-                      });
-    
+    // 从优先队列中提取前k个元素
     std::vector<int> result;
-    for (int i = 0; i < k; i++) {
-        result.push_back(freqVec[i].first);
+    for (int i = 0; i < k; ++i) {
+        result.push_back(pq.top().second);
+        pq.pop();
     }
-    
+
     return result;
 }
 

@@ -5,23 +5,27 @@
 #include <vector>
 
 class Solution {
-  public:
+public:
     std::vector<std::vector<int>> generateMatrix(int n) {
-        int maxNum = n * n;
-        int curNum = 1;
         std::vector<std::vector<int>> matrix(n, std::vector<int>(n));
-        int row = 0, column = 0;
+        int num = 1;
+        int row = 0, col = 0;
         std::vector<std::vector<int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-        int directionIndex = 0;
-        while (curNum <= maxNum) {
-            matrix[row][column] = curNum;
-            curNum++;
-            int nextRow = row + directions[directionIndex][0], nextColumn = column + directions[directionIndex][1];
-            if (nextRow < 0 || nextRow >= n || nextColumn < 0 || nextColumn >= n || matrix[nextRow][nextColumn] != 0) {
-                directionIndex = (directionIndex + 1) % 4;
+        int dir = 0;
+
+        while (num <= n * n) {
+            if (row >= 0 && row < n && col >= 0 && col < n && matrix[row][col] == 0) {
+                matrix[row][col] = num++;
+                row += directions[dir][0];
+                col += directions[dir][1];
+            } else {
+                // 回退一步并改变方向
+                row -= directions[dir][0];
+                col -= directions[dir][1];
+                dir = (dir + 1) % 4;
+                row += directions[dir][0];
+                col += directions[dir][1];
             }
-            row = row + directions[directionIndex][0];
-            column = column + directions[directionIndex][1];
         }
         return matrix;
     }
@@ -30,10 +34,12 @@ class Solution {
 int main() {
     Solution sol;
     int n = 4;
-    std::vector<std::vector<int>> ans = sol.generateMatrix(n);
-    for (int row = 0; row < n; row++) {
-        for (int column = 0; column < n; column++) {
-            std::cout << ans[row][column] << " ";
+    std::vector<std::vector<int>> result = sol.generateMatrix(n);
+
+    // 打印结果
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            std::cout << result[i][j] << " ";
         }
         std::cout << std::endl;
     }

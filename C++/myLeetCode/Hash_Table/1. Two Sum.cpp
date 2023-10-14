@@ -1,21 +1,22 @@
 // 1. Two Sum
 // https://leetcode.cn/problems/two-sum/
-#include <unordered_map>
-#include <vector>
+
 #include <iostream>
+#include <vector>
+#include <unordered_map>
 
 class Solution {
 public:
     std::vector<int> twoSum(std::vector<int>& nums, int target) {
-        std::unordered_map<int, int> map;
-        for (int i = 0; i < nums.size(); i++) {
+        std::unordered_map<int, int> numToIndex;
+        for (int i = 0; i < nums.size(); ++i) {
             int complement = target - nums[i];
-            if (map.count(complement) != 0) {
-                return { map[complement], i };
+            if (numToIndex.find(complement) != numToIndex.end()) {
+                return {numToIndex[complement], i};
             }
-            map[nums[i]] = i;
+            numToIndex[nums[i]] = i;
         }
-        return {};
+        return {};  // 返回空数组，实际上这种情况在题目中不会发生，因为题目保证有解。
     }
 };
 

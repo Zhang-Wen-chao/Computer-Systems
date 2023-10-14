@@ -3,30 +3,32 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include <climits>
 
 class Solution {
 public:
     std::vector<std::string> commonChars(std::vector<std::string>& words) {
-        std::vector<int> minfreq(26, INT_MAX);
+        std::vector<int> minFreq(26, INT_MAX);
         std::vector<int> freq(26);
+
         for (const std::string& word: words) {
             std::fill(freq.begin(), freq.end(), 0);
             for (char ch: word) {
                 ++freq[ch - 'a'];
             }
             for (int i = 0; i < 26; ++i) {
-                minfreq[i] = std::min(minfreq[i], freq[i]);
+                minFreq[i] = std::min(minFreq[i], freq[i]);
             }
         }
 
-        std::vector<std::string> ans;
+        std::vector<std::string> result;
         for (int i = 0; i < 26; ++i) {
-            for (int j = 0; j < minfreq[i]; ++j) {
-                ans.emplace_back(1, i + 'a');// emplace_back(n,m)尾端插入n个m
+            for (int j = 0; j < minFreq[i]; ++j) {
+                result.push_back(std::string(1, i + 'a'));
             }
         }
-        return ans;
+        return result;
     }
 };
 

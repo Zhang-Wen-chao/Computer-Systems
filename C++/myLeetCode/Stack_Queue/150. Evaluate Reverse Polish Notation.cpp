@@ -7,32 +7,18 @@
 
 int evalRPN(std::vector<std::string>& tokens) {
     std::stack<int> stk;
-
     for (const std::string& token : tokens) {
         if (token == "+" || token == "-" || token == "*" || token == "/") {
-            int num2 = stk.top();
-            stk.pop();
-            int num1 = stk.top();
-            stk.pop();
-
-            int result;
-            if (token == "+") {
-                result = num1 + num2;
-            } else if (token == "-") {
-                result = num1 - num2;
-            } else if (token == "*") {
-                result = num1 * num2;
-            } else if (token == "/") {
-                result = num1 / num2;
-            }
-
-            stk.push(result);
+            int op2 = stk.top(); stk.pop();
+            int op1 = stk.top(); stk.pop();
+            if (token == "+") stk.push(op1 + op2);
+            else if (token == "-") stk.push(op1 - op2);
+            else if (token == "*") stk.push(op1 * op2);
+            else stk.push(op1 / op2);
         } else {
-            int num = std::stoi(token);
-            stk.push(num);
+            stk.push(std::stoi(token));
         }
     }
-
     return stk.top();
 }
 

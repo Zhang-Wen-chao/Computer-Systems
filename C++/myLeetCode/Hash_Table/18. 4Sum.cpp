@@ -9,53 +9,38 @@ class Solution {
 public:
     std::vector<std::vector<int>> fourSum(std::vector<int>& nums, int target) {
         std::vector<std::vector<int>> result;
-        int n = nums.size();
+        if (nums.size() < 4) return result;
+        
         std::sort(nums.begin(), nums.end());
-
-        for (int i = 0; i < n - 3; ++i) {
-            // 跳过重复的元素
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
-
-            for (int j = i + 1; j < n - 2; ++j) {
-                // 跳过重复的元素
-                if (j > i + 1 && nums[j] == nums[j - 1]) {
-                    continue;
-                }
-
-                int left = j + 1;
-                int right = n - 1;
-
+        
+        for (int i = 0; i < nums.size() - 3; ++i) {
+            if (i > 0 && nums[i] == nums[i-1]) continue;  // Skip duplicates
+            
+            for (int j = i + 1; j < nums.size() - 2; ++j) {
+                if (j > i + 1 && nums[j] == nums[j-1]) continue;  // Skip duplicates
+                
+                int twoSumTarget = target - nums[i] - nums[j];
+                int left = j + 1, right = nums.size() - 1;
+                
                 while (left < right) {
-                    int sum = nums[i] + nums[j] + nums[left] + nums[right];
-
-                    if (sum < target) {
-                        ++left;
-                    } else if (sum > target) {
-                        --right;
-                    } else {
+                    if (nums[left] + nums[right] == twoSumTarget) {
                         result.push_back({nums[i], nums[j], nums[left], nums[right]});
-
-                        // 跳过重复的元素
-                        while (left < right && nums[left] == nums[left + 1]) {
-                            ++left;
-                        }
-                        while (left < right && nums[right] == nums[right - 1]) {
-                            --right;
-                        }
-
-                        ++left;
-                        --right;
+                        left++;
+                        right--;
+                        while (left < right && nums[left] == nums[left-1]) left++;  // Skip duplicates
+                        while (left < right && nums[right] == nums[right+1]) right--;  // Skip duplicates
+                    } else if (nums[left] + nums[right] < twoSumTarget) {
+                        left++;
+                    } else {
+                        right--;
                     }
                 }
             }
         }
-
+        
         return result;
     }
 };
-
 
 int main() {
     Solution sol;

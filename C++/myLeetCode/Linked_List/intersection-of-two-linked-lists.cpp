@@ -4,16 +4,14 @@
 #include "LinkedListUtils.hpp"
 
 ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
-    if (headA == nullptr || headB == nullptr) {
-        return nullptr;
-    }
+    if (!headA || !headB) return nullptr;
     
     ListNode* pA = headA;
     ListNode* pB = headB;
     
     while (pA != pB) {
-        pA = (pA == nullptr) ? headB : pA->next;
-        pB = (pB == nullptr) ? headA : pB->next;
+        pA = pA ? pA->next : headB;
+        pB = pB ? pB->next : headA;
     }
     
     return pA;
