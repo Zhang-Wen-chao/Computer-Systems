@@ -1,4 +1,6 @@
 # Computer-Systems
+## C#
+打算涉足Windows开发。
 ## csapp
 常读常新
 ## verilog
