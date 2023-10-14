@@ -1,36 +1,35 @@
 // 383. Ransom Note
 // https://leetcode.com/problems/ransom-note/
 
-#include <iostream>
-#include <unordered_map>
-#include <string>
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    bool canConstruct(std::string ransomNote, std::string magazine) {
-        std::unordered_map<char, int> charCount;
+public class Solution {
+    public int[] Intersection(int[] nums1, int[] nums2) {
+        HashSet<int> set1 = new HashSet<int>(nums1);
+        HashSet<int> resultSet = new HashSet<int>();
 
-        // 统计 magazine 中每个字符的出现次数
-        for (char ch : magazine) {
-            charCount[ch]++;
-        }
-
-        // 检查 ransomNote 中的字符是否在 charCount 中，并递减对应的出现次数
-        for (char ch : ransomNote) {
-            if (charCount[ch] == 0) {
-                return false;
+        foreach (int num in nums2) {
+            if (set1.Contains(num)) {
+                resultSet.Add(num);
             }
-            charCount[ch]--;
         }
 
-        return true;
-    }
-};
+        // 打印交集的结果
+        Console.WriteLine("Intersection:");
+        foreach (int num in resultSet) {
+            Console.WriteLine(num);
+        }
 
-int main() {
-    std::string ransomNote, magazine;
-    std::cin >> ransomNote >> magazine;
-    Solution sol;
-    std::cout << (sol.canConstruct(ransomNote, magazine) ? "Yes" : "No") << std::endl;
-    return 0;
+        return resultSet.ToArray();
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+        int[] nums1 = {1, 2, 2, 1};
+        int[] nums2 = {2, 2};
+        solution.Intersection(nums1, nums2);
+    }
 }

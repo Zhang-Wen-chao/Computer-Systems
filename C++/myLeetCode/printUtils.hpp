@@ -82,28 +82,6 @@ std::string vectorToString(std::vector<T> vec) {
     return ss.str();
 }
 
-template<typename T>
-void printTreePreOrder(TreeNode<T>* root) {
-    if (root == nullptr) return;
-    std::cout << root->val << " ";
-    printTreePreOrder(root->left);
-    printTreePreOrder(root->right);
-}
-template<typename T>
-void printTreeInOrder(TreeNode<T>* root) {
-    if (root == nullptr) return;
-    printTreeInOrder(root->left);
-    std::cout << root->val << " ";
-    printTreeInOrder(root->right);
-}
-template<typename T>
-void printTreePostOrder(TreeNode<T>* root) {
-    if (root == nullptr) return;
-    printTreePostOrder(root->left);
-    printTreePostOrder(root->right);
-    std::cout << root->val << " ";
-}
-
 // Function to convert a 2D vector to string
 template<typename T>
 std::string vectorOfVectorToString(std::vector<std::vector<T>> vec) {
@@ -229,32 +207,6 @@ std::vector<T> postorderTraversal(TreeNode<T>* root) {
     return result;
 }
 
-
-// 二叉树层序遍历函数（返回一维数组）不输出空节点。
-/*
-
-template <typename T>
-std::vector<T> levelOrder(TreeNode<T>* root) {
-    std::vector<T> result;
-    if (root == nullptr) return result;
-
-    std::queue<TreeNode<T>*> q;
-    q.push(root);
-
-    while (!q.empty()) {
-        TreeNode<T>* curr = q.front();
-        q.pop();
-
-        result.push_back(curr->val);
-
-        if (curr->left) q.push(curr->left);
-        if (curr->right) q.push(curr->right);
-    }
-
-    return result;
-}
-*/
-
 // 二叉树层序遍历函数（返回一维数组）输出空节点。
 template <typename T>
 std::vector<T> levelOrder(TreeNode<T>* root) {
@@ -329,5 +281,59 @@ std::vector<std::vector<T>> levelOrder(TreeNode<T>* root, int dummyParam) {
     return result;
 }
 
+// Definition for a Node in an N-ary Tree
+template<typename T>
+struct NTreeNode {
+    T val;
+    std::vector<NTreeNode*> children;
+    NTreeNode(T x) : val(x) {}
+};
 
+// Utility function to build an N-ary Tree from a vector
+template<typename T>
+NTreeNode<T>* buildNTree(const std::vector<T>& nodes, const T& nullValue) {
+    if (nodes.empty() || nodes[1] != nullValue) {
+        return nullptr;
+    }
+
+    NTreeNode<T>* root = new NTreeNode<T>(nodes[0]);
+    std::queue<NTreeNode<T>*> nodeQueue;
+    nodeQueue.push(root);
+
+    int i = 2; // Start from index 2 to skip the root node and the -1 marking the end of its children
+
+    while (!nodeQueue.empty() && i < nodes.size()) {
+        int levelSize = nodeQueue.size();
+
+        for (int j = 0; j < levelSize; j++) {
+            NTreeNode<T>* currNode = nodeQueue.front();
+            nodeQueue.pop();
+
+            while (i < nodes.size() && nodes[i] != nullValue) {
+                NTreeNode<T>* childNode = new NTreeNode<T>(nodes[i]);
+                currNode->children.push_back(childNode);
+                nodeQueue.push(childNode);
+                i++;
+            }
+
+            i++; // Skip the null value marking the end of children for the current node
+        }
+    }
+
+    return root;
+}
+
+// Utility function to delete an N-ary Tree
+template <typename T>
+void deleteNTree(NTreeNode<T>* root) {
+    if (root == nullptr) {
+        return;
+    }
+
+    for (NTreeNode<T>* child : root->children) {
+        deleteNTree(child);
+    }
+
+    delete root;
+}
 #endif // PRINTUTILS_HPP

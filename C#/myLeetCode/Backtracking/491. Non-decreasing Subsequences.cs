@@ -1,41 +1,49 @@
 // 491. Non-decreasing Subsequences
 // https://leetcode.com/problems/non-decreasing-subsequences/
 
-#include <unordered_set>
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-class Solution {
-public:
-    std::vector<std::vector<int>> findSubsequences(std::vector<int>& nums) {
-        std::vector<std::vector<int>> ans;
-        std::vector<int> temp;
-        backtrack(nums, 0, temp, ans);
-        return ans;
+public class Solution {
+    public IList<IList<int>> FindSubsequences(int[] nums) {
+        List<IList<int>> result = new List<IList<int>>();
+        List<int> currentList = new List<int>();
+
+        DFS(nums, 0, currentList, result);
+
+        return result;
     }
 
-private:
-    void backtrack(std::vector<int>& nums, int start, std::vector<int>& temp, std::vector<std::vector<int>>& ans) {
-        if (temp.size() > 1) {
-            ans.push_back(temp);
+    private void DFS(int[] nums, int index, List<int> currentList, List<IList<int>> result) {
+        if (currentList.Count >= 2) {
+            result.Add(new List<int>(currentList));
         }
-        std::unordered_set<int> seen;
-        for (int i = start; i < nums.size(); i++) {
-            // skip duplicate elements
-            if (seen.count(nums[i])) continue;
-            // only append nums[i] if temp is empty or non-decreasing
-            if (temp.empty() || nums[i] >= temp.back()) {
-                temp.push_back(nums[i]);
-                seen.insert(nums[i]);
-                backtrack(nums, i + 1, temp, ans);
-                temp.pop_back();
+
+        HashSet<int> used = new HashSet<int>();
+
+        for (int i = index; i < nums.Length; i++) {
+            if ((currentList.Count == 0 || nums[i] >= currentList.Last()) && !used.Contains(nums[i])) {
+                currentList.Add(nums[i]);
+                used.Add(nums[i]);
+                DFS(nums, i + 1, currentList, result);
+                currentList.RemoveAt(currentList.Count - 1);
             }
         }
     }
-};
+}
 
-int main() {
-    std::vector<int> nums1 = {4, 6, 7, 7};
-    printSet(Solution().findSubsequences(nums1));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    return 0;
+        int[] nums = { 4, 6, 7, 7 };
+
+        IList<IList<int>> result = solution.FindSubsequences(nums);
+
+        // 打印结果
+        foreach (var subsequence in result) {
+            Console.WriteLine(string.Join(", ", subsequence));
+        }
+    }
 }

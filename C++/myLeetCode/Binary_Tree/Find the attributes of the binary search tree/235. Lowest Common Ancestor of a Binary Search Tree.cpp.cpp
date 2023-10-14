@@ -1,5 +1,6 @@
 // 235. Lowest Common Ancestor of a Binary Search Tree
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+// clang++ 235.\ Lowest\ Common\ Ancestor\ of\ a\ Binary\ Search\ Tree.cpp.cpp -std=c++17
 /*
 这两个题目的区别是，235 题是给定一个二叉搜索树，而 236 题是给定一个普通的二叉树。二叉搜索树是一种特殊的二叉树，它满足以下性质：
 
@@ -10,8 +11,7 @@
 而对于 236 题，我们不能利用二叉搜索树的性质，因为普通的二叉树没有这样的排序规则。我们只能从根节点开始，递归地在左右子树中查找 p 和 q。如果在某个子树中找到了两个节点，那么这个子树的根节点就是 LCA。如果只在一个子树中找到了一个节点，那么这个节点就是 LCA。如果都没有找到，那么返回空指针。这个方法的时间复杂度是 O(N)，空间复杂度是 O(N)，其中 N 是二叉树的节点数2。
 */
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 
 template<typename T>
 TreeNode<T>* lowestCommonAncestor(TreeNode<T>* root, TreeNode<T>* p, TreeNode<T>* q) {

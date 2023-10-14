@@ -1,42 +1,45 @@
 // 1002. Find Common Characters
 // https://leetcode.com/problems/find-common-characters/
 
-#include <iostream>
-#include <vector>
-#include <climits>
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::string> commonChars(std::vector<std::string>& words) {
-        std::vector<int> minfreq(26, INT_MAX);
-        std::vector<int> freq(26);
-        for (const std::string& word: words) {
-            std::fill(freq.begin(), freq.end(), 0);
-            for (char ch: word) {
-                ++freq[ch - 'a'];
-            }
-            for (int i = 0; i < 26; ++i) {
-                minfreq[i] = std::min(minfreq[i], freq[i]);
+public class Solution {
+    public IList<string> CommonChars(string[] A) {
+        int[][] charCounts = new int[A.Length][];
+        for (int i = 0; i < A.Length; i++) {
+            charCounts[i] = new int[26];
+            foreach (char c in A[i]) {
+                charCounts[i][c - 'a']++;
             }
         }
 
-        std::vector<std::string> ans;
-        for (int i = 0; i < 26; ++i) {
-            for (int j = 0; j < minfreq[i]; ++j) {
-                ans.emplace_back(1, i + 'a');// emplace_back(n,m)尾端插入n个m
+        List<string> result = new List<string>();
+        for (int i = 0; i < 26; i++) {
+            int minCount = int.MaxValue;
+            for (int j = 0; j < A.Length; j++) {
+                minCount = Math.Min(minCount, charCounts[j][i]);
+            }
+
+            for (int k = 0; k < minCount; k++) {
+                result.Add(((char)('a' + i)).ToString());
             }
         }
-        return ans;
-    }
-};
 
-int main() {
-    Solution sol;
-    std::vector<std::string> words = {"bella","label","roller"};
-    std::vector<std::string> ans = sol.commonChars(words);
-    for (auto& str: ans) {
-        std::cout << str << " ";
+        // 打印结果
+        Console.WriteLine("Common characters:");
+        foreach (string s in result) {
+            Console.WriteLine(s);
+        }
+
+        return result;
     }
-    std::cout << std::endl;
-    return 0;
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+        string[] words = {"bella", "label", "roller"};
+        solution.CommonChars(words);
+    }
 }

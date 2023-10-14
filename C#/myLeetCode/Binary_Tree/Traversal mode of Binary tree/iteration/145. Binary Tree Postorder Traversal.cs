@@ -1,44 +1,60 @@
 // 145. Binary Tree Postorder Traversal
 // https://leetcode.com/problems/binary-tree-postorder-traversal/
 
-#include "../../BinaryTreeUtils.hpp"
-#include "../../printUtils.hpp"
-#include <stack>
+using System;
+using System.Collections.Generic;
 
-template <typename T>
-std::vector<T> postorderTraversal(TreeNode<T>* root) {
-    std::vector<T> result;
-    std::stack<TreeNode<T>*> stk;
-    TreeNode<T>* curr = root;
-    TreeNode<T>* lastVisited = nullptr;
-
-    while (curr != nullptr || !stk.empty()) {
-        // 将当前节点及其左子树的左节点依次入栈
-        while (curr != nullptr) {
-            stk.push(curr);
-            curr = curr->left;
-        }
-
-        TreeNode<T>* top = stk.top();
-
-        // 检查右子树是否已经访问过，或者右子树为空
-        if (top->right == nullptr || top->right == lastVisited) {
-            stk.pop();
-            result.push_back(top->val);
-            lastVisited = top;
-        } else {
-            // 处理右子树
-            curr = top->right;
-        }
-    }
-    return result;
+public class TreeNode {
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
-    std::cout << "Postorder traversal: ";
-    printArray(postorderTraversal(root));
-    deleteTree(root);
-    
-    return 0;
+public class Solution {
+    public IList<int> PostorderTraversal(TreeNode root) {
+        IList<int> result = new List<int>();
+        if (root == null) return result;
+
+        Stack<TreeNode> stack1 = new Stack<TreeNode>();
+        Stack<TreeNode> stack2 = new Stack<TreeNode>();
+        stack1.Push(root);
+
+        while (stack1.Count > 0) {
+            TreeNode currentNode = stack1.Pop();
+            stack2.Push(currentNode);
+
+            if (currentNode.left != null) {
+                stack1.Push(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                stack1.Push(currentNode.right);
+            }
+        }
+
+        while (stack2.Count > 0) {
+            result.Add(stack2.Pop().val);
+        }
+
+        return result;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(1) {
+            right = new TreeNode(2) {
+                left = new TreeNode(3)
+            }
+        };
+
+        IList<int> postorderTraversal = solution.PostorderTraversal(tree);
+
+        Console.WriteLine("Postorder Traversal:");
+        foreach (int val in postorderTraversal) {
+            Console.Write(val + " ");
+        }
+    }
 }

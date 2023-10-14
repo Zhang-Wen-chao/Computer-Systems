@@ -1,8 +1,7 @@
 // 530. Minimum Absolute Difference in BST
 // https://leetcode.com/problems/minimum-absolute-difference-in-bst/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 530.\ Minimum\ Absolute\ Difference\ in\ BST.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 class Solution {

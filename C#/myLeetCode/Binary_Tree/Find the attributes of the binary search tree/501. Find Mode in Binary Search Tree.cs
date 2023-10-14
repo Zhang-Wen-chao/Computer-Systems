@@ -1,48 +1,66 @@
 // 501. Find Mode in Binary Search Tree
 // https://leetcode.com/problems/find-mode-in-binary-search-tree/
 
-#include <unordered_map>
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-template<typename T>
-class Solution {
-public:
-    std::vector<T> findMode(TreeNode<T>* root) {
-        std::vector<T> modes;
-        std::unordered_map<T, int> frequencyMap;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
+}
 
-        traverse(root, frequencyMap);
-        int maxFrequency = 0;
-        for (auto it = frequencyMap.begin(); it != frequencyMap.end(); ++it) {
-            maxFrequency = std::max(maxFrequency, it->second);
+public class Solution {
+    private int? prev = null;
+    private int count = 1;
+    private int max = 0;
+
+    public int[] FindMode(TreeNode? root) {
+        if (root == null) return new int[0];
+
+        List<int> modes = new List<int>();
+        Traverse(root, modes);
+
+        return modes.ToArray();
+    }
+
+    private void Traverse(TreeNode? node, List<int> modes) {
+        if (node == null) return;
+
+        Traverse(node.left, modes);
+
+        if (prev.HasValue) {
+            if (node.val == prev.Value) count++;
+            else count = 1;
         }
-        // 将所有频率等于最大频率的节点值添加到结果向量中
-        for (auto it = frequencyMap.begin(); it != frequencyMap.end(); ++it) {
-            if (it->second == maxFrequency) {
-                modes.push_back(it->first);
+
+        if (count > max) {
+            max = count;
+            modes.Clear();
+            modes.Add(node.val);
+        } else if (count == max) {
+            modes.Add(node.val);
+        }
+
+        prev = node.val;
+        Traverse(node.right, modes);
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(1) {
+            right = new TreeNode(2) {
+                left = new TreeNode(2)
             }
-        }
+        };
 
-        return modes;
+        int[] modes = solution.FindMode(tree);
+
+        // 打印结果
+        Console.WriteLine($"Modes in the BST: {string.Join(", ", modes)}");
     }
-
-    void traverse(TreeNode<T>* node, std::unordered_map<T, int>& frequencyMap) {
-        if (node == nullptr) {
-            return;
-        }
-
-        frequencyMap[node->val]++;
-
-        traverse(node->left, frequencyMap);
-        traverse(node->right, frequencyMap);
-    }
-};
-
-int main() {
-    TreeNode<int>* root = buildTree({1, -1, 2, 2}, -1);
-    std::cout << "Modes: " << std::endl;
-    printArray(Solution<int>().findMode(root));
-
-    return 0;
 }

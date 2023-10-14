@@ -19,42 +19,71 @@
 // 往下的层，其实它没有层结束的概念，只有孩子结点结束的概念，层结束是依靠计算节点数量来判断的。
 // 现在你应该很明白规则了，那你复述一遍，然后再重写一下buildNTree，我看你是否真正理解了。
 
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-// Function to perform level order traversal of an N-ary Tree
-template<typename T>
-std::vector<std::vector<T>> levelOrderNTree(NTreeNode<T>* root) {
-    if (!root) {
-        return {};
+public class Node {
+    public int val;
+    public IList<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+        children = new List<Node>();
     }
 
-    std::vector<std::vector<T>> result;
-    std::queue<NTreeNode<T>*> q;
-    q.push(root);
-
-    while (!q.empty()) {
-        int cnt = q.size();
-        std::vector<T> level;
-        for (int i = 0; i < cnt; ++i) {
-            NTreeNode<T>* cur = q.front();
-            q.pop();
-            level.push_back(cur->val);
-            for (NTreeNode<T>* child: cur->children) {
-                q.push(child);
-            }
-        }
-        result.push_back(std::move(level));
+    public Node(int _val, IList<Node> _children) {
+        val = _val;
+        children = _children;
     }
-
-    return result;
 }
 
-int main() {
-    NTreeNode<int>* root = buildNTree<int>({1,-1,2,3,4,5,-1,-1,6,7,-1,8,-1,9,10,-1,-1,11,-1,12,-1,13,-1,-1,14}, -1);
-    // NTreeNode<int>* root = buildNTree<int>({1, -1, 3, 2, 4, -1, 5, 6}, -1);
-    printArray(levelOrderNTree(root));
-    deleteNTree(root);
-    
-    return 0;
+public class Solution {
+    public IList<IList<int>> LevelOrder(Node root) {
+        IList<IList<int>> result = new List<IList<int>>();
+        if (root == null) return result;
+
+        Queue<Node> queue = new Queue<Node>();
+        queue.Enqueue(root);
+
+        while (queue.Count > 0) {
+            int size = queue.Count;
+            List<int> currentLevel = new List<int>();
+
+            for (int i = 0; i < size; i++) {
+                Node current = queue.Dequeue();
+                currentLevel.Add(current.val);
+                foreach (var child in current.children) {
+                    queue.Enqueue(child);
+                }
+            }
+
+            result.Add(currentLevel);
+        }
+
+        return result;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        Node tree = new Node(1, new List<Node> {
+            new Node(3, new List<Node> {
+                new Node(5),
+                new Node(6)
+            }),
+            new Node(2),
+            new Node(4)
+        });
+
+        IList<IList<int>> result = solution.LevelOrder(tree);
+
+        // 打印结果
+        foreach (var level in result) {
+            Console.WriteLine(string.Join(" ", level));
+        }
+    }
 }

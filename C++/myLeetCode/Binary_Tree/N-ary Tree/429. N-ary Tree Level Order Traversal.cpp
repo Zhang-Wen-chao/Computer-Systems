@@ -1,5 +1,7 @@
 // 429. N-ary Tree Level Order Traversal
 // https://leetcode.com/problems/n-ary-tree-level-order-traversal/
+// clang++ 429.\ N-ary\ Tree\ Level\ Order\ Traversal.cpp -std=c++17
+
 
 //     NTreeNode<int>* root = buildNTree<int>({1,-1,2,3,4,5,-1,-1,6,7,-1,8,-1,9,10,-1,-1,11,-1,12,-1,13,-1,-1,14}, -1);
 // 我们可以这么划分数组：
@@ -19,8 +21,7 @@
 // 往下的层，其实它没有层结束的概念，只有孩子结点结束的概念，层结束是依靠计算节点数量来判断的。
 // 现在你应该很明白规则了，那你复述一遍，然后再重写一下buildNTree，我看你是否真正理解了。
 
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 
 // Function to perform level order traversal of an N-ary Tree
 template<typename T>

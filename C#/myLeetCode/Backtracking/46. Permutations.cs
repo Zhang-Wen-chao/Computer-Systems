@@ -1,34 +1,47 @@
 // 46. Permutations
 // https://leetcode.com/problems/permutations/
 
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::vector<int>> permute(std::vector<int>& nums) {
-        std::vector<std::vector<int>> result;
-        backtrack(result, nums, 0);
+public class Solution {
+    public IList<IList<int>> Permute(int[] nums) {
+        IList<IList<int>> result = new List<IList<int>>();
+        List<int> current = new List<int>();
+        bool[] used = new bool[nums.Length];
+        PermuteHelper(nums, used, current, result);
         return result;
     }
 
-private:
-    void backtrack(std::vector<std::vector<int>>& result, std::vector<int>& nums, int start) {
-        if (start == nums.size()) {
-            result.push_back(nums);
+    private void PermuteHelper(int[] nums, bool[] used, List<int> current, IList<IList<int>> result) {
+        if (current.Count == nums.Length) {
+            result.Add(new List<int>(current));
             return;
         }
 
-        for (int i = start; i < nums.size(); ++i) {
-            std::swap(nums[i], nums[start]);
-            backtrack(result, nums, start + 1);
-            std::swap(nums[i], nums[start]);
+        for (int i = 0; i < nums.Length; i++) {
+            if (!used[i]) {
+                used[i] = true;
+                current.Add(nums[i]);
+                PermuteHelper(nums, used, current, result);
+                current.RemoveAt(current.Count - 1);
+                used[i] = false;
+            }
         }
     }
-};
+}
 
-int main() {
-    std::vector<int> nums = {1, 2, 3};
-    printSet(Solution().permute(nums));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    return 0;
+        int[] nums = { 1, 2, 3 };
+
+        IList<IList<int>> result = solution.Permute(nums);
+
+        Console.WriteLine("All permutations:");
+        foreach (var permutation in result) {
+            Console.WriteLine(string.Join(" ", permutation));
+        }
+    }
 }

@@ -1,8 +1,7 @@
 // 669. Trim a Binary Search Tree
 // https://leetcode.com/problems/trim-a-binary-search-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 669.\ Trim\ a\ Binary\ Search\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 class Solution {

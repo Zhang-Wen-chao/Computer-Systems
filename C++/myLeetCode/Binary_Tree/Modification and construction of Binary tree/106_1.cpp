@@ -1,9 +1,9 @@
 // 106. Construct Binary Tree from Inorder and Postorder Traversal
 // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 // 已知后序与中序，输出前序
-
+// clang++ 106_1.cpp -std=c++17
 #include <algorithm>
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 
 template<typename T>
 void pre(const std::vector<T>& post, const std::vector<T>& in, int root, int start, int end, std::vector<T>& result) {

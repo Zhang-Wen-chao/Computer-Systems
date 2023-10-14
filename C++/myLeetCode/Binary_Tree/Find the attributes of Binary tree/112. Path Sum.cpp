@@ -1,8 +1,7 @@
 // 112. Path Sum
 // https://leetcode.com/problems/path-sum/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 112.\ Path\ Sum.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 bool hasPathSum(TreeNode<int>* root, int sum) {
     if (!root) return false;

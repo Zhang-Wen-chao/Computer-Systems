@@ -1,9 +1,8 @@
 // 110. Balanced Binary Tree
 // https://leetcode.com/problems/balanced-binary-tree/
-
+// clang++ 110.\ Balanced\ Binary\ Tree.cpp -std=c++17
 #include <cmath>
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 
 template <typename T>
 class Solution {

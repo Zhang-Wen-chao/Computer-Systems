@@ -1,8 +1,7 @@
 // 111. Minimum Depth of Binary Tree
 // https://leetcode.com/problems/minimum-depth-of-binary-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 111.\ Minimum\ Depth\ of\ Binary\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 #include <climits>
 
 template <typename T>

@@ -1,5 +1,6 @@
 // 17. Letter Combinations of a Phone Number
 // https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+// clang++ 17.\ Letter\ Combinations\ of\ a\ Phone\ Number.cpp -std=c++17
 
 #include <string>
 #include "../printUtils.hpp"

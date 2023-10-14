@@ -1,31 +1,43 @@
 // 100. Same Tree
 // https://leetcode.com/problems/same-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template <typename T>
-bool isSameTree(TreeNode<T>* p, TreeNode<T>* q) {
-    if (p == nullptr && q == nullptr) {
-        return true;
-    }
-    if (p == nullptr || q == nullptr) {
-        return false;
-    }
-    if (p->val != q->val) {
-        return false;
-    }
-    return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;  // 标记为可空
+    public TreeNode? right; // 标记为可空
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* p = buildTree({1, 2, 3}, -1);
-    TreeNode<int>* q = buildTree({1, 2, 3}, -1);
-    
-    std::cout << std::boolalpha << isSameTree(p, q) << std::endl;
 
-    deleteTree(p);
-    deleteTree(q);
-    
-    return 0;
+public class Solution {
+    public bool IsSameTree(TreeNode? p, TreeNode? q) {
+        if (p == null && q == null) return true;
+        if (p == null || q == null) return false;
+        if (p.val != q.val) return false;
+
+        return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree1 = new TreeNode(1) {
+            left = new TreeNode(2),
+            right = new TreeNode(3)
+        };
+
+        TreeNode tree2 = new TreeNode(1) {
+            left = new TreeNode(2),
+            right = new TreeNode(3)
+        };
+
+        bool result = solution.IsSameTree(tree1, tree2);
+
+        // 打印结果
+        Console.WriteLine($"Are the trees same? {result}");
+    }
 }

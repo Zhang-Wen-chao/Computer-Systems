@@ -1,50 +1,54 @@
 // 131. Palindrome Partitioning
 // https://leetcode.com/problems/palindrome-partitioning/
 
-#include <string>
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::vector<std::string>> partition(std::string s) {
-        std::vector<std::vector<std::string>> ans; // 存储最终结果
-        std::vector<std::string> path; // 存储当前路径
-        backtrack(s, 0, ans, path); // 从第0个字符开始搜索
-        return ans;
+public class Solution {
+    public IList<IList<string>> Partition(string s) {
+        IList<IList<string>> result = new List<IList<string>>();
+        List<string> current = new List<string>();
+        PartitionHelper(s, 0, current, result);
+        return result;
     }
 
-private:
-    void backtrack(std::string& s, int start, std::vector<std::vector<std::string>>& ans, std::vector<std::string>& path) {
-        if (start == s.size()) { // 如果已经遍历完所有字符，说明找到一个分割方案
-            ans.push_back(path); // 加入到结果中
+    private void PartitionHelper(string s, int start, List<string> current, IList<IList<string>> result) {
+        if (start == s.Length) {
+            result.Add(new List<string>(current));
             return;
         }
-        for (int i = start; i < s.size(); i++) { // 遍历每个可能的分割点
-            std::string sub = s.substr(start, i - start + 1); // 获取当前子串
-            if (isPalindrome(sub)) { // 如果当前子串是回文串，才继续搜索
-                path.push_back(sub); // 将当前子串加入到路径中
-                backtrack(s, i + 1, ans, path); // 递归搜索下一段子串
-                path.pop_back(); // 回溯，将当前子串从路径中移除
+
+        for (int end = start; end < s.Length; end++) {
+            if (IsPalindrome(s, start, end)) {
+                current.Add(s.Substring(start, end - start + 1));
+                PartitionHelper(s, end + 1, current, result);
+                current.RemoveAt(current.Count - 1);
             }
         }
     }
 
-    bool isPalindrome(std::string& s) { // 判断一个字符串是否是回文串
-        int left = 0; // 左指针
-        int right = s.size() - 1; // 右指针
-        while (left < right) { // 当左右指针相遇时，结束循环
-            if (s[left] != s[right]) return false; // 如果左右指针指向的字符不相等，说明不是回文串，返回false
-            left++; // 左指针右移一位
-            right--; // 右指针左移一位
+    private bool IsPalindrome(string s, int start, int end) {
+        while (start < end) {
+            if (s[start] != s[end]) {
+                return false;
+            }
+            start++;
+            end--;
         }
-        return true; // 如果循环结束，说明是回文串，返回true
+        return true;
     }
-};
+}
 
-int main() {
-    printSet(Solution().partition("aab"));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    printSet(Solution().partition("a"));
+        string s = "aab";
+        IList<IList<string>> result = solution.Partition(s);
 
-    return 0;
+        Console.WriteLine("All palindrome partitions:");
+        foreach (var partition in result) {
+            Console.WriteLine(string.Join(", ", partition));
+        }
+    }
 }

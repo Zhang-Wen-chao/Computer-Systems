@@ -1,39 +1,64 @@
 // 589. N-ary Tree Preorder Traversal
 // https://leetcode.com/problems/n-ary-tree-preorder-traversal/
 
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
-#include <stack>
+using System;
+using System.Collections.Generic;
 
-template <typename T>
-std::vector<T> preorder(NTreeNode<T>* root) {
-    std::vector<T> result;
-    if (root == nullptr) {
-        return result;
+public class Node {
+    public int val;
+    public IList<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+        children = new List<Node>();
     }
-    
-    std::stack<NTreeNode<T>*> stk;
-    stk.push(root);
-    
-    while (!stk.empty()) {
-        NTreeNode<T>* curr = stk.top();
-        stk.pop();
-        
-        result.push_back(curr->val);
-        
-        for (int i = curr->children.size() - 1; i >= 0; i--) {
-            stk.push(curr->children[i]);
-        }
+
+    public Node(int _val, IList<Node> _children) {
+        val = _val;
+        children = _children;
     }
-    
-    return result;
 }
 
-int main() {
-    // NTreeNode<int>* root = buildNTree<int>({1, -1, 3, 2, 4, -1, 5, 6}, -1);
-    NTreeNode<int>* root = buildNTree<int>({1,-1,2,3,4,5,-1,-1,6,7,-1,8,-1,9,10,-1,-1,11,-1,12,-1,13,-1,-1,14}, -1);
-    printArray(preorder(root));
-    deleteNTree(root);
-    
-    return 0;
+public class Solution {
+    public IList<int> Preorder(Node root) {
+        List<int> result = new List<int>();
+        PreorderTraversal(root, result);
+        return result;
+    }
+
+    private void PreorderTraversal(Node node, List<int> result) {
+        if (node == null) {
+            return;
+        }
+
+        result.Add(node.val);
+
+        foreach (var child in node.children) {
+            PreorderTraversal(child, result);
+        }
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        Node tree = new Node(1, new List<Node> {
+            new Node(3, new List<Node> {
+                new Node(5),
+                new Node(6)
+            }),
+            new Node(2),
+            new Node(4)
+        });
+
+        IList<int> preorderTraversal = solution.Preorder(tree);
+
+        Console.WriteLine("Preorder Traversal:");
+        foreach (int val in preorderTraversal) {
+            Console.Write(val + " ");
+        }
+    }
 }

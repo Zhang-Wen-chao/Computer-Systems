@@ -1,45 +1,56 @@
 // 257. Binary Tree Paths
 // https://leetcode.com/problems/binary-tree-paths/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
-#include <string>
+using System;
+using System.Collections.Generic;
 
-template <typename T>
-class Solution {
-public:
-    std::vector<std::string> binaryTreePaths(TreeNode<T>* root) {
-        std::vector<std::string> paths;
-        if (root == nullptr) {
-            return paths;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+    public IList<string> BinaryTreePaths(TreeNode? root) {
+        IList<string> paths = new List<string>();
+        if (root != null) {
+            Traverse(root, "", paths);
         }
-        std::string path;
-        traverse(root, path, paths);
         return paths;
     }
 
-private:
-    void traverse(TreeNode<T>* node, std::string path, std::vector<std::string>& paths) {
-        path += std::to_string(node->val);
-        if (node->left == nullptr && node->right == nullptr) {
-            paths.push_back(path);
+    private void Traverse(TreeNode? node, string currentPath, IList<string> paths) {
+        if (node == null) return;
+
+        currentPath += node.val.ToString();
+        if (node.left == null && node.right == null) {
+            paths.Add(currentPath);
         } else {
-            path += "->";
-            if (node->left != nullptr) {
-                traverse(node->left, path, paths);
-            }
-            if (node->right != nullptr) {
-                traverse(node->right, path, paths);
-            }
+            currentPath += "->";
+            Traverse(node.left, currentPath, paths);
+            Traverse(node.right, currentPath, paths);
         }
     }
-};
+}
 
-int main() {
-    // TreeNode<int>* root = buildTree({1, 2, 3, -1, 5}, -1);
-    TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
-    printArray(Solution<int>().binaryTreePaths(root));
-    deleteTree(root);
-    
-    return 0;
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(1) {
+            left = new TreeNode(2) {
+                right = new TreeNode(5)
+            },
+            right = new TreeNode(3)
+        };
+
+        IList<string> paths = solution.BinaryTreePaths(tree);
+
+        // 打印结果
+        Console.WriteLine("Paths:");
+        foreach (var path in paths) {
+            Console.WriteLine(path);
+        }
+    }
 }

@@ -1,8 +1,7 @@
 // 617. Merge Two Binary Trees
 // https://leetcode.com/problems/merge-two-binary-trees/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 617.\ Merge\ Two\ Binary\ Trees.cpp -std=c++17
+#include "../../printUtils.hpp"
 /*
 这个确实简洁，但是对内存的处理不好，或者说我还不会处理这种内存。
 template <typename T>

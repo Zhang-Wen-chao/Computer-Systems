@@ -1,8 +1,7 @@
 // 226. Invert Binary Tree
 // https://leetcode.com/problems/invert-binary-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 226.\ Invert\ Binary\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template <typename T>
 TreeNode<T>* invertTree(TreeNode<T>* root) {

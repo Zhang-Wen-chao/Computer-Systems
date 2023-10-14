@@ -1,8 +1,7 @@
 // 559. Maximum Depth of N-ary Tree
 // https://leetcode.com/problems/maximum-depth-of-n-ary-tree/
-
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 559.\ Maximum\ Depth\ of\ N-ary\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 int maxDepth(NTreeNode<T>* root) {

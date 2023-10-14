@@ -1,36 +1,47 @@
 // 216. Combination Sum III
 // https://leetcode.com/problems/combination-sum-iii/
 
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::vector<int>> combinationSum3(int k, int n) {
-        std::vector<std::vector<int>> result; // 存储最终结果
-        std::vector<int> path; // 存储当前路径
-        backtrack(k, n, 1, result, path); // 从1开始搜索
+public class Solution {
+    public IList<IList<int>> CombinationSum3(int k, int n) {
+        IList<IList<int>> result = new List<IList<int>>();
+        List<int> currentCombination = new List<int>();
+        GenerateCombinations(k, n, 1, currentCombination, result);
         return result;
     }
 
-private:
-    void backtrack(int k, int n, int start, std::vector<std::vector<int>>& result, std::vector<int>& path) {
-        if (k == 0 && n == 0) { // 找到一个满足条件的组合
-            result.push_back(path); // 加入到结果中
+    private void GenerateCombinations(int k, int n, int start, List<int> currentCombination, IList<IList<int>> result) {
+        if (k == 0 && n == 0) {
+            result.Add(new List<int>(currentCombination));
             return;
         }
-        if (k < 0 || n < 0) return; // 剪枝，如果k或n为负数，说明不满足条件
-        for (int i = start; i <= 9; i++) { // 遍历1到9的数字
-            path.push_back(i); // 将当前数字加入到路径中
-            backtrack(k - 1, n - i, i + 1, result, path); // 递归搜索，注意下一层的起始数字是i+1，避免重复使用
-            path.pop_back(); // 回溯，将当前数字从路径中移除
+
+        if (k == 0 || n < 0) {
+            return;
+        }
+
+        for (int i = start; i <= 9; i++) {
+            currentCombination.Add(i);
+            GenerateCombinations(k - 1, n - i, i + 1, currentCombination, result);
+            currentCombination.RemoveAt(currentCombination.Count - 1);
         }
     }
-};
+}
 
-int main() {
-    printSet(Solution().combinationSum3(3, 7));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    printSet(Solution().combinationSum3(3, 9));
+        int k = 3;
+        int n = 7;
 
-    return 0;
+        IList<IList<int>> result = solution.CombinationSum3(k, n);
+
+        // 打印结果
+        foreach (var combination in result) {
+            Console.WriteLine(string.Join(" ", combination));
+        }
+    }
 }

@@ -1,24 +1,49 @@
 // 700. Search in a Binary Search Tree
 // https://leetcode.com/problems/search-in-a-binary-search-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template <typename T>
-TreeNode<T>* searchBST(TreeNode<T>* root, T val) {
-    if (!root) return nullptr;
-    if (root->val == val) return root;
-    if (root->val > val) return searchBST(root->left, val);
-    return searchBST(root->right, val);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({4, 2, 7, 1, 3}, -1);
-    int target = 2;
-    TreeNode<int>* node = searchBST(root, target);
+public class Solution {
+    public TreeNode? SearchBST(TreeNode? root, int val) {
+        if (root == null) return null;
 
-    std::cout << "The subtree rooted with the node with value " << target << " is: " << std::endl;
-    printArray(levelOrder(node));
+        if (root.val == val) return root;
+        else if (root.val > val) return SearchBST(root.left, val);
+        else return SearchBST(root.right, val);
+    }
+}
 
-    return 0;
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(4) {
+            left = new TreeNode(2) {
+                left = new TreeNode(1),
+                right = new TreeNode(3)
+            },
+            right = new TreeNode(7)
+        };
+
+        int searchValue = 2;
+        TreeNode? resultTree = solution.SearchBST(tree, searchValue);
+
+        // 打印结果
+        PrintTree(resultTree);
+    }
+
+    public static void PrintTree(TreeNode? root) {
+        if (root == null) return;
+
+        PrintTree(root.left);
+        Console.Write(root.val + " ");
+        PrintTree(root.right);
+    }
 }

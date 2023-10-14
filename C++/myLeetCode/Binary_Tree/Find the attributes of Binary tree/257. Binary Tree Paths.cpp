@@ -1,8 +1,7 @@
 // 257. Binary Tree Paths
 // https://leetcode.com/problems/binary-tree-paths/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 257.\ Binary\ Tree\ Paths.cpp -std=c++17
+#include "../../printUtils.hpp"
 #include <string>
 
 template <typename T>

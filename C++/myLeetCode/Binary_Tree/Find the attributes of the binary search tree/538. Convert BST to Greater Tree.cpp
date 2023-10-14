@@ -1,8 +1,7 @@
 // 538. Convert BST to Greater Tree
 // https://leetcode.com/problems/convert-bst-to-greater-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 538.\ Convert\ BST\ to\ Greater\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 class Solution {

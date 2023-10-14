@@ -1,37 +1,77 @@
 // 222. Count Complete Tree Nodes
 // https://leetcode.com/problems/count-complete-tree-nodes/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template <typename T>
-int countNodes(TreeNode<T>* root) {
-    if (root == nullptr) return 0;
-    
-    int leftHeight = 0, rightHeight = 0;
-    TreeNode<T>* leftNode = root, *rightNode = root;
-    
-    while (leftNode) {
-        leftHeight++;
-        leftNode = leftNode->left;
-    }
-    
-    while (rightNode) {
-        rightHeight++;
-        rightNode = rightNode->right;
-    }
-    
-    if (leftHeight == rightHeight)
-        return (1 << leftHeight) - 1;
-    
-    return 1 + countNodes(root->left) + countNodes(root->right);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({1, 2, 3, 4, 5, 6}, -1);
-    std::cout << "Number of nodes in the binary tree: " << countNodes(root) << std::endl;
-    deleteTree(root);
-    
-    return 0;
+public class Solution {
+    public int CountNodes(TreeNode? root) {
+        if (root == null) return 0;
+
+        int depth = ComputeDepth(root);
+        if (depth == 0) return 1;
+
+        int left = 1, right = (int)Math.Pow(2, depth) - 1;
+        while (left <= right) {
+            int pivot = left + (right - left) / 2;
+            if (Exists(pivot, depth, root)) {
+                left = pivot + 1;
+            } else {
+                right = pivot - 1;
+            }
+        }
+
+        return (int)Math.Pow(2, depth) - 1 + left;
+    }
+
+    private int ComputeDepth(TreeNode? node) {
+        int depth = 0;
+        while (node?.left != null) {
+            node = node.left;
+            depth++;
+        }
+        return depth;
+    }
+
+    private bool Exists(int idx, int depth, TreeNode? node) {
+        int left = 0, right = (int)Math.Pow(2, depth) - 1;
+        for (int i = 0; i < depth; i++) {
+            int pivot = left + (right - left) / 2;
+            if (idx <= pivot) {
+                node = node?.left;
+                right = pivot;
+            } else {
+                node = node?.right;
+                left = pivot + 1;
+            }
+        }
+        return node != null;
+    }
 }
 
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(1) {
+            left = new TreeNode(2) {
+                left = new TreeNode(4),
+                right = new TreeNode(5)
+            },
+            right = new TreeNode(3) {
+                left = new TreeNode(6)
+            }
+        };
+
+        int count = solution.CountNodes(tree);
+
+        // 打印结果
+        Console.WriteLine($"Total nodes in the tree: {count}");
+    }
+}

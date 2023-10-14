@@ -1,12 +1,14 @@
 // 144. Binary Tree Preorder Traversal
 // https://leetcode.com/problems/binary-tree-preorder-traversal/
 
-#include "../../BinaryTreeUtils.hpp"
-#include "../../printUtils.hpp"
+// clang++ 144.\ Binary\ Tree\ Preorder\ Traversal.cpp -std=c++17
+
+#include "../../../printUtils.hpp"
 #include <stack>
+#include <vector>
 
 template <typename T>
-std::vector<T> preorderTraversal(TreeNode<T>* root) {
+std::vector<T> preOrderTraversal(TreeNode<T>* root) {
     std::vector<T> result;
     std::stack<TreeNode<T>*> stk;
 
@@ -27,7 +29,7 @@ std::vector<T> preorderTraversal(TreeNode<T>* root) {
 int main() {
     TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
     std::cout << "Preorder traversal: ";
-    printArray(preorderTraversal(root));
+    printArray(preOrderTraversal(root));
     deleteTree(root);
     
     return 0;

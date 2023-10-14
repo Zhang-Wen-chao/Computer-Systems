@@ -1,8 +1,7 @@
 // 450. Delete Node in a BST
 // https://leetcode.com/problems/delete-node-in-a-bst/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 450.\ Delete\ Node\ in\ a\ BST.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 class Solution {

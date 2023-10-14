@@ -3,8 +3,7 @@
 // 简而言之: 根结点是数组中最大的，左子树的结点是数组中max左侧数组最大的值，右子树是max右侧。
 
 #include <algorithm>
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 
 template <typename T>
 TreeNode<T>* constructMaximumBinaryTree(const std::vector<T>& nums, int start, int end) {

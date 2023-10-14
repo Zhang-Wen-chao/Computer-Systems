@@ -1,8 +1,7 @@
 // 701. Insert into a Binary Search Tree
 // https://leetcode.com/problems/insert-into-a-binary-search-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 701.\ Insert\ into\ a\ Binary\ Search\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 TreeNode<T>* insertIntoBST(TreeNode<T>* root, T val) {

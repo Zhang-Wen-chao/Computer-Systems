@@ -1,50 +1,66 @@
 // 332. Reconstruct Itinerary
 // https://leetcode.com/problems/reconstruct-itinerary/
 
-#include <unordered_map>
-#include <algorithm>
-#include <set>
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-class Solution {
-public:
-    std::vector<std::string> findItinerary(std::vector<std::vector<std::string>>& tickets) {
-        std::unordered_map<std::string, std::multiset<std::string>> graph;
-        std::vector<std::string> itinerary;
+public class Solution {
+    public IList<string> FindItinerary(IList<IList<string>> tickets) {
+        Dictionary<string, List<string>> graph = new Dictionary<string, List<string>>();
+        List<string> result = new List<string>();
 
-        // 构建邻接表
-        for (const auto& ticket : tickets) {
-            graph[ticket[0]].insert(ticket[1]);
+        // 构建图
+        foreach (var ticket in tickets) {
+            string from = ticket[0];
+            string to = ticket[1];
+            if (!graph.ContainsKey(from)) {
+                graph[from] = new List<string>();
+            }
+            graph[from].Add(to);
         }
 
-        dfs(graph, "JFK", itinerary);
-
-        // 结果是逆序的，需要反转
-        std::reverse(itinerary.begin(), itinerary.end());
-
-        return itinerary;
-    }
-
-private:
-    void dfs(std::unordered_map<std::string, std::multiset<std::string>>& graph, const std::string& airport,
-             std::vector<std::string>& itinerary) {
-        while (!graph[airport].empty()) {
-            auto nextAirport = *(graph[airport].begin());
-            graph[airport].erase(graph[airport].begin());
-            dfs(graph, nextAirport, itinerary);
+        // 对图中的每个节点的目的地列表按字母顺序排序
+        foreach (var kvp in graph) {
+            kvp.Value.Sort();
         }
 
-        itinerary.push_back(airport);
+        // 从"JFK"出发开始深度优先搜索
+        DFS(graph, "JFK", result);
+
+        // 结果中反转行程，因为深度优先搜索是逆序的
+        result.Reverse();
+
+        return result;
     }
-};
 
-int main() {
-    std::vector<std::vector<std::string>> tickets1 = {{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
-    printArray(Solution().findItinerary(tickets1));
+    private void DFS(Dictionary<string, List<string>> graph, string current, List<string> result) {
+        if (graph.ContainsKey(current) && graph[current].Any()) {
+            List<string> destinations = graph[current];
+            while (destinations.Any()) {
+                string nextDestination = destinations[0];
+                destinations.RemoveAt(0);
+                DFS(graph, nextDestination, result);
+            }
+        }
+        result.Add(current);
+    }
+}
 
-    std::vector<std::vector<std::string>> tickets2 = {{"JFK", "SFO"}, {"JFK", "ATL"}, {"SFO", "ATL"},
-                                                      {"ATL", "JFK"}, {"ATL", "SFO"}};
-    printArray(Solution().findItinerary(tickets2));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    return 0;
+        IList<IList<string>> tickets = new List<IList<string>> {
+            new List<string> { "MUC", "LHR" },
+            new List<string> { "JFK", "MUC" },
+            new List<string> { "SFO", "SJC" },
+            new List<string> { "LHR", "SFO" }
+        };
+
+        IList<string> result = solution.FindItinerary(tickets);
+
+        // 打印结果
+        Console.WriteLine(string.Join(" -> ", result));
+    }
 }

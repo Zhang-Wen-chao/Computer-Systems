@@ -1,8 +1,8 @@
 // 589. N-ary Tree Preorder Traversal
 // https://leetcode.com/problems/n-ary-tree-preorder-traversal/
+// clang++ 589.\ N-ary\ Tree\ Preorder\ Traversal.cpp -std=c++17
 
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 #include <stack>
 
 template <typename T>

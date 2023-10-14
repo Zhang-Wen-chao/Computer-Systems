@@ -1,39 +1,49 @@
 // 454. 4Sum II
 // https://leetcode.com/problems/4sum-ii/
-#include <iostream>
-#include <unordered_map>
-#include <vector>
 
-class Solution {
-public:
-    int fourSumCount(std::vector<int>& A, std::vector<int>& B, std::vector<int>& C, std::vector<int>& D) {
-        std::unordered_map<int, int> sumCount;
+using System;
+using System.Collections.Generic;
+
+public class Solution {
+    public int FourSumCount(int[] A, int[] B, int[] C, int[] D) {
+        Dictionary<int, int> sumAB = new Dictionary<int, int>();
         int count = 0;
 
-        // 计算 A 和 B 数组中元素的所有可能和的出现次数
-        for (int a : A) {
-            for (int b : B) {
-                sumCount[a + b]++;
+        // 计算A和B中所有可能的和，并存储在哈希表中
+        foreach (int a in A) {
+            foreach (int b in B) {
+                int sum = a + b;
+                if (sumAB.ContainsKey(sum)) {
+                    sumAB[sum]++;
+                } else {
+                    sumAB[sum] = 1;
+                }
             }
         }
 
-        // 查找 C 和 D 数组中元素的和在 sumCount 中的相反数出现的次数
-        for (int c : C) {
-            for (int d : D) {
-                count += sumCount[-(c + d)];
+        // 计算C和D中所有可能的和的负值，并检查它们在哈希表中出现的次数
+        foreach (int c in C) {
+            foreach (int d in D) {
+                int sum = -(c + d);
+                if (sumAB.ContainsKey(sum)) {
+                    count += sumAB[sum];
+                }
             }
         }
 
+        // 打印结果
+        Console.WriteLine($"Total ways to get sum 0: {count}");
         return count;
     }
-};
+}
 
-int main() {
-    Solution s;
-    std::vector<int> A = {1, 2};
-    std::vector<int> B = {-2, -1};
-    std::vector<int> C = {-1, 2};
-    std::vector<int> D = {0, 2};
-    std::cout << s.fourSumCount(A, B, C, D) << std::endl;
-    return 0;
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+        int[] A = {1, 2};
+        int[] B = {-2, -1};
+        int[] C = {-1, 2};
+        int[] D = {0, 2};
+        solution.FourSumCount(A, B, C, D);
+    }
 }

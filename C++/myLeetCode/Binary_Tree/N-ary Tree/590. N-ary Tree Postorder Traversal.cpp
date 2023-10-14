@@ -1,8 +1,8 @@
 // 590. N-ary Tree Postorder Traversal
 // https://leetcode.com/problems/n-ary-tree-postorder-traversal/
+// clang++ 590.\ N-ary\ Tree\ Postorder\ Traversal.cpp -std=c++17
 
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 #include <stack>
 #include <algorithm>
 

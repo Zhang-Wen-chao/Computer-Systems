@@ -1,39 +1,49 @@
 // 572. Subtree of Another Tree
 // https://leetcode.com/problems/subtree-of-another-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template <typename T>
-bool isSameTree(TreeNode<T>* p, TreeNode<T>* q) {
-    if (p == nullptr && q == nullptr) {
-        return true;
-    }
-    if (p == nullptr || q == nullptr) {
-        return false;
-    }
-    if (p->val != q->val) {
-        return false;
-    }
-    return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-template <typename T>
-bool isSubtree(TreeNode<T>* s, TreeNode<T>* t) {
-    if (s == nullptr) {
-        return false;
+public class Solution {
+    public bool IsSubtree(TreeNode? s, TreeNode? t) {
+        if (s == null) return false;
+        if (IsSameTree(s, t)) return true;
+        return IsSubtree(s.left, t) || IsSubtree(s.right, t);
     }
-    if (isSameTree(s, t)) {
-        return true;
+
+    private bool IsSameTree(TreeNode? s, TreeNode? t) {
+        if (s == null && t == null) return true;
+        if (s == null || t == null) return false;
+        return s.val == t.val && IsSameTree(s.left, t.left) && IsSameTree(s.right, t.right);
     }
-    return isSubtree(s->left, t) || isSubtree(s->right, t);
 }
 
-int main() {
-    TreeNode<int>* s = buildTree({3, 4, 5, 1, 2}, -1);
-    TreeNode<int>* t = buildTree({4, 1, 2}, -1);
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    std::cout << std::boolalpha << isSubtree(s, t) << std::endl;
+        TreeNode tree1 = new TreeNode(3) {
+            left = new TreeNode(4) {
+                left = new TreeNode(1),
+                right = new TreeNode(2)
+            },
+            right = new TreeNode(5)
+        };
 
-    return 0;
+        TreeNode tree2 = new TreeNode(4) {
+            left = new TreeNode(1),
+            right = new TreeNode(2)
+        };
+
+        bool isSubtree = solution.IsSubtree(tree1, tree2);
+
+        // 打印结果
+        Console.WriteLine($"Is tree2 a subtree of tree1? {isSubtree}");
+    }
 }

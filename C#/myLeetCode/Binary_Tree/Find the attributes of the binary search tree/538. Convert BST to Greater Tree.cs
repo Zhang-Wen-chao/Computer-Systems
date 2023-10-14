@@ -1,44 +1,62 @@
 // 538. Convert BST to Greater Tree
 // https://leetcode.com/problems/convert-bst-to-greater-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template<typename T>
-class Solution {
-public:
-    TreeNode<T>* convertBST(TreeNode<T>* root) {
-        T sum = 0;
-        convertBST(root, sum);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+    private int sum = 0;
+
+    public TreeNode? ConvertBST(TreeNode? root) {  // 修改返回类型为 TreeNode?
+        if (root == null) return null;
+
+        ConvertBST(root.right);
+
+        sum += root.val;
+        root.val = sum;
+
+        ConvertBST(root.left);
+
         return root;
     }
-    
-    void convertBST(TreeNode<T>* root, T& sum) {
-        if (!root) return;
+}
 
-        convertBST(root->right, sum);
-        root->val += sum;
-        sum += root->val - sum;
-        convertBST(root->left, sum);
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(4) {
+            left = new TreeNode(1) {
+                left = new TreeNode(0),
+                right = new TreeNode(2) {
+                    right = new TreeNode(3)
+                }
+            },
+            right = new TreeNode(6) {
+                left = new TreeNode(5),
+                right = new TreeNode(7) {
+                    right = new TreeNode(8)
+                }
+            }
+        };
+
+        TreeNode? newTree = solution.ConvertBST(tree);  // 修改变量类型为 TreeNode?
+
+        // 打印结果
+        PrintTree(newTree);
     }
-};
 
-int main() {
-    TreeNode<int>* root = buildTree({4, 1, 6, 0, 2, 5, 7, -1, -1, -1, 3, -1, -1, -1, 8}, -1);
-    TreeNode<int>* result = Solution<int>().convertBST(root);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result));
+    public static void PrintTree(TreeNode? root) {
+        if (root == null) return;
 
-    TreeNode<int>* root2 = buildTree({0, -1, 1}, -1);
-    TreeNode<int>* result2 = Solution<int>().convertBST(root2);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result2));
-
-    TreeNode<double>* root3 = buildTree({1.87, 0.24, 2.98}, -1.0);
-    TreeNode<double>* result3 = Solution<double>().convertBST(root3);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result3));
-
-    return 0;
-
+        PrintTree(root.left);
+        Console.Write(root.val + " ");
+        PrintTree(root.right);
+    }
 }

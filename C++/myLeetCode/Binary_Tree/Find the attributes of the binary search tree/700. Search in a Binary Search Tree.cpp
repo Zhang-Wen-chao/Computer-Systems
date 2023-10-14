@@ -1,8 +1,7 @@
 // 700. Search in a Binary Search Tree
 // https://leetcode.com/problems/search-in-a-binary-search-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 700.\ Search\ in\ a\ Binary\ Search\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template <typename T>
 TreeNode<T>* searchBST(TreeNode<T>* root, T val) {

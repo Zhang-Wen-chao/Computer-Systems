@@ -1,8 +1,7 @@
 // 222. Count Complete Tree Nodes
 // https://leetcode.com/problems/count-complete-tree-nodes/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 222.\ Count\ Complete\ Tree\ Nodes.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template <typename T>
 int countNodes(TreeNode<T>* root) {

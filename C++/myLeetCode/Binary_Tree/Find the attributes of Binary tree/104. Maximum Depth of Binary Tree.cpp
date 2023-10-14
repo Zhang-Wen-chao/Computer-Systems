@@ -1,8 +1,7 @@
 // 104. Maximum Depth of Binary Tree
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 104.\ Maximum\ Depth\ of\ Binary\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template <typename T>
 int maxDepth(TreeNode<T>* root) {

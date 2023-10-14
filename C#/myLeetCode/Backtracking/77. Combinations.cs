@@ -1,36 +1,41 @@
 // 77. Combinations
 // https://leetcode.com/problems/combinations/
 
-#include <vector>
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::vector<int>> combine(int n, int k) {
-        std::vector<std::vector<int>> result;
-        std::vector<int> curr;
-        backtrack(result, curr, n, k, 1);
+public class Solution {
+    public IList<IList<int>> Combine(int n, int k) {
+        IList<IList<int>> result = new List<IList<int>>();
+        CombineHelper(n, k, 1, new List<int>(), result);
         return result;
     }
 
-private:
-    void backtrack(std::vector<std::vector<int>>& result, std::vector<int>& curr, int n, int k, int start) {
-        if (curr.size() == k) {
-            result.push_back(curr);
+    private void CombineHelper(int n, int k, int start, List<int> current, IList<IList<int>> result) {
+        if (current.Count == k) {
+            result.Add(new List<int>(current));
             return;
         }
-        
-        // Pruning condition: i <= n - (k - curr.size()) + 1
-        for (int i = start; i <= n - (k - curr.size()) + 1; i++) {
-            curr.push_back(i);
-            backtrack(result, curr, n, k, i + 1);
-            curr.pop_back();
+
+        for (int i = start; i <= n; i++) {
+            current.Add(i);
+            CombineHelper(n, k, i + 1, current, result);
+            current.RemoveAt(current.Count - 1);
         }
     }
-};
+}
 
-int main() {
-    printSet(Solution().combine(4, 2));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    return 0;
+        int n = 4;
+        int k = 2;
+        IList<IList<int>> result = solution.Combine(n, k);
+
+        Console.WriteLine($"All combinations of {k} numbers from 1 to {n}:");
+        foreach (var combination in result) {
+            Console.WriteLine(string.Join(" ", combination));
+        }
+    }
 }

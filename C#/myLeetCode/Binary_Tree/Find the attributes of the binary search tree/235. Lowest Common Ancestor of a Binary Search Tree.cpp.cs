@@ -10,35 +10,54 @@
 而对于 236 题，我们不能利用二叉搜索树的性质，因为普通的二叉树没有这样的排序规则。我们只能从根节点开始，递归地在左右子树中查找 p 和 q。如果在某个子树中找到了两个节点，那么这个子树的根节点就是 LCA。如果只在一个子树中找到了一个节点，那么这个节点就是 LCA。如果都没有找到，那么返回空指针。这个方法的时间复杂度是 O(N)，空间复杂度是 O(N)，其中 N 是二叉树的节点数2。
 */
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template<typename T>
-TreeNode<T>* lowestCommonAncestor(TreeNode<T>* root, TreeNode<T>* p, TreeNode<T>* q) {
-    if (!root) return NULL;
-    if (root->val > p->val && root->val > q->val)
-        return lowestCommonAncestor(root->left, p, q);
-    else if (root->val < p->val && root->val < q->val)
-        return lowestCommonAncestor(root->right, p, q);
-    else
-        return root;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({6,2,8,0,4,7,9,-1,-1,3,5}, -1);
-    TreeNode<int>* p = root->left; // p = 2
-    TreeNode<int>* q = root->right; // q = 8
+public class Solution {
+    public TreeNode? LowestCommonAncestor(TreeNode? root, TreeNode p, TreeNode q) { // 注意这里移除了 p 和 q 的可空标记
+        while (root != null) {
+            if (root.val > p.val && root.val > q.val) {
+                root = root.left;
+            } else if (root.val < p.val && root.val < q.val) {
+                root = root.right;
+            } else {
+                return root;
+            }
+        }
+        return null;
+    }
+}
 
-    TreeNode<int>* result = lowestCommonAncestor(root, p, q);
-    std::cout << result->val << std::endl;
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
+        TreeNode tree = new TreeNode(6) {
+            left = new TreeNode(2) {
+                left = new TreeNode(0),
+                right = new TreeNode(4) {
+                    left = new TreeNode(3),
+                    right = new TreeNode(5)
+                }
+            },
+            right = new TreeNode(8) {
+                left = new TreeNode(7),
+                right = new TreeNode(9)
+            }
+        };
 
-    TreeNode<int>* root2 = buildTree({6,2,8,0,4,7,9,-1,-1,3,5}, -1);
-    TreeNode<int>* p2 = root2->left; // p = 2
-    TreeNode<int>* q2 = root2->left->right; // q = 4
+        TreeNode p = tree.left;  // Node with value 2
+        TreeNode q = tree.right; // Node with value 8
 
-    TreeNode<int>* result2 = lowestCommonAncestor(root2, p2, q2);
-    std::cout << result2->val << std::endl;
+        TreeNode? lca = solution.LowestCommonAncestor(tree, p, q);
 
-    return 0;
+        // 打印结果
+        Console.WriteLine($"Lowest Common Ancestor of {p.val} and {q.val} is: {lca?.val}");
+    }
 }

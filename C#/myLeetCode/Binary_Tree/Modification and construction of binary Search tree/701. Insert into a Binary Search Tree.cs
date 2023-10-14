@@ -1,36 +1,53 @@
 // 701. Insert into a Binary Search Tree
 // https://leetcode.com/problems/insert-into-a-binary-search-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template<typename T>
-TreeNode<T>* insertIntoBST(TreeNode<T>* root, T val) {
-    if (!root) return new TreeNode<T>(val);
-    if (root->val > val)
-        root->left = insertIntoBST(root->left, val);
-    else
-        root->right = insertIntoBST(root->right, val);
-    return root;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({4, 2, 7, 1, 3}, -1);
-    TreeNode<int>* result = insertIntoBST(root, 5);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result));
+public class Solution {
+    public TreeNode InsertIntoBST(TreeNode? root, int val) {
+        if (root == null) return new TreeNode(val);
 
+        if (val < root.val) {
+            root.left = InsertIntoBST(root.left, val);
+        } else {
+            root.right = InsertIntoBST(root.right, val);
+        }
 
-    TreeNode<int>* root2 = buildTree({40, 20, 60, 10, 30, 50, 70}, -1);
-    TreeNode<int>* result2 = insertIntoBST(root2, 25);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result2));
+        return root;
+    }
+}
 
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    TreeNode<int>* root3 = buildTree({4, 2, 7, 1, 3, -1, -1, -1, -1, -1, -1}, -1);
-    TreeNode<int>* result3 = insertIntoBST(root3, 5);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result3));
+        TreeNode tree = new TreeNode(4) {
+            left = new TreeNode(2) {
+                left = new TreeNode(1),
+                right = new TreeNode(3)
+            },
+            right = new TreeNode(7)
+        };
 
-    return 0;
+        int valueToInsert = 5;
+        TreeNode newTree = solution.InsertIntoBST(tree, valueToInsert);
+
+        // 打印结果
+        PrintTree(newTree);
+    }
+
+    public static void PrintTree(TreeNode? root) {
+        if (root == null) return;
+
+        PrintTree(root.left);
+        Console.Write(root.val + " ");
+        PrintTree(root.right);
+    }
 }

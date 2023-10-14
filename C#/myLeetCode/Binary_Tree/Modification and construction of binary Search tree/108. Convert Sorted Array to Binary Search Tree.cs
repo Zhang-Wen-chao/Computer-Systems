@@ -1,48 +1,49 @@
 // 108. Convert Sorted Array to Binary Search Tree
 // https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template<typename T>
-class Solution {
-public:
-    // Convert a sorted array to a balanced BST
-    TreeNode<T>* sortedArrayToBST(std::vector<T>& nums) {
-        // Call the helper function with the whole array as the range
-        return sortedArrayToBST(nums, 0, nums.size() - 1);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+    public TreeNode? SortedArrayToBST(int[] nums) {
+        if (nums == null || nums.Length == 0) return null;
+        return BuildTree(nums, 0, nums.Length - 1);
     }
-    
-    // Helper function to convert a subarray to a balanced BST
-    TreeNode<T>* sortedArrayToBST(std::vector<T>& nums, int start, int end) {
-        // Base case: empty subarray
-        if (start > end) return nullptr;
-        
-        // Find the middle element of the subarray
-        int mid = start + (end - start) / 2;
-        
-        // Create a new node with the middle element as the value
-        TreeNode<T>* root = new TreeNode(nums[mid]);
-        
-        // Recursively build the left and right subtrees using the left and right halves of the subarray
-        root->left = sortedArrayToBST(nums, start, mid - 1);
-        root->right = sortedArrayToBST(nums, mid + 1, end);
-        
-        // Return the root of the subtree
-        return root;
+
+    private TreeNode? BuildTree(int[] nums, int left, int right) {
+        if (left > right) return null;
+
+        int mid = left + (right - left) / 2;
+        TreeNode node = new TreeNode(nums[mid]);
+        node.left = BuildTree(nums, left, mid - 1);
+        node.right = BuildTree(nums, mid + 1, right);
+
+        return node;
     }
-};
+}
 
-int main() {
-    std::vector<int> nums = {-10, -3, 0, 5, 9};
-    TreeNode<int>* result = Solution<int>().sortedArrayToBST(nums);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    std::vector<int> nums2 = {1, 3};
-    TreeNode<int>* result2 = Solution<int>().sortedArrayToBST(nums2);
-    std::cout << "The result is: " << std::endl;
-    printArray(levelOrder(result2));
+        int[] nums = {-10, -3, 0, 5, 9};
+        TreeNode? tree = solution.SortedArrayToBST(nums);
 
-    return 0;
+        // 打印结果
+        PrintTree(tree);
+    }
+
+    public static void PrintTree(TreeNode? root) {
+        if (root == null) return;
+
+        PrintTree(root.left);
+        Console.Write(root.val + " ");
+        PrintTree(root.right);
+    }
 }

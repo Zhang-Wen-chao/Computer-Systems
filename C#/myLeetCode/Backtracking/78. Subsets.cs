@@ -1,38 +1,37 @@
 // 78. Subsets
 // https://leetcode.com/problems/subsets/
 
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::vector<int>> subsets(std::vector<int>& nums) {
-        std::vector<std::vector<int>> result;
-        std::vector<int> current;
-        backtrack(nums, 0, current, result);
+public class Solution {
+    public IList<IList<int>> Subsets(int[] nums) {
+        IList<IList<int>> result = new List<IList<int>>();
+        SubsetsHelper(nums, 0, new List<int>(), result);
         return result;
     }
 
-private:
-    void backtrack(std::vector<int>& nums, int index, std::vector<int>& current, std::vector<std::vector<int>>& result) {
-        if (index >= nums.size()) {
-            result.push_back(current);
-            return;
+    private void SubsetsHelper(int[] nums, int start, List<int> current, IList<IList<int>> result) {
+        result.Add(new List<int>(current));
+
+        for (int i = start; i < nums.Length; i++) {
+            current.Add(nums[i]);
+            SubsetsHelper(nums, i + 1, current, result);
+            current.RemoveAt(current.Count - 1);
         }
-
-        backtrack(nums, index + 1, current, result);
-
-        current.push_back(nums[index]);
-        backtrack(nums, index + 1, current, result);
-        current.pop_back();
     }
-};
+}
 
-int main() {
-    std::vector<int> nums1 = {1, 2, 3};
-    printSet(Solution().subsets(nums1));
-    
-    std::vector<int> nums2 = {0};
-    printSet(Solution().subsets(nums2));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    return 0;
+        int[] nums = { 1, 2, 3 };
+        IList<IList<int>> result = solution.Subsets(nums);
+
+        Console.WriteLine("All subsets of the given array:");
+        foreach (var subset in result) {
+            Console.WriteLine(string.Join(" ", subset));
+        }
+    }
 }

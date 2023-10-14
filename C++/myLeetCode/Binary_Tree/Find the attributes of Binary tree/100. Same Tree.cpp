@@ -1,8 +1,8 @@
 // 100. Same Tree
 // https://leetcode.com/problems/same-tree/
+// clang++ 100.\ Same\ Tree.cpp -std=c++17
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 
 template <typename T>
 bool isSameTree(TreeNode<T>* p, TreeNode<T>* q) {

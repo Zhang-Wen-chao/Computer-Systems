@@ -1,12 +1,14 @@
 // 145. Binary Tree Postorder Traversal
 // https://leetcode.com/problems/binary-tree-postorder-traversal/
 
-#include "../../BinaryTreeUtils.hpp"
-#include "../../printUtils.hpp"
+// clang++ 145.\ Binary\ Tree\ Postorder\ Traversal.cpp -std=c++17
+
+#include "../../../printUtils.hpp"
 #include <stack>
+#include <vector>
 
 template <typename T>
-std::vector<T> postorderTraversal(TreeNode<T>* root) {
+std::vector<T> postOrderTraversal(TreeNode<T>* root) {
     std::vector<T> result;
     std::stack<TreeNode<T>*> stk;
     TreeNode<T>* curr = root;
@@ -36,7 +38,7 @@ std::vector<T> postorderTraversal(TreeNode<T>* root) {
 
 int main() {
     TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
-    std::cout << "Postorder traversal: ";
+    std::cout << "PostOrder traversal: ";
     printArray(postorderTraversal(root));
     deleteTree(root);
     

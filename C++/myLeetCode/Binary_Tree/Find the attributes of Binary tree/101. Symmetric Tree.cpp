@@ -1,8 +1,9 @@
 // 101. Symmetric Tree
 // https://leetcode.com/problems/symmetric-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 101.\ Symmetric\ Tree.cpp -std=c++17
+
+#include "../../printUtils.hpp"
 
 template<typename T>
 bool isSymmetricNodes(TreeNode<T>* left, TreeNode<T>* right) {

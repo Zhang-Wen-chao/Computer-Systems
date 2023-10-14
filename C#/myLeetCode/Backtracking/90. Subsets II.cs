@@ -1,40 +1,42 @@
 // LeetCode 90. Subsets II
 // https://leetcode.com/problems/subsets-ii/
 
-#include <algorithm>
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::vector<int>> subsetsWithDup(std::vector<int>& nums) {
-        std::vector<std::vector<int>> result;
-        std::vector<int> current;
-        std::sort(nums.begin(), nums.end()); // 先对数组进行排序，方便去重
-        backtrack(nums, 0, current, result);
+public class Solution {
+    public IList<IList<int>> SubsetsWithDup(int[] nums) {
+        Array.Sort(nums); // 先对数组进行排序，以处理重复元素
+        IList<IList<int>> result = new List<IList<int>>();
+        SubsetsHelper(nums, 0, new List<int>(), result);
         return result;
     }
 
-private:
-    void backtrack(std::vector<int>& nums, int index, std::vector<int>& current, std::vector<std::vector<int>>& result) {
-        result.push_back(current);
+    private void SubsetsHelper(int[] nums, int start, List<int> current, IList<IList<int>> result) {
+        result.Add(new List<int>(current));
 
-        for (int i = index; i < nums.size(); i++) {
-            if (i > index && nums[i] == nums[i - 1]) {
+        for (int i = start; i < nums.Length; i++) {
+            // 处理重复元素
+            if (i > start && nums[i] == nums[i - 1]) {
                 continue;
             }
-            current.push_back(nums[i]);
-            backtrack(nums, i + 1, current, result);
-            current.pop_back();
+            current.Add(nums[i]);
+            SubsetsHelper(nums, i + 1, current, result);
+            current.RemoveAt(current.Count - 1);
         }
     }
-};
+}
 
-int main() {
-    std::vector<int> nums1 = {1, 2, 2};
-    printSet(Solution().subsetsWithDup(nums1));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    std::vector<int> nums2 = {0};
-    printSet(Solution().subsetsWithDup(nums2));
+        int[] nums = { 1, 2, 2 };
+        IList<IList<int>> result = solution.SubsetsWithDup(nums);
 
-    return 0;
+        Console.WriteLine("All subsets of the given array:");
+        foreach (var subset in result) {
+            Console.WriteLine(string.Join(" ", subset));
+        }
+    }
 }

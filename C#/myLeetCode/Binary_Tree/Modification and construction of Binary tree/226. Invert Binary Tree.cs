@@ -1,28 +1,56 @@
 // 226. Invert Binary Tree
 // https://leetcode.com/problems/invert-binary-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template <typename T>
-TreeNode<T>* invertTree(TreeNode<T>* root) {
-    if (root == nullptr) return nullptr;
-
-    TreeNode<T>* left = invertTree(root->left);
-    TreeNode<T>* right = invertTree(root->right);
-
-    root->left = right;
-    root->right = left;
-    
-    return root;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({4, 2, 7, 1, 3, 6, 9}, -1);
-    TreeNode<int>* inverted = invertTree(root);
+public class Solution {
+    public TreeNode? InvertTree(TreeNode? root) {
+        if (root == null) return null;
 
-    std::cout << "Inverted binary tree:" << std::endl;
-    printArray(levelOrder(inverted));
+        TreeNode? temp = root.left;
+        root.left = InvertTree(root.right);
+        root.right = InvertTree(temp);
 
-    return 0;
+        return root;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(4) {
+            left = new TreeNode(2) {
+                left = new TreeNode(1),
+                right = new TreeNode(3)
+            },
+            right = new TreeNode(7) {
+                left = new TreeNode(6),
+                right = new TreeNode(9)
+            }
+        };
+
+        Console.WriteLine("Original Tree:");
+        PrintTree(tree);
+
+        TreeNode? invertedTree = solution.InvertTree(tree);
+
+        Console.WriteLine("\nInverted Tree:");
+        PrintTree(invertedTree);
+    }
+
+    public static void PrintTree(TreeNode? root) {
+        if (root == null) return;
+
+        PrintTree(root.left);
+        Console.Write(root.val + " ");
+        PrintTree(root.right);
+    }
 }

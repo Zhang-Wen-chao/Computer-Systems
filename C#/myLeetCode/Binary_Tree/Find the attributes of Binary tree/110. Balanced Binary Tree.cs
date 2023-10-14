@@ -1,45 +1,54 @@
 // 110. Balanced Binary Tree
 // https://leetcode.com/problems/balanced-binary-tree/
 
-#include <cmath>
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template <typename T>
-class Solution {
-public:
-    bool isBalanced(TreeNode<T>* root) {
-        if (root == nullptr) {
-            return true;
-        }
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
+}
 
-        int leftHeight = getHeight(root->left);
-        int rightHeight = getHeight(root->right);
-
-        if (std::abs(leftHeight - rightHeight) > 1) {
-            return false;
-        }
-
-        return isBalanced(root->left) && isBalanced(root->right);
+public class Solution {
+    public bool IsBalanced(TreeNode? root) {
+        return CheckBalance(root) != -1;
     }
 
-private:
-    int getHeight(TreeNode<T>* node) {
-        if (node == nullptr) {
-            return 0;
-        }
+    private int CheckBalance(TreeNode? node) {
+        if (node == null) return 0;
 
-        int leftHeight = getHeight(node->left);
-        int rightHeight = getHeight(node->right);
+        int leftDepth = CheckBalance(node.left);
+        if (leftDepth == -1) return -1;
 
-        return 1 + std::max(leftHeight, rightHeight);
+        int rightDepth = CheckBalance(node.right);
+        if (rightDepth == -1) return -1;
+
+        if (Math.Abs(leftDepth - rightDepth) > 1) return -1;
+
+        return Math.Max(leftDepth, rightDepth) + 1;
     }
-};
+}
 
-int main() {
-    TreeNode<int>* root = buildTree({3, 9, 20, -1, -1, 15, 7}, -1);
-    std::cout << "Is the binary tree balanced? " << std::boolalpha << Solution<int>().isBalanced(root) << std::endl;
-    deleteTree(root);
-    
-    return 0;
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(1) {
+            left = new TreeNode(2) {
+                left = new TreeNode(3),
+                right = new TreeNode(4)
+            },
+            right = new TreeNode(2) {
+                right = new TreeNode(3) {
+                    right = new TreeNode(4)
+                }
+            }
+        };
+
+        bool result = solution.IsBalanced(tree);
+
+        // 打印结果
+        Console.WriteLine($"Is the tree balanced? {result}");
+    }
 }

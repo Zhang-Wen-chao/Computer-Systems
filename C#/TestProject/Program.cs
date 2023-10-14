@@ -1,40 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Solution {
-    public IList<IList<int>> FourSum(int[] nums, int target) {
-        IList<IList<int>> result = new List<IList<int>>();
-        if (nums == null || nums.Length < 4) return result;
+    public IList<IList<int>> FindSubsequences(int[] nums) {
+        List<IList<int>> result = new List<IList<int>>();
+        List<int> currentList = new List<int>();
 
-        Array.Sort(nums);
-
-        for (int i = 0; i < nums.Length - 3; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
-
-            for (int j = i + 1; j < nums.Length - 2; j++) {
-                if (j > i + 1 && nums[j] == nums[j - 1]) continue;
-
-                int low = j + 1;
-                int high = nums.Length - 1;
-                int sum = target - nums[i] - nums[j];
-
-                while (low < high) {
-                    if (nums[low] + nums[high] == sum) {
-                        result.Add(new List<int> { nums[i], nums[j], nums[low], nums[high] });
-                        while (low < high && nums[low] == nums[low + 1]) low++;
-                        while (low < high && nums[high] == nums[high - 1]) high--;
-                        low++;
-                        high--;
-                    } else if (nums[low] + nums[high] < sum) {
-                        low++;
-                    } else {
-                        high--;
-                    }
-                }
-            }
-        }
+        DFS(nums, 0, currentList, result);
 
         return result;
+    }
+
+    private void DFS(int[] nums, int index, List<int> currentList, List<IList<int>> result) {
+        if (currentList.Count >= 2) {
+            result.Add(new List<int>(currentList));
+        }
+
+        HashSet<int> used = new HashSet<int>();
+
+        for (int i = index; i < nums.Length; i++) {
+            if ((currentList.Count == 0 || nums[i] >= currentList.Last()) && !used.Contains(nums[i])) {
+                currentList.Add(nums[i]);
+                used.Add(nums[i]);
+                DFS(nums, i + 1, currentList, result);
+                currentList.RemoveAt(currentList.Count - 1);
+            }
+        }
     }
 }
 
@@ -42,14 +34,13 @@ public class Program {
     public static void Main() {
         Solution solution = new Solution();
 
-        int[] nums = {1, 0, -1, 0, -2, 2};
-        int target = 0;
+        int[] nums = { 4, 6, 7, 7 };
 
-        var results = solution.FourSum(nums, target);
+        IList<IList<int>> result = solution.FindSubsequences(nums);
 
-        Console.WriteLine("4Sum combinations:");
-        foreach (var combo in results) {
-            Console.WriteLine($"[{string.Join(", ", combo)}]");
+        // 打印结果
+        foreach (var subsequence in result) {
+            Console.WriteLine(string.Join(", ", subsequence));
         }
     }
 }

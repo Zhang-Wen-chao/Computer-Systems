@@ -2,39 +2,62 @@
 // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 // 已知后序与中序,建树
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
-#include <algorithm>
+using System;
+using System.Collections.Generic;
 
-template<typename T>
-TreeNode<T>* buildTree(const std::vector<T>& post, const std::vector<T>& in, int root, int start, int end) {
-    if(start > end) return nullptr;
-    int i = std::find(in.begin() + start, in.begin() + end + 1, post[root]) - in.begin();
-    // 这样就可以在in的[start, end]区间内查找post[root]的位置，并且返回它的下标。注意，find函数的第二个参数是要查找的区间的结束位置的下一个迭代器，所以要加上1。另外，find函数返回的是一个迭代器，所以要减去in.begin()来得到下标。
-
-    TreeNode<T>* t = new TreeNode<T>(post[root]);
-    t->left = buildTree(post, in, root - 1 - end + i, start, i - 1);
-    t->right = buildTree(post, in, root - 1, i + 1, end);
-
-    return t;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    std::vector<int> post = {9, 15, 7, 20, 3};
-    std::vector<int> in = {9, 3, 15, 20, 7};
-    TreeNode<int>* root = buildTree(post, in, post.size() - 1, 0, post.size() - 1);
+public class Solution {
+    private int postIndex;
+    private Dictionary<int, int> inorderIndexMap = new Dictionary<int, int>();
 
-    std::cout << "levelOrder Traversal: ";
-    printArray(levelOrder(root));
-    deleteTree(root);
+    public TreeNode BuildTree(int[] inorder, int[] postorder) {
+        postIndex = postorder.Length - 1;
+        for (int i = 0; i < inorder.Length; i++) {
+            inorderIndexMap[inorder[i]] = i;
+        }
+        return BuildTree(inorder, 0, inorder.Length - 1, postorder);
+    }
 
-    // 用char类型的数据测试
-    std::vector<char> post2 = {'a', 'c', 'e', 'd', 'b'};
-    std::vector<char> in2 = {'a', 'b', 'c', 'd', 'e'};
-    TreeNode<char>* root2 = buildTree(post2, in2, post2.size() - 1, 0, post2.size() - 1);
-    std::cout << "levelOrder Traversal: ";
-    printArray(levelOrder(root2));
-    deleteTree(root2);
+    private TreeNode BuildTree(int[] inorder, int inStart, int inEnd, int[] postorder) {
+        if (inStart > inEnd) return null;
 
-    return 0;
+        TreeNode root = new TreeNode(postorder[postIndex--]);
+
+        if (inStart == inEnd) return root;
+
+        int inIndex = inorderIndexMap[root.val];
+
+        root.right = BuildTree(inorder, inIndex + 1, inEnd, postorder);
+        root.left = BuildTree(inorder, inStart, inIndex - 1, postorder);
+
+        return root;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        int[] inorder = { 9, 3, 15, 20, 7 };
+        int[] postorder = { 9, 15, 7, 20, 3 };
+
+        TreeNode tree = solution.BuildTree(inorder, postorder);
+
+        // 打印结果
+        PrintTree(tree);
+    }
+
+    public static void PrintTree(TreeNode? root) {
+        if (root == null) return;
+
+        PrintTree(root.left);
+        Console.Write(root.val + " ");
+        PrintTree(root.right);
+    }
 }

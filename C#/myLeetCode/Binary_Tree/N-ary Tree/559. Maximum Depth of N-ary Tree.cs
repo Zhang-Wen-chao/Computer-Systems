@@ -1,26 +1,56 @@
 // 559. Maximum Depth of N-ary Tree
 // https://leetcode.com/problems/maximum-depth-of-n-ary-tree/
 
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-template<typename T>
-int maxDepth(NTreeNode<T>* root) {
-    if (root == nullptr) return 0;
+public class Node {
+    public int val;
+    public IList<Node> children;
 
-    int depth = 0;
-    for (NTreeNode<T>* child : root->children) {
-        depth = std::max(depth, maxDepth(child));
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+        children = new List<Node>();
     }
 
-    return depth + 1;
+    public Node(int _val, IList<Node> _children) {
+        val = _val;
+        children = _children;
+    }
 }
 
-int main() {
-    // NTreeNode<int>* root = buildNTree<int>({1, -1, 3, 2, 4, -1, 5, 6}, -1);
-    NTreeNode<int>* root = buildNTree<int>({1,-1,2,3,4,5,-1,-1,6,7,-1,8,-1,9,10,-1,-1,11,-1,12,-1,13,-1,-1,14}, -1);
-    std::cout << "Maximum depth of the N-ary tree: " << maxDepth(root) << std::endl;
-    deleteNTree(root);
-    
-    return 0;
+public class Solution {
+    public int MaxDepth(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int maxChildDepth = 0;
+        foreach (var child in root.children) {
+            int childDepth = MaxDepth(child);
+            maxChildDepth = Math.Max(maxChildDepth, childDepth);
+        }
+
+        return maxChildDepth + 1;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        Node tree = new Node(1, new List<Node> {
+            new Node(3, new List<Node> {
+                new Node(5),
+                new Node(6)
+            }),
+            new Node(2),
+            new Node(4)
+        });
+
+        int maxDepth = solution.MaxDepth(tree);
+        Console.WriteLine($"Maximum Depth of N-ary Tree: {maxDepth}");
+    }
 }

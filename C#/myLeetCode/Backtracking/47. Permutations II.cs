@@ -1,44 +1,49 @@
 // 47. Permutations II
 // https://leetcode.com/problems/permutations-ii/
 
-#include <algorithm>
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    std::vector<std::vector<int>> permuteUnique(std::vector<int>& nums) {
-        std::sort(nums.begin(), nums.end());
-        std::vector<std::vector<int>> result;
-        std::vector<int> temp;
-        std::vector<bool> used(nums.size(), false);
-        backtrack(nums, used, temp, result);
+public class Solution {
+    public IList<IList<int>> PermuteUnique(int[] nums) {
+        IList<IList<int>> result = new List<IList<int>>();
+        List<int> current = new List<int>();
+        bool[] used = new bool[nums.Length];
+        Array.Sort(nums);
+        PermuteUniqueHelper(nums, used, current, result);
         return result;
     }
-    
-private:
-    void backtrack(std::vector<int>& nums, std::vector<bool>& used, std::vector<int>& temp, std::vector<std::vector<int>>& result) {
-        if (temp.size() == nums.size()) {
-            result.push_back(temp);
+
+    private void PermuteUniqueHelper(int[] nums, bool[] used, List<int> current, IList<IList<int>> result) {
+        if (current.Count == nums.Length) {
+            result.Add(new List<int>(current));
             return;
         }
-        
-        for (int i = 0; i < nums.size(); i++) {
-            if (used[i] || (i > 0 && nums[i] == nums[i-1] && !used[i-1])) {
+
+        for (int i = 0; i < nums.Length; i++) {
+            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
                 continue;
             }
-            
             used[i] = true;
-            temp.push_back(nums[i]);
-            backtrack(nums, used, temp, result);
-            temp.pop_back();
+            current.Add(nums[i]);
+            PermuteUniqueHelper(nums, used, current, result);
+            current.RemoveAt(current.Count - 1);
             used[i] = false;
         }
     }
-};
+}
 
-int main() {
-    std::vector<int> nums1 = {1, 1, 2};
-    printSet(Solution().permuteUnique(nums1));
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    return 0;
+        int[] nums = { 1, 1, 2 };
+
+        IList<IList<int>> result = solution.PermuteUnique(nums);
+
+        Console.WriteLine("All unique permutations:");
+        foreach (var permutation in result) {
+            Console.WriteLine(string.Join(" ", permutation));
+        }
+    }
 }

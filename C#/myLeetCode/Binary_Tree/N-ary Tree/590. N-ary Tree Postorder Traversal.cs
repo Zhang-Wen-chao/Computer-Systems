@@ -1,41 +1,64 @@
 // 590. N-ary Tree Postorder Traversal
 // https://leetcode.com/problems/n-ary-tree-postorder-traversal/
 
-#include "N-aryTreeUtils.hpp"
-#include "../printUtils.hpp"
-#include <stack>
-#include <algorithm>
+using System;
+using System.Collections.Generic;
 
-template<typename T>
-std::vector<T> postorder(NTreeNode<T>* root) {
-    std::vector<T> result;
-    if (root == nullptr) {
+public class Node {
+    public int val;
+    public IList<Node> children;
+
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+        children = new List<Node>();
+    }
+
+    public Node(int _val, IList<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+}
+
+public class Solution {
+    public IList<int> Postorder(Node root) {
+        List<int> result = new List<int>();
+        PostorderTraversal(root, result);
         return result;
     }
 
-    std::stack<NTreeNode<T>*> stk;
-    stk.push(root);
-
-    while (!stk.empty()) {
-        NTreeNode<T>* curr = stk.top();
-        stk.pop();
-
-        result.push_back(curr->val);
-
-        for (NTreeNode<T>* child : curr->children) {
-            stk.push(child);
+    private void PostorderTraversal(Node node, List<int> result) {
+        if (node == null) {
+            return;
         }
-    }
 
-    reverse(result.begin(), result.end());
-    return result;
+        foreach (var child in node.children) {
+            PostorderTraversal(child, result);
+        }
+
+        result.Add(node.val);
+    }
 }
 
-int main() {
-    NTreeNode<int>* root = buildNTree<int>({1, -1, 3, 2, 4, -1, 5, 6}, -1);
-    // NTreeNode<int>* root = buildNTree<int>({1,-1,2,3,4,5,-1,-1,6,7,-1,8,-1,9,10,-1,-1,11,-1,12,-1,13,-1,-1,14}, -1);
-    printArray(postorder(root));
-    deleteNTree(root);
-    
-    return 0;
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        Node tree = new Node(1, new List<Node> {
+            new Node(3, new List<Node> {
+                new Node(5),
+                new Node(6)
+            }),
+            new Node(2),
+            new Node(4)
+        });
+
+        IList<int> postorderTraversal = solution.Postorder(tree);
+
+        Console.WriteLine("Postorder Traversal:");
+        foreach (int val in postorderTraversal) {
+            Console.Write(val + " ");
+        }
+    }
 }

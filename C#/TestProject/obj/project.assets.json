@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/zhangwch/Documents/myGitHub/Computer-Systems/CsharpProjects/TestProject/TestProject.csproj",
+      "projectUniqueName": "/home/zhangwch/Documents/myGitHub/Computer-Systems/C#/TestProject/TestProject.csproj",
       "projectName": "TestProject",
-      "projectPath": "/home/zhangwch/Documents/myGitHub/Computer-Systems/CsharpProjects/TestProject/TestProject.csproj",
+      "projectPath": "/home/zhangwch/Documents/myGitHub/Computer-Systems/C#/TestProject/TestProject.csproj",
       "packagesPath": "/home/zhangwch/.nuget/packages/",
-      "outputPath": "/home/zhangwch/Documents/myGitHub/Computer-Systems/CsharpProjects/TestProject/obj/",
+      "outputPath": "/home/zhangwch/Documents/myGitHub/Computer-Systems/C#/TestProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/zhangwch/.nuget/NuGet/NuGet.Config"

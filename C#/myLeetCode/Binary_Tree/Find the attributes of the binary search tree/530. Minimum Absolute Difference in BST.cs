@@ -1,43 +1,56 @@
 // 530. Minimum Absolute Difference in BST
 // https://leetcode.com/problems/minimum-absolute-difference-in-bst/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template<typename T>
-class Solution {
-public:
-    int getMinimumDifference(TreeNode<T>* root) {
-        int minimumDiff = std::numeric_limits<T>::max();
-        int prevVal = -1;
-        inorderTraversal(root, prevVal, minimumDiff);
-        return minimumDiff;
-    }
-    
-private:
-    void inorderTraversal(TreeNode<T>* node, int& prevVal, int& minimumDiff) {
-        if (node == nullptr) {
-            return;
-        }
-        
-        inorderTraversal(node->left, prevVal, minimumDiff);
-        
-        if (prevVal != -1) {
-            minimumDiff = std::min(minimumDiff, std::abs(prevVal - node->val));
-        }
-        prevVal = node->val;
-        
-        inorderTraversal(node->right, prevVal, minimumDiff);
-    }
-};
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
+}
 
-int main() {
-    // TreeNode<int>* root = buildTree({4, 2, 6, 1, 3}, -1);
-    // TreeNode<int>* root = buildTree({1, 0, 48, -1, -1, 12, 49}, -1);
-    TreeNode<int>* root = buildTree({1, -76, 48, -1, -1, 12, 99}, -1);
-    printArray(levelOrder(root));
-    std::cout << "Minimum absolute difference in BST: " << Solution<int>().getMinimumDifference(root) << std::endl;
-    deleteTree(root);
-    
-    return 0;
+public class Solution {
+    private int? prev = null;
+    private int minDiff = int.MaxValue;
+
+    public int GetMinimumDifference(TreeNode? root) {
+        if (root == null) return minDiff;
+
+        Traverse(root);
+
+        return minDiff;
+    }
+
+    private void Traverse(TreeNode? node) {
+        if (node == null) return;
+
+        Traverse(node.left);
+
+        if (prev.HasValue) {
+            minDiff = Math.Min(minDiff, node.val - prev.Value);
+        }
+
+        prev = node.val;
+        Traverse(node.right);
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(4) {
+            left = new TreeNode(2) {
+                left = new TreeNode(1),
+                right = new TreeNode(3)
+            },
+            right = new TreeNode(6)
+        };
+
+        int minDifference = solution.GetMinimumDifference(tree);
+
+        // 打印结果
+        Console.WriteLine($"Minimum Absolute Difference in BST: {minDifference}");
+    }
 }

@@ -1,30 +1,38 @@
 // 202. Happy Number
 // https://leetcode.com/problems/happy-number/
 
-#include <unordered_set>
-#include <iostream>
+using System;
+using System.Collections.Generic;
 
-class Solution {
-public:
-    bool isHappy(int n) {
-        std::unordered_set<int> seen;
-        while (n != 1 && seen.count(n) == 0) {
-            seen.insert(n);
-            int next = 0;
-            while (n > 0) {
-                int d = n % 10;
-                next += d * d;
-                n /= 10;
-            }
-            n = next;
+public class Solution {
+    public bool IsHappy(int n) {
+        HashSet<int> seen = new HashSet<int>();
+        
+        while (n != 1 && !seen.Contains(n)) {
+            Console.WriteLine(n);  // 打印当前的数字
+            seen.Add(n);
+            n = GetNext(n);
         }
+        
+        Console.WriteLine(n);  // 打印最后的数字
         return n == 1;
     }
-};
-
-int main() {
-    Solution sol;
-    std::cout << sol.isHappy(19) << std::endl;
     
-    return 0;
+    private int GetNext(int n) {
+        int totalSum = 0;
+        while (n > 0) {
+            int d = n % 10;
+            n = n / 10;
+            totalSum += d * d;
+        }
+        return totalSum;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+        int number = 19;
+        Console.WriteLine($"Is {number} a happy number? {solution.IsHappy(number)}");
+    }
 }

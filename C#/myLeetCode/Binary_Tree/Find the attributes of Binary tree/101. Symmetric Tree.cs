@@ -1,31 +1,48 @@
 // 101. Symmetric Tree
 // https://leetcode.com/problems/symmetric-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template<typename T>
-bool isSymmetricNodes(TreeNode<T>* left, TreeNode<T>* right) {
-    if (left == nullptr && right == nullptr) {
-        return true;
-    }
-    if (left == nullptr || right == nullptr || left->val != right->val) {
-        return false;
-    }
-    return isSymmetricNodes(left->left, right->right) && isSymmetricNodes(left->right, right->left);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-template<typename T>
-bool isSymmetric(TreeNode<T>* root) {
-    if (root == nullptr) return true;
-    return isSymmetricNodes(root->left, root->right);
+public class Solution {
+    public bool IsSymmetric(TreeNode? root) {
+        if (root == null) return true;
+        return IsMirror(root.left, root.right);
+    }
+
+    private bool IsMirror(TreeNode? left, TreeNode? right) {
+        if (left == null && right == null) return true;
+        if (left == null || right == null) return false;
+        if (left.val != right.val) return false;
+
+        return IsMirror(left.left, right.right) && IsMirror(left.right, right.left);
+    }
 }
 
-int main() {
-    // TreeNode<int>* root = buildTree({1, 2, 2, 3, 4, 4, 3}, -1);
-    TreeNode<int>* root = buildTree({1, 2, 2, -1, 3, -1, 3}, -1);
-    std::cout << "Is the tree symmetric? " << (isSymmetric(root) ? "Yes" : "No") << std::endl;
-    deleteTree(root);
-    
-    return 0;
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(1) {
+            left = new TreeNode(2) {
+                left = new TreeNode(3),
+                right = new TreeNode(4)
+            },
+            right = new TreeNode(2) {
+                left = new TreeNode(4),
+                right = new TreeNode(3)
+            }
+        };
+
+        bool result = solution.IsSymmetric(tree);
+
+        // 打印结果
+        Console.WriteLine($"Is the tree symmetric? {result}");
+    }
 }

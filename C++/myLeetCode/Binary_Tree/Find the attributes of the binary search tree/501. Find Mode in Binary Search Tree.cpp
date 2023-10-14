@@ -1,9 +1,8 @@
 // 501. Find Mode in Binary Search Tree
 // https://leetcode.com/problems/find-mode-in-binary-search-tree/
-
+// clang++ 501.\ Find\ Mode\ in\ Binary\ Search\ Tree.cpp -std=c++17
 #include <unordered_map>
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+#include "../../printUtils.hpp"
 
 template<typename T>
 class Solution {

@@ -1,14 +1,47 @@
 // 145. Binary Tree Postorder Traversal
 // https://leetcode.com/problems/binary-tree-postorder-traversal/
 
-#include "../../BinaryTreeUtils.hpp"
-#include "../../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-int main() {
-    TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6}, -1);
-    std::cout << "Postorder Traversal: ";
-    printArray(postorderTraversal(root));
-    deleteTree(root);
+public class TreeNode {
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode(int x) { val = x; }
+}
 
-    return 0;
+public class Solution {
+    public IList<int> PostorderTraversal(TreeNode root) {
+        IList<int> result = new List<int>();
+        Postorder(root, result);
+        return result;
+    }
+
+    private void Postorder(TreeNode node, IList<int> result) {
+        if (node == null) return;
+
+        Postorder(node.left, result);
+        Postorder(node.right, result);
+        result.Add(node.val);
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(1) {
+            right = new TreeNode(2) {
+                left = new TreeNode(3)
+            }
+        };
+
+        IList<int> postorderTraversal = solution.PostorderTraversal(tree);
+
+        Console.WriteLine("Postorder Traversal:");
+        foreach (int val in postorderTraversal) {
+            Console.Write(val + " ");
+        }
+    }
 }

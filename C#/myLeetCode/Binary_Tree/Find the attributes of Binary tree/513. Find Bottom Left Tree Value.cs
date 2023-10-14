@@ -1,31 +1,46 @@
 // 513. Find Bottom Left Tree Value
 // https://leetcode.com/problems/find-bottom-left-tree-value/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
+using System.Collections.Generic;
 
-template <typename T>
-int findBottomLeftValue(TreeNode<T>* root) {
-    std::queue<TreeNode<T>*> q;
-    q.push(root);
-    while (!q.empty()) {
-        root = q.front();
-        q.pop();
-        if (root->right) {
-            q.push(root->right);
-        }
-        if (root->left) {
-            q.push(root->left);
-        }
-    }
-    return root->val;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({1, 2, 3, 4, -1, 5, 6, -1, -1, 7}, -1);
-    int result = findBottomLeftValue(root);
-    std::cout << "Bottom left value: " << result << std::endl;
-    deleteTree(root);
+public class Solution {
+    public int FindBottomLeftValue(TreeNode? root) {
+        if (root == null) return -1;
 
-    return 0;
+        Queue<TreeNode> queue = new Queue<TreeNode>();
+        queue.Enqueue(root);
+
+        TreeNode? currentNode = null;
+        while (queue.Count > 0) {
+            currentNode = queue.Dequeue();
+            if (currentNode.right != null) queue.Enqueue(currentNode.right);
+            if (currentNode.left != null) queue.Enqueue(currentNode.left);
+        }
+
+        return currentNode?.val ?? -1;
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(2) {
+            left = new TreeNode(1),
+            right = new TreeNode(3)
+        };
+
+        int value = solution.FindBottomLeftValue(tree);
+
+        // 打印结果
+        Console.WriteLine($"Bottom left tree value: {value}");
+    }
 }

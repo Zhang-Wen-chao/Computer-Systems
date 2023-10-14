@@ -1,20 +1,50 @@
 // 112. Path Sum
 // https://leetcode.com/problems/path-sum/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-bool hasPathSum(TreeNode<int>* root, int sum) {
-    if (!root) return false;
-    if (!root->left && !root->right) return root->val == sum;
-    return hasPathSum(root->left, sum - root->val) ||
-            hasPathSum(root->right, sum - root->val);
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({5,4,8,11,-1,13,4,7,2,-1,-1,-1,1}, -1);
-    std::cout<< std::boolalpha << hasPathSum(root, 22) << std::endl;
-    deleteTree(root);
+public class Solution {
+    public bool HasPathSum(TreeNode? root, int sum) {
+        if (root == null) return false;
 
-    return 0;
+        // 如果是叶子节点，检查sum是否等于节点值
+        if (root.left == null && root.right == null) return sum == root.val;
+
+        // 递归检查左子树和右子树
+        return HasPathSum(root.left, sum - root.val) || HasPathSum(root.right, sum - root.val);
+    }
+}
+
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
+
+        TreeNode tree = new TreeNode(5) {
+            left = new TreeNode(4) {
+                left = new TreeNode(11) {
+                    left = new TreeNode(7),
+                    right = new TreeNode(2)
+                }
+            },
+            right = new TreeNode(8) {
+                left = new TreeNode(13),
+                right = new TreeNode(4) {
+                    right = new TreeNode(1)
+                }
+            }
+        };
+
+        int targetSum = 22;
+        bool result = solution.HasPathSum(tree, targetSum);
+
+        // 打印结果
+        Console.WriteLine($"Does the tree have a path with sum {targetSum}? {result}");
+    }
 }

@@ -1,8 +1,7 @@
 // 572. Subtree of Another Tree
 // https://leetcode.com/problems/subtree-of-another-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// g++ 572.\ Subtree\ of\ Another\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template <typename T>
 bool isSameTree(TreeNode<T>* p, TreeNode<T>* q) {

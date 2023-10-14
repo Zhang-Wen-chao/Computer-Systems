@@ -1,8 +1,7 @@
 // 404. Sum of Left Leaves
 // https://leetcode.com/problems/sum-of-left-leaves/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 404.\ Sum\ of\ Left\ Leaves.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template <typename T>
 T sumOfLeftLeaves(TreeNode<T>* root) {

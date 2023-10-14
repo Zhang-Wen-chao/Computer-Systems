@@ -1,44 +1,51 @@
 // 236. Lowest Common Ancestor of a Binary Tree
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+using System;
 
-template<typename T>
-TreeNode<T>* lowestCommonAncestor(TreeNode<T>* root, TreeNode<T>* p, TreeNode<T>* q) {
-    if (root == nullptr || root == p || root == q) {
-        return root;
-    }
-    
-    TreeNode<T>* left = lowestCommonAncestor(root->left, p, q);
-    TreeNode<T>* right = lowestCommonAncestor(root->right, p, q);
-    
-    if (left != nullptr && right != nullptr) {
-        return root;
-    } else if (left != nullptr) {
-        return left;
-    } else {
-        return right;
+public class TreeNode {
+    public int val;
+    public TreeNode? left;
+    public TreeNode? right;
+    public TreeNode(int x) { val = x; }
+}
+
+public class Solution {
+    public TreeNode? LowestCommonAncestor(TreeNode? root, TreeNode? p, TreeNode? q) {
+        if (root == null || root == p || root == q) return root;
+
+        TreeNode? left = LowestCommonAncestor(root.left, p, q);
+        TreeNode? right = LowestCommonAncestor(root.right, p, q);
+
+        if (left != null && right != null) return root;
+        return left ?? right;
     }
 }
 
-int main() {
-    TreeNode<int>* root = buildTree({3,5,1,6,2,0,8,-1,-1,7,4}, -1);
-    // TreeNode<int>* p = root->left; // p = 5
-    // TreeNode<int>* q = root->right; // q = 1
-    TreeNode<int>* p = findNode(root, 5);  // 找到节点p
-    TreeNode<int>* q = findNode(root, 1);  // 找到节点q
+public class Program {
+    public static void Main() {
+        Solution solution = new Solution();
 
-    TreeNode<int>* result = lowestCommonAncestor(root, p, q);
-    std::cout << "The lowest common ancestor is: " << result->val << std::endl;
+        TreeNode tree = new TreeNode(3) {
+            left = new TreeNode(5) {
+                left = new TreeNode(6),
+                right = new TreeNode(2) {
+                    left = new TreeNode(7),
+                    right = new TreeNode(4)
+                }
+            },
+            right = new TreeNode(1) {
+                left = new TreeNode(0),
+                right = new TreeNode(8)
+            }
+        };
 
-    // TreeNode<int>* p1 = root->left; // p = 5
-    // TreeNode<int>* q1 = root->left->right->right; // q = 4
-    TreeNode<int>* p1 = findNode(root, 5);  // 找到节点p1
-    TreeNode<int>* q1 = findNode(root, 4);  // 找到节点q1
-  
-    TreeNode<int>* result1 = lowestCommonAncestor(root, p1, q1);
-    std::cout << "The lowest common ancestor is: " << result1->val << std::endl;
+        TreeNode? p = tree.left;  // Node with value 5
+        TreeNode? q = tree.right; // Node with value 1
 
-    return 0;
+        TreeNode? lca = solution.LowestCommonAncestor(tree, p, q);
+
+        // 打印结果
+        Console.WriteLine($"Lowest Common Ancestor of {p?.val} and {q?.val} is: {lca?.val}");
+    }
 }

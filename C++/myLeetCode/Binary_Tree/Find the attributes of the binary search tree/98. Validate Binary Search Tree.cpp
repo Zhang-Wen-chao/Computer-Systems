@@ -1,8 +1,7 @@
 // 98. Validate Binary Search Tree
 // https://leetcode.com/problems/validate-binary-search-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 98.\ Validate\ Binary\ Search\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 class Solution {

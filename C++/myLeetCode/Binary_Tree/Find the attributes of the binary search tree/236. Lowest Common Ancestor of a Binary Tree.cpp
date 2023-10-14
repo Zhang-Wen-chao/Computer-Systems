@@ -1,8 +1,7 @@
 // 236. Lowest Common Ancestor of a Binary Tree
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
-
-#include "../BinaryTreeUtils.hpp"
-#include "../printUtils.hpp"
+// clang++ 236.\ Lowest\ Common\ Ancestor\ of\ a\ Binary\ Tree.cpp -std=c++17
+#include "../../printUtils.hpp"
 
 template<typename T>
 TreeNode<T>* lowestCommonAncestor(TreeNode<T>* root, TreeNode<T>* p, TreeNode<T>* q) {
