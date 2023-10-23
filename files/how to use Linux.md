@@ -38,15 +38,19 @@ import pytorch_quantization
 print(pytorch_quantization.__version__)"
 
 ```
+## docker
 ### tensorrt
-#### tensorrt:23.09，23.02
+#### tensorrt:23.09, 23.02, 22.12
 [TensorRT安装记录](https://blog.csdn.net/qq_37541097/article/details/114847600)
 ```bash
-sudo docker pull nvcr.io/nvidia/tensorrt:23.09-py3
-sudo docker run --gpus all -it --name=zwc-tensorrt --net=host -v /:/workspace nvcr.io/nvidia/tensorrt:23.09-py3
+23.09,8.6.1;
+23.02,8.5.3;
+22.12,8.5.1;
+sudo docker pull nvcr.io/nvidia/tensorrt:22.12-py3
+sudo docker run --gpus all -it --name=zwc-tensorrt8.5.1 --net=host -v /:/workspace nvcr.io/nvidia/tensorrt:22.12-py3
 exit
-sudo docker start zwc-tensorrt8.5
-sudo docker exec -it zwc-tensorrt8.5 /bin/bash
+sudo docker start zwc-tensorrt8.5.1
+sudo docker exec -it zwc-tensorrt8.5.1 /bin/bash
 nvidia-smi
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/wprkspace/home/student001/software/TensorRT-8.6.1.6/lib
@@ -70,7 +74,7 @@ sudo docker start zwc-tensorrt8.6.1
 sudo docker exec -it zwc-tensorrt8.6.1 /bin/bash
 nvidia-smi
 ```
-#### 12.0的CUDA
+#### 12.0的CUDA,没有对应的pytorch
 ```bash
 sudo docker pull nvidia/cuda:12.0.1-cudnn8-devel-ubuntu22.04
 sudo docker run --gpus all -it --name=zwc-cuda12.0 --net=host -v /:/workspace nvidia/cuda:12.0.1-cudnn8-devel-ubuntu22.04
@@ -84,8 +88,12 @@ pcie 插槽规格要匹配，然后按照官方流程即可。
 ```shell
 alias 370="lspci -d:0370 -vvv && cnmon"
 ```
-# docker
+
 ## 低版本的CUDA、CUDNN
+sudo docker pull nvcr.io/nvidia/cuda:9.1-devel-ubuntu16.04
+sudo docker run --gpus all -it --name=zwc-cuda9.1 --net=host -v /:/workspace nvcr.io/nvidia/cuda:9.1-devel-ubuntu16.04
+
+
 [如何在Docker中搭建CUDA & CUDNN 开发环境](https://zhuanlan.zhihu.com/p/580156606)
 ```bash
 sudo docker pull nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04
@@ -235,19 +243,31 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - [Zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
 
 - [编译安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
-## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
+
+## opencv
+[Opencv 4.3（CUDA11 ） 编译踩坑记录](https://www.cnblogs.com/geoffreyone/p/15040907.html)
+我朴素地认为，新版本的bug会少一些。费了好几个小时安装3.3，一堆错误。然后转变思路，编译安装4.8.1，确实简简单单，没啥报错。
+```bash
+wget https://github.com/opencv/opencv/archive/refs/tags/4.8.1.zip
+cmake ..
+make
+make install
+python -c "import cv2; print(cv2.__version__)"
 ```
+然后cmake是可以检测到opencv的版本的。
+
+[ImportError: libGL.so.1: cannot open shared object file: No such file or dir...解决Python import cv2报错](https://blog.csdn.net/qq_39691492/article/details/130688233)
+方案二work了。
+## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
+```bash
 git revert
 git config --global user.name "zvvc"
 git config --global user.email "zwc@outlook.lv"
 git push origin zvvc
 
-后来为了看源码在一段时间内有哪些改动，学了 log 、 show 和 diff 。
-为了找到感兴趣内容所在的文件，学了 grep （指 git grep）。
 因为上游用了 submodule 所以也稍微学了一下。
 在网络不理想的时候，为了从镜像拉取，学了 remote 
 因为手痒，想自己给项目添加内容，为了让自己写的东西纳入 git 管理，学了 commit （那时候用的还是 commit -a ，用不到 add）。
-大概是这时候，第一次遇到了躲不开的配置项，也就是 config 。
 从上游拉取时，为了不和自己写的东西冲突，学了 merge 、 add 和 status，后来又学了 fetch 和 rebase 。
 为了提 Pull Request，也为了备份自己写的东西，学了 push 。
 为了把其他分支的修改转移到当前分支，学了 cherry-pick 。
