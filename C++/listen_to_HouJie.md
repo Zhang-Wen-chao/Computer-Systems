@@ -14,17 +14,6 @@ friend，友元。朋友函数可以自由取得private成员。
 相同class的各个objects互为friends。
 谁调用函数，this就指向谁。
 
-
-Some Tips on Optimization
-•Choose an appropriate algorithm
-•Clear and simple code for the compiler to optimize
-•Optimize code for memory
-•Do not copy large memory
-•No printf()/cout in loops
-•Table lookup (sin(), cos() ...)
-•SIMD, OpenMP
-
-
 Suggestions to your Project 3
 •Use size_t for mat.cols and mat.rows
 •Use memcpy() to copy data. Element assignment has a lower efficiency.
