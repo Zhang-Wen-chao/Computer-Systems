@@ -1,22 +1,19 @@
 # 规范
 # C++ 面向对象高级编程
 候捷：大气正规的编程习惯。
-
-object based vs object oriented
-
-数据与函数包在一起，就是class，struct。
-
-带指针的，不带指针的。复数，数据有很多份，函数只有一份。string，其实是ptr。
-
-数据一定私有。构造函数尽量使用：进行初始化。
-尽量不要pass byu value。参数传递与返回值都by reference.
+头文件的防卫式声明。
+模板类。
+inline与否，得看函数是否简单，编译器是否认为它简单。
+数据都应该private，被调用的函数放在public。
+构造函数可以用初始化，就用初始化。
+构造函数可以有多个，overloading.
+const member functions，const 不会变。
+pass by value 是整包传过去；pass by reference,传引用，就是传指针。参数传递，尽量都用传引用，不希望对方改，再加const。
+返回值传递，也都尽量return by reference。可以的情况下，都reference。
+friend，友元。朋友函数可以自由取得private成员。
+相同class的各个objects互为friends。
 谁调用函数，this就指向谁。
-return by reference 语法分析傅通者需知道接收者是以 reference 形式接收
 
-Simple is Beautiful !
-Short
-Simple
-Efficient
 
 Some Tips on Optimization
 •Choose an appropriate algorithm
