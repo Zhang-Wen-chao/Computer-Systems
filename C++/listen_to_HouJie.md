@@ -15,7 +15,6 @@ friend，友元。朋友函数可以自由取得private成员。
 谁调用函数，this就指向谁。
 
 
-
 Suggestions to your Project 3
 •Use size_t for mat.cols and mat.rows
 •Use memcpy() to copy data. Element assignment has a lower efficiency.
@@ -30,22 +29,6 @@ matrix operations, etc
 
 pay more attention to algorithms, concepts, technologies, rather than particular features, particular programming language. and do not try to use all those fancy features of the language that you just learned in your project, because those features just exist and you want to make your code look cool by using all those features, because this is a good change that a couple of months later, you won't be able to read your own code because it's too complex. And you need to develop proper style of using C++, not to shoot yourself on the foot. And try not to use manual memory allocation, using existing containers like std::vector, or if you use OpenCV, use cv::Mat, etc. Try to put some regression test before you do any refactoring or optimization. There should be some tests, of course. As I said, develop some methodology, a proper methodology how to create robust software that is easy to debug or doesn't need to be debbugged at all, it works out of the box. Instead of just using very complex language constructions that you may not fully understand. When people avoid using raw pointers in C++, but instead use containers like cv::Mat or cv::Vec or shared pointers, the number of memory leaks problems go almost to zero.
 
-- use clang-format.
-- 字符串string s；
-- 使用局部变量 i
-- ans 代表 answer
-- stk 代表 stack
-- 但是在实际使用中，Solution solution;更常见和更易读。
-- str 代表 string
-- 使用n代表长度,避免在for循环中一直调用函数nums.size()
-- 其他变量尽量容易懂，不要用什么abcd
-- 不使用递归
-- 不使用using namespace std; 
-- 双指针使用left,right; fast,slow.
-- 使用 nullptr，而不是NULL
-- 不用或少用auto
-- 输入放在main的代码上，不要在控制台一个一个输入。
-- 统一treenode的数据结构
 ## 代码关键的是：
 1. 代码风格规范，符合google style接轨工业界 You can read Google C++ Style Guide (http://google.github.io/styleguide/cppguide.html ) or some other guide for code style.
 2. 代码编译后的复杂度低
