@@ -14,6 +14,8 @@ friend，友元。朋友函数可以自由取得private成员。
 相同class的各个objects互为friends。
 谁调用函数，this就指向谁。
 
+
+
 Suggestions to your Project 3
 •Use size_t for mat.cols and mat.rows
 •Use memcpy() to copy data. Element assignment has a lower efficiency.
@@ -24,7 +26,6 @@ matrix operations, etc
 •Do not bind the create matrix function with file I/O.
 •File name: head.h, source1.c, source2.c, source3.c
 •Good implementation VS good homework.
-
 
 
 pay more attention to algorithms, concepts, technologies, rather than particular features, particular programming language. and do not try to use all those fancy features of the language that you just learned in your project, because those features just exist and you want to make your code look cool by using all those features, because this is a good change that a couple of months later, you won't be able to read your own code because it's too complex. And you need to develop proper style of using C++, not to shoot yourself on the foot. And try not to use manual memory allocation, using existing containers like std::vector, or if you use OpenCV, use cv::Mat, etc. Try to put some regression test before you do any refactoring or optimization. There should be some tests, of course. As I said, develop some methodology, a proper methodology how to create robust software that is easy to debug or doesn't need to be debbugged at all, it works out of the box. Instead of just using very complex language constructions that you may not fully understand. When people avoid using raw pointers in C++, but instead use containers like cv::Mat or cv::Vec or shared pointers, the number of memory leaks problems go almost to zero.
