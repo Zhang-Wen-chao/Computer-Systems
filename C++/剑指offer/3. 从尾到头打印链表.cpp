@@ -1,57 +1,46 @@
 #include <iostream>
 #include <vector>
-#include <stack>
+#include <algorithm> // 用于std::reverse
 
-// Definition for singly-linked list.
+// 链表节点的定义
 struct ListNode {
     int val;
     ListNode *next;
     ListNode(int x) : val(x), next(nullptr) {}
 };
 
-// Function to print elements of a linked list from tail to head
+// 使用std::reverse从尾到头打印链表
 std::vector<int> printListFromTailToHead(ListNode* head) {
-    std::stack<int> nodes;
     std::vector<int> result;
-
-    ListNode* node = head;
-    while (node != nullptr) {
-        nodes.push(node->val);
-        node = node->next;
+    ListNode* current = head; // 使用临时指针遍历链表
+    while(current != nullptr){
+        result.push_back(current->val);
+        current = current->next;
     }
 
-    while (!nodes.empty()) {
-        result.push_back(nodes.top());
-        nodes.pop();
-    }
-
+    std::reverse(result.begin(), result.end());
     return result;
 }
 
-// Utility function to print a vector
-void printVector(const std::vector<int>& v) {
-    for (int i : v) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-}
-
 int main() {
-    // Create a sample linked list
-    ListNode* head = new ListNode(1);
+    // 创建链表 1->2->3
+    ListNode *head = new ListNode(1);
     head->next = new ListNode(2);
     head->next->next = new ListNode(3);
 
-    // Call the function and print the result
+    // 打印链表
     std::vector<int> result = printListFromTailToHead(head);
-    printVector(result);
+    for (int val : result) {
+        std::cout << val << " ";
+    }
+    std::cout << std::endl;
 
-    // Free the allocated memory for the linked list
-    ListNode* curr = head;
-    while (curr != nullptr) {
-        ListNode* temp = curr;
-        curr = curr->next;
-        delete temp;
+    // 清理链表内存
+    ListNode *current = head;
+    while (current != nullptr) {
+        ListNode *next = current->next;
+        delete current;
+        current = next;
     }
 
     return 0;
