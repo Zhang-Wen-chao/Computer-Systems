@@ -20,7 +20,7 @@ std::vector<int> sortedSquares_Double_pointer(std::vector<int> &nums) {
     }
     return ans;
 }
-
+问一下chatgpt，用left++行不行？
 
 int main() {
     std::vector<int> nums = {-4, -1, 0, 3, 10};
