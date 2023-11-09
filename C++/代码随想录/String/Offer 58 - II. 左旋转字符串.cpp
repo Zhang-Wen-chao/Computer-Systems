@@ -12,16 +12,6 @@ public:
     }
 };
 
-// class Solution {
-// public:
-//     std::string reverseLeftWords(std::string str, int n) {
-//         reverse(str.begin(), str.begin() + n);
-//         reverse(str.begin() + n, str.end());
-//         reverse(str.begin(), str.end());
-//         return str;
-//     }
-// };
-
 int main() {
     Solution sol;
     std::string str = "abcdefg";
