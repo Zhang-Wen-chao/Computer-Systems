@@ -1,5 +1,9 @@
-正确的打开方式：开leetcode开始写。什么背诵核心思想都是狗屁。你不去体验考场环境，怎么会自己思考核心思想。
-剑指offer呢，也应该在题目顶端放上牛客网的网址，等有空了再说。
+用Python写，保证正确。
+
+for file in *.cpp; do touch "${file%.cpp}.py"; done
+
+该进行下面的了
+/home/zhangwch/Documents/myGitHub/Computer-Systems/C++/代码随想录/Binary_Tree/Traversal mode of Binary tree/levelOrder
 ## 数组 
 
 ### 977.有序数组的平方

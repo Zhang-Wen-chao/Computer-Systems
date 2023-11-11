@@ -4,33 +4,23 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def isMirror(left, right):
-    # If both subtrees are None, then they are mirrors of each other
-    if not left and not right:
-        return True
-    # If only one of the subtrees is None, then they are not mirrors
-    if not left or not right:
-        return False
-    # Two trees are a mirror reflection of each other if:
-    # 1. Their two roots have the same value
-    # 2. The right subtree of each tree is a mirror reflection of the left subtree of the other tree
-    return (left.val == right.val) and isMirror(left.right, right.left) and isMirror(left.left, right.right)
-
 def isSymmetric(root):
+    def isMirror(t1, t2):
+        if not t1 and not t2:
+            return True
+        if not t1 or not t2:
+            return False
+        return (t1.val == t2.val) and isMirror(t1.right, t2.left) and isMirror(t1.left, t2.right)
+
     return isMirror(root, root)
 
-# Helper function to create a binary tree from a list of values
-def create_binary_tree(lst, index=0):
-    if index >= len(lst) or lst[index] is None:
-        return None
-    root = TreeNode(lst[index])
-    root.left = create_binary_tree(lst, 2 * index + 1)
-    root.right = create_binary_tree(lst, 2 * index + 2)
-    return root
+# 测试用例
+tree = TreeNode(1)
+tree.left = TreeNode(2)
+tree.right = TreeNode(2)
+tree.left.left = TreeNode(3)
+tree.left.right = TreeNode(4)
+tree.right.left = TreeNode(4)
+tree.right.right = TreeNode(3)
 
-# Test cases
-tree1 = create_binary_tree([1, 2, 2, 3, 4, 4, 3])
-print(isSymmetric(tree1))  # Output: True
-
-tree2 = create_binary_tree([1, 2, 2, None, 3, None, 3])
-print(isSymmetric(tree2))  # Output: False
+print(isSymmetric(tree))  # True
