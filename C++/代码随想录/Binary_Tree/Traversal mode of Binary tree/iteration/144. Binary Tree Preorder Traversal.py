@@ -4,16 +4,15 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def inorderTraversal(root):
+def preorderTraversal(root):
     if not root:
         return []
     
-    result = []
-    result.append(root.val)
-    result.extend(inorderTraversal(root.left))
-    result.extend(inorderTraversal(root.right))
+    result = [root.val]
+    result.extend(preorderTraversal(root.left))
+    result.extend(preorderTraversal(root.right))
     return result
 
 # 测试用例
 root = TreeNode(1, None, TreeNode(2, TreeNode(3)))
-print(inorderTraversal(root)) 
+print(preorderTraversal(root))  # 应输出 [1, 2, 3]

@@ -1,6 +1,5 @@
 // 199. Binary Tree Right Side View
 // https://leetcode.com/problems/binary-tree-right-side-view/
-
 // clang++ 199.\ Binary\ Tree\ Right\ Side\ View.cpp  -std=c++17
 
 #include "../../../printUtils.hpp"

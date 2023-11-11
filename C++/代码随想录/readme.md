@@ -3,7 +3,7 @@
 for file in *.cpp; do touch "${file%.cpp}.py"; done
 
 该进行下面的了
-/home/zhangwch/Documents/myGitHub/Computer-Systems/C++/代码随想录/Binary_Tree/Traversal mode of Binary tree/levelOrder
+/home/zhangwch/Documents/myGitHub/Computer-Systems/C++/代码随想录/Graph_theory/200. Number of Islands.py
 ## 数组 
 
 ### 977.有序数组的平方
