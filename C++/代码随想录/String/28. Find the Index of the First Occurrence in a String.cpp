@@ -1,6 +1,5 @@
 // 28. Find the Index of the First Occurrence in a String
 // https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
-// 这个题没有对应的Python解法，是因为cpp的find已经是最简洁的了！
 
 #include <iostream>
 
