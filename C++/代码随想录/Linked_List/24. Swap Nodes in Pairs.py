@@ -1,53 +1,39 @@
 class ListNode:
-    def __init__(self, value=0, next=None):
-        self.val = value
+    def __init__(self, val=0, next=None):
+        self.val = val
         self.next = next
 
 def swapPairs(head):
     dummy = ListNode(0)
     dummy.next = head
-    current = dummy
-    
-    while current.next and current.next.next:
-        first = current.next
-        second = current.next.next
-        
-        # Swapping the nodes
-        first.next = second.next
-        second.next = first
-        current.next = second
-        
-        # Move to the next pair
-        current = first
-    
+    prev_node = dummy
+
+    while head and head.next:
+        # 节点初始化
+        first_node = head
+        second_node = head.next
+
+        # 交换
+        prev_node.next = second_node
+        first_node.next = second_node.next
+        second_node.next = first_node
+
+        # 重新初始化 prev_node 和 head
+        prev_node = first_node
+        head = first_node.next
+
     return dummy.next
 
-# Helper function to create a linked list from a list of values
-def create_linked_list(lst):
-    dummy = ListNode(0)
-    current = dummy
-    for value in lst:
-        current.next = ListNode(value)
-        current = current.next
-    return dummy.next
+# 测试用例
+def printList(head):
+    while head:
+        print(head.val, end=" -> ")
+        head = head.next
+    print("None")
 
-# Helper function to convert a linked list to a list of values
-def linked_list_to_list(node):
-    result = []
-    while node:
-        result.append(node.val)
-        node = node.next
-    return result
+# 创建链表 1 -> 2 -> 3 -> 4
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
 
-# Test cases
-head = create_linked_list([1, 2, 3, 4])
+# 交换节点
 new_head = swapPairs(head)
-print(linked_list_to_list(new_head))  # Output: [2, 1, 4, 3]
-
-head = create_linked_list([1])
-new_head = swapPairs(head)
-print(linked_list_to_list(new_head))  # Output: [1]
-
-head = create_linked_list([])
-new_head = swapPairs(head)
-print(linked_list_to_list(new_head))  # Output: []
+printList(new_head)  # 应该输出 2 -> 1 -> 4 -> 3 -> None

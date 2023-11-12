@@ -3,7 +3,10 @@
 for file in *.cpp; do touch "${file%.cpp}.py"; done
 
 该进行下面的了
-/home/zhangwch/Documents/myGitHub/Computer-Systems/C++/代码随想录/Graph_theory/200. Number of Islands.py
+/home/zhangwch/Documents/myGitHub/Computer-Systems/C++/代码随想录/Stack_Queue/347. Top K Frequent Elements.py
+
+
+/home/zhangwch/Documents/myGitHub/Computer-Systems/C++/代码随想录/interview/amd      这个还没搞。
 ## 数组 
 
 ### 977.有序数组的平方

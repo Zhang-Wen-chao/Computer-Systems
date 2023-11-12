@@ -4,12 +4,12 @@ def merge_sort(arr):
         L = arr[:mid]  # 分割数组的左半部分
         R = arr[mid:]  # 分割数组的右半部分
 
-        merge_sort(L)  # 对左半部分进行排序
-        merge_sort(R)  # 对右半部分进行排序
+        merge_sort(L)  # 对左半部分递归排序
+        merge_sort(R)  # 对右半部分递归排序
 
         i = j = k = 0
 
-        # 将数据从两个临时数组复制回原数组arr
+        # 将数据从两个临时数组复制回原数组
         while i < len(L) and j < len(R):
             if L[i] < R[j]:
                 arr[k] = L[i]
@@ -30,18 +30,7 @@ def merge_sort(arr):
             j += 1
             k += 1
 
-    return arr
-
 # 测试用例
-test_cases = [
-    [12, 11, 13, 5, 6, 7],
-    [3, 2, 1],
-    [9, 8, 7, 2, 3, 1],
-    [],
-    [1],
-    [1, 2, 3, 4, 5]
-]
-
-for arr in test_cases:
-    print(f"Original Array: {arr}")
-    print(f"Sorted Array: {merge_sort(arr)}\n")
+arr = [12, 11, 13, 5, 6, 7]
+merge_sort(arr)
+print("排序后的数组:", arr)
