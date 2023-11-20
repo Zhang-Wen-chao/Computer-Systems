@@ -219,6 +219,7 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 - [Baidu Netdisk](https://pan.baidu.com/download/)
 - [Sunlogin](https://sunlogin.oray.com/)
 - Vivado
+- sudo apt install translate-shell
 - [Open Broadcaster Software](https://obsproject.com/)
 - [VLC](https://www.videolan.org/vlc/)
 - [Ventoy](https://www.ventoy.net/cn/doc_start.html)
