@@ -129,6 +129,10 @@ screen watch -n 1 nvidia-smi
 使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
 
 apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能和更友好的用户界面。建议使用apt命令来操作软件包，它相对于dpkg和apt-get更为便捷和强大。
+### linux terminal
+在Linux终端（或大多数Unix-like系统的Shell中），要一次删除一个单词，你可以使用快捷键 Ctrl + W。当你按下这个组合键时，终端会从光标位置向左删除直到遇到一个单词的开头。这个快捷键在使用Bash或其他常见的Shell时非常有效。
+
+如果你想撤销删除的话，可以使用 Ctrl + Y 来粘贴刚才被删除的单词。
 ### Microsoft Edge
 - Microsoft Edge
   ```
