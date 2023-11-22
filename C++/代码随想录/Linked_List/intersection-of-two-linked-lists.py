@@ -1,38 +1,27 @@
 class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-def getIntersectionNode(headA, headB):
-    if not headA or not headB:
-        return None
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        if not headA or not headB:
+            return None
 
-    pointerA, pointerB = headA, headB
+        pointerA, pointerB = headA, headB
+        
+        while pointerA != pointerB:
+            pointerA = pointerA.next if pointerA else headB
+            pointerB = pointerB.next if pointerB else headA
 
-    while pointerA != pointerB:
-        pointerA = pointerA.next if pointerA else headB
-        pointerB = pointerB.next if pointerB else headA
+        return pointerA
 
-    return pointerA
+sol = Solution()
 
 # 测试用例
 # 创建两个链表：A: 1->2->3->4->5 和 B: 6->7->8->3->4->5 (相交于节点3)
-node1 = ListNode(1)
-node2 = ListNode(2)
-node3 = ListNode(3)
-node4 = ListNode(4)
-node5 = ListNode(5)
-node6 = ListNode(6)
-node7 = ListNode(7)
-node8 = ListNode(8)
+shared = ListNode(3, ListNode(4, ListNode(5)))
+listA = ListNode(1, ListNode(2, shared))
+listB = ListNode(6, ListNode(7, ListNode(8, shared)))
 
-node1.next = node2
-node2.next = node3
-node3.next = node4
-node4.next = node5
-
-node6.next = node7
-node7.next = node8
-node8.next = node3
-
-print(getIntersectionNode(node1, node6).val)  # 应输出3
+print(sol.getIntersectionNode(listA, listB).val)

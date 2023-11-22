@@ -1,12 +1,5 @@
-用Python写，保证正确。
-
-for file in *.cpp; do touch "${file%.cpp}.py"; done
-
-该进行下面的了
-
-/home/zhangwch/Documents/myGitHub/Computer-Systems/C++/代码随想录/interview/amd      这个还没搞。
+笔试用Python写，保证正确。
 ## 数组 
-
 ### 977.有序数组的平方
 两个指针往中间凑。每次比较两个指针所指向的数的平方，将较大的那个数的平方放入结果数组的相应位置，并移动相应的指针。
 ### 209.长度最小的子数组
