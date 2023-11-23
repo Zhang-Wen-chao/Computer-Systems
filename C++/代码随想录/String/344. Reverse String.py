@@ -1,4 +1,4 @@
-def reverseString(s):
+def reverseString(self, s: List[str]) -> None:
     s[:] = s[::-1]
 
 # 测试用例

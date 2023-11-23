@@ -1,37 +1,34 @@
-def fourSum(nums, target):
-    def kSum(nums, target, k):
-        res = []
-        if not nums:
-            return res
-        average_value = target // k
-        if average_value < nums[0] or nums[-1] < average_value:
-            return res
-        if k == 2:
-            return twoSum(nums, target)
-        for i in range(len(nums)):
-            if i == 0 or nums[i - 1] != nums[i]:
-                for subset in kSum(nums[i + 1:], target - nums[i], k - 1):
-                    res.append([nums[i]] + subset)
-        return res
+from typing import List
 
-    def twoSum(nums, target):
-        res = []
-        lo, hi = 0, len(nums) - 1
-        while lo < hi:
-            sum = nums[lo] + nums[hi]
-            if sum < target or (lo > 0 and nums[lo] == nums[lo - 1]):
-                lo += 1
-            elif sum > target or (hi < len(nums) - 1 and nums[hi] == nums[hi + 1]):
-                hi -= 1
+class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+        def findNSum(l, r, target, N, result, results):
+            if r - l + 1 < N or N < 2 or target < nums[l] * N or target > nums[r] * N:
+                return
+            if N == 2:
+                while l < r:
+                    s = nums[l] + nums[r]
+                    if s == target:
+                        results.append(result + [nums[l], nums[r]])
+                        l += 1
+                        while l < r and nums[l] == nums[l - 1]:
+                            l += 1
+                    elif s < target:
+                        l += 1
+                    else:
+                        r -= 1
             else:
-                res.append([nums[lo], nums[hi]])
-                lo += 1
-                hi -= 1
-        return res
+                for i in range(l, r + 1):
+                    if i == l or (i > l and nums[i - 1] != nums[i]):
+                        findNSum(i + 1, r, target - nums[i], N - 1, result + [nums[i]], results)
 
-    nums.sort()
-    return kSum(nums, target, 4)
+        nums.sort()
+        results = []
+        findNSum(0, len(nums) - 1, target, 4, [], results)
+        return results
+
+sol = Solution()
 
 # 测试用例
-print(fourSum([1, 0, -1, 0, -2, 2], 0))  # 应该输出 [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
-print(fourSum([], 0))  # 应该输出 []
+print(sol.fourSum([1, 0, -1, 0, -2, 2], 0))  # 应该输出 [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
+print(sol.fourSum([], 0))  # 应该输出 []
