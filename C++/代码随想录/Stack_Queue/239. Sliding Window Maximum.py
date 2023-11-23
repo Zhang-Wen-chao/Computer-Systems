@@ -1,27 +1,31 @@
+from typing import List
 from collections import deque
 
-def maxSlidingWindow(nums, k):
-    if not nums:
-        return []
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        if not nums:
+            return []
+        if k == 0:
+            return []
 
-    window, result = deque(), []
+        deq = deque()
+        max_numbers = []
 
-    for i, num in enumerate(nums):
-        # 移除窗口左边界之外的元素
-        if i >= k and window[0] <= i - k:
-            window.popleft()
+        for i in range(len(nums)):
+            # 保持 deque 的大小不超过 k
+            while deq and deq[0] < i - k + 1:
+                deq.popleft()
+            # 移除比当前元素小的所有元素
+            while deq and nums[i] > nums[deq[-1]]:
+                deq.pop()
+            deq.append(i)
 
-        # 保持窗口内元素单调递减
-        while window and nums[window[-1]] < num:
-            window.pop()
+            # 从第 k - 1 个元素开始记录最大值
+            if i >= k - 1:
+                max_numbers.append(nums[deq[0]])
 
-        window.append(i)
+        return max_numbers
 
-        # 记录窗口的最大值
-        if i >= k - 1:
-            result.append(nums[window[0]])
-
-    return result
-
-# 测试用例
-print(maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))  # 输出: [3,3,5,5,6,7]
+# Test case
+sol = Solution()
+print(sol.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))  # [3,3,5,5,6,7]

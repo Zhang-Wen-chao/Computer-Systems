@@ -1,13 +1,13 @@
 import heapq
 from collections import Counter
+from typing import List
 
-def topKFrequent(nums, k):
-    # 使用 Counter 来统计每个元素的频率
-    count = Counter(nums)
-    
-    # 使用堆（heap）来找出频率最高的 k 个元素
-    return heapq.nlargest(k, count.keys(), key=count.get)
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = Counter(nums)
+        return heapq.nlargest(k, count.keys(), key=count.get)
 
-# 测试用例
-print(topKFrequent([1,1,1,2,2,3], 2))  # 输出: [1, 2]
-print(topKFrequent([1], 1))  # 输出: [1]
+# Test case
+sol = Solution()
+print(sol.topKFrequent([1,1,1,2,2,3], 2))  # [1, 2]
+print(sol.topKFrequent([1], 1))            # [1]
