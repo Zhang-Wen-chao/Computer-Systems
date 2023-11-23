@@ -1,5 +1,5 @@
-// 面试题 02.07. 链表相交
-// https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/
+// 160. Intersection of Two Linked Lists
+// https://leetcode.com/problems/intersection-of-two-linked-lists/description/
 
 #include "LinkedListUtils.hpp"
 
