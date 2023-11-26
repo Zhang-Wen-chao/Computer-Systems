@@ -1,3 +1,10 @@
+# 116. Populating Next Right Pointers in Each Node
+# https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+
+# 117. Populating Next Right Pointers in Each Node II
+# https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+
+# 这两道题的代码完全一样。
 class Node:
     def __init__(self, val=0, left=None, right=None, next=None):
         self.val = val
@@ -5,37 +12,31 @@ class Node:
         self.right = right
         self.next = next
 
-def connect(root):
-    if not root:
-        return None
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return None
 
-    leftmost = root
-    while leftmost.left:
-        head = leftmost
-        while head:
-            head.left.next = head.right
-            if head.next:
-                head.right.next = head.next.left
-            head = head.next
-        leftmost = leftmost.left
+        leftmost = root
+        while leftmost:
+            dummy = Node(0)
+            tail = dummy
+            cur = leftmost
 
-    return root
+            while cur:
+                if cur.left:
+                    tail.next = cur.left
+                    tail = tail.next
+                if cur.right:
+                    tail.next = cur.right
+                    tail = tail.next
+                cur = cur.next
 
+            leftmost = dummy.next
 
-def print_tree_with_next_pointer(root):
-    level = [root]
-    while level:
-        next_level = []
-        for node in level:
-            next_val = node.next.val if node.next else None
-            print(f"Node {node.val} -> Next Node {next_val}")
-            if node.left:
-                next_level.append(node.left)
-            if node.right:
-                next_level.append(node.right)
-        level = next_level
+        return root
 
-# 测试用例
+# Test case
 root = Node(1, Node(2, Node(4), Node(5)), Node(3, Node(6), Node(7)))
-connect(root)
-print_tree_with_next_pointer(root)
+sol = Solution()
+print(sol.connect(root))  # Connects the nodes as described in the problem statement

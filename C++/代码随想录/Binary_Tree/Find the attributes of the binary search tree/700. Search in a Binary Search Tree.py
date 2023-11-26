@@ -1,28 +1,22 @@
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-def searchBST(root, val):
-    if root is None or root.val == val:
-        return root
-    elif val < root.val:
-        return searchBST(root.left, val)
-    else:
-        return searchBST(root.right, val)
+class Solution:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        if root is None or root.val == val:
+            return root
+        elif root.val < val:
+            return self.searchBST(root.right, val)
+        else:
+            return self.searchBST(root.left, val)
 
-# 测试用例
-root = TreeNode(4)
-root.left = TreeNode(2)
-root.right = TreeNode(7)
-root.left.left = TreeNode(1)
-root.left.right = TreeNode(3)
-
-result = searchBST(root, 2)
-
-# 函数来打印树的中序遍历结果
-def inorder_traversal(root):
-    return inorder_traversal(root.left) + [root.val] + inorder_traversal(root.right) if root else []
-
-print(inorder_traversal(result))  # [1, 2, 3]
+# Test case
+root = TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7))
+sol = Solution()
+node = sol.searchBST(root, 2)
+print(node.val if node else "Not Found")  # 2

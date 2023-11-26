@@ -1,27 +1,28 @@
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-def invertTree(root):
-    if root:
-        root.left, root.right = invertTree(root.right), invertTree(root.left)
-    return root
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return None
+        
+        root.left, root.right = root.right, root.left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        return root
 
-# 测试用例
-def preorder_traversal(root):
-    return [root.val] + preorder_traversal(root.left) + preorder_traversal(root.right) if root else []
 
-# 构建测试树
-root = TreeNode(4)
-root.left = TreeNode(2)
-root.left.left = TreeNode(1)
-root.left.right = TreeNode(3)
-root.right = TreeNode(7)
-root.right.left = TreeNode(6)
-root.right.right = TreeNode(9)
+# Test case
+root = TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(7, TreeNode(6), TreeNode(9)))
+sol = Solution()
+inverted_tree = sol.invertTree(root)
 
-# 翻转树并输出前序遍历结果
-inverted_tree = invertTree(root)
-print(preorder_traversal(inverted_tree))  # [4, 7, 9, 6, 2, 3, 1]
+# 打印用例
+def inorder_traversal(root):
+    return inorder_traversal(root.left) + [root.val] + inorder_traversal(root.right) if root else []
+print(inorder_traversal(inverted_tree))  # [9, 7, 6, 4, 3, 2, 1]

@@ -1,40 +1,37 @@
+from typing import Optional
+from typing import List
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-def findMode(root):
-    if not root:
-        return []
+class Solution:
+    def findMode(self, root: Optional[TreeNode]) -> List[int]:
+        def inorder(node):
+            nonlocal max_count, current_count, current_val
+            if node:
+                inorder(node.left)
+                if node.val != current_val:
+                    current_val = node.val
+                    current_count = 0
+                current_count += 1
+                if current_count > max_count:
+                    max_count = current_count
+                    modes.clear()
+                    modes.append(node.val)
+                elif current_count == max_count:
+                    modes.append(node.val)
+                inorder(node.right)
 
-    def inorder(node):
-        if node:
-            inorder(node.left)
-            if node.val == inorder.prev_val:
-                inorder.count += 1
-            else:
-                inorder.prev_val = node.val
-                inorder.count = 1
+        max_count = current_count = 0
+        current_val = None
+        modes = []
+        inorder(root)
+        return modes
 
-            if inorder.count > inorder.max_count:
-                inorder.max_count = inorder.count
-                inorder.modes = [node.val]
-            elif inorder.count == inorder.max_count:
-                inorder.modes.append(node.val)
-
-            inorder(node.right)
-
-    inorder.prev_val = None
-    inorder.count = 0
-    inorder.max_count = 0
-    inorder.modes = []
-    inorder(root)
-    return inorder.modes
-
-# 测试用例
-root = TreeNode(1)
-root.right = TreeNode(2)
-root.right.left = TreeNode(2)
-
-print(findMode(root))  # [2]
+# Test case
+root = TreeNode(1, None, TreeNode(2, TreeNode(2)))
+sol = Solution()
+print(sol.findMode(root))  # [2]

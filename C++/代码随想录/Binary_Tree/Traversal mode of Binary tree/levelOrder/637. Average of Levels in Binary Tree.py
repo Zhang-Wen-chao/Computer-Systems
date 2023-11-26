@@ -1,33 +1,30 @@
+from collections import deque
+from typing import List
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-def averageOfLevels(root):
-    if not root:
-        return []
+class Solution:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        res, queue = [], deque([root])
+        while queue:
+            level_sum = 0
+            level_count = len(queue)
+            for _ in range(level_count):
+                node = queue.popleft()
+                level_sum += node.val
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            res.append(level_sum / level_count)
+        return res
 
-    averages = []
-    queue = [root]
-
-    while queue:
-        level_size = len(queue)
-        level_sum = 0
-
-        for _ in range(level_size):
-            node = queue.pop(0)
-            level_sum += node.val
-
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
-
-        averages.append(level_sum / level_size)
-
-    return averages
-
-# 测试用例
+# Test case
 root = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
-print(averageOfLevels(root))  # 应该输出 [3, 14.5, 11]
+sol = Solution()
+print(sol.averageOfLevels(root))  # [3.0, 14.5, 11.0]

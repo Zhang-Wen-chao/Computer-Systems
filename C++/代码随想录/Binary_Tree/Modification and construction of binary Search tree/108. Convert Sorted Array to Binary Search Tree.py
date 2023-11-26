@@ -1,26 +1,27 @@
+from typing import List
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-def sortedArrayToBST(nums):
-    if not nums:
-        return None
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        if not nums:
+            return None
+        mid = len(nums) // 2
+        node = TreeNode(nums[mid])
+        node.left = self.sortedArrayToBST(nums[:mid])
+        node.right = self.sortedArrayToBST(nums[mid+1:])
+        return node
 
-    mid = len(nums) // 2
-    root = TreeNode(nums[mid])
-    root.left = sortedArrayToBST(nums[:mid])
-    root.right = sortedArrayToBST(nums[mid+1:])
-
-    return root
-
-# 测试用例
+# Test case
 nums = [-10, -3, 0, 5, 9]
-result = sortedArrayToBST(nums)
+sol = Solution()
+tree = sol.sortedArrayToBST(nums)
 
-# 函数来打印树的中序遍历结果
 def inorder_traversal(root):
     return inorder_traversal(root.left) + [root.val] + inorder_traversal(root.right) if root else []
-
-print(inorder_traversal(result))  # [-10, -3, 0, 5, 9]
+print(inorder_traversal(tree))  # [-10, -3, 0, 5, 9]
