@@ -157,6 +157,44 @@ Ctrl + Z：将当前进程置于后台运行。
 其他快捷键：
 Alt + T：交换光标位置的两个单词。
 Ctrl + T：交换光标位置的两个字符。
+
+有没有能哪个linux改键方案可以实现快捷键代替方向键？ - kujio的回答 - 知乎
+https://www.zhihu.com/question/366242487/answer/977808189
+
+```python
+# -*- coding: utf-8 -*-
+
+import re
+from xkeysnail.transform import *
+
+define_keymap(None, {
+	K("Alt-e"): K("up"),
+	K("Alt-s"): K("left"),
+	K("Alt-d"): K("down"),
+	K("Alt-f"): K("right"),
+	K("Alt-q"): K("page_up"),
+	K("Alt-a"): K("page_down"),
+	K("Alt-w"): K("home"),
+	K("Alt-r"): K("end"),
+})
+```
+```service
+[Unit]
+Description=xkeysnail
+​
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/usr/local/bin/xkeysnail -q /home/zhangwch/.config/xkeysnail/config.py
+Restart=always
+RestartSec=1
+​User=root
+
+[Install]
+WantedBy=multi-user.target
+```
+```bash
+xhost +SI:localuser:root
+```
 ### Microsoft Edge
 - Microsoft Edge
   ```
