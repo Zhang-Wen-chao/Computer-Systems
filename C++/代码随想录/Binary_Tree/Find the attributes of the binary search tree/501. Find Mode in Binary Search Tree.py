@@ -17,11 +17,11 @@ class Solution:
                     current_val = node.val
                     current_count = 0
                 current_count += 1
-                if current_count > max_count:
+                if current_count == max_count:
+                    modes.append(node.val)
+                elif current_count > max_count:
                     max_count = current_count
                     modes.clear()
-                    modes.append(node.val)
-                elif current_count == max_count:
                     modes.append(node.val)
                 inorder(node.right)
 
