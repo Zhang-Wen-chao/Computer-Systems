@@ -1,3 +1,4 @@
+# 不要用这个，用cpp
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         if not needle:
