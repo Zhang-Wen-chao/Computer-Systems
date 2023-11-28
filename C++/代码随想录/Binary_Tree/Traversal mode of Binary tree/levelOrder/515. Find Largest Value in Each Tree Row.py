@@ -12,8 +12,8 @@ class Solution:
     def largestValues(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
-        
-        res, queue = [], deque([root])
+        res = []
+        queue = deque([root])
         while queue:
             level_max = float('-inf')
             for _ in range(len(queue)):
