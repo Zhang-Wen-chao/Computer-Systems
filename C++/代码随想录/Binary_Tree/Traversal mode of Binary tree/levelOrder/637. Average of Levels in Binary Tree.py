@@ -10,7 +10,8 @@ class TreeNode:
 
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
-        res, queue = [], deque([root])
+        res = []
+        queue = deque([root])
         while queue:
             level_sum = 0
             level_count = len(queue)
