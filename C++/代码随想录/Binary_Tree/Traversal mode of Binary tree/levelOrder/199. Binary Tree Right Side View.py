@@ -12,8 +12,8 @@ class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
-        right_view, queue = [], deque([root])
-        
+        right_view = []
+        queue = deque([root])
         while queue:
             level_size = len(queue)
             for i in range(level_size):
