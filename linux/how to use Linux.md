@@ -36,6 +36,8 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 python -c "
 import pytorch_quantization
 print(pytorch_quantization.__version__)"
+
+
 ```
 ## docker
 ### tensorrt
@@ -128,72 +130,6 @@ screen watch -n 1 nvidia-smi
 使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
 
 apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能和更友好的用户界面。建议使用apt命令来操作软件包，它相对于dpkg和apt-get更为便捷和强大。
-### linux terminal
-光标移动：
-Ctrl + A：移动到行首。
-Ctrl + E：移动到行尾。
-Alt + B：向左移动一个单词。
-Alt + F：向右移动一个单词。
-
-编辑命令：
-Ctrl + U：删除从光标位置到行首的内容。
-Ctrl + K：删除从光标位置到行尾的内容。
-Ctrl + W：删除光标左边的一个单词。
-Alt + D：删除光标右边的一个单词。
-Ctrl + Y：粘贴最近删除的单词或行。
-
-历史命令：
-Ctrl + P：显示上一个命令（类似于上箭头键）。
-Ctrl + N：显示下一个命令（类似于下箭头键）。
-Ctrl + R：搜索命令历史记录（反向搜索）。
-
-控制命令：
-Ctrl + L：清屏，类似于 clear 命令。
-Ctrl + C：终止当前命令。
-Ctrl + D：退出当前Shell（如果命令行为空）。
-Ctrl + Z：将当前进程置于后台运行。
-
-其他快捷键：
-Alt + T：交换光标位置的两个单词。
-Ctrl + T：交换光标位置的两个字符。
-
-有没有能哪个linux改键方案可以实现快捷键代替方向键？ - kujio的回答 - 知乎
-https://www.zhihu.com/question/366242487/answer/977808189
-
-```python
-# -*- coding: utf-8 -*-
-
-import re
-from xkeysnail.transform import *
-
-define_keymap(None, {
-	K("Alt-e"): K("up"),
-	K("Alt-s"): K("left"),
-	K("Alt-d"): K("down"),
-	K("Alt-f"): K("right"),
-	K("Alt-q"): K("page_up"),
-	K("Alt-a"): K("page_down"),
-	K("Alt-w"): K("home"),
-	K("Alt-r"): K("end"),
-})
-```
-```service
-[Unit]
-Description=xkeysnail
-​
-[Service]
-Environment=DISPLAY=:0
-ExecStart=/usr/local/bin/xkeysnail -q /home/zhangwch/.config/xkeysnail/config.py
-Restart=always
-RestartSec=1
-​User=root
-
-[Install]
-WantedBy=multi-user.target
-```
-```bash
-xhost +SI:localuser:root
-```
 ### Microsoft Edge
 - Microsoft Edge
   ```
