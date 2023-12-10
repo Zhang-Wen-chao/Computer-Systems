@@ -4,28 +4,19 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def lowestCommonAncestor(root, p, q):
-    current = root
-    while current:
-        if p.val > current.val and q.val > current.val:
-            current = current.right
-        elif p.val < current.val and q.val < current.val:
-            current = current.left
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if p.val < root.val and q.val < root.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        elif p.val > root.val and q.val > root.val:
+            return self.lowestCommonAncestor(root.right, p, q)
         else:
-            return current
+            return root
 
 # 测试用例
-root = TreeNode(6)
-root.left = TreeNode(2)
-root.right = TreeNode(8)
-root.left.left = TreeNode(0)
-root.left.right = TreeNode(4)
-root.left.right.left = TreeNode(3)
-root.left.right.right = TreeNode(5)
-root.right.left = TreeNode(7)
-root.right.right = TreeNode(9)
-
+root = TreeNode(6, TreeNode(2, TreeNode(0), TreeNode(4, TreeNode(3), TreeNode(5))), TreeNode(8, TreeNode(7), TreeNode(9)))
 p = root.left  # 节点 2
 q = root.right  # 节点 8
 
-print(lowestCommonAncestor(root, p, q).val)  # 6
+sol = Solution()
+print(sol.lowestCommonAncestor(root, p, q).val)  # 6

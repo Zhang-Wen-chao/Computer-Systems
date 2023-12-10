@@ -4,8 +4,7 @@
 #include <iostream>
 
 int firstOccurrence(std::string haystack, std::string needle) {
-    auto found = haystack.find(needle);
-    return found;
+    return haystack.find(needle);
 }
 
 int main() {

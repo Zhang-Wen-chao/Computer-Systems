@@ -8,7 +8,7 @@ class MyLinkedList:
         self.size = 0
         self.head = ListNode(0)  # 虚拟头节点
 
-    def get(self, index):
+    def get(self, index: int) -> int:
         if index < 0 or index >= self.size:
             return -1
         current = self.head
@@ -16,13 +16,13 @@ class MyLinkedList:
             current = current.next
         return current.val
 
-    def addAtHead(self, val):
+    def addAtHead(self, val: int) -> None:
         self.addAtIndex(0, val)
 
-    def addAtTail(self, val):
+    def addAtTail(self, val: int) -> None:
         self.addAtIndex(self.size, val)
 
-    def addAtIndex(self, index, val):
+    def addAtIndex(self, index: int, val: int) -> None:
         if index > self.size:
             return
         if index < 0:
@@ -35,7 +35,7 @@ class MyLinkedList:
         to_add.next = pred.next
         pred.next = to_add
 
-    def deleteAtIndex(self, index):
+    def deleteAtIndex(self, index: int) -> None:
         if index < 0 or index >= self.size:
             return
         self.size -= 1

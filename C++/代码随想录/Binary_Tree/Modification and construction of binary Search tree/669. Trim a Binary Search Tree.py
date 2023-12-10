@@ -1,26 +1,28 @@
+from typing import Optional
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-def trimBST(root, low, high):
-    if not root:
-        return None
-
-    if root.val < low:
-        return trimBST(root.right, low, high)
-    elif root.val > high:
-        return trimBST(root.left, low, high)
-    else:
-        root.left = trimBST(root.left, low, high)
-        root.right = trimBST(root.right, low, high)
+class Solution:
+    def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
+        if not root:
+            return None
+        if root.val < low:
+            return self.trimBST(root.right, low, high)
+        if root.val > high:
+            return self.trimBST(root.left, low, high)
+        root.left = self.trimBST(root.left, low, high)
+        root.right = self.trimBST(root.right, low, high)
         return root
 
-# 测试用例
+# Test case
+root = TreeNode(3, TreeNode(0, None, TreeNode(2, TreeNode(1))), TreeNode(4))
+sol = Solution()
+trimmed_tree = sol.trimBST(root, 1, 3)
+
 def inorder_traversal(root):
     return inorder_traversal(root.left) + [root.val] + inorder_traversal(root.right) if root else []
-
-root = TreeNode(3, TreeNode(0, None, TreeNode(2, TreeNode(1))), TreeNode(4))
-trimmed_root = trimBST(root, 1, 3)
-print(inorder_traversal(trimmed_root))  # [1, 2, 3]
+print(inorder_traversal(trimmed_tree))  # [1, 2, 3]

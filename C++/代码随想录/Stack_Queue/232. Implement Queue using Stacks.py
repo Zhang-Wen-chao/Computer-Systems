@@ -1,44 +1,29 @@
 class MyQueue:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.inStack = []
-        self.outStack = []
+        self.input = []
+        self.output = []
 
     def push(self, x: int) -> None:
-        """
-        Push element x to the back of queue.
-        """
-        self.inStack.append(x)
+        self.input.append(x)
 
     def pop(self) -> int:
-        """
-        Removes the element from in front of queue and returns that element.
-        """
         self.peek()
-        return self.outStack.pop()
+        return self.output.pop()
 
     def peek(self) -> int:
-        """
-        Get the front element.
-        """
-        if not self.outStack:
-            while self.inStack:
-                self.outStack.append(self.inStack.pop())
-        return self.outStack[-1]
+        if not self.output:
+            while self.input:
+                self.output.append(self.input.pop())
+        return self.output[-1]
 
     def empty(self) -> bool:
-        """
-        Returns whether the queue is empty.
-        """
-        return not self.inStack and not self.outStack
+        return not self.input and not self.output
 
-# 测试用例
-myQueue = MyQueue()
-myQueue.push(1)
-myQueue.push(2)
-print(myQueue.peek())  # 返回 1
-print(myQueue.pop())   # 返回 1
-print(myQueue.empty()) # 返回 False
+# Test case
+queue = MyQueue()
+queue.push(1)
+queue.push(2)
+print(queue.peek())    # Returns 1
+print(queue.pop())    # Returns 1
+print(queue.empty())  # Returns False

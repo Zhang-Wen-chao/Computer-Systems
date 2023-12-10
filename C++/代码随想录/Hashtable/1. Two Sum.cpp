@@ -1,5 +1,5 @@
 // 1. Two Sum
-// https://leetcode.cn/problems/two-sum/
+// https://leetcode.com/problems/two-sum/
 
 #include <iostream>
 #include <vector>

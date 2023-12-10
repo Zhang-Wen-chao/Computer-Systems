@@ -1,5 +1,5 @@
 // 349. Intersection of Two Arrays
-// https://leetcode-cn.com/problems/intersection-of-two-arrays/
+// https://leetcode.cn/problems/intersection-of-two-arrays/
 
 #include <iostream>
 #include <vector>
