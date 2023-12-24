@@ -137,6 +137,8 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
   [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
   视频倍速, 右键 inspect, console: document.querySelector('video').playbackRate = 0.9
   ```
+### Visual Studio
+https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-community-edition-2015
 ### VScode
 - [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
 [VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
