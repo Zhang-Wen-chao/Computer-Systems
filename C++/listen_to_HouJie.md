@@ -50,9 +50,3 @@ The other options are not benefits of good code style. In fact, they may indicat
 
 - Allows it to never have to be touched again: This implies that the code is rigid and inflexible, which is not desirable for software development. Code should be adaptable and extensible to changing requirements and needs.
 - Makes sure the author will refactor it later: This implies that the code is messy and incomplete, which is not a good sign of quality. Code should be refactored as soon as possible to avoid technical debt and bugs.
-# rate of progress
-我follow [代码随想录](https://github.com/youngyangyang04/leetcode-master)
-- 双指针法这部分没有单独建立文件夹，还是在各个数据结构中散落。
-- 我把二叉树的公共祖先问题放在了二叉搜索树属性的文件夹中。
-- 贪心的股票问题，我都放在了动态规划。动态规划解决一切。
-- 补充题目没写。

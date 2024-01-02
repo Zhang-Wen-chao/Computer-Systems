@@ -37,7 +37,6 @@ python -c "
 import pytorch_quantization
 print(pytorch_quantization.__version__)"
 
-
 ```
 ## docker
 ### tensorrt
@@ -127,9 +126,6 @@ screen watch -n 1 nvidia-smi
 [[SOLVED] Docker with GPU: "Failed to initialize NVML: Unknown Error"](https://bbs.archlinux.org/viewtopic.php?id=266915)
 # Software
 ## Essential software
-使用dpkg安装软件包需要手动解决依赖关系，而apt能够自动处理依赖关系并更加便捷地管理软件包。一般来说，推荐使用apt作为首选的软件包管理工具。
-
-apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能和更友好的用户界面。建议使用apt命令来操作软件包，它相对于dpkg和apt-get更为便捷和强大。
 ### Microsoft Edge
 - Microsoft Edge
   ```
@@ -140,8 +136,9 @@ apt是apt-get的更现代、更推荐的替代工具，提供更丰富的功能�
 ### Visual Studio
 https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-community-edition-2015
 ### VScode
+使用 Ctrl + R 搜索历史命令：在命令行中按下快捷键 Ctrl + R ，终端回提示 reverse-i-search ，然后在其中输入你要搜索的命令，找到之后按回车就会执行这条命令。 再按 Ctrl + G 退出搜索。
+
 - [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
-[VS code 自定义 clang-format 格式化代码格式](https://www.jianshu.com/p/c2dd26fe6f78)
 - [oh my zsh](https://blog.csdn.net/tonydz0523/article/details/108112422)
   ```shell
   ZSH_THEME="muse"
@@ -250,7 +247,7 @@ https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-commu
 
 ## opencv
 [Opencv 4.3（CUDA11 ） 编译踩坑记录](https://www.cnblogs.com/geoffreyone/p/15040907.html)
-我朴素地认为，新版本的bug会少一些。费了好几个小时安装3.3，一堆错误。然后转变思路，编译安装4.8.1，确实简简单单，没啥报错。
+新版本的bug会少一些。费了好几个小时安装3.3，一堆错误。编译安装4.8.1，没啥报错。
 ```bash
 wget https://github.com/opencv/opencv/archive/refs/tags/4.8.1.zip
 cmake ..
@@ -270,13 +267,9 @@ git config --global user.email "zwc@outlook.lv"
 git push origin zvvc
 
 因为上游用了 submodule 所以也稍微学了一下。
-在网络不理想的时候，为了从镜像拉取，学了 remote 
-因为手痒，想自己给项目添加内容，为了让自己写的东西纳入 git 管理，学了 commit （那时候用的还是 commit -a ，用不到 add）。
-从上游拉取时，为了不和自己写的东西冲突，学了 merge 、 add 和 status，后来又学了 fetch 和 rebase 。
 为了提 Pull Request，也为了备份自己写的东西，学了 push 。
 为了把其他分支的修改转移到当前分支，学了 cherry-pick 。
 为了恢复丢掉的修改记录，学了 reflog 。
-为了保存写到一半的内容，学了 stash 。
 为了找到引入或修复 bug 的版本，学了 bisect 和 blame 。
 为了知道最近的 tag 名称，学了 describe 。
 为了知道 tag 对应的提交代码，学了 rev-parse 。
@@ -292,7 +285,6 @@ git push origin zvvc
 - 作为仓库的合作者
 ```bash 
 git push --set-upstream origin zvvc
-
 git checkout main
 git pull
 git checkout zvvc
@@ -321,7 +313,6 @@ git merge main
   git branch -D zvvc  # 删除本地分支（仅在你确认不需要这个分支时使用）
   git push origin :zvvc  # 删除远程分支（仅在你确认不需要这个分支时使用）
   ```
-请注意，在执行这些命令之前，确保你在本地仓库的正确分支上进行操作，并且仔细评估合作者的更改以确保安全和正确性。
 - 修改仓库名字
 请注意，更改仓库名称后，你需要更新本地仓库的远程URL以反映新的名称。
 如果你在使用命令行进行Git操作，可以使用以下命令更新远程URL：
