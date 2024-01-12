@@ -139,7 +139,7 @@ https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-commu
 使用 Ctrl + R 搜索历史命令：在命令行中按下快捷键 Ctrl + R ，终端回提示 reverse-i-search ，然后在其中输入你要搜索的命令，找到之后按回车就会执行这条命令。 再按 Ctrl + G 退出搜索。
 
 - [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
-- [oh my zsh](https://blog.csdn.net/tonydz0523/article/details/108112422)
+- oh my zsh
   ```shell
   ZSH_THEME="muse"
   zsh-syntax-highlighting
