@@ -38,6 +38,11 @@ import pytorch_quantization
 print(pytorch_quantization.__version__)"
 python -c "
 import torch
+a = torch.tensor(1.)
+a.cuda()
+from torch.backends import cudnn
+cudnn.is_available()
+cudnn.is_acceptable(a.cuda()) 
 print(torch.backends.cudnn.version()) "
 ```
 ## docker
