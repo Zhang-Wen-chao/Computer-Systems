@@ -36,7 +36,9 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 python -c "
 import pytorch_quantization
 print(pytorch_quantization.__version__)"
-
+python -c "
+import torch
+print(torch.backends.cudnn.version()) "
 ```
 ## docker
 ### tensorrt
