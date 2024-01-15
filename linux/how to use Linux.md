@@ -39,14 +39,18 @@ print(pytorch_quantization.__version__)"
 python -c "
 import torch
 a = torch.tensor(1.)
-a.cuda()
+print(a.cuda())
 from torch.backends import cudnn
-cudnn.is_available()
-cudnn.is_acceptable(a.cuda()) 
-print(torch.backends.cudnn.version()) "
+print(cudnn.is_available())
+print(cudnn.is_acceptable(a.cuda()))
+print(torch.backends.cudnn.version())"
 ```
 ## docker
 ### tensorrt
+### 遇到后很烦的一个问题
+libcublas.so.10: cannot open shared object file: No such file or directory
+
+解决方法：安装一个CUDA10就有这个文件了。再复制到对应的地方，一般是：/usr/lib/x86_64-linux-gnu
 #### tensorrt:23.09, 23.02, 22.12
 [TensorRT安装记录](https://blog.csdn.net/qq_37541097/article/details/114847600)
 ```bash
