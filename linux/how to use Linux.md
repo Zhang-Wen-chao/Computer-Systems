@@ -45,6 +45,31 @@ print(cudnn.is_available())
 print(cudnn.is_acceptable(a.cuda()))
 print(torch.backends.cudnn.version())"
 ```
+## singularity
+使用singularity 可以在无超级用户权限下使用docker
+本地安装文档参考 https://apptainer.org/user-docs/master/quick_start.html
+一般常用逻辑：
+如果要安装新的python package在你的.sif环境下，
+首先在本地将.sif(dockerhub上build好的文件) 编译成 my_name 的sandbox文件夹，
+在my_name下安装新的python包
+之后再将sandbox编译成.sif文件，传到集群上使用
+
+集群上使用预编译好的singularity需要运行(此外还有--bind 参数之类的可以参考使用)
+singularity shell --nv xxx.sif
+python xxxxx
+
+下面命令都是在本地wsl/linux里使用sudo权限进行的
+编译sandbox
+sudo singularity build --sandbox my_name xxx.sif
+
+安装新的包
+sudo singularity shell -w my_name 
+pip install xxx 
+apt-get install xxx
+
+编译回.sif文件
+sudo singularity build xxx.sif my_name
+
 ## docker
 ### tensorrt
 ### 遇到后很烦的一个问题
