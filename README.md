@@ -1,8 +1,6 @@
 # Computer-Systems
 ## csapp
 常读常新
-## verilog
-本来打算写五级流水的，被芯片行业裁员劝退。
 ## linux
 ### Windows doesn't teach you anything
 [how to use Linux](./files/how%20to%20use%20Linux.md)

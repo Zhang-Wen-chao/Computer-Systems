@@ -36,10 +36,46 @@ python -c "import torch;print (torch.cuda.is_available ());print (torch.__versio
 python -c "
 import pytorch_quantization
 print(pytorch_quantization.__version__)"
-
+python -c "
+import torch
+a = torch.tensor(1.)
+print(a.cuda())
+from torch.backends import cudnn
+print(cudnn.is_available())
+print(cudnn.is_acceptable(a.cuda()))
+print(torch.backends.cudnn.version())"
 ```
+## singularity
+使用singularity 可以在无超级用户权限下使用docker
+本地安装文档参考 https://apptainer.org/user-docs/master/quick_start.html
+一般常用逻辑：
+如果要安装新的python package在你的.sif环境下，
+首先在本地将.sif(dockerhub上build好的文件) 编译成 my_name 的sandbox文件夹，
+在my_name下安装新的python包
+之后再将sandbox编译成.sif文件，传到集群上使用
+
+集群上使用预编译好的singularity需要运行(此外还有--bind 参数之类的可以参考使用)
+singularity shell --nv xxx.sif
+python xxxxx
+
+下面命令都是在本地wsl/linux里使用sudo权限进行的
+编译sandbox
+sudo singularity build --sandbox my_name xxx.sif
+
+安装新的包
+sudo singularity shell -w my_name 
+pip install xxx 
+apt-get install xxx
+
+编译回.sif文件
+sudo singularity build xxx.sif my_name
+
 ## docker
 ### tensorrt
+### 遇到后很烦的一个问题
+libcublas.so.10: cannot open shared object file: No such file or directory
+
+解决方法：安装一个CUDA10就有这个文件了。再复制到对应的地方，一般是：/usr/lib/x86_64-linux-gnu
 #### tensorrt:23.09, 23.02, 22.12
 [TensorRT安装记录](https://blog.csdn.net/qq_37541097/article/details/114847600)
 ```bash
@@ -137,9 +173,8 @@ screen watch -n 1 nvidia-smi
 https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-community-edition-2015
 ### VScode
 使用 Ctrl + R 搜索历史命令：在命令行中按下快捷键 Ctrl + R ，终端回提示 reverse-i-search ，然后在其中输入你要搜索的命令，找到之后按回车就会执行这条命令。 再按 Ctrl + G 退出搜索。
-
 - [vscode](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
-- [oh my zsh](https://blog.csdn.net/tonydz0523/article/details/108112422)
+- oh my zsh
   ```shell
   ZSH_THEME="muse"
   zsh-syntax-highlighting
