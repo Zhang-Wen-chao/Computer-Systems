@@ -146,15 +146,9 @@ https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-commu
   zsh-autosuggestions
   [autojump](https://blog.csdn.net/daerzei/article/details/101362569)
 
-  # 1. 集群上设置zsh为默认
-  # 然而，在其他终端或软件中，可能会以非登录 Shell 的方式启动，从而只加载 ~/.bashrc 文件，而不加载 ~/.bash_profile 文件。这就解释了为什么你的 bashrc 在其他软件中无法自动执行
-  # 解决方案：在.bashrc、.bash_profile都启动zsh。
-  # 2. debian上vscode怎么设置zsh为默认
-  # 要在最新的 VS Code 中设置默认的终端 shell，请按照以下步骤进行操作：
-  # 打开 VS Code 并进入菜单栏的 “File”（文件）选项。
-  # 选择 “Preferences”（首选项）并点击 “Settings”（设置）。
-  # 在设置页面的搜索框中，输入 “terminal.integrated.defaultProfile.linux”
-
+  https://zhuanlan.zhihu.com/p/509092527
+  
+  http://www.uj5u.com/caozuo/274326.html
   # clash
   open () {
     ports=(7890 7891 9090)
