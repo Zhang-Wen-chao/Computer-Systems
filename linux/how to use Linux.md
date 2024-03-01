@@ -180,16 +180,12 @@ https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-commu
   zsh-syntax-highlighting
   zsh-autosuggestions
   [autojump](https://blog.csdn.net/daerzei/article/details/101362569)
-<<<<<<< HEAD
-
+  
   https://zhuanlan.zhihu.com/p/509092527
   
   http://www.uj5u.com/caozuo/274326.html
 
-  http://www.uj5u.com/caozuo/274326.html
-  https://zhuanlan.zhihu.com/p/509092527
-  
->>>>>>> b6ab6898f6d6951fe6dff6b0c6c7531517f56699
+
   # clash
   open () {
     ports=(7890 7891 9090)
