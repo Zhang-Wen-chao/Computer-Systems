@@ -2,13 +2,18 @@
 - [不花里胡哨看电脑主板支持最大内存与频率](https://blog.csdn.net/qq_45164497/article/details/126358529)
 
 - [Windows 10 总是不打招呼就自动更新？教你如何关闭它](https://www.dians.net/thread-1745.htm)
-
 ## shortcut
 1. win + shift + s 是截图.
 2. win + v 是剪切板.
 3. win + Ctrl + O 是屏幕键盘.
 4. Alt + Ctrl + Delete，立即终结电脑的异常状态
 # some softwares
+## [Zotero](https://www.zotero.org/download/)
+[Zotero更改储存路径&迁移文件](https://zhuanlan.zhihu.com/p/478035708)
+
+[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
+## cpp
+https://code.visualstudio.com/docs/cpp/config-mingw
 ## Essential software
 - [Clash for Windows](https://glados.rocks/console)
 
@@ -18,7 +23,6 @@
 - [Mouse without Borders](https://www.microsoft.com/en-us/download/details.aspx?id=35460)
 
 - [Outlook requires updates before it can start](https://learn.microsoft.com/en-us/answers/questions/830716/outlook-requires-updates-before-it-can-start)
-
 ## logitech mouse G300s
 ### linux 下设置
 ![logitech_red](../images/linux_red.png "logitech_red")
@@ -90,15 +94,6 @@ down () {
 # curl https://www.baidu.com/
 # curl https://www.google.com/
 ```
-## [Zotero](https://www.zotero.org/download/)
-[Zotero更改储存路径&迁移文件](https://zhuanlan.zhihu.com/p/478035708)
-
-[文献管理软件——Zotero以及实用插件介绍 第一期](https://www.bilibili.com/video/BV1L24y117Qr/?share_source=copy_web)
-
-[zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-## [iVCam](https://www.e2esoft.com/ivcam/)
-试用期后，不能使用大于640*480的视频尺寸
-
 # Removable storage device
 [U盘写保护无法格式化怎么办？](https://www.reneelab.com.cn/m/how-to-format-write-protected-usb.html)
 
