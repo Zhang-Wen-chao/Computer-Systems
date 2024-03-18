@@ -2,6 +2,9 @@
 - [不花里胡哨看电脑主板支持最大内存与频率](https://blog.csdn.net/qq_45164497/article/details/126358529)
 
 - [Windows 10 总是不打招呼就自动更新？教你如何关闭它](https://www.dians.net/thread-1745.htm)
+
+https://zhuanlan.zhihu.com/p/637930518
+
 ## shortcut
 1. win + shift + s 是截图.
 2. win + v 是剪切板.
