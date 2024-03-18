@@ -3,7 +3,7 @@
 
 - [Windows 10 总是不打招呼就自动更新？教你如何关闭它](https://www.dians.net/thread-1745.htm)
 
-https://zhuanlan.zhihu.com/p/637930518
+- [win11 永久激活](https://zhuanlan.zhihu.com/p/637930518)
 
 ## shortcut
 1. win + shift + s 是截图.
