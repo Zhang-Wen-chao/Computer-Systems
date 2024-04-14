@@ -32,18 +32,11 @@ nvidia-smi和nvidia-settings检查是否装好，很简单省事。
 ```shell
 nvcc -V
 nvidia-smi
-python -c "import torch;print (torch.cuda.is_available ());print (torch.__version__);import torchvision;print(torchvision.__version__);print(torch.version.cuda)"
-python -c "
-import pytorch_quantization
-print(pytorch_quantization.__version__)"
-python -c "
-import torch
-a = torch.tensor(1.)
-print(a.cuda())
-from torch.backends import cudnn
-print(cudnn.is_available())
-print(cudnn.is_acceptable(a.cuda()))
-print(torch.backends.cudnn.version())"
+python -c "import torch; print(torch.__version__)"
+python -c "import torch; print(torch.version.cuda)"
+python -c "import torch.backends.cudnn as cudnn; print(cudnn.version())"
+python -c "import tensorrt; print(tensorrt.__version__)"
+python -c "import pytorch_quantization; print(pytorch_quantization.__version__)"
 ```
 ## singularity
 使用singularity 可以在无超级用户权限下使用docker
