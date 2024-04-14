@@ -62,76 +62,9 @@ apt-get install xxx
 
 编译回.sif文件
 sudo singularity build xxx.sif my_name
-
-## docker
-### tensorrt
-### 遇到后很烦的一个问题
-libcublas.so.10: cannot open shared object file: No such file or directory
-
-解决方法：安装一个CUDA10就有这个文件了。再复制到对应的地方，一般是：/usr/lib/x86_64-linux-gnu
-#### tensorrt:23.09, 23.02, 22.12
-[TensorRT安装记录](https://blog.csdn.net/qq_37541097/article/details/114847600)
-```bash
-23.09,8.6.1;
-23.02,8.5.3;
-22.12,8.5.1;
-sudo docker pull nvcr.io/nvidia/tensorrt:22.12-py3
-sudo docker run --gpus all -it --name=zwc-tensorrt8.5.1 --net=host -v /:/workspace nvcr.io/nvidia/tensorrt:22.12-py3
-exit
-sudo docker start zwc-tensorrt8.5.1
-sudo docker exec -it zwc-tensorrt8.5.1 /bin/bash
-nvidia-smi
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/wprkspace/home/student001/software/TensorRT-8.6.1.6/lib
-export PATH=$PATH:/workspace/home/student001/software/TensorRT-8.6.1.6/bin
-
-python -c "import tensorrt
-print(tensorrt.__version__)
-assert tensorrt.Builder(tensorrt.Logger())"
-
-pip3 install torch torchvision torchaudio --default-timeout=120000
-pip install jupyter --default-timeout=120000
-jupyter notebook --version
-jupyter notebook --ip=0.0.0.0 --allow-root
-```
-#### tensorrt8.6.1,cuda11.8
-```bash
-用tensorrt的官方代码库，docker指定CUDA版本来安装的
-sudo docker run --gpus all -it --name=zwc-tensorrt8.6.1 --net=host -v /:/workspace tensorrt-ubuntu20.04-cuda11.8:latest
-exit
-sudo docker start zwc-tensorrt8.6.1
-sudo docker exec -it zwc-tensorrt8.6.1 /bin/bash
-nvidia-smi
-```
-#### 12.0的CUDA,没有对应的pytorch
-```bash
-sudo docker pull nvidia/cuda:12.0.1-cudnn8-devel-ubuntu22.04
-sudo docker run --gpus all -it --name=zwc-cuda12.0 --net=host -v /:/workspace nvidia/cuda:12.0.1-cudnn8-devel-ubuntu22.04
-exit
-sudo docker start zwc-cuda12.0
-sudo docker exec -it zwc-cuda12.0 /bin/bash
-```
-使用tar安装tensorrt，tensorrt官方的docker没有trtexec。
-## cambricon driver
-pcie 插槽规格要匹配，然后按照官方流程即可。
-```shell
-alias 370="lspci -d:0370 -vvv && cnmon"
-```
-
 ## 低版本的CUDA、CUDNN
-sudo docker pull nvcr.io/nvidia/cuda:9.1-devel-ubuntu16.04
-sudo docker run --gpus all -it --name=zwc-cuda9.1 --net=host -v /:/workspace nvcr.io/nvidia/cuda:9.1-devel-ubuntu16.04
-
-
 [如何在Docker中搭建CUDA & CUDNN 开发环境](https://zhuanlan.zhihu.com/p/580156606)
 ```bash
-sudo docker pull nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04
-sudo docker run -itd -v ~/zhangwch:/home/zhangwch -p 80:8888 --name=Ubuntu20.04-CUDA --gpus all nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04
-sudo docker ps -a
-sudo docker exec -it Ubuntu20.04-CUDA bash
-nvidia-smi
-nvcc -V
-
 apt-get update
 pip install jupyter
 jupyter-notebook --generate-config
@@ -157,13 +90,7 @@ screen watch -n 1 nvidia-smi
 ## Essential software
 ### Microsoft Edge
 - Microsoft Edge
-  ```
-  强制黑色背景: edge://flags/#enable-force-dark
-  [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
-  视频倍速, 右键 inspect, console: document.querySelector('video').playbackRate = 0.9
-  ```
-### Visual Studio
-https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-community-edition-2015
+[关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
 ### VScode
 使用 Ctrl + R 搜索历史命令：在命令行中按下快捷键 Ctrl + R ，终端回提示 reverse-i-search ，然后在其中输入你要搜索的命令，找到之后按回车就会执行这条命令。 再按 Ctrl + G 退出搜索。
 
@@ -180,7 +107,6 @@ vscode的正则表达式搜索中的通配符: '.*'
   https://zhuanlan.zhihu.com/p/509092527
   
   http://www.uj5u.com/caozuo/274326.html
-
 
   # clash
   open () {
