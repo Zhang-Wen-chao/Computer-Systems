@@ -4,7 +4,6 @@
 - [Windows 10 总是不打招呼就自动更新？教你如何关闭它](https://www.dians.net/thread-1745.htm)
 
 - [win11 永久激活](https://zhuanlan.zhihu.com/p/637930518)
-
 ## shortcut
 1. win + shift + s 是截图.
 2. win + v 是剪切板.
@@ -32,10 +31,11 @@ https://code.visualstudio.com/docs/cpp/config-mingw
 
 ![logitech_blue](../images/linux_blue.png "logitech_blue")
 ### win 下设置
-现在yellow是日常。blue以后再说，有需求才会更新设置。
 ![logitech_yellow](../images/win_yellow.png "logitech_yellow")
 
 ![win_blue](../images/win_blue.png "win_blue")
+### mac 下怎么设置
+研究一下，Mac常用快捷键。
 ## edge
 - [CSDN 代码复制限制](https://greasyfork.org/zh-CN/scripts/454012-csdn-%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6%E9%99%90%E5%88%B6)
 - [关闭edge选中/复制文本时显示小菜单/方框](https://blog.csdn.net/qq_45611850/article/details/121380355)
@@ -104,5 +104,5 @@ down () {
 # Download YouTube videos
 https://www.youtube.com/watch?v=K1lQa5QsyDU
 
-加上ss，非美国节点，即可下载。
+加上ss，VPN非美国节点，即可下载。
 https://www.ssyoutube.com/watch?v=K1lQa5QsyDU

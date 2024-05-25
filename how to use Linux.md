@@ -184,20 +184,9 @@ vscode的正则表达式搜索中的通配符: '.*'
   clang --version
   sudo apt install libstdc++-12-dev
   ```
-- QQ
-- Vim
-- tree
-- Zoom
-- WPS
-- Discord
-- Telegram
-- Cursor
-- Krita
 - [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564) 
 - [Zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-
 - [编译安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
-
 ## opencv
 [Opencv 4.3（CUDA11 ） 编译踩坑记录](https://www.cnblogs.com/geoffreyone/p/15040907.html)
 新版本的bug会少一些。费了好几个小时安装3.3，一堆错误。编译安装4.8.1，没啥报错。
@@ -214,13 +203,7 @@ python -c "import cv2; print(cv2.__version__)"
 方案二work了。
 ## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 ```bash
-git revert
-git config --global user.name "zvvc"
-git config --global user.email "zwc@outlook.lv"
-git push origin zvvc
-
 因为上游用了 submodule 所以也稍微学了一下。
-为了提 Pull Request，也为了备份自己写的东西，学了 push 。
 为了把其他分支的修改转移到当前分支，学了 cherry-pick 。
 为了恢复丢掉的修改记录，学了 reflog 。
 为了找到引入或修复 bug 的版本，学了 bisect 和 blame 。
@@ -232,45 +215,7 @@ git push origin zvvc
 遇到过索引中的对象文件损坏，为了修复，学了 fsck 。
 最近还学到用 ls-files 查看自己改了哪些文件。
 当然过程中也断断续续学了不少选项，比如 commit --amend 、pull --rebase 、rebase --autostash、commit --fixup 、rebase --autosquash 等。
-另外时不时用到 init 、 revert 、 rm 、 mv 、 apply 和 rev-list ，但是没仔细学过。
 到这里我觉得我已经认识了大多数初级指令。但是对于如何使用 hook，如何直接操作索引中的对象，我还是一无所知。对于使用邮件的工作流程，我也不太了解。
-```
-- 作为仓库的合作者
-```bash 
-git push --set-upstream origin zvvc
-git checkout main
-git pull
-git checkout zvvc
-git merge main
-```
-- 作为仓库的拥有者
-作为仓库的拥有者，你可以根据合作者执行的命令 git push --set-upstream origin zvvc 采取以下步骤进行处理：
-
-确认合作者的更改：使用 git log 命令查看合作者推送的提交，以了解他们所做的更改。
-
-检查分支：确保合作者要推送到的分支名称 zvvc 不会与现有的分支名称发生冲突。
-
-审查更改：使用 git diff 命令来查看合作者所做的具体更改内容。
-
-接受或拒绝更改：根据你对合作者更改的评估，可以选择接受或拒绝这些更改。
-
-如果你决定接受合作者的更改，可以执行以下命令将其合并到你的主分支（比如 main 或 master）中：
-  ```bash 
-  git checkout main  # 切换到主分支
-  git pull origin zvvc  # 拉取合作者的更改
-  git merge zvvc  # 合并合作者的更改到主分支
-  git push origin main  # 推送合并后的更改到远程仓库的主分支
-  ```
-如果你决定拒绝合作者的更改，你可以使用以下命令回退或重置远程分支，撤销合作者的提交。这将丢弃合作者的更改，请谨慎使用，并确保在执行之前备份重要的更改。
-  ```bash
-  git branch -D zvvc  # 删除本地分支（仅在你确认不需要这个分支时使用）
-  git push origin :zvvc  # 删除远程分支（仅在你确认不需要这个分支时使用）
-  ```
-- 修改仓库名字
-请注意，更改仓库名称后，你需要更新本地仓库的远程URL以反映新的名称。
-如果你在使用命令行进行Git操作，可以使用以下命令更新远程URL：
-```bash
-git remote set-url origin 新的仓库URL
 ```
 - [Missing or invalid credentials.](https://juejin.cn/post/7062237873570840589)
 - 查看github星星数量
@@ -297,7 +242,7 @@ https://github.com/Zhang-Wen-chao/CS240/stargazers
     helper = cache
   ```
 ## vim
-用vim不是为了炫技。vim也只是一个古老的文本编辑器。
+vim也只是一个古老的文本编辑器。
 - h左，j下，k上，l右
 - w 光标向前移动到下个单词首字母，，3w
 - W 跳转到下一个字符串的首字母 （对应英文单词Word）
