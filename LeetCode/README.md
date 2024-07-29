@@ -1,7 +1,7 @@
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
 - [LeetCode 1: 两数之和](#leetcode-1-两数之和)
-- [LeetCode 15: 三数之和](#leetcode-15-三数之和)
+- [LeetCode 15: 三数之和，商汤科技](#leetcode-15-三数之和商汤科技)
 - [LeetCode 49: 字母异位词分组](#leetcode-49-字母异位词分组)
 - [LeetCode 138: 随机链表的复制](#leetcode-138-随机链表的复制)
 - [LeetCode 295: 数据流的中位数](#leetcode-295-数据流的中位数)
@@ -12,6 +12,7 @@
 - [iFlytek 3: 整数拆分](#iflytek-3-整数拆分)
 - [iFlytek 4: 理解 lambda 函数](#iflytek-4-理解-lambda-函数)
 - [LeetCode 402: 移掉 K 位数字，SAP 安卓开发](#leetcode-402-移掉-k-位数字sap-安卓开发)
+- [LeetCode 1423: 可获得的最大点数，海思麒麟](#leetcode-1423-可获得的最大点数海思麒麟)
 
 ---
 ## LeetCode 1: 两数之和
@@ -33,7 +34,7 @@
 
 ---
 
-## LeetCode 15: 三数之和
+## LeetCode 15: 三数之和，商汤科技
 [三数之和](https://leetcode.cn/problems/3sum/description/)
 
 首先对数组进行排序，得到 [-4, -1, -1, 0, 1, 2]。
@@ -254,6 +255,30 @@ for f in fun():
 
 拼接成字符串得到 "1219"。
 
-代码文件：[295-find-median-from-data-stream.py](./295-find-median-from-data-stream.py)
+代码文件：[402-remove-k-digits.py](./402-remove-k-digits.py)
+
+---
+## LeetCode 1423: 可获得的最大点数，海思麒麟
+[可获得的最大点数](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/description/)
+
+计算总和：
+首先计算所有卡牌点数的总和 total。
+
+确定需要留下的卡牌数量：
+计算需要留下的卡牌数量 leave_count = n - k，其中 n 是卡牌总数。这是因为你要从两端拿走 k 张卡牌。
+
+特殊情况处理：
+如果需要拿走的卡牌数量 k 等于卡牌总数 n，那么直接返回总和 total，因为你会拿走所有的卡牌。
+
+滑动窗口计算最小的子数组和：
+为了最大化总和，实际上需要最小化中间未被拿走的子数组和。这可以通过滑动窗口技术来实现：
+
+初始化最小子数组和 min_subarray_sum 为无穷大。
+计算第一个长度为 leave_count 的子数组的和，并更新 min_subarray_sum。
+使用滑动窗口，从数组的 leave_count 位置开始，一直到数组末尾，每次滑动窗口向右移动一位，更新当前窗口的和，并更新 min_subarray_sum。
+计算最大得分：
+最后，最大得分就是总和 total 减去最小子数组和 min_subarray_sum。
+
+代码文件：[1423-maximum-points-you-can-obtain-from-cards.py](./1423-maximum-points-you-can-obtain-from-cards.py)
 
 ---
