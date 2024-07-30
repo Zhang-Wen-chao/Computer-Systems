@@ -1,18 +1,22 @@
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
 - [LeetCode 1: 两数之和](#leetcode-1-两数之和)
-- [LeetCode 15: 三数之和，商汤科技](#leetcode-15-三数之和商汤科技)
+- [LeetCode 15: 三数之和，SenseT](#leetcode-15-三数之和senset)
 - [LeetCode 49: 字母异位词分组](#leetcode-49-字母异位词分组)
 - [LeetCode 138: 随机链表的复制](#leetcode-138-随机链表的复制)
 - [LeetCode 295: 数据流的中位数](#leetcode-295-数据流的中位数)
-- [iFlytek 1: 动态删除中位数](#iflytek-1-动态删除中位数)
+- [iFlytec 1: 动态删除中位数](#iflytec-1-动态删除中位数)
 - [LeetCode 940: 不同的子序列 II](#leetcode-940-不同的子序列-ii)
-- [iFlytek 2: 不同的子序列](#iflytek-2-不同的子序列)
+- [iFlytec 2: 不同的子序列](#iflytec-2-不同的子序列)
 - [LeetCode 343: 整数拆分](#leetcode-343-整数拆分)
-- [iFlytek 3: 整数拆分](#iflytek-3-整数拆分)
-- [iFlytek 4: 理解 lambda 函数](#iflytek-4-理解-lambda-函数)
-- [LeetCode 402: 移掉 K 位数字，SAP 安卓开发](#leetcode-402-移掉-k-位数字sap-安卓开发)
-- [LeetCode 1423: 可获得的最大点数，海思麒麟](#leetcode-1423-可获得的最大点数海思麒麟)
+- [iFlytec 3: 整数拆分](#iflytec-3-整数拆分)
+- [iFlytec 4: 理解 lambda 函数](#iflytec-4-理解-lambda-函数)
+- [LeetCode 300: 最长递增子序列，dewu gobk](#leetcode-300-最长递增子序列dewu-gobk)
+- [LeetCode 402: 移掉 K 位数字，SAP](#leetcode-402-移掉-k-位数字sap)
+- [LeetCode 767: 重构字符串](#leetcode-767-重构字符串)
+- [LeetCode 1576: 替换所有的问号](#leetcode-1576-替换所有的问号)
+- [dewu fhkr: 重构字符串，与，替换所有问号，的结合](#dewu-fhkr-重构字符串与替换所有问号的结合)
+- [LeetCode 1423: 可获得的最大点数，HiSi](#leetcode-1423-可获得的最大点数hisi)
 
 ---
 ## LeetCode 1: 两数之和
@@ -34,7 +38,7 @@
 
 ---
 
-## LeetCode 15: 三数之和，商汤科技
+## LeetCode 15: 三数之和，SenseT
 [三数之和](https://leetcode.cn/problems/3sum/description/)
 
 首先对数组进行排序，得到 [-4, -1, -1, 0, 1, 2]。
@@ -102,7 +106,7 @@
 
 ---
 
-## iFlytek 1: 动态删除中位数
+## iFlytec 1: 动态删除中位数
 要使代码运行得更快，可以减少重复排序的次数。每次移除中位数后，我们可以通过二分查找来找到并移除中位数，这样可以避免重复排序，从而提高效率。
 
 1. **初始排序**：对输入数组进行一次排序。
@@ -129,7 +133,7 @@
 6 6 6 6 6 6
 ```
 
-代码文件：[dynamic_delete_median.py](./iFlytek-1-dynamic_delete_median.py)
+代码文件：[dynamic_delete_median.py](./iFlytec-1-dynamic_delete_median.py)
 
 ---
 
@@ -154,7 +158,7 @@
 
 ---
 
-## iFlytek 2: 不同的子序列
+## iFlytec 2: 不同的子序列
 但是我没看懂这个题目。
 
 给定一个仅由小写字母组成，长度为n的字符串s，则字符串有2^n-1个非空子序列。请你求出所有子序列中不同字符的个数总和，由于答案较大，输出对10^9+7取模后的结果。 例如 输入 aaaa 输出 15 说明：2^6-1 =15 输入 abcde 输出 80
@@ -175,14 +179,14 @@
 代码文件：[343-integer-break.py](./343-integer-break.py)
 
 ---
-## iFlytek 3: 整数拆分
+## iFlytec 3: 整数拆分
 这个能看懂，但不会写，它的示例我没记录完全。明明我的答案也合理，但是就是判错了。
 
 众所周知，任何一个数，都可以拆成若干项不同的，由2的次幂，3的次幂相乘的和。比如10等于2的三次方乘3的0次方加上2的一次方乘3的0次方。 请你写个Python代码 输入，第一行是一个整数t，代表了t组数据。 输出，对于每一组数据，第一行输出一个整数m代表序列的项数，第二行输出m个不同的整数代表拆出的序列。并由大到小输出。 比如 输入 1 10 输出 2 8 2
 
 ---
 
-## iFlytek 4: 理解 lambda 函数
+## iFlytec 4: 理解 lambda 函数
 理解这句代码时，关键在于理解 `fun()` 返回的是一个包含多个函数的列表。我们先回顾一下 `fun()` 函数的定义：
 
 ```python
@@ -238,11 +242,24 @@ for f in fun():
 
 通过 `for f in fun():` 进行迭代时，你实际上是在对包含的每个函数进行迭代并调用它们。这样就可以对每个函数传递参数并执行它们的功能。
 
-代码文件：[understand-lambda.py](./iFlytek-4-understand-lambda.py)
+代码文件：[understand-lambda.py](./iFlytec-4-understand-lambda.py)
 
 ---
 
-## LeetCode 402: 移掉 K 位数字，SAP 安卓开发
+## LeetCode 300: 最长递增子序列，dewu gobk
+[最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/description/)
+
+初始化 dp 数组，每个位置的值为1，因为每个元素都可以看作是一个长度为1的递增子序列。
+
+遍历数组的每个元素，对于每个元素，向前检查所有之前的元素。如果前面的元素小于当前元素，那么我们可以更新 dp 数组的当前值，即 dp[i] = max(dp[i], dp[j] + 1)，其中 j 是当前元素之前的元素的索引。
+
+最终，最长递增子序列的长度就是 dp 数组中的最大值。
+
+代码文件：[402-remove-k-digits.py](./402-remove-k-digits.py)
+
+---
+
+## LeetCode 402: 移掉 K 位数字，SAP
 [移掉 K 位数字](https://leetcode.cn/problems/remove-k-digits/description/)
 
 对于输入 num = "1432219" 和 k = 3：
@@ -258,7 +275,62 @@ for f in fun():
 代码文件：[402-remove-k-digits.py](./402-remove-k-digits.py)
 
 ---
-## LeetCode 1423: 可获得的最大点数，海思麒麟
+
+## LeetCode 767: 重构字符串
+
+[重构字符串](https://leetcode.cn/problems/reorganize-string-/description/)
+
+统计每个字符的出现频率：使用 collections.Counter 统计每个字符在字符串中的出现频率。
+
+用最大堆存储字符和它们的频率：由于 Python 的 heapq 模块默认是最小堆，因此我们存储负数的频率以实现最大堆的效果。
+
+构建结果字符串：每次从堆中取出频率最高的字符，并将其添加到结果字符串中。将上一次取出的字符（如果还有剩余）重新放回堆中。
+
+检查结果字符串的有效性：最后检查生成的结果字符串长度是否与原字符串相等。如果不相等，说明无法重新排列字符使得相邻字符不同，返回空字符串。
+
+代码文件：[767-reorganize-string.py](./767-reorganize-string.py)
+
+---
+## LeetCode 1576: 替换所有的问号
+
+[替换所有的问号](https://leetcode.cn/problems/replace-all-s-to-avoid-consecutive-repeating-characters/description/)
+
+转换为列表：首先将字符串转换为列表，以方便对字符进行修改。
+
+遍历字符串：遍历字符串中的每一个字符，如果是 '?'，则选择一个合适的字母进行替换。
+
+选择合适的字母：为了确保替换后的字符不与前后字符相同，我们从 'abcdefghijklmnopqrstuvwxyz' 中选择一个字母，并检查是否与前后字符冲突。
+
+替换并返回：将 '?' 替换为合适的字母后，将列表转换回字符串并返回。
+
+代码文件：[1576-replace-all-s-to-avoid-consecutive-repeating-characters.py](./1576-replace-all-s-to-avoid-consecutive-repeating-characters.py)
+
+---
+## dewu fhkr: 重构字符串，与，替换所有问号，的结合
+一个字符串由0，1，2，？等字符组成，请将所有的？字符转为0，1，2里面的一个，需要保证替换后相邻字符不同，有多少替换方式？
+
+定义函数 count_replaces(s)，该函数用于计算可能的组合数。
+
+在 count_replaces(s) 中定义了一个嵌套的回溯函数 backtrack(index)，它会从字符串的指定索引位置开始递归地进行字符替换和检查。
+
+backtrack(index) 函数：
+
+如果当前索引等于字符串的长度，表示已经处理完所有字符，增加计数器 count 并返回。
+
+如果当前字符是 '?'，则尝试将其替换为 '0'、'1' 或 '2'，并确保替换后的字符与前一个字符不同，然后继续处理下一个字符。
+
+如果当前字符不是 '?'，则检查它是否与前一个字符不同，如果不同则继续处理下一个字符。
+
+count_replaces(s) 函数初始化计数器 count 为 0，并将字符串转换为列表（以便修改），然后调用 backtrack(0) 开始递归。
+
+count_replaces(s) 最后返回计数器 count 的值，表示符合条件的字符串组合数。
+
+在 main() 函数中，测试不同的字符串并打印结果。
+
+代码文件：[dewu-1-replace-wenhao.py](./dewu-1-replace-wenhao.py)
+
+---
+## LeetCode 1423: 可获得的最大点数，HiSi
 [可获得的最大点数](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/description/)
 
 计算总和：

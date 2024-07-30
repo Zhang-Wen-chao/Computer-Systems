@@ -1,30 +1,31 @@
-def threeSum(nums):
+from typing import List
+
+def threeSum(nums: List[int]) -> List[List[int]]:
     nums.sort()
     result = []
-    n = len(nums)
     
-    for i in range(n - 2):
-        # 如果当前数和前一个数相同，跳过，避免重复结果
-        if i > 0 and nums[i] == nums[i - 1]:
-            continue
+    for i in range(len(nums) - 2):
+        left, right = i + 1, len(nums) - 1
         
-        left, right = i + 1, n - 1
+        if nums[i] > 0:  # Early exit condition
+            return result
+        if i > 0 and nums[i] == nums[i - 1]:  # Skip duplicates
+            continue
+
         while left < right:
-            total = nums[i] + nums[left] + nums[right]
-            if total == 0:
+            sum = nums[i] + nums[left] + nums[right]
+            if sum > 0:
+                right -= 1
+            elif sum < 0:
+                left += 1
+            else:
                 result.append([nums[i], nums[left], nums[right]])
-                # 跳过相同的元素，避免重复结果
-                while left < right and nums[left] == nums[left + 1]:
+                while left < right and nums[left] == nums[left + 1]:  # Skip duplicates
                     left += 1
-                while left < right and nums[right] == nums[right - 1]:
+                while left < right and nums[right] == nums[right - 1]:  # Skip duplicates
                     right -= 1
                 left += 1
                 right -= 1
-            elif total < 0:
-                left += 1
-            else:
-                right -= 1
-    
     return result
 
 nums = [-1, 0, 1, 2, -1, -4]
