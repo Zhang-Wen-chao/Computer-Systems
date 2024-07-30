@@ -1,7 +1,7 @@
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
 - [LeetCode 1: 两数之和](#leetcode-1-两数之和)
-- [LeetCode 15: 三数之和，SenseT](#leetcode-15-三数之和senset)
+- [LeetCode 15: 三数之和，uhth](#leetcode-15-三数之和uhth)
 - [LeetCode 49: 字母异位词分组](#leetcode-49-字母异位词分组)
 - [LeetCode 138: 随机链表的复制](#leetcode-138-随机链表的复制)
 - [LeetCode 295: 数据流的中位数](#leetcode-295-数据流的中位数)
@@ -11,12 +11,13 @@
 - [LeetCode 343: 整数拆分](#leetcode-343-整数拆分)
 - [iFlytec 3: 整数拆分](#iflytec-3-整数拆分)
 - [iFlytec 4: 理解 lambda 函数](#iflytec-4-理解-lambda-函数)
+- [LeetCode 209: 长度最小的子数组，bddu](#leetcode-209-长度最小的子数组bddu)
 - [LeetCode 300: 最长递增子序列，dewu gobk](#leetcode-300-最长递增子序列dewu-gobk)
 - [LeetCode 402: 移掉 K 位数字，SAP](#leetcode-402-移掉-k-位数字sap)
 - [LeetCode 767: 重构字符串](#leetcode-767-重构字符串)
 - [LeetCode 1576: 替换所有的问号](#leetcode-1576-替换所有的问号)
 - [dewu fhkr: 重构字符串，与，替换所有问号，的结合](#dewu-fhkr-重构字符串与替换所有问号的结合)
-- [LeetCode 1423: 可获得的最大点数，HiSi](#leetcode-1423-可获得的最大点数hisi)
+- [LeetCode 1423: 可获得的最大点数，hisi](#leetcode-1423-可获得的最大点数hisi)
 
 ---
 ## LeetCode 1: 两数之和
@@ -38,7 +39,7 @@
 
 ---
 
-## LeetCode 15: 三数之和，SenseT
+## LeetCode 15: 三数之和，uhth
 [三数之和](https://leetcode.cn/problems/3sum/description/)
 
 首先对数组进行排序，得到 [-4, -1, -1, 0, 1, 2]。
@@ -246,6 +247,21 @@ for f in fun():
 
 ---
 
+## LeetCode 209: 长度最小的子数组，bddu
+[长度最小的子数组](https://leetcode.cn/problems/minimum-size-subarray-sum/description/)
+
+初始化：设定左边界 left 为 0，当前窗口的和 sum 为 0，以及最小长度 min_length 为正无穷大。
+
+扩展窗口：使用右边界 right 遍历数组，每次将当前元素加入窗口的和 sum 中。
+
+收缩窗口：如果当前窗口的和 sum 大于等于目标值 target，则尝试收缩窗口，即不断移动左边界 left 并更新最小长度 min_length，直到窗口的和小于目标值。
+
+返回结果：遍历结束后，如果 min_length 被更新，则返回其值，否则返回 0，表示没有满足条件的子数组。
+
+代码文件：[209-minimum-size-subarray-sum.py](./209-minimum-size-subarray-sum.py)
+
+---
+
 ## LeetCode 300: 最长递增子序列，dewu gobk
 [最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/description/)
 
@@ -330,7 +346,7 @@ count_replaces(s) 最后返回计数器 count 的值，表示符合条件的字�
 代码文件：[dewu-1-replace-wenhao.py](./dewu-1-replace-wenhao.py)
 
 ---
-## LeetCode 1423: 可获得的最大点数，HiSi
+## LeetCode 1423: 可获得的最大点数，hisi
 [可获得的最大点数](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/description/)
 
 计算总和：
