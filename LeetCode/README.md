@@ -23,14 +23,18 @@
 - [LeetCode 64: 最小路径和](#leetcode-64-最小路径和)
 - [xiyu 2: 最大路径和](#xiyu-2-最大路径和)
 - [xiyu 3: 手搓神经网络](#xiyu-3-手搓神经网络)
+- [uhth 1: 利用梯度下降法求解函数最小值](#uhth-1-利用梯度下降法求解函数最小值)
 - [LeetCode 300: 最长递增子序列，dewu gobk](#leetcode-300-最长递增子序列dewu-gobk)
 - [LeetCode 402: 移掉 K 位数字，SAP](#leetcode-402-移掉-k-位数字sap)
 - [LeetCode 767: 重构字符串](#leetcode-767-重构字符串)
 - [LeetCode 1576: 替换所有的问号](#leetcode-1576-替换所有的问号)
 - [dewu fhkr: 重构字符串，与，替换所有问号，的结合](#dewu-fhkr-重构字符串与替换所有问号的结合)
 - [LeetCode 209: 长度最小的子数组，bddu](#leetcode-209-长度最小的子数组bddu)
+- [LeetCode 239: 滑动窗口最大值，uhth](#leetcode-239-滑动窗口最大值uhth)
 - [LeetCode 1423: 可获得的最大点数，hisi](#leetcode-1423-可获得的最大点数hisi)
 - [wwld-1 : 自余数，jkds](#wwld-1--自余数jkds)
+- [LeetCode 207: 课程表，qualcom](#leetcode-207-课程表qualcom)
+- [LeetCode 210: 课程表 II，qualcom](#leetcode-210-课程表-iiqualcom)
 
 ---
 ## LeetCode 1: 两数之和
@@ -368,6 +372,13 @@ for f in fun():
 
 ---
 
+## uhth 1: 利用梯度下降法求解函数最小值
+
+代码文件：[uhth-1-gradient_descent.py](./uhth-1-gradient_descent.py)
+
+---
+
+
 ## LeetCode 300: 最长递增子序列，dewu gobk
 [最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/description/)
 
@@ -467,6 +478,23 @@ count_replaces(s) 最后返回计数器 count 的值，表示符合条件的字�
 
 ---
 
+## LeetCode 239: 滑动窗口最大值，uhth
+[滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/description/)
+
+双端队列 deq：用于存储当前滑动窗口中元素的索引，并且保证这些元素的顺序是从大到小的。因此，deq[0]始终是当前窗口中的最大值的索引。
+
+移除过期元素：如果deq中的第一个元素已经超出当前滑动窗口的范围，就将其从deq中移除。
+
+保持deq的顺序：从deq的尾部开始，如果当前元素nums[i]大于等于deq尾部的元素，我们就将这些较小的元素移除，因为它们不可能成为窗口的最大值。
+
+加入新元素：将当前元素的索引添加到deq中。
+
+记录最大值：一旦我们遍历过一个完整的窗口（i >= k - 1），将deq[0]对应的元素添加到结果列表result中。
+
+代码文件：[239-sliding-window-maximum.py](./239-sliding-window-maximum.py)
+
+---
+
 ## LeetCode 1423: 可获得的最大点数，hisi
 [可获得的最大点数](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/description/)
 
@@ -499,5 +527,26 @@ count_replaces(s) 最后返回计数器 count 的值，表示符合条件的字�
 这个代码通过预处理和查表的方法有效地计算了多个查询中给定范围内满足特定条件的数的数量。它使用了一个大数组 table 来存储中间结果，从而使查询变得非常高效。
 
 代码文件：[wwld-1-ziyushu.cpp](./wwld-1-ziyushu.cpp)
+
+---
+
+## LeetCode 207: 课程表，qualcom
+[课程表](https://leetcode.cn/problems/course-schedule/description/)
+
+这是一道经典的图论题目，要求判断一个课程安排是否可能，即判断一个有向图中是否有环。可以使用拓扑排序（Kahn's Algorithm）或深度优先搜索（DFS）来解决。
+
+下面是使用拓扑排序（BFS）来解决此问题的Python代码。
+
+代码文件：[207-course-schedule.py](./207-course-schedule.py)
+
+---
+
+## LeetCode 210: 课程表 II，qualcom
+[课程表](https://leetcode.cn/problems/course-schedule-ii/description/)
+
+
+要求你找到一种学习所有课程的顺序。如果有多个正确的顺序，只需要返回其中一个，如果无法完成所有课程，则返回空列表。这本质上是求一个有向无环图（DAG）的拓扑排序。
+
+代码文件：[210-course-schedule-ii.py](./210-course-schedule-ii.py)
 
 ---
