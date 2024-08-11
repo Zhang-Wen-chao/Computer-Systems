@@ -2,7 +2,10 @@
 - [Table of Contents](#table-of-contents)
 - [LeetCode 1: 两数之和](#leetcode-1-两数之和)
 - [LeetCode 15: 三数之和，uhth](#leetcode-15-三数之和uhth)
-- [LeetCode 15: 有效的括号，xbds](#leetcode-15-有效的括号xbds)
+- [ailab 1: 幻方](#ailab-1-幻方)
+- [LeetCode 840: 矩阵中的幻方](#leetcode-840-矩阵中的幻方)
+- [LeetCode 1895: 最大的幻方](#leetcode-1895-最大的幻方)
+- [LeetCode 20: 有效的括号，xbds](#leetcode-20-有效的括号xbds)
 - [xiyu 1: 打印竖式乘法](#xiyu-1-打印竖式乘法)
 - [LeetCode 49: 字母异位词分组](#leetcode-49-字母异位词分组)
 - [LeetCode 69: x 的平方根 ，xbds](#leetcode-69-x-的平方根-xbds)
@@ -40,19 +43,8 @@
 ## LeetCode 1: 两数之和
 [两数之和](https://leetcode.cn/problems/two-sum/description/)
 
-创建一个字典：我们创建一个空字典，用来存储每个数字及其在列表中的位置。
 
-遍历列表：我们依次查看列表中的每个数字。
-
-计算差值：对于每个数字，我们计算它与目标值之间的差值（我们希望找到另一个数字，它加上当前数字等于目标值）。
-
-检查字典：我们查看这个差值是否已经在字典中：
-
-如果在字典中：说明我们之前遇到过这个差值对应的数字，现在找到了两个数，它们的和等于目标值。我们返回这两个数在列表中的位置。
-如果不在字典中：我们把当前的数字和它的位置存入字典中，方便后面查找。
-返回结果：如果遍历完整个列表也没有找到这样的两个数，就返回一个空列表。
-
-代码文件：[1-two-sum.py](./1-two-sum.py)
+代码文件：[1. Two Sum.py](../C++/代码随想录/Hashtable/1.%20Two%20Sum.py)
 
 ---
 
@@ -65,10 +57,31 @@
 
 在找到一个满足条件的三元组后，继续移动指针跳过相同的元素，确保结果不重复。
 
-代码文件：[15-3sum.py](./15-3sum.py)
+代码文件：[15. 3Sum.py](../C++/代码随想录/Hashtable/15.%203Sum.py)
 
 ---
-## LeetCode 15: 有效的括号，xbds
+
+## ailab 1: 幻方
+
+代码文件：[ailab-is_magic_square.py](./ailab-is_magic_square.py)
+
+---
+
+## LeetCode 840: 矩阵中的幻方
+[矩阵中的幻方](https://leetcode.cn/problems/magic-squares-in-grid/description/)
+
+代码文件：[840-magic-squares-in-grid.py](./840-magic-squares-in-grid.py)
+
+---
+
+## LeetCode 1895: 最大的幻方
+[最大的幻方](https://leetcode.cn/problems/largest-magic-square/description/)
+
+代码文件：[1895-largest-magic-square.py](./1895-largest-magic-square.py)
+
+---
+
+## LeetCode 20: 有效的括号，xbds
 [有效的括号](https://leetcode.cn/problems/valid-parentheses/description/)
 
 代码文件：[20-valid-parentheses.py](../C++/代码随想录/Stack_Queue/20.%20Valid%20Parentheses.py)
