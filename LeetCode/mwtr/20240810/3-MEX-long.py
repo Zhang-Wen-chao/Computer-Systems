@@ -13,42 +13,21 @@
 
 # https://www.nowcoder.com/discuss/651750873652092928?sourceSSR=search
 
-def find_min_cost(n, k, x, arr):
-    def calculate_mex(arr):
-        mex = 0
-        while mex in arr:
+for _ in range(int(input())):
+    n, k, x = list(map(int, input().split()))
+    a = list(map(int, input().split()))
+    ans = 10**18
+    have = set()
+    cur = x*n
+    ans = cur
+    mex = 0
+    for i in range(n)[::-1]:
+        cur -= x
+        have.add(a[i])
+        while mex in have:
             mex += 1
-        return mex
-
-    mex_value = calculate_mex(arr)
-    min_cost = k * mex_value + x
-
-    current_cost = 0
-    for i in range(n):
-        current_cost += x
-        remaining_mex = calculate_mex(arr[i+1:])
-        total_cost = current_cost + k * remaining_mex
-        min_cost = min(min_cost, total_cost)
-
-    return min_cost
-n = 6
-k = 3
-x = 3
-arr = [4, 5, 2, 3, 1, 0]
-
-print(find_min_cost(n, k, x, arr)) # 15
-
-
-# t = int(input())
-# results = []
-
-# for _ in range(t):
-#     n, k, x = map(int, input().split())
-#     arr = list(map(int, input().split()))
-#     results.append(find_min_cost(n, k, x, arr))
-# for result in results:
-#     print(result)
-
+        ans = min(ans, cur + k*mex)
+    print(ans)
 
 
 # 下面这个代码是 acm 金牌写的。
