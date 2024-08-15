@@ -11,9 +11,11 @@
 - [LeetCode 69: x 的平方根 ，xbds](#leetcode-69-x-的平方根-xbds)
 - [LeetCode 191: 位1的个数，amd](#leetcode-191-位1的个数amd)
 - [LeetCode 338: 比特位计数](#leetcode-338-比特位计数)
+- [LeetCode 2166: 设计位集, zijp](#leetcode-2166-设计位集-zijp)
 - [LeetCode 73: 矩阵置零 ，xbds](#leetcode-73-矩阵置零-xbds)
 - [LeetCode 112: 路径总和 ，xbds](#leetcode-112-路径总和-xbds)
 - [LeetCode LCR 155: 将二叉搜索树转化为排序的双向链表 ，mayi](#leetcode-lcr-155-将二叉搜索树转化为排序的双向链表-mayi)
+- [LeetCode 19: 删除链表的倒数第 N 个结点 ，soul](#leetcode-19-删除链表的倒数第-n-个结点-soul)
 - [LeetCode 138: 随机链表的复制，bddu](#leetcode-138-随机链表的复制bddu)
 - [LeetCode 283: 移动零，xbds](#leetcode-283-移动零xbds)
 - [LeetCode 295: 数据流的中位数](#leetcode-295-数据流的中位数)
@@ -36,13 +38,14 @@
 - [LeetCode 239: 滑动窗口最大值，uhth](#leetcode-239-滑动窗口最大值uhth)
 - [LeetCode 1423: 可获得的最大点数，hisi](#leetcode-1423-可获得的最大点数hisi)
 - [wwld-1 : 自余数，jkds](#wwld-1--自余数jkds)
+- [LeetCode 912: 排序数组 ，muxi](#leetcode-912-排序数组-muxi)
+- [LeetCode 1188: 设计有限阻塞队列 ，zijp](#leetcode-1188-设计有限阻塞队列-zijp)
 - [LeetCode 207: 课程表，qualcom](#leetcode-207-课程表qualcom)
 - [LeetCode 210: 课程表 II，qualcom](#leetcode-210-课程表-iiqualcom)
 
 ---
 ## LeetCode 1: 两数之和
 [两数之和](https://leetcode.cn/problems/two-sum/description/)
-
 
 代码文件：[1. Two Sum.py](../C++/代码随想录/Hashtable/1.%20Two%20Sum.py)
 
@@ -91,7 +94,7 @@
 ## xiyu 1: 打印竖式乘法
 [打印竖式乘法](https://www.acgo.cn/problemset/info/7221)
 
-代码文件：[xiyu-1-print-vertical-multiplication.py](./xiyu-1-print-vertical-multiplication.py)
+代码文件：[xiyu-1-print-vertical-multiplication.py](./xiyu/xiyu-1-print-vertical-multiplication.py)
 
 ---
 
@@ -140,6 +143,13 @@
 代码文件：[338-counting-bits.py](./338-counting-bits.py)
 
 ---
+## LeetCode 2166: 设计位集, zijp
+[设计位集](https://leetcode.cn/problems/design-bitset/description/)
+zijp 改题，cpp设计并实现一个能存储n位数的位图。32位，有set，Reset，find查看状态。
+
+代码文件：[2166-design-bitset.cpp](./2166-design-bitset.cpp)
+
+---
 ## LeetCode 73: 矩阵置零 ，xbds
 [矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes/description/)
 
@@ -178,6 +188,13 @@
 
 ---
 
+## LeetCode 19: 删除链表的倒数第 N 个结点 ，soul
+[删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/)
+
+代码文件：[19-remove-nth-node-from-end-of-list.py](./19-remove-nth-node-from-end-of-list.py)
+
+---
+
 ## LeetCode 138: 随机链表的复制，bddu
 [随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/description/)
 
@@ -186,6 +203,9 @@
 1. **复制每个节点并将复制节点插入到原节点后面**：通过遍历原链表，我们创建一个新的节点，并将其插入到原节点后面。这样每个原节点后面紧跟一个复制节点。
 2. **复制随机指针**：通过再次遍历链表，更新复制节点的 `random` 指针。
 3. **拆分链表**：将复制节点从混合链表中拆分出来，恢复原链表并获得复制链表。
+
+python中切片用的是深拷贝还是浅拷贝？在 Python 中，切片操作通常产生一个浅拷贝（shallow copy）。
+浅拷贝将当成是信用卡副卡，共享额度。
 
 代码文件：[138-copy-list-with-random-pointer.py](./138-copy-list-with-random-pointer.py)
 
@@ -373,15 +393,18 @@ for f in fun():
 ## xiyu 2: 最大路径和
 [最大路径和](https://cloud.tencent.com/developer/article/1856834)
 
-代码文件：[xiyu-2-maximum-path-sum.py](./xiyu-2-maximum-path-sum.py)
+代码文件：[xiyu-2-maximum-path-sum.py](./xiyu/xiyu-2-maximum-path-sum.py)
 
 ---
 ## xiyu 3: 手搓神经网络
 据说，不用torch，不用numpy。下面的代码，cnn_python.py 是运行不了的。
 
-代码文件：[cnn_torch.py](./cnn_torch.py)
-代码文件：[cnn_numpy.py](./cnn_numpy.py)
-代码文件：[cnn_python.py](./cnn_python.py)
+代码文件：[cnn_torch.py](./xiyu/cnn_torch.py)
+代码文件：[cnn_numpy.py](./xiyu/cnn_numpy.py)
+代码文件：[cnn_python.py](./xiyu/cnn_python.py)
+
+代码文件：[transformer.py](./xiyu/transformer.py)
+代码文件：[bert.py](./xiyu/bert.py)
 
 ---
 
@@ -540,6 +563,24 @@ count_replaces(s) 最后返回计数器 count 的值，表示符合条件的字�
 这个代码通过预处理和查表的方法有效地计算了多个查询中给定范围内满足特定条件的数的数量。它使用了一个大数组 table 来存储中间结果，从而使查询变得非常高效。
 
 代码文件：[wwld-1-ziyushu.cpp](./wwld-1-ziyushu.cpp)
+
+---
+
+## LeetCode 912: 排序数组 ，muxi
+[排序数组](https://leetcode.cn/problems/sort-an-array/description/)
+改为快排任意长度数组，数组内容也用随机数填充。
+
+代码文件：[912-sort-an-array.cpp](./912-sort-an-array.cpp)
+
+---
+
+## LeetCode 1188: 设计有限阻塞队列 ，zijp
+[设计有限阻塞队列](https://leetcode.cn/problems/design-bounded-blocking-queue/description/)
+
+https://blog.csdn.net/HeavenDan/article/details/117925822
+
+代码文件：[1188-design-bounded-blocking-queue.py](./1188-design-bounded-blocking-queue.py)
+代码文件：[1188-design-bounded-blocking-queue.cpp](./1188-design-bounded-blocking-queue.cpp)
 
 ---
 

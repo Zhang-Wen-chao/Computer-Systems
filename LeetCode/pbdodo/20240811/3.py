@@ -8,34 +8,40 @@
 # 2
 # 0 1
 # Output 1: 2
+# 不操作，观赏度为0，
+# 操作区间［1,1］，观赏度为2，操作区间［2,2］，观赏度为2，操作区间［1,2］，观赏度为0，共有2种不同的观赏度。
 
 # Input 2: 
 # 4 
 # 0 1 1 0
 # Output 2: 2
-def count_distinct_views(n, flowers):
-    # 计算原始的观赏度
-    original_view = abs(flowers.count(0) - flowers.count(1))
-    distinct_views = {original_view}
 
-    # 遍历所有可能的翻转区间
-    for i in range(n):
-        for j in range(i, n):
-            # 计算区间 [i, j] 中0的个数（翻转后这些0会变成1）
-            num_zeros = flowers[i:j+1].count(0)
-            
-            # 翻转后的观赏度：玫瑰的数量减少，牡丹的数量增加
-            new_view = abs((flowers.count(0) - num_zeros) - (flowers.count(1) + num_zeros))
-            distinct_views.add(new_view)
+n = int(input())
+flowers = list(map(int, input().split()))
+
+# 将花的编码转为1表示牡丹，-1表示玫瑰
+flowers = [1 if flower == 1 else -1 for flower in flowers]
+
+min_prefix_sum, max_prefix_sum = 0, 0
+min_result, max_result = 0, 0
+current_prefix_sum = 0
+
+for i, flower in enumerate(flowers):
+    current_prefix_sum += flower
     
-    return len(distinct_views)
+    # 更新最小结果和最大结果
+    min_result = min(min_result, current_prefix_sum - max_prefix_sum)
+    max_result = max(max_result, current_prefix_sum - min_prefix_sum)
+    
+    # 更新最小和最大前缀和
+    min_prefix_sum = min(min_prefix_sum, current_prefix_sum)
+    max_prefix_sum = max(max_prefix_sum, current_prefix_sum)
 
-# 示例测试
-n1 = 2
-flowers1 = [0, 1]
-print(count_distinct_views(n1, flowers1))  # 输出 2
+# 计算经过操作后观赏度的最小和最大可能值
+min_observation, max_observation = current_prefix_sum - 2 * max_result, current_prefix_sum - 2 * min_result
 
-n2 = 4
-flowers2 = [0, 1, 1, 0]
-print(count_distinct_views(n2, flowers2))  # 输出 2
-
+# 计算结果
+if min_observation * max_observation < 0:
+    print(max_observation // 2 + 1)
+else:
+    print((max_observation - min_observation) // 2 + 1)
