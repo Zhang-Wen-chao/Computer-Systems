@@ -40,6 +40,7 @@
 - [wwld-1 : 自余数，jkds](#wwld-1--自余数jkds)
 - [LeetCode 912: 排序数组 ，muxi](#leetcode-912-排序数组-muxi)
 - [LeetCode 1188: 设计有限阻塞队列 ，zijp](#leetcode-1188-设计有限阻塞队列-zijp)
+- [LeetCode 3244: 新增道路查询后的最短距离 II，zijp](#leetcode-3244-新增道路查询后的最短距离-iizijp)
 - [LeetCode 207: 课程表，qualcom](#leetcode-207-课程表qualcom)
 - [LeetCode 210: 课程表 II，qualcom](#leetcode-210-课程表-iiqualcom)
 
@@ -581,6 +582,14 @@ https://blog.csdn.net/HeavenDan/article/details/117925822
 
 代码文件：[1188-design-bounded-blocking-queue.py](./1188-design-bounded-blocking-queue.py)
 代码文件：[1188-design-bounded-blocking-queue.cpp](./1188-design-bounded-blocking-queue.cpp)
+
+---
+
+
+## LeetCode 3244: 新增道路查询后的最短距离 II，zijp
+[新增道路查询后的最短距离 II](https://leetcode.cn/problems/shortest-distance-after-road-addition-queries-ii/)
+
+代码文件：[3244-shortest-distance-after-road-addition-queries-ii.py](./3244-shortest-distance-after-road-addition-queries-ii.py)
 
 ---
 
