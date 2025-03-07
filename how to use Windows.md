@@ -97,6 +97,11 @@ down () {
 # curl https://www.baidu.com/
 # curl https://www.google.com/
 ```
+## wallpaper
+壁纸，传输大文件到国外。
+## 蒙特卡洛算法
+蒙特卡洛算法°当然算法原理很简单
+一开始根本是不信，单纯是觉得好玩，报着试试看的态度，简单用python尝试了一下，但是结果确令人震惊，暴力随机居然可以模拟真实，这简直开始让我怀疑世界了，真实的世界不会也是这么随机模拟“的吧。
 # Removable storage device
 [U盘写保护无法格式化怎么办？](https://www.reneelab.com.cn/m/how-to-format-write-protected-usb.html)
 
