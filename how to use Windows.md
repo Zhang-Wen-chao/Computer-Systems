@@ -14,8 +14,21 @@
 [Zotero更改储存路径&迁移文件](https://zhuanlan.zhihu.com/p/478035708)
 
 [zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
-## cpp
-https://code.visualstudio.com/docs/cpp/config-mingw
+## wsl2
+现在不用手动开关了 修改一下.wslconfig文件就能自动开启代理了，以下是我的配置文件，修改前需要在powershell运行 wsl --update --pre-release
+
+```
+[wsl2]
+nestedVirtualization=true
+ipv6=true
+[experimental]
+autoMemoryReclaim=gradual # gradual | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+```
+注意，这个方案仅在win11 22h1及以上版本生效
 ## Essential software
 - [Clash for Windows](https://glados.rocks/console)
 
