@@ -29,6 +29,17 @@ firewall=true
 autoProxy=true
 ```
 注意，这个方案仅在win11 22h1及以上版本生效
+
+https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config
+配置更改的 8 秒规则
+
+https://blog.csdn.net/Power_Blogger/article/details/128158694
+
+https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig
+
+https://huaweicloud.csdn.net/63311d63d3efff3090b52a2a.html
+
+https://zhuanlan.zhihu.com/p/1882479728281227725
 ## Essential software
 - [Clash for Windows](https://glados.rocks/console)
 
@@ -124,3 +135,11 @@ https://www.youtube.com/watch?v=K1lQa5QsyDU
 
 加上ss，VPN非美国节点，即可下载。
 https://www.ssyoutube.com/watch?v=K1lQa5QsyDU
+
+# 连接天猫精灵
+我的天猫精灵在桌子右侧第三个抽屉。网易云音乐还能连接天猫精灵，那就好了。
+
+# ivcam 虚拟摄像头
+虽然连接的方式很多，但还是简单点好。
+
+就用电脑释放热点，手机或者平板连接这个热点，这能确保两个设备，一定在一个局域网内。
