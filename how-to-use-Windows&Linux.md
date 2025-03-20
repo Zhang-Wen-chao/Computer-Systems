@@ -274,7 +274,8 @@ https://mirrors.ustc.edu.cn/debian/pool/main/f/freetype/libfreetype6_2.12.1%2Bdf
 2. 把下面的内容，整合到上面去。
 3. 把 switch cuda 函数，放到 oh my zsh 上面去。
 4. 清理 chrome 的书签
-5. 新的目标出现了：以百度网盘、github为枢纽，连接双系统。
+5. 突然冒出来一个大胆的想法：linux下，是可以访问window的文件系统的，那么里面的github仓库，linux去访问的时候还是windows下的状态吗？ 通义千问的回答是不建议，还是推荐两个系统各自维护一份仓库文件。
+6. 新的目标出现了：以百度网盘、github为枢纽，连接双系统。
 要做到，离开一个系统之前，github提交状态。切换到一个系统后，拉取一下就能继续工作。
 文件同步，有点难。好像也不难，公共文件，放到一块共用的硬盘就好了。
 
