@@ -1,10 +1,5 @@
 # Computer-Systems
-## csapp
-## linux
-### Windows doesn't teach you anything
-[how to use Linux](./files/how%20to%20use%20Linux.md)
-
-[how to use Windows](./files/how%20to%20use%20Windows.md)
+[how-to-use-Windows&Linux](./how-to-use-Windows&Linux.md)
 ## cpp
 ### Programming in C/C++ Efficiently
 https://www.bilibili.com/video/BV1Vf4y1P7pq
