@@ -1,12 +1,12 @@
 # 规范
 # C++ 面向对象高级编程
-候捷：大气正规的编程习惯。
-头文件的防卫式声明。
-模板类。
-inline与否，得看函数是否简单，编译器是否认为它简单。
-数据都应该private，被调用的函数放在public。
-构造函数可以用初始化，就用初始化。
+
+
+
+
+
 构造函数可以有多个，overloading.
+
 const member functions，const 不会变。
 pass by value 是整包传过去；pass by reference,传引用，就是传指针。参数传递，尽量都用传引用，不希望对方改，再加const。
 返回值传递，也都尽量return by reference。可以的情况下，都reference。
