@@ -3,9 +3,6 @@
 1. AMD Ryzen™ 7 9700X × 16
 2. GeForce RTX™ 5070 Ti
 
-上策：windows + wsl2
-中策：双系统
-下策：再买一台（因为我没钱）
 # windows 独有
 - [Windows 10 总是不打招呼就自动更新？教你如何关闭它](https://www.dians.net/thread-1745.htm)
 
@@ -81,27 +78,7 @@ down () {
 # curl https://www.baidu.com/
 # curl https://www.google.com/
 ```
-## vim
-vim也只是一个古老的文本编辑器。
-- h左，j下，k上，l右
-- w 光标向前移动到下个单词首字母，，3w
-- W 跳转到下一个字符串的首字母 （对应英文单词Word）
-- e 光标向前移动到单词尾字母，，2e
-- E 跳转到下一个字符串的尾字母 （对应英文单词End）
-- b 光标向后移动到单词首字母
-- B 光标向后移动到字符串首
-- x 删除字符串
-- r 更改一个字符 （对应英文单词Replace）
-- d 可与w、e、b、W、E、B、h、j、k、l、d等字符组合，用来删除字符串或者句子。 （对应英文单词Delete）
-- dl 与x功能一样，删除光标下一个字符，相当于键盘上的Del； dh 与之相反，功能相当于键盘上的backspace
-- dw、de、dW、dE 均为向后删除一个单词或字符串，区别在于de/dE是从当前位置到单词或字符串末尾，而dw/dW是删除当前位置到下一个单词或字符串之前
-- db、dB 向前删除一个单词或字符串。需要注意的是光标下的字符不删除
-- dk、dj 分别是向上和向下删除两行
-- dd 删除本行
-3dd        删除三行
-- yy 复制当前行
-- 复制内容: v 进入虚拟模式, hjkl 移动复制, 然后按下 y
-- p paste
+
 ## [Zotero](https://www.zotero.org/download/)
 [Zotero更改储存路径&迁移文件](https://zhuanlan.zhihu.com/p/478035708)
 
@@ -114,12 +91,6 @@ vim也只是一个古老的文本编辑器。
 右键 inspect，console。
 document.querySelector('video').playbackRate = 0.9
 ```
-## 其他
-- Lark
-- Chrome
-- Baidu Netdisk
-- Sunlogin
-- [在 Ubuntu下安装配置 TeX Live 与 TeXstudio](https://muzing.top/posts/6b2dc40e/)
 # wsl2
 docker desktop 会导致内存占用过大，卡死 wsl2。
 
@@ -290,8 +261,6 @@ line，平板上登陆了，以后可以在电脑上安装一下。
 
 Telegram，平板上登陆了，以后可以在电脑上安装一下。
 
-faststone，这个长截图很好用，但是要付费。可以研究一下，有没有破解软件。
-
 SuperDisplay，我在Google play 付费购买了，就是相当于把平板变为数位板吧？还可以做扩展屏幕。以后有时间玩一下。
 
 
@@ -301,17 +270,13 @@ SuperDisplay，我在Google play 付费购买了，就是相当于把平板变�
 
 再研究一下，怎么加入别人的YouTube家庭组，可以免广告。
 
-
 zotero，谷歌记录了密码。
 坚果云，谷歌记录了密码。
 但是，去tm的吧，我就没看过论文。
 
 spotify，用谷歌账户登陆的，平板上登陆了，以后可以在电脑上安装一下。
 
-
 谷歌账户，还有短的前缀吗？
-
-
 
 研究一下买4k屏幕，应该有国补的吧，看看是湖北买还是上海买。一定要一步到位，满足多种需求。
 
@@ -334,15 +299,6 @@ https://blog.unclezs.com/pages/9b6e12/#%E7%AE%80%E4%BB%8B
 - [不花里胡哨看电脑主板支持最大内存与频率](https://blog.csdn.net/qq_45164497/article/details/126358529)
 # some softwares
 
-## Essential software
-- [Clash for Windows](https://glados.rocks/console)
-
-- [Baidu Input Method Editors](https://shurufa.baidu.com/)
-[关于在Win11任务栏隐藏输入法（中英文切换）图标的解决办法](https://blog.csdn.net/weixin_47907823/article/details/121954248)
-
-- [Mouse without Borders](https://www.microsoft.com/en-us/download/details.aspx?id=35460)
-
-- [Outlook requires updates before it can start](https://learn.microsoft.com/en-us/answers/questions/830716/outlook-requires-updates-before-it-can-start)
 ## logitech mouse G300s
 ### linux 下设置
 ![logitech_red](../images/linux_red.png "logitech_red")
@@ -352,8 +308,6 @@ https://blog.unclezs.com/pages/9b6e12/#%E7%AE%80%E4%BB%8B
 ![logitech_yellow](../images/win_yellow.png "logitech_yellow")
 
 ![win_blue](../images/win_blue.png "win_blue")
-### mac 下怎么设置
-研究一下，Mac常用快捷键。
 
 ## wallpaper
 壁纸，传输大文件到国外。
@@ -371,10 +325,6 @@ https://www.youtube.com/watch?v=K1lQa5QsyDU
 加上ss，VPN非美国节点，即可下载。
 https://www.ssyoutube.com/watch?v=K1lQa5QsyDU
 
-## 连接天猫精灵
-我的天猫精灵在桌子右侧第三个抽屉。网易云音乐还能连接天猫精灵，那就好了。
-
-
 # Debian
 - [如何轻松安装 Debian Linux 系统](https://zhuanlan.zhihu.com/p/410974122)
 - [ISO下载](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.6.0-live+nonfree/amd64/iso-hybrid/)
@@ -388,7 +338,6 @@ https://www.ssyoutube.com/watch?v=K1lQa5QsyDU
   ```bash
   sudo apt install gnome-shell-extension-prefs
   ```
-
 # Software
 ## Essential software
 ### Microsoft Edge
@@ -460,10 +409,8 @@ vscode的正则表达式搜索中的通配符: '.*'
 - [Got permission denied while trying to connect to the Docker daemon socket](https://dev.to/kenji_goh/got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-3dne)
 
 ### Common software
-- Vivado
 - sudo apt install translate-shell
 - [Open Broadcaster Software](https://obsproject.com/)
-- [VLC](https://www.videolan.org/vlc/)
 - [Ventoy](https://www.ventoy.net/cn/doc_start.html)
 - [快速上手 Goldendict](https://zhuanlan.zhihu.com/p/344770839)
 - [Calibre](https://calibre-ebook.com/download)
@@ -476,20 +423,7 @@ vscode的正则表达式搜索中的通配符: '.*'
 - [ubuntu安装Zotero,任何版本ubuntu适用](https://blog.csdn.net/xinjieyuan/article/details/105407564) 
 - [Zotero+坚果云](https://blog.csdn.net/weixin_37707670/article/details/110307759)
 - [编译安装gcc12-2](https://blog.csdn.net/fen_fen/article/details/129021912)
-## opencv
-[Opencv 4.3（CUDA11 ） 编译踩坑记录](https://www.cnblogs.com/geoffreyone/p/15040907.html)
-新版本的bug会少一些。费了好几个小时安装3.3，一堆错误。编译安装4.8.1，没啥报错。
-```bash
-wget https://github.com/opencv/opencv/archive/refs/tags/4.8.1.zip
-cmake ..
-make
-make install
-python -c "import cv2; print(cv2.__version__)"
-```
-然后cmake是可以检测到opencv的版本的。
 
-[ImportError: libGL.so.1: cannot open shared object file: No such file or dir...解决Python import cv2报错](https://blog.csdn.net/qq_39691492/article/details/130688233)
-方案二work了。
 ## [Learn Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 ```bash
 因为上游用了 submodule 所以也稍微学了一下。

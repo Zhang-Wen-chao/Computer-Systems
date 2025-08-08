@@ -1,5 +1,5 @@
 # Computer-Systems
-[how-to-use-Windows&Linux](./how-to-use-Windows&Linux.md)
+
 ## cpp
 ### Programming in C/C++ Efficiently
 https://www.bilibili.com/video/BV1Vf4y1P7pq
